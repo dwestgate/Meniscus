@@ -16,6 +16,9 @@
 @interface DetailViewController ()
     <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, UIPopoverControllerDelegate>
 
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) IBOutlet UIView *contentView;
+
 @property (strong, nonatomic) UIPopoverController *imagePickerPopover;
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *vintageField;
@@ -32,6 +35,10 @@
 @end
 
 @implementation DetailViewController
+
+#pragma mark - Temporary Variables
+
+NSArray *aromas;
 
 #pragma mark - State Recovery
 
@@ -220,9 +227,23 @@
     [self prepareViewsForOrientation:toInterfaceOrientation];
 }
 
+
+- (void)viewDidLayoutSubviews
+{
+  [super viewDidLayoutSubviews];
+  [self.scrollView layoutIfNeeded];
+  self.scrollView.contentSize = self.contentView.bounds.size;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+  
+    // Temporary TableView code begin
+  
+    aromas = [NSArray arrayWithObjects:@"Wet dog", @"Forest floor", @"Mushroom", @"Blueberry", @"Blackberry", @"Leather", @"Jasmine", @"Lemon", @"Orange", @"Grapefruit", @"Vanilla", @"Peach", @"Apricot", @"Coffee", @"Chocolate", @"Cinamon", nil];
+
+    // Temporary TableView code end
     
     UIImageView *iv = [[UIImageView alloc] initWithImage:nil];
     iv.contentMode = UIViewContentModeScaleAspectFit;
@@ -239,6 +260,40 @@
 
     [self.view addConstraints:horizontalConstraints];
     [self.view addConstraints:verticalConstraints];
+}
+
+#pragma mark - UITableView
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+  return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+  return [aromas count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  static NSString *aromaTableIdentifier = @"AromaTableCell";
+  
+  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:aromaTableIdentifier];
+  
+  if (cell == nil) {
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:aromaTableIdentifier];
+  }
+  
+  cell.textLabel.text = [aromas objectAtIndex:indexPath.row];
+  return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  return UITableViewAutomaticDimension;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  return UITableViewAutomaticDimension;
 }
 
 #pragma mark - Form Maintenance

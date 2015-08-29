@@ -28,7 +28,7 @@ Clone Homepwner into a project with a new name
 6. Create a new Settings Bundle: File | New | File... | Resource | Settings Bundle
 - Name the file after the new project
 - Replace the contents of en.lproj/Root.strings with the data from Homepwner
-- Duplicate the settings in Homepwner's Root.plist
+- Duplicate the settings
 
 7. Copy BNRDetailViewController.xib to the new project
 - Remove the BNR prefix from the file name
@@ -92,40 +92,134 @@ Testing iCloud
 - rating
 
 6. Customize DetailViewController
-- add: Table View Cell
-- Add: Toolbar
-- Add: 5 x labels
-- nameLabel "Name"
-- imagesLabel "Images"
-- vintageLabel "Vintage"
-- winemakerLabel "Winemaker"
-- grapesLabel "Grapes"
-- appelationLabel "Appelation"
-- wineLabel "Description"
-- purchasedFromLabel "Purchased From"
-- notesLabel "Notes"
-- appearanceLabel "Appearance"
-- clarityLabel "Clarity"
-- intensityLabel "Intensity"
-- colorLabel "Color"
-- appearanceNotesLabel "Other Notes"
-- noseLabel "Nose"
-- conditionLabel "Condition"
-- intensityLabel "Intensity"
-- aromaLabel "Aroma"
-- developmentLabel
-- palateLabel "Palate"
-- sweetnessLabel
-- acidityLabel
-- taninLabel
-- alchoholLabel
-- bodyLabel
-- intensityLabel
-- flavorLabel
-- palateNotesLabel
-- AssessmentLabel
-- qualityLabel
-- readinessLabel
-- identityLabel
-- priceLabel
+
+Name
+  nameLabel
+  nameTextView
+
+Notes
+  notesTextView
+  notesLabel
+
+Appearance
+  appearanceBanner
+
+Clear
+  clarityLabel
+  claritySlider
+
+Red
+  colorLabel
+  colorSlider
+
+Color Intensity
+  colorIntensityLabel
+  colorIntensityStepper
+
+Garnet
+  colorshadeLabel
+  colorshadeSlider
+
+Petillance
+  petillanceLabel
+  petillanceStepper
+
+Viscosity
+  viscosityLabel
+  viscosityStepper
+
+No sediment
+  sedimentLabel
+  sedimentSlider
+
+Nose
+  noseBanner
+
+Clean
+  conditionLabel
+  conditionSlider
+
+Intensity
+  aromaIntensityLabel
+  aromaIntensityStepper
+
+Aromas
+  aromasLabel
+  aromasTextView
+
+Development
+  developmentLabel
+  developmentStepper
+
+Palate
+  palateBanner
+
+Sweetness
+  sweetnessLabel
+  sweetnessStepper
+
+Acidity
+  acidityLabel
+  acidityStepper
+
+Tannin
+  tanninLabel
+  tanninStepper
+
+Alcohol
+  alcoholLabel
+  alcoholStepper
+
+Body
+  bodyLabel
+  bodyStepper
+
+Intensity
+  flavorIntensityLabel
+  flavorIntensityStepper
+
+Flavors
+  flavorsLabel
+  flavorsTextView
+
+Balance
+  balanceLabel
+  balanceSlider
+
+Mousse
+  mousseLabel
+  mousseStepper
+
+Finish
+  finishLabel
+  finishStepper
+
+Good quality
+  qualityLabel
+  qualitySlider
+
+Aging potential
+  agingLabel
+  agingPicker
+
+Details
+  detailsLabel
+
+Winemaker
+  winemakerLabel
+  winemakerTextField
+
+Vintage
+  vintageLabel
+  vintageTextField
+
+Appellation
+  appelationLabel
+  appalationTextField
+
+Price
+  priceLabel
+  priceTextField
+
+
 - tastedOnLabel "Tasted on"
