@@ -333,22 +333,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+  
     UIImageView *iv = [[UIImageView alloc] initWithImage:nil];
     iv.contentMode = UIViewContentModeScaleAspectFit;
     iv.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.view addSubview:iv];
+    [self.contentView addSubview:iv];
     self.imageView = iv;
-    
+  
     [self.imageView setContentHuggingPriority:200 forAxis:UILayoutConstraintAxisVertical];
     [self.imageView setContentCompressionResistancePriority:700 forAxis:UILayoutConstraintAxisVertical];
-    
+  
     NSDictionary *nameMap = @{@"imageView" : self.imageView, @"tastedOnBanner" : self.tastedOnBanner, @"toolbar" : self.toolbar};
     NSArray *horizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[imageView]-0-|" options:0 metrics:nil views:nameMap];
-    NSArray *verticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[tastedOnBanner]-[imageView]-[toolbar]" options:0 metrics:nil views:nameMap];
-
-    [self.view addConstraints:horizontalConstraints];
-    [self.view addConstraints:verticalConstraints];
+    NSArray *verticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[tastedOnBanner]-[imageView]-0-|" options:0 metrics:nil views:nameMap];
+  
+    [self.contentView addConstraints:horizontalConstraints];
+    [self.contentView addConstraints:verticalConstraints];
 }
 
 #pragma mark - Form Maintenance
