@@ -123,9 +123,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UITextField *priceTextField;
 
-@property (weak, nonatomic) IBOutlet UILabel *tastedOnLabel;
-@property (weak, nonatomic) IBOutlet UITextField *tastedOnTextField;
-
+@property (weak, nonatomic) IBOutlet UILabel *tastedOnBanner;
 
 @property (strong, nonatomic) UIPopoverController *imagePickerPopover;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -345,9 +343,9 @@
     [self.imageView setContentHuggingPriority:200 forAxis:UILayoutConstraintAxisVertical];
     [self.imageView setContentCompressionResistancePriority:700 forAxis:UILayoutConstraintAxisVertical];
     
-    NSDictionary *nameMap = @{@"imageView" : self.imageView, @"tastedOnTextField" : self.tastedOnTextField, @"toolbar" : self.toolbar};
+    NSDictionary *nameMap = @{@"imageView" : self.imageView, @"tastedOnBanner" : self.tastedOnBanner, @"toolbar" : self.toolbar};
     NSArray *horizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[imageView]-0-|" options:0 metrics:nil views:nameMap];
-    NSArray *verticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[tastedOnTextField]-[imageView]-[toolbar]" options:0 metrics:nil views:nameMap];
+    NSArray *verticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[tastedOnBanner]-[imageView]-[toolbar]" options:0 metrics:nil views:nameMap];
 
     [self.view addConstraints:horizontalConstraints];
     [self.view addConstraints:verticalConstraints];
@@ -361,7 +359,7 @@
     
     self.nameLabel.font = font;
     self.vintageLabel.font = font;
-    self.tastedOnTextField.font = font;
+    self.tastedOnBanner.font = font;
     self.nameTextView.font = font;
     self.vintageTextField.font = font;
     self.priceTextField.font = font;
@@ -393,7 +391,7 @@
         dateFormatter.timeStyle = NSDateFormatterNoStyle;
     }
     
-    self.tastedOnTextField.text = [dateFormatter stringFromDate:item.dateCreated];
+    self.tastedOnBanner.text = [dateFormatter stringFromDate:item.dateCreated];
     
     NSString *itemKey = self.item.itemKey;
     UIImage *imageToDisplay = [[ImageStore sharedStore] imageForKey:itemKey];
