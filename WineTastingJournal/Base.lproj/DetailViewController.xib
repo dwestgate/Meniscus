@@ -6,18 +6,87 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController">
             <connections>
+                <outlet property="View" destination="54G-XV-ZGV" id="gcJ-Rt-sbX"/>
+                <outlet property="acidity" destination="HWM-4l-cAH" id="exQ-Nb-TXF"/>
+                <outlet property="acidityLabel" destination="hLK-O0-MeZ" id="mDW-1b-EYG"/>
+                <outlet property="acidityStepper" destination="EWe-om-njh" id="RQh-yH-6fe"/>
+                <outlet property="agingPicker" destination="mPC-ns-z8t" id="pCO-yg-ToA"/>
+                <outlet property="alchohol" destination="iw8-7o-6td" id="6E0-zB-4Qx"/>
+                <outlet property="alchoholLabel" destination="DeW-Rh-QPl" id="2Ot-hz-mtI"/>
+                <outlet property="alchoholStepper" destination="zJL-Sw-2oi" id="pyr-0m-VRP"/>
+                <outlet property="appearanceBanner" destination="jct-NK-8pZ" id="Fkr-KV-WWA"/>
+                <outlet property="appellationLabel" destination="jUf-g4-KVK" id="N9U-3b-wOx"/>
+                <outlet property="appellationTextField" destination="ddW-le-m4F" id="Wrr-pF-4Pe"/>
+                <outlet property="aromaIntensity" destination="FJG-SA-z0J" id="aCb-bW-A3Z"/>
+                <outlet property="aromaIntensityLabel" destination="gPQ-Pr-bdD" id="cra-kB-00d"/>
+                <outlet property="aromaIntensityStepper" destination="5Rp-ww-sI9" id="D1K-JC-F2a"/>
+                <outlet property="aromasLabel" destination="fKr-72-PyK" id="54R-RF-8R7"/>
+                <outlet property="aromasTextView" destination="tMD-rA-k6m" id="fpe-bv-uQ3"/>
                 <outlet property="assetTypeButton" destination="sJQ-Ia-vRd" id="egH-kp-cAU"/>
+                <outlet property="balanceLabel" destination="b7Q-WX-Dml" id="F97-C5-OYY"/>
+                <outlet property="balanceSlider" destination="p1N-w7-95d" id="8sF-ZO-SuC"/>
+                <outlet property="body" destination="4yk-Zc-wis" id="eay-hY-h0I"/>
+                <outlet property="bodyLabel" destination="pop-jP-Ntn" id="7e1-yQ-llA"/>
+                <outlet property="bodyStepper" destination="JIY-hf-U2y" id="qct-q1-UHz"/>
                 <outlet property="cameraButton" destination="NGK-nZ-8Y8" id="bw5-0c-AP2"/>
+                <outlet property="clarityLabel" destination="erT-TO-rFb" id="IV9-T4-STA"/>
+                <outlet property="claritySlider" destination="sdk-Y4-rMh" id="i3V-3g-ndz"/>
+                <outlet property="colorIntensity" destination="qU5-xj-tPV" id="ugb-0d-acp"/>
+                <outlet property="colorIntensityLabel" destination="xMN-Fi-0di" id="f1x-b2-eRB"/>
+                <outlet property="colorIntensityStepper" destination="rHt-t2-zpo" id="ucC-mB-cp9"/>
+                <outlet property="colorLabel" destination="TEK-HF-ykr" id="fPq-lF-och"/>
+                <outlet property="colorShadeLabel" destination="r2X-nq-2uH" id="VhX-Km-Xaj"/>
+                <outlet property="colorShadeSlider" destination="qtn-gA-H3R" id="Uet-nl-3vQ"/>
+                <outlet property="colorSlider" destination="dJ4-bh-hbz" id="JAD-6Y-IOs"/>
                 <outlet property="contentView" destination="3Lh-sP-hcP" id="Kvv-J0-5mh"/>
-                <outlet property="dateLabel" destination="jct-NK-8pZ" id="4pB-XB-pjZ"/>
+                <outlet property="detailsBanner" destination="plF-LH-dnO" id="qOQ-Wi-xoh"/>
+                <outlet property="development" destination="FJO-Lf-dxx" id="NlC-Gi-6cF"/>
+                <outlet property="developmentLabel" destination="E6U-27-iIR" id="bPT-WO-8B2"/>
+                <outlet property="developmentStepper" destination="KCd-om-5lj" id="ZqV-H4-J4U"/>
+                <outlet property="finish" destination="SOi-MZ-yeL" id="V4y-rA-JH6"/>
+                <outlet property="finishLabel" destination="EDC-Ze-u8z" id="9vm-tn-EUD"/>
+                <outlet property="finishStepper" destination="6ng-Z6-8GM" id="7bX-kq-T3A"/>
+                <outlet property="flavorIntensity" destination="iSX-bj-QaQ" id="n87-wj-brq"/>
+                <outlet property="flavorIntensityLabel" destination="ur0-k8-f3h" id="8zt-ry-MpT"/>
+                <outlet property="flavorIntensityStepper" destination="Ho7-tz-PHp" id="f4d-ih-b5A"/>
+                <outlet property="flavorsLabel" destination="iBu-Xp-mAY" id="lg3-ti-iWa"/>
+                <outlet property="flavorsTextView" destination="v9h-Ly-5qD" id="ODr-yq-96N"/>
+                <outlet property="mousse" destination="fyw-cG-kPv" id="0G5-9K-uk1"/>
+                <outlet property="mousseLabel" destination="1ld-gL-sef" id="nDO-lo-IJf"/>
+                <outlet property="mousseStepper" destination="HW5-wb-Cpm" id="2bZ-na-tnP"/>
                 <outlet property="nameLabel" destination="mBD-xV-3bE" id="H0G-BS-cAr"/>
+                <outlet property="nameTextView" destination="ObE-G0-GeM" id="gA0-XY-GOg"/>
+                <outlet property="noseBanner" destination="m8g-p3-Hg0" id="eVJ-id-MXk"/>
+                <outlet property="notesLabel" destination="XFD-Pz-X4y" id="oAP-1x-gyM"/>
+                <outlet property="notesTextView" destination="QEQ-Ts-TSv" id="aaR-O8-4fB"/>
+                <outlet property="palateBanner" destination="DZz-fv-ry1" id="n77-5F-kgC"/>
+                <outlet property="petillance" destination="dzS-Fg-Xv1" id="m07-ql-kk8"/>
+                <outlet property="petillanceLabel" destination="j5y-4k-jHp" id="ufS-w6-qsn"/>
+                <outlet property="petillanceStepper" destination="doe-x4-C7s" id="aU4-i5-K5m"/>
+                <outlet property="priceLabel" destination="Daq-gY-IvH" id="crI-F4-JWg"/>
+                <outlet property="priceTextField" destination="ygH-u3-YwE" id="3L1-Bc-uLZ"/>
+                <outlet property="qualityLabel" destination="epn-W1-bye" id="HQw-xv-Lwd"/>
+                <outlet property="qualitySlider" destination="meW-j7-bKR" id="rg3-Cd-bAP"/>
                 <outlet property="scrollView" destination="Lc8-y2-o4g" id="HGz-4b-ef0"/>
+                <outlet property="sedimentLabel" destination="JP8-Gd-Gb7" id="Ktz-Y2-2jy"/>
+                <outlet property="sedimentSlider" destination="gTc-tb-e3e" id="J4A-fS-G9f"/>
+                <outlet property="sweetness" destination="ecm-ar-JBI" id="JNb-EU-MKS"/>
+                <outlet property="sweetnessLabel" destination="UcL-33-rjJ" id="G6C-HA-6WN"/>
+                <outlet property="sweetnessStepper" destination="C4c-OD-3KV" id="K8z-5b-fZ5"/>
+                <outlet property="tannin" destination="Xh4-JV-hTw" id="XEr-Bk-I9Z"/>
+                <outlet property="tanninLabel" destination="Lny-iu-Kiw" id="QJW-vw-d6A"/>
+                <outlet property="tanninStepper" destination="bcT-iX-jRp" id="G95-CN-5ug"/>
+                <outlet property="tastedOnLabel" destination="a5O-cV-mSq" id="5Af-I7-yz9"/>
+                <outlet property="tastedOnTextField" destination="Cef-nM-zWD" id="TSb-Ta-l5i"/>
                 <outlet property="toolbar" destination="t1a-Ob-PCS" id="XpQ-zG-aN0"/>
-                <outlet property="valueField" destination="rx8-1S-YWo" id="kJy-Dr-dIA"/>
-                <outlet property="valueLabel" destination="xU8-J8-C6W" id="Xl5-wv-Trf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="vintageField" destination="By6-B8-T1Q" id="nxm-5T-2Hr"/>
-                <outlet property="vintageLabel" destination="ppY-uT-2fP" id="O2A-aC-gCs"/>
+                <outlet property="vintageLabel" destination="xU8-J8-C6W" id="W3M-1i-bpO"/>
+                <outlet property="vintageTextField" destination="rx8-1S-YWo" id="kbr-GA-N8s"/>
+                <outlet property="viscosity" destination="YrN-0b-pcO" id="OWk-In-MrH"/>
+                <outlet property="viscosityLabel" destination="y53-LD-Ggp" id="bJ7-kj-1bb"/>
+                <outlet property="viscosityStepper" destination="ny3-BL-WfU" id="uX0-qd-w1k"/>
+                <outlet property="winemakerLabel" destination="ppY-uT-2fP" id="RzW-kN-RoQ"/>
+                <outlet property="winemakerTextField" destination="By6-B8-T1Q" id="BgL-m3-umX"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -415,18 +484,6 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="s7I-fq-668" userLabel="tastedOnDatePicker">
-                                            <rect key="frame" x="20" y="1502" width="375" height="162"/>
-                                            <date key="date" timeIntervalSinceReferenceDate="462415028.011388">
-                                                <!--2015-08-28 00:37:08 +0000-->
-                                            </date>
-                                        </datePicker>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tasted on" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5O-cV-mSq" userLabel="tastedOnLabel">
-                                            <rect key="frame" x="20" y="1473" width="375" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Garnet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2X-nq-2uH" userLabel="colorShadeLabel">
                                             <rect key="frame" x="20" y="300" width="120" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -454,6 +511,17 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cef-nM-zWD" userLabel="tastedOnTextField">
+                                            <rect key="frame" x="147" y="1473" width="248" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tasted on" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5O-cV-mSq" userLabel="tastedOnLabel">
+                                            <rect key="frame" x="20" y="1476" width="120" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -473,9 +541,9 @@
                                         <constraint firstAttribute="trailing" secondItem="jct-NK-8pZ" secondAttribute="trailing" constant="8" id="3Wa-pO-IG1"/>
                                         <constraint firstItem="UcL-33-rjJ" firstAttribute="top" secondItem="DZz-fv-ry1" secondAttribute="bottom" constant="12" id="3i8-7g-asW"/>
                                         <constraint firstItem="jct-NK-8pZ" firstAttribute="top" secondItem="QEQ-Ts-TSv" secondAttribute="bottom" constant="8" id="4A1-8h-OpD"/>
-                                        <constraint firstItem="a5O-cV-mSq" firstAttribute="top" secondItem="ygH-u3-YwE" secondAttribute="bottom" constant="8" id="4La-OH-58u"/>
                                         <constraint firstItem="y53-LD-Ggp" firstAttribute="leading" secondItem="mBD-xV-3bE" secondAttribute="leading" id="4ck-Wi-SHz"/>
                                         <constraint firstItem="p1N-w7-95d" firstAttribute="top" secondItem="v9h-Ly-5qD" secondAttribute="bottom" constant="8" id="4sr-PT-69R"/>
+                                        <constraint firstItem="mBD-xV-3bE" firstAttribute="trailing" secondItem="Cef-nM-zWD" secondAttribute="trailing" id="5Cc-Sw-s8b"/>
                                         <constraint firstItem="TEK-HF-ykr" firstAttribute="leading" secondItem="mBD-xV-3bE" secondAttribute="leading" id="5MO-MG-lXP"/>
                                         <constraint firstItem="gPQ-Pr-bdD" firstAttribute="leading" secondItem="mBD-xV-3bE" secondAttribute="leading" id="5i0-Wj-83j"/>
                                         <constraint firstItem="JP8-Gd-Gb7" firstAttribute="top" secondItem="y53-LD-Ggp" secondAttribute="bottom" constant="17" id="5la-cs-rv2"/>
@@ -491,13 +559,16 @@
                                         <constraint firstItem="QEQ-Ts-TSv" firstAttribute="leading" secondItem="ObE-G0-GeM" secondAttribute="leading" id="8Ci-Dc-G7E"/>
                                         <constraint firstItem="m8g-p3-Hg0" firstAttribute="top" secondItem="gTc-tb-e3e" secondAttribute="bottom" constant="8" id="8Zm-eR-F6U"/>
                                         <constraint firstItem="sdk-Y4-rMh" firstAttribute="leading" secondItem="gTc-tb-e3e" secondAttribute="leading" id="8iG-oq-M8S"/>
+                                        <constraint firstAttribute="bottom" secondItem="Cef-nM-zWD" secondAttribute="bottom" constant="498" id="93t-zP-5hE"/>
                                         <constraint firstItem="FJO-Lf-dxx" firstAttribute="top" secondItem="tMD-rA-k6m" secondAttribute="bottom" constant="12" id="9OA-QL-e3C"/>
                                         <constraint firstItem="aAs-Z8-UED" firstAttribute="trailing" secondItem="mBD-xV-3bE" secondAttribute="trailing" id="9pf-iH-TdL"/>
                                         <constraint firstItem="meW-j7-bKR" firstAttribute="trailing" secondItem="mBD-xV-3bE" secondAttribute="trailing" id="ASC-76-CbI"/>
                                         <constraint firstItem="doe-x4-C7s" firstAttribute="top" secondItem="qtn-gA-H3R" secondAttribute="bottom" constant="8" id="Bt8-ep-oxs"/>
+                                        <constraint firstItem="erT-TO-rFb" firstAttribute="trailing" secondItem="a5O-cV-mSq" secondAttribute="trailing" id="BtE-sc-eNT"/>
                                         <constraint firstItem="ObE-G0-GeM" firstAttribute="leading" secondItem="3Lh-sP-hcP" secondAttribute="leading" constant="14" id="C6f-Pn-pVC"/>
                                         <constraint firstItem="tMD-rA-k6m" firstAttribute="leading" secondItem="ObE-G0-GeM" secondAttribute="leading" id="CBZ-Iv-ph5"/>
                                         <constraint firstItem="KCd-om-5lj" firstAttribute="trailing" secondItem="mBD-xV-3bE" secondAttribute="trailing" id="CqX-6J-f4r"/>
+                                        <constraint firstItem="Cef-nM-zWD" firstAttribute="baseline" secondItem="a5O-cV-mSq" secondAttribute="baseline" id="DB4-wf-0L8"/>
                                         <constraint firstItem="JIY-hf-U2y" firstAttribute="top" secondItem="zJL-Sw-2oi" secondAttribute="bottom" constant="8" id="DIK-B5-fQ9"/>
                                         <constraint firstItem="Lny-iu-Kiw" firstAttribute="trailing" secondItem="erT-TO-rFb" secondAttribute="trailing" id="DZg-aW-fTh"/>
                                         <constraint firstItem="rHt-t2-zpo" firstAttribute="trailing" secondItem="mBD-xV-3bE" secondAttribute="trailing" id="DxR-1q-77Z"/>
@@ -514,6 +585,7 @@
                                         <constraint firstItem="4yk-Zc-wis" firstAttribute="top" secondItem="iw8-7o-6td" secondAttribute="bottom" constant="16" id="H3N-OB-dJi"/>
                                         <constraint firstItem="dzS-Fg-Xv1" firstAttribute="top" secondItem="qtn-gA-H3R" secondAttribute="bottom" constant="12" id="HaO-x8-fnD"/>
                                         <constraint firstItem="mBD-xV-3bE" firstAttribute="leading" secondItem="Daq-gY-IvH" secondAttribute="leading" id="HnX-DG-le4"/>
+                                        <constraint firstItem="a5O-cV-mSq" firstAttribute="top" secondItem="Daq-gY-IvH" secondAttribute="bottom" constant="17" id="IBM-B0-WMO"/>
                                         <constraint firstItem="TEK-HF-ykr" firstAttribute="trailing" secondItem="erT-TO-rFb" secondAttribute="trailing" id="IWF-zM-ggE"/>
                                         <constraint firstItem="sdk-Y4-rMh" firstAttribute="leading" secondItem="Xh4-JV-hTw" secondAttribute="leading" id="J7p-Cz-dLq"/>
                                         <constraint firstItem="epn-W1-bye" firstAttribute="leading" secondItem="mBD-xV-3bE" secondAttribute="leading" id="Jev-Ns-8wn"/>
@@ -550,13 +622,13 @@
                                         <constraint firstItem="dJ4-bh-hbz" firstAttribute="top" secondItem="sdk-Y4-rMh" secondAttribute="bottom" constant="8" id="TnG-0t-pGf"/>
                                         <constraint firstItem="xU8-J8-C6W" firstAttribute="trailing" secondItem="erT-TO-rFb" secondAttribute="trailing" id="TnN-db-nd6"/>
                                         <constraint firstItem="mBD-xV-3bE" firstAttribute="trailing" secondItem="XFD-Pz-X4y" secondAttribute="trailing" id="TpI-By-MS5"/>
-                                        <constraint firstItem="a5O-cV-mSq" firstAttribute="trailing" secondItem="mBD-xV-3bE" secondAttribute="trailing" id="U76-7K-71M"/>
                                         <constraint firstItem="erT-TO-rFb" firstAttribute="top" secondItem="jct-NK-8pZ" secondAttribute="bottom" constant="13" id="UAA-bA-x8Q"/>
                                         <constraint firstItem="KCd-om-5lj" firstAttribute="top" secondItem="tMD-rA-k6m" secondAttribute="bottom" constant="8" id="UUz-AG-It1"/>
                                         <constraint firstItem="xU8-J8-C6W" firstAttribute="top" secondItem="ppY-uT-2fP" secondAttribute="bottom" constant="17" id="Ur2-iD-Yo3"/>
                                         <constraint firstItem="ddW-le-m4F" firstAttribute="leading" secondItem="sdk-Y4-rMh" secondAttribute="leading" id="Urn-Yc-JJT"/>
                                         <constraint firstItem="erT-TO-rFb" firstAttribute="trailing" secondItem="UcL-33-rjJ" secondAttribute="trailing" id="Ury-Se-W7A"/>
                                         <constraint firstItem="DZz-fv-ry1" firstAttribute="trailing" secondItem="m8g-p3-Hg0" secondAttribute="trailing" id="VbZ-mM-mdd"/>
+                                        <constraint firstItem="Cef-nM-zWD" firstAttribute="top" secondItem="ygH-u3-YwE" secondAttribute="bottom" constant="8" id="W6Y-0y-Ghi"/>
                                         <constraint firstItem="HW5-wb-Cpm" firstAttribute="top" secondItem="p1N-w7-95d" secondAttribute="bottom" constant="8" id="WYF-XI-XnV"/>
                                         <constraint firstItem="YrN-0b-pcO" firstAttribute="top" secondItem="dzS-Fg-Xv1" secondAttribute="bottom" constant="16" id="WZW-BE-5n6"/>
                                         <constraint firstItem="erT-TO-rFb" firstAttribute="trailing" secondItem="ppY-uT-2fP" secondAttribute="trailing" id="Wbe-4Z-EIZ"/>
@@ -568,7 +640,6 @@
                                         <constraint firstItem="ddW-le-m4F" firstAttribute="baseline" secondItem="jUf-g4-KVK" secondAttribute="baseline" id="YZG-hz-OYi"/>
                                         <constraint firstItem="dJ4-bh-hbz" firstAttribute="leading" secondItem="sdk-Y4-rMh" secondAttribute="leading" id="YjU-q4-syP"/>
                                         <constraint firstItem="SOi-MZ-yeL" firstAttribute="top" secondItem="fyw-cG-kPv" secondAttribute="bottom" constant="16" id="Ypp-4U-pQf"/>
-                                        <constraint firstAttribute="bottom" secondItem="s7I-fq-668" secondAttribute="bottom" constant="337" id="ZI1-hH-olN"/>
                                         <constraint firstItem="ny3-BL-WfU" firstAttribute="trailing" secondItem="mBD-xV-3bE" secondAttribute="trailing" id="ZTL-6Z-Ujd"/>
                                         <constraint firstItem="1af-f0-gmw" firstAttribute="trailing" secondItem="erT-TO-rFb" secondAttribute="trailing" id="ZYf-dv-NAy"/>
                                         <constraint firstItem="rx8-1S-YWo" firstAttribute="top" secondItem="By6-B8-T1Q" secondAttribute="bottom" constant="8" id="Zir-KS-OYd"/>
@@ -621,7 +692,6 @@
                                         <constraint firstItem="1ld-gL-sef" firstAttribute="trailing" secondItem="erT-TO-rFb" secondAttribute="trailing" id="mcg-Nq-vUY"/>
                                         <constraint firstItem="meW-j7-bKR" firstAttribute="top" secondItem="6ng-Z6-8GM" secondAttribute="bottom" constant="8" id="mjQ-9Q-cU2"/>
                                         <constraint firstItem="ddW-le-m4F" firstAttribute="top" secondItem="rx8-1S-YWo" secondAttribute="bottom" constant="8" id="mmK-w1-8eI"/>
-                                        <constraint firstItem="s7I-fq-668" firstAttribute="trailing" secondItem="mBD-xV-3bE" secondAttribute="trailing" id="nCX-hc-CYN"/>
                                         <constraint firstItem="zJL-Sw-2oi" firstAttribute="top" secondItem="bcT-iX-jRp" secondAttribute="bottom" constant="8" id="ne5-6U-Eua"/>
                                         <constraint firstItem="mPC-ns-z8t" firstAttribute="top" secondItem="meW-j7-bKR" secondAttribute="bottom" constant="8" id="nko-XY-CUg"/>
                                         <constraint firstItem="epn-W1-bye" firstAttribute="top" secondItem="EDC-Ze-u8z" secondAttribute="bottom" constant="16" id="oC2-Qz-Q1Y"/>
@@ -631,12 +701,11 @@
                                         <constraint firstItem="sdk-Y4-rMh" firstAttribute="leading" secondItem="erT-TO-rFb" secondAttribute="trailing" constant="7" id="qEq-bl-1UK"/>
                                         <constraint firstItem="Daq-gY-IvH" firstAttribute="top" secondItem="jUf-g4-KVK" secondAttribute="bottom" constant="17" id="ql9-cj-SOK"/>
                                         <constraint firstItem="mBD-xV-3bE" firstAttribute="trailing" secondItem="C4c-OD-3KV" secondAttribute="trailing" id="qnf-G4-Rks"/>
-                                        <constraint firstItem="s7I-fq-668" firstAttribute="top" secondItem="a5O-cV-mSq" secondAttribute="bottom" constant="8" id="qz2-uh-8WP"/>
                                         <constraint firstItem="mBD-xV-3bE" firstAttribute="trailing" secondItem="Ho7-tz-PHp" secondAttribute="trailing" id="rAg-mI-ge3"/>
+                                        <constraint firstItem="Cef-nM-zWD" firstAttribute="leading" secondItem="sdk-Y4-rMh" secondAttribute="leading" id="rLc-ED-VYX"/>
                                         <constraint firstItem="fKr-72-PyK" firstAttribute="leading" secondItem="mBD-xV-3bE" secondAttribute="leading" id="rVq-YE-sW9"/>
                                         <constraint firstItem="pop-jP-Ntn" firstAttribute="top" secondItem="DeW-Rh-QPl" secondAttribute="bottom" constant="16" id="rW1-8D-0oc"/>
                                         <constraint firstItem="DeW-Rh-QPl" firstAttribute="leading" secondItem="mBD-xV-3bE" secondAttribute="leading" id="rfg-fN-E9G"/>
-                                        <constraint firstItem="s7I-fq-668" firstAttribute="leading" secondItem="mBD-xV-3bE" secondAttribute="leading" id="rvl-Uw-VcU"/>
                                         <constraint firstItem="mPC-ns-z8t" firstAttribute="trailing" secondItem="mBD-xV-3bE" secondAttribute="trailing" id="ryC-V0-lMa"/>
                                         <constraint firstItem="JP8-Gd-Gb7" firstAttribute="leading" secondItem="mBD-xV-3bE" secondAttribute="leading" id="s1e-v3-LhD"/>
                                         <constraint firstItem="FJG-SA-z0J" firstAttribute="top" secondItem="aAs-Z8-UED" secondAttribute="bottom" constant="12" id="sJp-TX-Jr5"/>

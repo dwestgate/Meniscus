@@ -19,26 +19,123 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UIView *contentView;
 
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UITextView *nameTextView;
+
+@property (weak, nonatomic) IBOutlet UILabel *notesLabel;
+@property (weak, nonatomic) IBOutlet UITextView *notesTextView;
+
+@property (weak, nonatomic) IBOutlet UILabel *appearanceBanner;
+
+@property (weak, nonatomic) IBOutlet UILabel *clarityLabel;
+@property (weak, nonatomic) IBOutlet UISlider *claritySlider;
+
+@property (weak, nonatomic) IBOutlet UILabel *colorLabel;
+@property (weak, nonatomic) IBOutlet UISlider *colorSlider;
+
+@property (weak, nonatomic) IBOutlet UILabel *colorIntensityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *colorIntensity;
+@property (weak, nonatomic) IBOutlet UIStepper *colorIntensityStepper;
+
+@property (weak, nonatomic) IBOutlet UILabel *colorShadeLabel;
+@property (weak, nonatomic) IBOutlet UISlider *colorShadeSlider;
+
+@property (weak, nonatomic) IBOutlet UILabel *petillanceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *petillance;
+@property (weak, nonatomic) IBOutlet UIStepper *petillanceStepper;
+
+@property (weak, nonatomic) IBOutlet UILabel *viscosityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *viscosity;
+@property (weak, nonatomic) IBOutlet UIStepper *viscosityStepper;
+
+@property (weak, nonatomic) IBOutlet UILabel *sedimentLabel;
+@property (weak, nonatomic) IBOutlet UISlider *sedimentSlider;
+
+@property (weak, nonatomic) IBOutlet UILabel *noseBanner;
+
+@property (weak, nonatomic) IBOutlet UILabel *aromaIntensityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *aromaIntensity;
+@property (weak, nonatomic) IBOutlet UIStepper *aromaIntensityStepper;
+
+@property (weak, nonatomic) IBOutlet UILabel *aromasLabel;
+@property (weak, nonatomic) IBOutlet UITextView *aromasTextView;
+
+@property (weak, nonatomic) IBOutlet UILabel *developmentLabel;
+@property (weak, nonatomic) IBOutlet UILabel *development;
+@property (weak, nonatomic) IBOutlet UIStepper *developmentStepper;
+
+@property (weak, nonatomic) IBOutlet UILabel *palateBanner;
+
+@property (weak, nonatomic) IBOutlet UILabel *sweetnessLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sweetness;
+@property (weak, nonatomic) IBOutlet UIStepper *sweetnessStepper;
+
+@property (weak, nonatomic) IBOutlet UILabel *acidityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *acidity;
+@property (weak, nonatomic) IBOutlet UIStepper *acidityStepper;
+
+@property (weak, nonatomic) IBOutlet UILabel *tanninLabel;
+@property (weak, nonatomic) IBOutlet UILabel *tannin;
+@property (weak, nonatomic) IBOutlet UIStepper *tanninStepper;
+
+@property (weak, nonatomic) IBOutlet UILabel *alchoholLabel;
+@property (weak, nonatomic) IBOutlet UILabel *alchohol;
+@property (weak, nonatomic) IBOutlet UIStepper *alchoholStepper;
+
+@property (weak, nonatomic) IBOutlet UILabel *bodyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *body;
+@property (weak, nonatomic) IBOutlet UIStepper *bodyStepper;
+
+@property (weak, nonatomic) IBOutlet UILabel *flavorIntensityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *flavorIntensity;
+@property (weak, nonatomic) IBOutlet UIStepper *flavorIntensityStepper;
+
+@property (weak, nonatomic) IBOutlet UILabel *flavorsLabel;
+@property (weak, nonatomic) IBOutlet UITextView *flavorsTextView;
+
+@property (weak, nonatomic) IBOutlet UILabel *balanceLabel;
+@property (weak, nonatomic) IBOutlet UISlider *balanceSlider;
+
+@property (weak, nonatomic) IBOutlet UILabel *mousseLabel;
+@property (weak, nonatomic) IBOutlet UILabel *mousse;
+@property (weak, nonatomic) IBOutlet UIStepper *mousseStepper;
+
+@property (weak, nonatomic) IBOutlet UILabel *finishLabel;
+@property (weak, nonatomic) IBOutlet UILabel *finish;
+@property (weak, nonatomic) IBOutlet UIStepper *finishStepper;
+
+@property (weak, nonatomic) IBOutlet UILabel *qualityLabel;
+@property (weak, nonatomic) IBOutlet UISlider *qualitySlider;
+
+@property (weak, nonatomic) IBOutlet UIPickerView *agingPicker;
+
+@property (weak, nonatomic) IBOutlet UILabel *detailsBanner;
+
+@property (weak, nonatomic) IBOutlet UILabel *winemakerLabel;
+@property (weak, nonatomic) IBOutlet UITextField *winemakerTextField;
+
+@property (weak, nonatomic) IBOutlet UILabel *vintageLabel;
+@property (weak, nonatomic) IBOutlet UITextField *vintageTextField;
+
+@property (weak, nonatomic) IBOutlet UILabel *appellationLabel;
+@property (weak, nonatomic) IBOutlet UITextField *appellationTextField;
+
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UITextField *priceTextField;
+
+@property (weak, nonatomic) IBOutlet UILabel *tastedOnLabel;
+@property (weak, nonatomic) IBOutlet UITextField *tastedOnTextField;
+
+
 @property (strong, nonatomic) UIPopoverController *imagePickerPopover;
-@property (weak, nonatomic) IBOutlet UITextField *nameField;
-@property (weak, nonatomic) IBOutlet UITextField *vintageField;
-@property (weak, nonatomic) IBOutlet UITextField *valueField;
-@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cameraButton;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *vintageLabel;
-@property (weak, nonatomic) IBOutlet UILabel *valueLabel;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *assetTypeButton;
 
 @end
 
 @implementation DetailViewController
-
-#pragma mark - Temporary Variables
-
-NSArray *aromas;
 
 #pragma mark - State Recovery
 
@@ -57,9 +154,9 @@ NSArray *aromas;
   [coder encodeObject:self.item.itemKey
                forKey:@"item.itemKey"];
   
-  self.item.itemName = self.nameField.text;
-  self.item.vintage = self.vintageField.text;
-  self.item.valueInDollars = [self.valueField.text intValue];
+  self.item.itemName = self.nameTextView.text;
+  self.item.vintage = self.vintageTextField.text;
+  self.item.valueInDollars = [self.priceTextField.text intValue];
   
   [[ItemStore sharedStore] saveChanges];
   
@@ -238,12 +335,6 @@ NSArray *aromas;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-  
-    // Temporary TableView code begin
-  
-    aromas = [NSArray arrayWithObjects:@"Wet dog", @"Forest floor", @"Mushroom", @"Blueberry", @"Blackberry", @"Leather", @"Jasmine", @"Lemon", @"Orange", @"Grapefruit", @"Vanilla", @"Peach", @"Apricot", @"Coffee", @"Chocolate", @"Cinamon", nil];
-
-    // Temporary TableView code end
     
     UIImageView *iv = [[UIImageView alloc] initWithImage:nil];
     iv.contentMode = UIViewContentModeScaleAspectFit;
@@ -254,46 +345,12 @@ NSArray *aromas;
     [self.imageView setContentHuggingPriority:200 forAxis:UILayoutConstraintAxisVertical];
     [self.imageView setContentCompressionResistancePriority:700 forAxis:UILayoutConstraintAxisVertical];
     
-    NSDictionary *nameMap = @{@"imageView" : self.imageView, @"dateLabel" : self.dateLabel, @"toolbar" : self.toolbar};
+    NSDictionary *nameMap = @{@"imageView" : self.imageView, @"tastedOnTextField" : self.tastedOnTextField, @"toolbar" : self.toolbar};
     NSArray *horizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[imageView]-0-|" options:0 metrics:nil views:nameMap];
-    NSArray *verticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[dateLabel]-[imageView]-[toolbar]" options:0 metrics:nil views:nameMap];
+    NSArray *verticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[tastedOnTextField]-[imageView]-[toolbar]" options:0 metrics:nil views:nameMap];
 
     [self.view addConstraints:horizontalConstraints];
     [self.view addConstraints:verticalConstraints];
-}
-
-#pragma mark - UITableView
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-  return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-  return [aromas count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-  static NSString *aromaTableIdentifier = @"AromaTableCell";
-  
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:aromaTableIdentifier];
-  
-  if (cell == nil) {
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:aromaTableIdentifier];
-  }
-  
-  cell.textLabel.text = [aromas objectAtIndex:indexPath.row];
-  return cell;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-  return UITableViewAutomaticDimension;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-  return UITableViewAutomaticDimension;
 }
 
 #pragma mark - Form Maintenance
@@ -304,11 +361,10 @@ NSArray *aromas;
     
     self.nameLabel.font = font;
     self.vintageLabel.font = font;
-    self.valueLabel.font = font;
-    self.dateLabel.font = font;
-    self.nameField.font = font;
-    self.vintageField.font = font;
-    self.valueField.font = font;
+    self.tastedOnTextField.font = font;
+    self.nameTextView.font = font;
+    self.vintageTextField.font = font;
+    self.priceTextField.font = font;
 }
 
 - (void)setItem:(Item *)item
@@ -326,9 +382,9 @@ NSArray *aromas;
     
     Item *item = self.item;
     
-    self.nameField.text = item.itemName;
-    self.vintageField.text = item.vintage;
-    self.valueField.text = [NSString stringWithFormat:@"%d", item.valueInDollars];
+    self.nameTextView.text = item.itemName;
+    self.vintageTextField.text = item.vintage;
+    self.priceTextField.text = [NSString stringWithFormat:@"%d", item.valueInDollars];
     
     static NSDateFormatter *dateFormatter;
     if (!dateFormatter) {
@@ -337,7 +393,7 @@ NSArray *aromas;
         dateFormatter.timeStyle = NSDateFormatterNoStyle;
     }
     
-    self.dateLabel.text = [dateFormatter stringFromDate:item.dateCreated];
+    self.tastedOnTextField.text = [dateFormatter stringFromDate:item.dateCreated];
     
     NSString *itemKey = self.item.itemKey;
     UIImage *imageToDisplay = [[ImageStore sharedStore] imageForKey:itemKey];
@@ -360,10 +416,10 @@ NSArray *aromas;
   [self.view endEditing:YES];
     
   Item *item = self.item;
-  item.itemName = self.nameField.text;
-  item.vintage = self.vintageField.text;
+  item.itemName = self.nameTextView.text;
+  item.vintage = self.vintageTextField.text;
   
-  int newValue = [self.valueField.text intValue];
+  int newValue = [self.priceTextField.text intValue];
   
   if (newValue != item.valueInDollars) {
     item.valueInDollars = newValue;
