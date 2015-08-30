@@ -53,6 +53,9 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *noseBanner;
 
+@property (weak, nonatomic) IBOutlet UILabel *conditionLabel;
+@property (weak, nonatomic) IBOutlet UISlider *conditionSlider;
+
 @property (weak, nonatomic) IBOutlet UILabel *aromaIntensityLabel;
 @property (weak, nonatomic) IBOutlet UILabel *aromaIntensity;
 @property (weak, nonatomic) IBOutlet UIStepper *aromaIntensityStepper;
@@ -94,7 +97,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *flavorsTextView;
 
 @property (weak, nonatomic) IBOutlet UILabel *balanceLabel;
-@property (weak, nonatomic) IBOutlet UISlider *balanceSlider;
+@property (weak, nonatomic) IBOutlet UITextField *balanceTextField;
 
 @property (weak, nonatomic) IBOutlet UILabel *mousseLabel;
 @property (weak, nonatomic) IBOutlet UILabel *mousse;
@@ -241,7 +244,6 @@
 }
 
 - (IBAction)colorShadeSliderValueChanged:(id)sender {
-  
   if (_colorSlider.value == 0) {
     if (_colorShadeSlider.value < .16) {
       _colorShadeSlider.value = 0;
@@ -282,7 +284,58 @@
       _colorShadeLabel.text = @"Tawny";
     }
   }
+}
 
+- (IBAction)sedimentSliderValueChanged:(id)sender {
+  if (_sedimentSlider.value < .16) {
+    _sedimentSlider.value = 0;
+    _sedimentLabel.text = @"No sediment";
+  } else if ((_sedimentSlider.value >= .17) && (_sedimentSlider.value < .50)) {
+    _sedimentSlider.value = .33;
+    _sedimentLabel.text = @"Fine sediment";
+  } else if ((_sedimentSlider.value >= .51) && (_sedimentSlider.value < .83)) {
+    _sedimentSlider.value = .66;
+    _sedimentLabel.text = @"Crystals";
+  } else {
+    _sedimentSlider.value = 1;
+    _sedimentLabel.text = @"Heavy deposits";
+  }
+}
+
+- (IBAction)conditionSliderValueChanged:(id)sender {
+  if (_conditionSlider.value < .25) {
+    _conditionSlider.value = 0;
+    _conditionLabel.text = @"Clean";
+  } else if ((_conditionSlider.value >= .25) && (_conditionSlider.value < .75)) {
+    _conditionSlider.value = .50;
+    _conditionLabel.text = @"Unclean";
+  } else {
+    _conditionSlider.value = 1;
+    _conditionLabel.text = @"Corked";
+  }
+}
+
+
+- (IBAction)qualitySliderValueChanged:(id)sender {
+  if (_qualitySlider.value < .10) {
+    _qualitySlider.value = 0;
+    _qualityLabel.text = @"Faulty";
+  } else if ((_qualitySlider.value >= .10) && (_qualitySlider.value < .30)) {
+    _qualitySlider.value = .20;
+    _qualityLabel.text = @"Poor";
+  } else if ((_qualitySlider.value >= .30) && (_qualitySlider.value < .50)) {
+    _qualitySlider.value = .40;
+    _qualityLabel.text = @"Acceptable";
+  } else if ((_qualitySlider.value >= .50) && (_qualitySlider.value < .70)) {
+    _qualitySlider.value = .60;
+    _qualityLabel.text = @"Good quality";
+  } else if ((_qualitySlider.value >= .70) && (_qualitySlider.value < .90)) {
+    _qualitySlider.value = .80;
+    _qualityLabel.text = @"Very good";
+  } else {
+    _qualitySlider.value = 1;
+    _qualityLabel.text = @"Outstanding";
+  }
 }
 
 - (IBAction)showAssetTypePicker:(id)sender {
