@@ -241,6 +241,24 @@
     _colorLabel.text = @"Red";
   }
   [self colorShadeSliderValueChanged:nil];
+  [self colorShadeSliderValueChanged:nil];
+}
+
+- (IBAction)colorIntensityValueChanged:(id)sender {
+  
+  if (_colorIntensityStepper.value == 1) {
+    
+    if (_colorSlider.value == .50) {
+      _colorIntensity.text = @"Light";
+    } else {
+      _colorIntensity.text = @"Pale";
+    }
+    
+  } else if (_colorIntensityStepper.value == 2) {
+    _colorIntensity.text = @"Medium";
+  } else {
+    _colorIntensity.text = @"Deep";
+  }
 }
 
 - (IBAction)colorShadeSliderValueChanged:(id)sender {
@@ -286,6 +304,17 @@
   }
 }
 
+- (IBAction)petillanceValueChanged:(id)sender {
+  
+  if (_petillanceStepper.value == 1) {
+    _petillance.text = @"None";
+  } else if (_petillanceStepper.value == 2) {
+    _petillance.text = @"Light";
+  } else {
+    _petillance.text = @"Pronounced";
+  }
+}
+
 - (IBAction)sedimentSliderValueChanged:(id)sender {
   if (_sedimentSlider.value < .16) {
     _sedimentSlider.value = 0;
@@ -315,6 +344,19 @@
   }
 }
 
+- (IBAction)aromaIntensityValueChanged:(id)sender {
+  if (_aromaIntensityStepper.value == 1) {
+    _aromaIntensity.text = @"Light";
+  } else if (_aromaIntensityStepper.value == 2) {
+    _aromaIntensity.text = @"Medium-minus";
+  } else if (_aromaIntensityStepper.value == 3) {
+    _aromaIntensity.text = @"Medium";
+  } else if (_aromaIntensityStepper.value == 4) {
+    _aromaIntensity.text = @"Medium-plus";
+  } else {
+    _aromaIntensity.text = @"Pronounced";
+  }
+}
 
 - (IBAction)qualitySliderValueChanged:(id)sender {
   if (_qualitySlider.value < .10) {

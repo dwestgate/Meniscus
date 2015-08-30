@@ -191,8 +191,11 @@
                                                 <action selector="claritySliderValueChanged:" destination="-1" eventType="valueChanged" id="o32-9m-fK2"/>
                                             </connections>
                                         </slider>
-                                        <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="rHt-t2-zpo" userLabel="colorIntensityStepper">
+                                        <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minimumValue="1" maximumValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="rHt-t2-zpo" userLabel="colorIntensityStepper">
                                             <rect key="frame" x="301" y="265" width="94" height="29"/>
+                                            <connections>
+                                                <action selector="colorIntensityValueChanged:" destination="-1" eventType="valueChanged" id="cfm-iT-b0R"/>
+                                            </connections>
                                         </stepper>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Red" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TEK-HF-ykr" userLabel="colorLabel">
                                             <rect key="frame" x="20" y="232" width="120" height="21"/>
@@ -206,8 +209,8 @@
                                                 <action selector="colorSliderValueChanged:" destination="-1" eventType="valueChanged" id="FsS-Dx-VsA"/>
                                             </connections>
                                         </slider>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Medium minus" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qU5-xj-tPV" userLabel="colorIntensity">
-                                            <rect key="frame" x="147" y="269" width="113" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Medium" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qU5-xj-tPV" userLabel="colorIntensity">
+                                            <rect key="frame" x="147" y="269" width="63" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -224,14 +227,17 @@
                                                 <action selector="colorShadeSliderValueChanged:" destination="-1" eventType="valueChanged" id="uk3-Ew-LCG"/>
                                             </connections>
                                         </slider>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzS-Fg-Xv1" userLabel="petillance">
-                                            <rect key="frame" x="147" y="344" width="42" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="None" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzS-Fg-Xv1" userLabel="petillance">
+                                            <rect key="frame" x="147" y="344" width="41" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="doe-x4-C7s" userLabel="petillanceStepper">
+                                        <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="doe-x4-C7s" userLabel="petillanceStepper">
                                             <rect key="frame" x="301" y="340" width="94" height="29"/>
+                                            <connections>
+                                                <action selector="petillanceValueChanged:" destination="-1" eventType="valueChanged" id="C5z-QF-K68"/>
+                                            </connections>
                                         </stepper>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Petillance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5y-4k-jHp" userLabel="petillanceLabel">
                                             <rect key="frame" x="20" y="344" width="120" height="21"/>
@@ -285,8 +291,11 @@
                                                 <action selector="conditionSliderValueChanged:" destination="-1" eventType="valueChanged" id="TfF-KD-e4d"/>
                                             </connections>
                                         </slider>
-                                        <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="5Rp-ww-sI9" userLabel="aromaIntensityStepper">
+                                        <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minimumValue="1" maximumValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="5Rp-ww-sI9" userLabel="aromaIntensityStepper">
                                             <rect key="frame" x="301" y="519" width="94" height="29"/>
+                                            <connections>
+                                                <action selector="aromaIntensityValueChanged:" destination="-1" eventType="valueChanged" id="DE4-Go-oHX"/>
+                                            </connections>
                                         </stepper>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Medium minus" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJG-SA-z0J" userLabel="aromaIntensity">
                                             <rect key="frame" x="147" y="523" width="113" height="21"/>
