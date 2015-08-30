@@ -211,7 +211,79 @@
     return nil;
 }
 
-#pragma mark - Actions
+#pragma mark - Control Actions
+
+- (IBAction)claritySliderValueChanged:(id)sender {
+  if (_claritySlider.value < .25) {
+    _claritySlider.value = 0;
+    _clarityLabel.text = @"Clear";
+  } else if ((_claritySlider.value >= .25) && (_claritySlider.value < .75)) {
+    _claritySlider.value = .50;
+    _clarityLabel.text = @"Hazy";
+  } else {
+    _claritySlider.value = 1;
+    _clarityLabel.text = @"Faulty";
+  }
+}
+
+- (IBAction)colorSliderValueChanged:(id)sender {
+  if (_colorSlider.value < .25) {
+    _colorSlider.value = 0;
+    _colorLabel.text = @"White";
+  } else if ((_colorSlider.value >= .25) && (_colorSlider.value < .75)) {
+    _colorSlider.value = .50;
+    _colorLabel.text = @"Rosé";
+  } else {
+    _colorSlider.value = 1;
+    _colorLabel.text = @"Red";
+  }
+  [self colorShadeSliderValueChanged:nil];
+}
+
+- (IBAction)colorShadeSliderValueChanged:(id)sender {
+  
+  if (_colorSlider.value == 0) {
+    if (_colorShadeSlider.value < .16) {
+      _colorShadeSlider.value = 0;
+      _colorShadeLabel.text = @"Lemon-green";
+    } else if ((_colorShadeSlider.value >= .17) && (_colorShadeSlider.value < .50)) {
+      _colorShadeSlider.value = .33;
+      _colorShadeLabel.text = @"Lemon";
+    } else if ((_colorShadeSlider.value >= .51) && (_colorShadeSlider.value < .83)) {
+      _colorShadeSlider.value = .66;
+      _colorShadeLabel.text = @"Gold";
+    } else {
+      _colorShadeSlider.value = 1;
+      _colorShadeLabel.text = @"Amber";
+    }
+  } else if (_colorSlider.value == .50) {
+    if (_colorShadeSlider.value < .25) {
+      _colorShadeSlider.value = 0;
+      _colorShadeLabel.text = @"Pink";
+    } else if ((_colorShadeSlider.value >= .25) && (_colorShadeSlider.value < .75)) {
+      _colorShadeSlider.value = .50;
+      _colorShadeLabel.text = @"Salmon";
+    } else {
+      _colorShadeSlider.value = 100;
+      _colorShadeLabel.text = @"Orange";
+    }
+  } else {
+    if (_colorShadeSlider.value < .16) {
+      _colorShadeSlider.value = 0;
+      _colorShadeLabel.text = @"Purple";
+    } else if ((_colorShadeSlider.value >= .17) && (_colorShadeSlider.value < .50)) {
+      _colorShadeSlider.value = .33;
+      _colorShadeLabel.text = @"Ruby";
+    } else if ((_colorShadeSlider.value >= .51) && (_colorShadeSlider.value < .83)) {
+      _colorShadeSlider.value = .66;
+      _colorShadeLabel.text = @"Garnet";
+    } else {
+      _colorShadeSlider.value = 1;
+      _colorShadeLabel.text = @"Tawny";
+    }
+  }
+
+}
 
 - (IBAction)showAssetTypePicker:(id)sender {
   [self.view endEditing:YES];
@@ -222,6 +294,8 @@
   [self.navigationController pushViewController:avc
                                        animated:YES];
 }
+
+#pragma mark - ImagePicker
 
 - (void)cancel:(id)sender
 {
