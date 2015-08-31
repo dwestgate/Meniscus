@@ -107,10 +107,13 @@
 @property (weak, nonatomic) IBOutlet UILabel *finish;
 @property (weak, nonatomic) IBOutlet UIStepper *finishStepper;
 
+@property (weak, nonatomic) IBOutlet UILabel *conclusionsBanner;
+
 @property (weak, nonatomic) IBOutlet UILabel *qualityLabel;
 @property (weak, nonatomic) IBOutlet UISlider *qualitySlider;
 
-@property (weak, nonatomic) IBOutlet UIPickerView *agingPicker;
+@property (weak, nonatomic) IBOutlet UILabel *readinessLabel;
+@property (weak, nonatomic) IBOutlet UITextField *readinessTextField;
 
 @property (weak, nonatomic) IBOutlet UILabel *detailsBanner;
 
