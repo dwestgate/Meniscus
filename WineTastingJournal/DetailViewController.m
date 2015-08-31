@@ -266,10 +266,10 @@
     if (_colorShadeSlider.value < .16) {
       _colorShadeSlider.value = 0;
       _colorShadeLabel.text = @"Lemon-green";
-    } else if ((_colorShadeSlider.value >= .17) && (_colorShadeSlider.value < .50)) {
+    } else if ((_colorShadeSlider.value >= .16) && (_colorShadeSlider.value < .50)) {
       _colorShadeSlider.value = .33;
       _colorShadeLabel.text = @"Lemon";
-    } else if ((_colorShadeSlider.value >= .51) && (_colorShadeSlider.value < .83)) {
+    } else if ((_colorShadeSlider.value >= .50) && (_colorShadeSlider.value < .83)) {
       _colorShadeSlider.value = .66;
       _colorShadeLabel.text = @"Gold";
     } else {
@@ -291,10 +291,10 @@
     if (_colorShadeSlider.value < .16) {
       _colorShadeSlider.value = 0;
       _colorShadeLabel.text = @"Purple";
-    } else if ((_colorShadeSlider.value >= .17) && (_colorShadeSlider.value < .50)) {
+    } else if ((_colorShadeSlider.value >= .16) && (_colorShadeSlider.value < .50)) {
       _colorShadeSlider.value = .33;
       _colorShadeLabel.text = @"Ruby";
-    } else if ((_colorShadeSlider.value >= .51) && (_colorShadeSlider.value < .83)) {
+    } else if ((_colorShadeSlider.value >= .50) && (_colorShadeSlider.value < .83)) {
       _colorShadeSlider.value = .66;
       _colorShadeLabel.text = @"Garnet";
     } else {
@@ -315,14 +315,25 @@
   }
 }
 
+- (IBAction)viscosityValueChanged:(id)sender {
+  
+  if (_viscosityStepper.value == 1) {
+    _viscosity.text = @"Clear legs";
+  } else if (_viscosityStepper.value == 2) {
+    _viscosity.text = @"Stained legs";
+  } else {
+    _viscosity.text = @"Sheeting";
+  }
+}
+
 - (IBAction)sedimentSliderValueChanged:(id)sender {
   if (_sedimentSlider.value < .16) {
     _sedimentSlider.value = 0;
     _sedimentLabel.text = @"No sediment";
-  } else if ((_sedimentSlider.value >= .17) && (_sedimentSlider.value < .50)) {
+  } else if ((_sedimentSlider.value >= .16) && (_sedimentSlider.value < .50)) {
     _sedimentSlider.value = .33;
     _sedimentLabel.text = @"Fine sediment";
-  } else if ((_sedimentSlider.value >= .51) && (_sedimentSlider.value < .83)) {
+  } else if ((_sedimentSlider.value >= .50) && (_sedimentSlider.value < .83)) {
     _sedimentSlider.value = .66;
     _sedimentLabel.text = @"Crystals";
   } else {
@@ -348,13 +359,139 @@
   if (_aromaIntensityStepper.value == 1) {
     _aromaIntensity.text = @"Light";
   } else if (_aromaIntensityStepper.value == 2) {
-    _aromaIntensity.text = @"Medium-minus";
+    _aromaIntensity.text = @"Medium-";
   } else if (_aromaIntensityStepper.value == 3) {
     _aromaIntensity.text = @"Medium";
   } else if (_aromaIntensityStepper.value == 4) {
-    _aromaIntensity.text = @"Medium-plus";
+    _aromaIntensity.text = @"Medium+";
   } else {
     _aromaIntensity.text = @"Pronounced";
+  }
+}
+
+- (IBAction)developmentValueChanged:(id)sender {
+  
+  if (_developmentStepper.value == 1) {
+    _development.text = @"Youthful";
+  } else if (_developmentStepper.value == 2) {
+    _development.text = @"Developing";
+  } else if (_developmentStepper.value == 3) {
+    _development.text = @"Fully developed";
+  } else {
+    _development.text = @"Tired/Past prime";
+  }
+}
+
+- (IBAction)sweetnessValueChanged:(id)sender {
+  
+  if (_sweetnessStepper.value == 1) {
+    _sweetness.text = @"Dry";
+  } else if (_sweetnessStepper.value == 2) {
+    _sweetness.text = @"Off-dry";
+  } else if (_sweetnessStepper.value == 3) {
+    _sweetness.text = @"Medium-dry";
+  } else if (_sweetnessStepper.value == 4) {
+    _sweetness.text = @"Medium-sweet";
+  } else if (_sweetnessStepper.value == 5) {
+    _sweetness.text = @"Sweet";
+  } else {
+    _sweetness.text = @"Luscious";
+  }
+}
+
+- (IBAction)acidityValueChanged:(id)sender {
+  if (_acidityStepper.value == 1) {
+    _acidity.text = @"Low";
+  } else if (_acidityStepper.value == 2) {
+    _acidity.text = @"Medium-";
+  } else if (_acidityStepper.value == 3) {
+    _acidity.text = @"Medium";
+  } else if (_acidityStepper.value == 4) {
+    _acidity.text = @"Medium+";
+  } else {
+    _acidity.text = @"High";
+  }
+}
+
+- (IBAction)tanninValueChanged:(id)sender {
+  if (_tanninStepper.value == 1) {
+    _tannin.text = @"Low";
+  } else if (_tanninStepper.value == 2) {
+    _tannin.text = @"Medium-";
+  } else if (_tanninStepper.value == 3) {
+    _tannin.text = @"Medium";
+  } else if (_tanninStepper.value == 4) {
+    _tannin.text = @"Medium+";
+  } else {
+    _tannin.text = @"High";
+  }
+}
+
+- (IBAction)alchoholValueChanged:(id)sender {
+  if (_alchoholStepper.value == 1) {
+    _alchohol.text = @"Low (<11.5>";
+  } else if (_alchoholStepper.value == 2) {
+    _alchohol.text = @"Medium- (<12.5)";
+  } else if (_alchoholStepper.value == 3) {
+    _alchohol.text = @"Medium (<13.5)";
+  } else if (_alchoholStepper.value == 4) {
+    _alchohol.text = @"Medium+ (<13.9)";
+  } else {
+    _alchohol.text = @"High (14+)";
+  }
+}
+
+- (IBAction)bodyValueChanged:(id)sender {
+  if (_bodyStepper.value == 1) {
+    _body.text = @"Light";
+  } else if (_bodyStepper.value == 2) {
+    _body.text = @"Medium-";
+  } else if (_bodyStepper.value == 3) {
+    _body.text = @"Medium";
+  } else if (_bodyStepper.value == 4) {
+    _body.text = @"Medium+";
+  } else {
+    _body.text = @"Full";
+  }
+}
+
+- (IBAction)flavorIntensityValueChanged:(id)sender {
+  if (_flavorIntensityStepper.value == 1) {
+    _flavorIntensity.text = @"Light";
+  } else if (_flavorIntensityStepper.value == 2) {
+    _flavorIntensity.text = @"Medium-";
+  } else if (_flavorIntensityStepper.value == 3) {
+    _flavorIntensity.text = @"Medium";
+  } else if (_flavorIntensityStepper.value == 4) {
+    _flavorIntensity.text = @"Medium+";
+  } else {
+    _flavorIntensity.text = @"Pronounced";
+  }
+}
+
+- (IBAction)mousseValueChanged:(id)sender {
+  if (_mousseStepper.value == 1) {
+    _mousse.text = @"No mousse";
+  } else if (_mousseStepper.value == 2) {
+    _mousse.text = @"Delicate";
+  } else if (_mousseStepper.value == 3) {
+    _mousse.text = @"Creamy";
+  } else {
+    _mousse.text = @"Aggressive";
+  }
+}
+
+- (IBAction)finishValueChanged:(id)sender {
+  if (_finishStepper.value == 1) {
+    _finish.text = @"Short";
+  } else if (_finishStepper.value == 2) {
+    _finish.text = @"Medium-";
+  } else if (_finishStepper.value == 3) {
+    _finish.text = @"Medium";
+  } else if (_finishStepper.value == 4) {
+    _finish.text = @"Medium+";
+  } else {
+    _finish.text = @"Long";
   }
 }
 
