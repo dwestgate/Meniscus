@@ -223,3 +223,7 @@ Price
 
 
 - tastedOnLabel "Tasted on"
+
+
+
+2015-08-30 11:15:15.591 WineTastingJournal[12706:925030] Error: unable to find /Users/davidwestgate/Library/Developer/CoreSimulator/Devices/E4F7F09F-90E3-47C4-85E8-CE9E1CF1CACD/data/Containers/Data/Application/DAA98539-248E-4BD6-B288-E120D30315A4/Documents/E573AE02-0BCD-4895-9711-4C74EC02D2C4

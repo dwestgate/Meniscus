@@ -362,11 +362,11 @@
   if (_aromaIntensityStepper.value == 1) {
     _aromaIntensity.text = @"Light";
   } else if (_aromaIntensityStepper.value == 2) {
-    _aromaIntensity.text = @"Medium-";
+    _aromaIntensity.text = @"Medium -";
   } else if (_aromaIntensityStepper.value == 3) {
     _aromaIntensity.text = @"Medium";
   } else if (_aromaIntensityStepper.value == 4) {
-    _aromaIntensity.text = @"Medium+";
+    _aromaIntensity.text = @"Medium +";
   } else {
     _aromaIntensity.text = @"Pronounced";
   }
@@ -392,9 +392,9 @@
   } else if (_sweetnessStepper.value == 2) {
     _sweetness.text = @"Off-dry";
   } else if (_sweetnessStepper.value == 3) {
-    _sweetness.text = @"Medium-dry";
+    _sweetness.text = @"Medium -dry";
   } else if (_sweetnessStepper.value == 4) {
-    _sweetness.text = @"Medium-sweet";
+    _sweetness.text = @"Medium -sweet";
   } else if (_sweetnessStepper.value == 5) {
     _sweetness.text = @"Sweet";
   } else {
@@ -406,11 +406,11 @@
   if (_acidityStepper.value == 1) {
     _acidity.text = @"Low";
   } else if (_acidityStepper.value == 2) {
-    _acidity.text = @"Medium-";
+    _acidity.text = @"Medium -";
   } else if (_acidityStepper.value == 3) {
     _acidity.text = @"Medium";
   } else if (_acidityStepper.value == 4) {
-    _acidity.text = @"Medium+";
+    _acidity.text = @"Medium +";
   } else {
     _acidity.text = @"High";
   }
@@ -420,11 +420,11 @@
   if (_tanninStepper.value == 1) {
     _tannin.text = @"Low";
   } else if (_tanninStepper.value == 2) {
-    _tannin.text = @"Medium-";
+    _tannin.text = @"Medium -";
   } else if (_tanninStepper.value == 3) {
     _tannin.text = @"Medium";
   } else if (_tanninStepper.value == 4) {
-    _tannin.text = @"Medium+";
+    _tannin.text = @"Medium +";
   } else {
     _tannin.text = @"High";
   }
@@ -434,11 +434,11 @@
   if (_alchoholStepper.value == 1) {
     _alchohol.text = @"Low (<11.5>";
   } else if (_alchoholStepper.value == 2) {
-    _alchohol.text = @"Medium- (<12.5)";
+    _alchohol.text = @"Medium - (<12.5)";
   } else if (_alchoholStepper.value == 3) {
     _alchohol.text = @"Medium (<13.5)";
   } else if (_alchoholStepper.value == 4) {
-    _alchohol.text = @"Medium+ (<13.9)";
+    _alchohol.text = @"Medium + (<13.9)";
   } else {
     _alchohol.text = @"High (14+)";
   }
@@ -448,11 +448,11 @@
   if (_bodyStepper.value == 1) {
     _body.text = @"Light";
   } else if (_bodyStepper.value == 2) {
-    _body.text = @"Medium-";
+    _body.text = @"Medium -";
   } else if (_bodyStepper.value == 3) {
     _body.text = @"Medium";
   } else if (_bodyStepper.value == 4) {
-    _body.text = @"Medium+";
+    _body.text = @"Medium +";
   } else {
     _body.text = @"Full";
   }
@@ -462,11 +462,11 @@
   if (_flavorIntensityStepper.value == 1) {
     _flavorIntensity.text = @"Light";
   } else if (_flavorIntensityStepper.value == 2) {
-    _flavorIntensity.text = @"Medium-";
+    _flavorIntensity.text = @"Medium -";
   } else if (_flavorIntensityStepper.value == 3) {
     _flavorIntensity.text = @"Medium";
   } else if (_flavorIntensityStepper.value == 4) {
-    _flavorIntensity.text = @"Medium+";
+    _flavorIntensity.text = @"Medium +";
   } else {
     _flavorIntensity.text = @"Pronounced";
   }
@@ -488,11 +488,11 @@
   if (_finishStepper.value == 1) {
     _finish.text = @"Short";
   } else if (_finishStepper.value == 2) {
-    _finish.text = @"Medium-";
+    _finish.text = @"Medium -";
   } else if (_finishStepper.value == 3) {
     _finish.text = @"Medium";
   } else if (_finishStepper.value == 4) {
-    _finish.text = @"Medium+";
+    _finish.text = @"Medium +";
   } else {
     _finish.text = @"Long";
   }
@@ -588,8 +588,6 @@
     self.imagePickerPopover = nil;
 }
 
-#pragma mark - ImagePicker
-
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage *image = info[UIImagePickerControllerOriginalImage];
@@ -643,6 +641,8 @@
 {
     [super viewDidLoad];
   
+    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self.view action:@selector(endEditing:)]];
+  
     UIImageView *iv = [[UIImageView alloc] initWithImage:nil];
     iv.contentMode = UIViewContentModeScaleAspectFit;
     iv.translatesAutoresizingMaskIntoConstraints = NO;
@@ -666,12 +666,64 @@
 {
     UIFont *font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
     
-    self.nameLabel.font = font;
-    self.vintageLabel.font = font;
-    self.tastedOnBanner.font = font;
-    self.nameTextView.font = font;
-    self.vintageTextField.font = font;
-    self.priceTextField.font = font;
+  self.nameLabel.font = font;
+  self.nameTextView.font = font;
+  self.notesLabel.font = font;
+  self.notesTextView.font = font;
+  self.appearanceBanner.font = font;
+  self.clarityLabel.font = font;
+  self.colorLabel.font = font;
+  self.colorIntensityLabel.font = font;
+  self.colorIntensity.font = font;
+  self.colorShadeLabel.font = font;
+  self.petillanceLabel.font = font;
+  self.petillance.font = font;
+  self.viscosityLabel.font = font;
+  self.viscosity.font = font;
+  self.sedimentLabel.font = font;
+  self.noseBanner.font = font;
+  self.conditionLabel.font = font;
+  self.aromaIntensityLabel.font = font;
+  self.aromaIntensity.font = font;
+  self.aromasLabel.font = font;
+  self.aromasTextView.font = font;
+  self.developmentLabel.font = font;
+  self.development.font = font;
+  self.palateBanner.font = font;
+  self.sweetnessLabel.font = font;
+  self.sweetness.font = font;
+  self.acidityLabel.font = font;
+  self.acidity.font = font;
+  self.tanninLabel.font = font;
+  self.tannin.font = font;
+  self.alchoholLabel.font = font;
+  self.alchohol.font = font;
+  self.bodyLabel.font = font;
+  self.body.font = font;
+  self.flavorIntensityLabel.font = font;
+  self.flavorIntensity.font = font;
+  self.flavorsLabel.font = font;
+  self.flavorsTextView.font = font;
+  self.balanceLabel.font = font;
+  self.balanceTextField.font = font;
+  self.mousseLabel.font = font;
+  self.mousse.font = font;
+  self.finishLabel.font = font;
+  self.finish.font = font;
+  self.conclusionsBanner.font = font;
+  self.qualityLabel.font = font;
+  self.readinessLabel.font = font;
+  self.readinessTextField.font = font;
+  self.detailsBanner.font = font;
+  self.winemakerLabel.font = font;
+  self.winemakerTextField.font = font;
+  self.vintageLabel.font = font;
+  self.vintageTextField.font = font;
+  self.appellationLabel.font = font;
+  self.appellationTextField.font = font;
+  self.priceLabel.font = font;
+  self.priceTextField.font = font;
+  self.tastedOnBanner.font = font;
 }
 
 - (void)setItem:(Item *)item
