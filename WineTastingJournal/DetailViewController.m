@@ -159,8 +159,58 @@
                forKey:@"item.itemKey"];
   
   self.item.itemName = self.nameTextView.text;
+  self.item.itemNotes = self.notesTextView.text;
+  self.item.itemClarity = self.clarityLabel.text;
+  self.item.itemClarityValue = self.claritySlider.value;
+  self.item.itemColor = self.colorLabel.text;
+  self.item.itemColorValue = self.colorSlider.value;
+  self.item.itemColorIntensity = self.colorIntensity.text;
+  self.item.itemColorIntensityValue = self.colorIntensityStepper.value;
+  self.item.itemColorShade = self.colorShadeLabel.text;
+  self.item.itemColorShadeValue = self.colorShadeSlider.value;
+  self.item.itemPetillance = self.petillance.text;
+  self.item.itemPetillanceValue = self.petillanceStepper.value;
+  self.item.itemViscosity = self.viscosity.text;
+  self.item.itemViscosityValue = self.viscosityStepper.value;
+  self.item.itemSediment = self.sedimentLabel.text;
+  self.item.itemSedimentValue = self.sedimentSlider.value;
+  self.item.itemCondition = self.conditionLabel.text;
+  self.item.itemConditionSliderValue = self.conditionSlider.value;
+  self.item.itemAromaIntensity = self.aromaIntensity.text;
+  self.item.itemAromaIntensityValue = self.aromaIntensityStepper.value;
+  self.item.itemAromas = self.aromasTextView.text;
+  self.item.itemDevelopment = self.development.text;
+  self.item.itemDevelopmentValue = self.developmentStepper.value;
+  self.item.itemSweetness = self.sweetness.text;
+  self.item.itemSweetnessValue = self.sweetnessStepper.value;
+  self.item.itemAcidity = self.acidity.text;
+  self.item.itemAcidityValue = self.acidityStepper.value;
+  self.item.itemTannin = self.tannin.text;
+  self.item.itemTanninValue = self.tanninStepper.value;
+  self.item.itemAlchohol = self.alchohol.text;
+  self.item.itemAlchoholValue = self.alchoholStepper.value;
+  self.item.itemBody = self.body.text;
+  self.item.itemBodyValue = self.bodyStepper.value;
+  self.item.itemFlavorIntensity = self.flavorIntensity.text;
+  self.item.itemFlavorIntensityValue = self.flavorIntensityStepper.value;
+  self.item.itemFlavors = self.flavorsTextView.text;
+  self.item.itemBalance = self.balanceTextField.text;
+  self.item.itemMousse = self.mousse.text;
+  self.item.itemMousseValue = self.mousseStepper.value;
+  self.item.itemFinish = self.finish.text;
+  self.item.itemFinishValue = self.finishStepper.value;
+  self.item.itemQuality = self.qualityLabel.text;
+  self.item.itemQualityValue = self.qualitySlider.value;
+  self.item.itemReadiness = self.readinessTextField.text;
+  self.item.itemWinemaker = self.winemakerTextField.text;
+  self.item.itemVintage = self.vintageTextField.text;
+  self.item.itemAppellation = self.appellationTextField.text;
+  self.item.valueInDollars = [self.priceTextField.text intValue];
+  /*
+  self.item.itemName = self.nameTextView.text;
   self.item.vintage = self.vintageTextField.text;
   self.item.valueInDollars = [self.priceTextField.text intValue];
+  */
   
   [[ItemStore sharedStore] saveChanges];
   
@@ -220,27 +270,27 @@
 #pragma mark - Control Actions
 
 - (IBAction)claritySliderValueChanged:(id)sender {
-  if (_claritySlider.value < .25) {
-    _claritySlider.value = 0;
+  if (_claritySlider.value < 25) {
+    _claritySlider.value = 1;
     _clarityLabel.text = @"Clear";
-  } else if ((_claritySlider.value >= .25) && (_claritySlider.value < .75)) {
-    _claritySlider.value = .50;
+  } else if ((_claritySlider.value >= 25) && (_claritySlider.value < 75)) {
+    _claritySlider.value = 50;
     _clarityLabel.text = @"Hazy";
   } else {
-    _claritySlider.value = 1;
+    _claritySlider.value = 100;
     _clarityLabel.text = @"Faulty";
   }
 }
 
 - (IBAction)colorSliderValueChanged:(id)sender {
-  if (_colorSlider.value < .25) {
-    _colorSlider.value = 0;
+  if (_colorSlider.value < 25) {
+    _colorSlider.value = 1;
     _colorLabel.text = @"White";
-  } else if ((_colorSlider.value >= .25) && (_colorSlider.value < .75)) {
-    _colorSlider.value = .50;
+  } else if ((_colorSlider.value >= 25) && (_colorSlider.value < 75)) {
+    _colorSlider.value = 50;
     _colorLabel.text = @"Rosé";
   } else {
-    _colorSlider.value = 1;
+    _colorSlider.value = 100;
     _colorLabel.text = @"Red";
   }
   [self colorShadeSliderValueChanged:nil];
@@ -251,7 +301,7 @@
   
   if (_colorIntensityStepper.value == 1) {
     
-    if (_colorSlider.value == .50) {
+    if (_colorSlider.value == 50) {
       _colorIntensity.text = @"Light";
     } else {
       _colorIntensity.text = @"Pale";
@@ -265,43 +315,43 @@
 }
 
 - (IBAction)colorShadeSliderValueChanged:(id)sender {
-  if (_colorSlider.value == 0) {
-    if (_colorShadeSlider.value < .16) {
-      _colorShadeSlider.value = 0;
+  if (_colorSlider.value == 1) {
+    if (_colorShadeSlider.value < 16) {
+      _colorShadeSlider.value = 1;
       _colorShadeLabel.text = @"Lemon-green";
-    } else if ((_colorShadeSlider.value >= .16) && (_colorShadeSlider.value < .50)) {
-      _colorShadeSlider.value = .33;
+    } else if ((_colorShadeSlider.value >= 16) && (_colorShadeSlider.value < 50)) {
+      _colorShadeSlider.value = 33;
       _colorShadeLabel.text = @"Lemon";
-    } else if ((_colorShadeSlider.value >= .50) && (_colorShadeSlider.value < .83)) {
-      _colorShadeSlider.value = .66;
+    } else if ((_colorShadeSlider.value >= 50) && (_colorShadeSlider.value < 83)) {
+      _colorShadeSlider.value = 66;
       _colorShadeLabel.text = @"Gold";
     } else {
       _colorShadeSlider.value = 1;
       _colorShadeLabel.text = @"Amber";
     }
-  } else if (_colorSlider.value == .50) {
-    if (_colorShadeSlider.value < .25) {
-      _colorShadeSlider.value = 0;
+  } else if (_colorSlider.value == 50) {
+    if (_colorShadeSlider.value < 25) {
+      _colorShadeSlider.value = 1;
       _colorShadeLabel.text = @"Pink";
-    } else if ((_colorShadeSlider.value >= .25) && (_colorShadeSlider.value < .75)) {
-      _colorShadeSlider.value = .50;
+    } else if ((_colorShadeSlider.value >= 25) && (_colorShadeSlider.value < 75)) {
+      _colorShadeSlider.value = 50;
       _colorShadeLabel.text = @"Salmon";
     } else {
       _colorShadeSlider.value = 100;
       _colorShadeLabel.text = @"Orange";
     }
   } else {
-    if (_colorShadeSlider.value < .16) {
-      _colorShadeSlider.value = 0;
+    if (_colorShadeSlider.value < 16) {
+      _colorShadeSlider.value = 1;
       _colorShadeLabel.text = @"Purple";
-    } else if ((_colorShadeSlider.value >= .16) && (_colorShadeSlider.value < .50)) {
-      _colorShadeSlider.value = .33;
+    } else if ((_colorShadeSlider.value >= 16) && (_colorShadeSlider.value < 50)) {
+      _colorShadeSlider.value = 33;
       _colorShadeLabel.text = @"Ruby";
-    } else if ((_colorShadeSlider.value >= .50) && (_colorShadeSlider.value < .83)) {
-      _colorShadeSlider.value = .66;
+    } else if ((_colorShadeSlider.value >= 50) && (_colorShadeSlider.value < 83)) {
+      _colorShadeSlider.value = 66;
       _colorShadeLabel.text = @"Garnet";
     } else {
-      _colorShadeSlider.value = 1;
+      _colorShadeSlider.value = 100;
       _colorShadeLabel.text = @"Tawny";
     }
   }
@@ -330,30 +380,30 @@
 }
 
 - (IBAction)sedimentSliderValueChanged:(id)sender {
-  if (_sedimentSlider.value < .16) {
-    _sedimentSlider.value = 0;
+  if (_sedimentSlider.value < 16) {
+    _sedimentSlider.value = 1;
     _sedimentLabel.text = @"No sediment";
-  } else if ((_sedimentSlider.value >= .16) && (_sedimentSlider.value < .50)) {
-    _sedimentSlider.value = .33;
+  } else if ((_sedimentSlider.value >= 16) && (_sedimentSlider.value < 50)) {
+    _sedimentSlider.value = 33;
     _sedimentLabel.text = @"Fine sediment";
-  } else if ((_sedimentSlider.value >= .50) && (_sedimentSlider.value < .83)) {
-    _sedimentSlider.value = .66;
+  } else if ((_sedimentSlider.value >= 50) && (_sedimentSlider.value < 83)) {
+    _sedimentSlider.value = 66;
     _sedimentLabel.text = @"Crystals";
   } else {
-    _sedimentSlider.value = 1;
+    _sedimentSlider.value = 100;
     _sedimentLabel.text = @"Heavy deposits";
   }
 }
 
 - (IBAction)conditionSliderValueChanged:(id)sender {
-  if (_conditionSlider.value < .25) {
-    _conditionSlider.value = 0;
+  if (_conditionSlider.value < 25) {
+    _conditionSlider.value = 1;
     _conditionLabel.text = @"Clean";
-  } else if ((_conditionSlider.value >= .25) && (_conditionSlider.value < .75)) {
-    _conditionSlider.value = .50;
+  } else if ((_conditionSlider.value >= 25) && (_conditionSlider.value < 75)) {
+    _conditionSlider.value = 50;
     _conditionLabel.text = @"Unclean";
   } else {
-    _conditionSlider.value = 1;
+    _conditionSlider.value = 100;
     _conditionLabel.text = @"Corked";
   }
 }
@@ -499,23 +549,23 @@
 }
 
 - (IBAction)qualitySliderValueChanged:(id)sender {
-  if (_qualitySlider.value < .10) {
-    _qualitySlider.value = 0;
+  if (_qualitySlider.value < 10) {
+    _qualitySlider.value = 1;
     _qualityLabel.text = @"Faulty";
-  } else if ((_qualitySlider.value >= .10) && (_qualitySlider.value < .30)) {
-    _qualitySlider.value = .20;
+  } else if ((_qualitySlider.value >= 10) && (_qualitySlider.value < 30)) {
+    _qualitySlider.value = 20;
     _qualityLabel.text = @"Poor";
-  } else if ((_qualitySlider.value >= .30) && (_qualitySlider.value < .50)) {
-    _qualitySlider.value = .40;
+  } else if ((_qualitySlider.value >= 30) && (_qualitySlider.value < 50)) {
+    _qualitySlider.value = 40;
     _qualityLabel.text = @"Acceptable";
-  } else if ((_qualitySlider.value >= .50) && (_qualitySlider.value < .70)) {
-    _qualitySlider.value = .60;
+  } else if ((_qualitySlider.value >= 50) && (_qualitySlider.value < 70)) {
+    _qualitySlider.value = 60;
     _qualityLabel.text = @"Good quality";
-  } else if ((_qualitySlider.value >= .70) && (_qualitySlider.value < .90)) {
-    _qualitySlider.value = .80;
+  } else if ((_qualitySlider.value >= 70) && (_qualitySlider.value < 90)) {
+    _qualitySlider.value = 80;
     _qualityLabel.text = @"Very good";
   } else {
-    _qualitySlider.value = 1;
+    _qualitySlider.value = 100;
     _qualityLabel.text = @"Outstanding";
   }
 }
@@ -734,29 +784,80 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
-    
-    UIInterfaceOrientation io = [[UIApplication sharedApplication] statusBarOrientation];
-    [self prepareViewsForOrientation:io];
-    
-    Item *item = self.item;
-    
-    self.nameTextView.text = item.itemName;
-    self.vintageTextField.text = item.vintage;
-    self.priceTextField.text = [NSString stringWithFormat:@"%d", item.valueInDollars];
-    
-    static NSDateFormatter *dateFormatter;
-    if (!dateFormatter) {
-        dateFormatter = [[NSDateFormatter alloc] init];
-        dateFormatter.dateStyle = NSDateFormatterMediumStyle;
-        dateFormatter.timeStyle = NSDateFormatterNoStyle;
-    }
-    
-    self.tastedOnBanner.text = [dateFormatter stringFromDate:item.dateCreated];
-    
-    NSString *itemKey = self.item.itemKey;
-    UIImage *imageToDisplay = [[ImageStore sharedStore] imageForKey:itemKey];
-    self.imageView.image = imageToDisplay;
+  [super viewWillAppear:animated];
+  
+  UIInterfaceOrientation io = [[UIApplication sharedApplication] statusBarOrientation];
+  [self prepareViewsForOrientation:io];
+  
+  Item *item = self.item;
+  
+  self.nameTextView.text = item.itemName;
+  self.notesTextView.text = item.itemNotes;
+  self.clarityLabel.text = item.itemClarity;
+  self.claritySlider.value = item.itemClarityValue;
+  self.colorLabel.text = item.itemColor;
+  self.colorSlider.value = item.itemColorValue;
+  self.colorIntensity.text = item.itemColorIntensity;
+  self.colorIntensityStepper.value = item.itemColorIntensityValue;
+  self.colorShadeLabel.text = item.itemColorShade;
+  self.colorShadeSlider.value = item.itemColorShadeValue;
+  self.petillance.text = item.itemPetillance;
+  self.petillanceStepper.value = item.itemPetillanceValue;
+  self.viscosity.text = item.itemViscosity;
+  self.viscosityStepper.value = item.itemViscosityValue;
+  self.sedimentLabel.text = item.itemSediment;
+  self.sedimentSlider.value = item.itemSedimentValue;
+  self.conditionLabel.text = item.itemCondition;
+  self.conditionSlider.value = item.itemConditionSliderValue;
+  self.aromaIntensity.text = item.itemAromaIntensity;
+  self.aromaIntensityStepper.value = item.itemAromaIntensityValue;
+  self.aromasTextView.text = item.itemAromas;
+  self.development.text = item.itemDevelopment;
+  self.developmentStepper.value = item.itemDevelopmentValue;
+  self.sweetness.text = item.itemSweetness;
+  self.sweetnessStepper.value = item.itemSweetnessValue;
+  self.acidity.text = item.itemAcidity;
+  self.acidityStepper.value = item.itemAcidityValue;
+  self.tannin.text = item.itemTannin;
+  self.tanninStepper.value = item.itemTanninValue;
+  self.alchohol.text = item.itemAlchohol;
+  self.alchoholStepper.value = item.itemAlchoholValue;
+  self.body.text = item.itemBody;
+  self.bodyStepper.value = item.itemBodyValue;
+  self.flavorIntensity.text = item.itemFlavorIntensity;
+  self.flavorIntensityStepper.value = item.itemFlavorIntensityValue;
+  self.flavorsTextView.text = item.itemFlavors;
+  self.balanceTextField.text = item.itemBalance;
+  self.mousse.text = item.itemMousse;
+  self.mousseStepper.value = item.itemMousseValue;
+  self.finish.text = item.itemFinish;
+  self.finishStepper.value = item.itemFinishValue;
+  self.qualityLabel.text = item.itemQuality;
+  self.qualitySlider.value = item.itemQualityValue;
+  self.readinessTextField.text = item.itemReadiness;
+  self.winemakerTextField.text = item.itemWinemaker;
+  self.vintageTextField.text = item.itemVintage;
+  self.appellationTextField.text = item.itemAppellation;
+  self.priceTextField.text = [NSString stringWithFormat:@"%d", item.valueInDollars];
+  
+  /*
+   self.nameTextView.text = item.itemName;
+   self.vintageTextField.text = item.vintage;
+   self.priceTextField.text = [NSString stringWithFormat:@"%d", item.valueInDollars];
+   */
+  
+  static NSDateFormatter *dateFormatter;
+  if (!dateFormatter) {
+    dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateStyle = NSDateFormatterMediumStyle;
+    dateFormatter.timeStyle = NSDateFormatterNoStyle;
+  }
+  
+  self.tastedOnBanner.text = [dateFormatter stringFromDate:item.dateCreated];
+  
+  NSString *itemKey = self.item.itemKey;
+  UIImage *imageToDisplay = [[ImageStore sharedStore] imageForKey:itemKey];
+  self.imageView.image = imageToDisplay;
   
   NSString *typeLabel = [self.item.assetType valueForKey:@"label"];
   if (!typeLabel) {
@@ -765,19 +866,68 @@
   
   self.assetTypeButton.title = [NSString stringWithFormat:NSLocalizedString(@"Type: %@", @"Asset type button"), typeLabel];
   
-    [self updateFonts];
+  [self updateFonts];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
   [super viewWillDisappear:animated];
-    
+  
   [self.view endEditing:YES];
-    
+  
   Item *item = self.item;
+  
+  item.itemName = self.nameTextView.text;
+  item.itemNotes = self.notesTextView.text;
+  item.itemClarity = self.clarityLabel.text;
+  item.itemClarityValue = self.claritySlider.value;
+  item.itemColor = self.colorLabel.text;
+  item.itemColorValue = self.colorSlider.value;
+  item.itemColorIntensity = self.colorIntensity.text;
+  item.itemColorIntensityValue = self.colorIntensityStepper.value;
+  item.itemColorShade = self.colorShadeLabel.text;
+  item.itemColorShadeValue = self.colorShadeSlider.value;
+  item.itemPetillance = self.petillance.text;
+  item.itemPetillanceValue = self.petillanceStepper.value;
+  item.itemViscosity = self.viscosity.text;
+  item.itemViscosityValue = self.viscosityStepper.value;
+  item.itemSediment = self.sedimentLabel.text;
+  item.itemSedimentValue = self.sedimentSlider.value;
+  item.itemCondition = self.conditionLabel.text;
+  item.itemConditionSliderValue = self.conditionSlider.value;
+  item.itemAromaIntensity = self.aromaIntensity.text;
+  item.itemAromaIntensityValue = self.aromaIntensityStepper.value;
+  item.itemAromas = self.aromasTextView.text;
+  item.itemDevelopment = self.development.text;
+  item.itemDevelopmentValue = self.developmentStepper.value;
+  item.itemSweetness = self.sweetness.text;
+  item.itemSweetnessValue = self.sweetnessStepper.value;
+  item.itemAcidity = self.acidity.text;
+  item.itemAcidityValue = self.acidityStepper.value;
+  item.itemTannin = self.tannin.text;
+  item.itemTanninValue = self.tanninStepper.value;
+  item.itemAlchohol = self.alchohol.text;
+  item.itemAlchoholValue = self.alchoholStepper.value;
+  item.itemBody = self.body.text;
+  item.itemBodyValue = self.bodyStepper.value;
+  item.itemFlavorIntensity = self.flavorIntensity.text;
+  item.itemFlavorIntensityValue = self.flavorIntensityStepper.value;
+  item.itemFlavors = self.flavorsTextView.text;
+  item.itemBalance = self.balanceTextField.text;
+  item.itemMousse = self.mousse.text;
+  item.itemMousseValue = self.mousseStepper.value;
+  item.itemFinish = self.finish.text;
+  item.itemFinishValue = self.finishStepper.value;
+  item.itemQuality = self.qualityLabel.text;
+  item.itemQualityValue = self.qualitySlider.value;
+  item.itemReadiness = self.readinessTextField.text;
+  item.itemWinemaker = self.winemakerTextField.text;
+  item.itemVintage = self.vintageTextField.text;
+  item.itemAppellation = self.appellationTextField.text;
+  /*
   item.itemName = self.nameTextView.text;
   item.vintage = self.vintageTextField.text;
-  
+  */
   int newValue = [self.priceTextField.text intValue];
   
   if (newValue != item.valueInDollars) {
