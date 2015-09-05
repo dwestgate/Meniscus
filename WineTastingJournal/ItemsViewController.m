@@ -79,7 +79,7 @@
   Item *item = items[indexPath.row];
     
   cell.nameLabel.text = item.itemName;
-  cell.vintageLabel.text = item.vintage;
+  // cell.vintageLabel.text = item.vintage;
   
   static NSNumberFormatter *currencyFormatter = nil;
   if (currencyFormatter == nil) {

@@ -12,6 +12,52 @@
 
 NSString * const NextItemValuePrefsKey = @"NextItemValue";
 NSString * const NextItemNamePrefsKey = @"NextItemName";
+NSString * const NextItemNotesPrefsKey = @"NextItemNotes";
+NSString * const NextItemClarityPrefsKey = @"NextItemClarity";
+NSString * const NextItemClarityValuePrefsKey = @"NextItemClarityValuePrefsKey";
+NSString * const NextItemColorPrefsKey = @"NextItemColorPrefsKey";
+NSString * const NextItemColorValuePrefsKey = @"NextItemColorValuePrefsKey";
+NSString * const NextItemColorIntensityPrefsKey = @"NextItemColorIntensityPrefsKey";
+NSString * const NextItemColorIntensityValuePrefsKey = @"NextItemColorIntensityValuePrefsKey";
+NSString * const NextItemColorShadePrefsKey = @"NextItemColorShadePrefsKey";
+NSString * const NextItemColorShadeValuePrefsKey = @"NextItemColorShadeValuePrefsKey";
+NSString * const NextItemPetillancePrefsKey = @"NextItemPetillancePrefsKey";
+NSString * const NextItemPetillanceValuePrefsKey = @"NextItemPetillanceValuePrefsKey";
+NSString * const NextItemViscosityPrefsKey = @"NextItemViscosityPrefsKey";
+NSString * const NextItemViscosityValuePrefsKey = @"NextItemViscosityValuePrefsKey";
+NSString * const NextItemSedimentPrefsKey = @"NextItemSedimentPrefsKey";
+NSString * const NextItemSedimentValuePrefsKey = @"NextItemSedimentValuePrefsKey";
+NSString * const NextItemConditionPrefsKey = @"NextItemConditionPrefsKey";
+NSString * const NextItemConditionSliderValuePrefsKey = @"NextItemConditionSliderValuePrefsKey";
+NSString * const NextItemAromaIntensityPrefsKey = @"NextItemAromaIntensityPrefsKey";
+NSString * const NextItemAromaIntensityValuePrefsKey = @"NextItemAromaIntensityValuePrefsKey";
+NSString * const NextItemAromasPrefsKey = @"NextItemAromasPrefsKey";
+NSString * const NextItemDevelopmentPrefsKey = @"NextItemDevelopmentPrefsKey";
+NSString * const NextItemDevelopmentValuePrefsKey = @"NextItemDevelopmentValuePrefsKey";
+NSString * const NextItemSweetnessPrefsKey = @"NextItemSweetnessPrefsKey";
+NSString * const NextItemSweetnessValuePrefsKey = @"NextItemSweetnessValuePrefsKey";
+NSString * const NextItemAcidityPrefsKey = @"NextItemAcidityPrefsKey";
+NSString * const NextItemAcidityValuePrefsKey = @"NextItemAcidityValuePrefsKey";
+NSString * const NextItemTanninPrefsKey = @"NextItemTanninPrefsKey";
+NSString * const NextItemTanninValuePrefsKey = @"NextItemTanninValuePrefsKey";
+NSString * const NextItemAlchoholPrefsKey = @"NextItemAlchoholPrefsKey";
+NSString * const NextItemAlchoholValuePrefsKey = @"NextItemAlchoholValuePrefsKey";
+NSString * const NextItemBodyPrefsKey = @"NextItemBodyPrefsKey";
+NSString * const NextItemBodyValuePrefsKey = @"NextItemBodyValuePrefsKey";
+NSString * const NextItemFlavorIntensityPrefsKey = @"NextItemFlavorIntensityPrefsKey";
+NSString * const NextItemFlavorIntensityValuePrefsKey = @"NextItemFlavorIntensityValuePrefsKey";
+NSString * const NextItemFlavorsPrefsKey = @"NextItemFlavorsPrefsKey";
+NSString * const NextItemBalancePrefsKey = @"NextItemBalancePrefsKey";
+NSString * const NextItemMoussePrefsKey = @"NextItemMoussePrefsKey";
+NSString * const NextItemMousseValuePrefsKey = @"NextItemMousseValuePrefsKey";
+NSString * const NextItemFinishPrefsKey = @"NextItemFinishPrefsKey";
+NSString * const NextItemFinishValuePrefsKey = @"NextItemFinishValuePrefsKey";
+NSString * const NextItemQualityPrefsKey = @"NextItemQualityPrefsKey";
+NSString * const NextItemQualityValuePrefsKey = @"NextItemQualityValuePrefsKey";
+NSString * const NextItemReadinessPrefsKey = @"NextItemReadinessPrefsKey";
+NSString * const NextItemWinemakerPrefsKey = @"NextItemWinemakerPrefsKey";
+NSString * const NextItemVintagePrefsKey = @"NextItemVintagePrefsKey";
+NSString * const NextItemAppellationPrefsKey = @"NextItemAppellationPrefsKey";
 
 @interface AppDelegate ()
 
@@ -22,7 +68,55 @@ NSString * const NextItemNamePrefsKey = @"NextItemName";
 + (void)initialize
 {
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  NSDictionary *factorySettings = @{NextItemValuePrefsKey : @75, NextItemNamePrefsKey : @"1997 Domaine les Grandes Vignes Bonnezeaux Sélection de Grains Nobles"};
+  NSDictionary *factorySettings = @{NextItemValuePrefsKey : @75,
+                                    NextItemNamePrefsKey : @"Wine Name",
+                                    NextItemNotesPrefsKey : @"Notes",
+                                    NextItemClarityPrefsKey : @"Wine Clarity",
+                                    NextItemClarityValuePrefsKey : @1,
+                                    NextItemColorPrefsKey : @"Wine Color",
+                                    NextItemColorValuePrefsKey : @1,
+                                    NextItemColorIntensityPrefsKey : @"Intensity",
+                                    NextItemColorIntensityValuePrefsKey : @1,
+                                    NextItemColorShadePrefsKey : @"Color Shade",
+                                    NextItemColorShadeValuePrefsKey : @1,
+                                    NextItemPetillancePrefsKey : @"Petillance",
+                                    NextItemPetillanceValuePrefsKey : @1,
+                                    NextItemViscosityPrefsKey : @"Viscosity",
+                                    NextItemViscosityValuePrefsKey : @1,
+                                    NextItemSedimentPrefsKey : @"Sediment",
+                                    NextItemSedimentValuePrefsKey : @1,
+                                    NextItemConditionPrefsKey : @"Condition",
+                                    NextItemConditionSliderValuePrefsKey : @1,
+                                    NextItemAromaIntensityPrefsKey : @"Intensity",
+                                    NextItemAromaIntensityValuePrefsKey : @3,
+                                    NextItemAromasPrefsKey : @"Aromas",
+                                    NextItemDevelopmentPrefsKey : @"Development",
+                                    NextItemDevelopmentValuePrefsKey : @1,
+                                    NextItemSweetnessPrefsKey : @"Sweetness",
+                                    NextItemSweetnessValuePrefsKey : @1,
+                                    NextItemAcidityPrefsKey : @"Acidity",
+                                    NextItemAcidityValuePrefsKey : @1,
+                                    NextItemTanninPrefsKey : @"Tannin",
+                                    NextItemTanninValuePrefsKey : @"1",
+                                    NextItemAlchoholPrefsKey : @"Alchohol",
+                                    NextItemAlchoholValuePrefsKey : @3,
+                                    NextItemBodyPrefsKey : @"Body",
+                                    NextItemBodyValuePrefsKey : @1,
+                                    NextItemFlavorIntensityPrefsKey : @"Intensity",
+                                    NextItemFlavorIntensityValuePrefsKey : @1,
+                                    NextItemFlavorsPrefsKey : @"Flavors",
+                                    NextItemBalancePrefsKey : @"Balance",
+                                    NextItemMoussePrefsKey : @"Mousse",
+                                    NextItemMousseValuePrefsKey : @1,
+                                    NextItemFinishPrefsKey : @"Finish",
+                                    NextItemFinishValuePrefsKey : @1,
+                                    NextItemQualityPrefsKey : @"Quality",
+                                    NextItemQualityValuePrefsKey : @1,
+                                    NextItemReadinessPrefsKey : @"Readiness",
+                                    NextItemWinemakerPrefsKey : @"Winemaker",
+                                    NextItemVintagePrefsKey : @"Vintage",
+                                    NextItemAppellationPrefsKey : @"Appellation"
+                                    };
   [defaults registerDefaults:factorySettings];
 }
 

@@ -8,7 +8,7 @@
 			<key>AutocapitalizationType</key>
 			<string>None</string>
 			<key>AutocorrectionType</key>
-			<string>Yes</string>
+			<string>No</string>
 			<key>DefaultValue</key>
 			<string>1997 Domaine les Grandes Vignes Bonnezeaux Sélection de Grains Nobles</string>
 			<key>IsSecure</key>

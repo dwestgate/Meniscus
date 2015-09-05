@@ -61,8 +61,6 @@
 @property (nonatomic, strong) NSString * itemWinemaker;
 @property (nonatomic, strong) NSString * itemVintage;
 @property (nonatomic, strong) NSString * itemAppellation;
-@property (nonatomic) int itemPrice;
-@property (nonatomic, strong) NSDate * itemTastedOn;
 
 /*
 @property (nonatomic, strong) NSString * itemName;

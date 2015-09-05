@@ -1,21 +1,66 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14E46" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14F27" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="AssetType" syncable="YES">
         <attribute name="label" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="items" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="assetType" inverseEntity="Item" syncable="YES"/>
     </entity>
     <entity name="Item" representedClassName="Item" syncable="YES">
         <attribute name="dateCreated" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="itemAcidity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemAcidityValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="itemAlchohol" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemAlchoholValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="itemAppellation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemAromaIntensity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemAromaIntensityValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="itemAromas" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemBalance" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemBody" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemBodyValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="itemClarity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemClarityValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="itemColor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemColorIntensity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemColorIntensityValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="itemColorShade" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemColorShadeValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="itemColorValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="itemCondition" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemConditionSliderValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="itemDevelopment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemDevelopmentValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="itemFinish" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemFinishValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="itemFlavorIntensity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemFlavorIntensityValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="itemFlavors" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="itemKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemMousse" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemMousseValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="itemName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemNotes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemPetillance" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemPetillanceValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="itemQuality" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemQualityValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="itemReadiness" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemSediment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemSedimentValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="itemSweetness" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemSweetnessValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="itemTannin" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemTanninValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="itemVintage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemViscosity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemViscosityValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="itemWinemaker" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="orderingValue" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="thumbnail" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="valueInDollars" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="vintage" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="assetType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AssetType" inverseName="items" inverseEntity="AssetType" syncable="YES"/>
     </entity>
     <elements>
-        <element name="AssetType" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Item" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="AssetType" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="Item" positionX="0" positionY="0" width="128" height="840"/>
     </elements>
 </model>
