@@ -34,18 +34,15 @@
 @property (weak, nonatomic) IBOutlet UISlider *colorSlider;
 
 @property (weak, nonatomic) IBOutlet UILabel *colorIntensityLabel;
-@property (weak, nonatomic) IBOutlet UILabel *colorIntensity;
 @property (weak, nonatomic) IBOutlet UIStepper *colorIntensityStepper;
 
 @property (weak, nonatomic) IBOutlet UILabel *colorShadeLabel;
 @property (weak, nonatomic) IBOutlet UISlider *colorShadeSlider;
 
 @property (weak, nonatomic) IBOutlet UILabel *petillanceLabel;
-@property (weak, nonatomic) IBOutlet UILabel *petillance;
 @property (weak, nonatomic) IBOutlet UIStepper *petillanceStepper;
 
 @property (weak, nonatomic) IBOutlet UILabel *viscosityLabel;
-@property (weak, nonatomic) IBOutlet UILabel *viscosity;
 @property (weak, nonatomic) IBOutlet UIStepper *viscosityStepper;
 
 @property (weak, nonatomic) IBOutlet UILabel *sedimentLabel;
@@ -57,40 +54,32 @@
 @property (weak, nonatomic) IBOutlet UISlider *conditionSlider;
 
 @property (weak, nonatomic) IBOutlet UILabel *aromaIntensityLabel;
-@property (weak, nonatomic) IBOutlet UILabel *aromaIntensity;
 @property (weak, nonatomic) IBOutlet UIStepper *aromaIntensityStepper;
 
 @property (weak, nonatomic) IBOutlet UILabel *aromasLabel;
 @property (weak, nonatomic) IBOutlet UITextView *aromasTextView;
 
 @property (weak, nonatomic) IBOutlet UILabel *developmentLabel;
-@property (weak, nonatomic) IBOutlet UILabel *development;
 @property (weak, nonatomic) IBOutlet UIStepper *developmentStepper;
 
 @property (weak, nonatomic) IBOutlet UILabel *palateBanner;
 
 @property (weak, nonatomic) IBOutlet UILabel *sweetnessLabel;
-@property (weak, nonatomic) IBOutlet UILabel *sweetness;
 @property (weak, nonatomic) IBOutlet UIStepper *sweetnessStepper;
 
 @property (weak, nonatomic) IBOutlet UILabel *acidityLabel;
-@property (weak, nonatomic) IBOutlet UILabel *acidity;
 @property (weak, nonatomic) IBOutlet UIStepper *acidityStepper;
 
 @property (weak, nonatomic) IBOutlet UILabel *tanninLabel;
-@property (weak, nonatomic) IBOutlet UILabel *tannin;
 @property (weak, nonatomic) IBOutlet UIStepper *tanninStepper;
 
 @property (weak, nonatomic) IBOutlet UILabel *alchoholLabel;
-@property (weak, nonatomic) IBOutlet UILabel *alchohol;
 @property (weak, nonatomic) IBOutlet UIStepper *alchoholStepper;
 
 @property (weak, nonatomic) IBOutlet UILabel *bodyLabel;
-@property (weak, nonatomic) IBOutlet UILabel *body;
 @property (weak, nonatomic) IBOutlet UIStepper *bodyStepper;
 
 @property (weak, nonatomic) IBOutlet UILabel *flavorIntensityLabel;
-@property (weak, nonatomic) IBOutlet UILabel *flavorIntensity;
 @property (weak, nonatomic) IBOutlet UIStepper *flavorIntensityStepper;
 
 @property (weak, nonatomic) IBOutlet UILabel *flavorsLabel;
@@ -100,11 +89,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *balanceTextField;
 
 @property (weak, nonatomic) IBOutlet UILabel *mousseLabel;
-@property (weak, nonatomic) IBOutlet UILabel *mousse;
 @property (weak, nonatomic) IBOutlet UIStepper *mousseStepper;
 
 @property (weak, nonatomic) IBOutlet UILabel *finishLabel;
-@property (weak, nonatomic) IBOutlet UILabel *finish;
 @property (weak, nonatomic) IBOutlet UIStepper *finishStepper;
 
 @property (weak, nonatomic) IBOutlet UILabel *conclusionsBanner;
@@ -164,40 +151,40 @@
   self.item.itemClarityValue = self.claritySlider.value;
   self.item.itemColor = self.colorLabel.text;
   self.item.itemColorValue = self.colorSlider.value;
-  self.item.itemColorIntensity = self.colorIntensity.text;
+  self.item.itemColorIntensity = self.colorIntensityLabel.text;
   self.item.itemColorIntensityValue = self.colorIntensityStepper.value;
   self.item.itemColorShade = self.colorShadeLabel.text;
   self.item.itemColorShadeValue = self.colorShadeSlider.value;
-  self.item.itemPetillance = self.petillance.text;
+  self.item.itemPetillance = self.petillanceLabel.text;
   self.item.itemPetillanceValue = self.petillanceStepper.value;
-  self.item.itemViscosity = self.viscosity.text;
+  self.item.itemViscosity = self.viscosityLabel.text;
   self.item.itemViscosityValue = self.viscosityStepper.value;
   self.item.itemSediment = self.sedimentLabel.text;
   self.item.itemSedimentValue = self.sedimentSlider.value;
   self.item.itemCondition = self.conditionLabel.text;
   self.item.itemConditionSliderValue = self.conditionSlider.value;
-  self.item.itemAromaIntensity = self.aromaIntensity.text;
+  self.item.itemAromaIntensity = self.aromaIntensityLabel.text;
   self.item.itemAromaIntensityValue = self.aromaIntensityStepper.value;
   self.item.itemAromas = self.aromasTextView.text;
-  self.item.itemDevelopment = self.development.text;
+  self.item.itemDevelopment = self.developmentLabel.text;
   self.item.itemDevelopmentValue = self.developmentStepper.value;
-  self.item.itemSweetness = self.sweetness.text;
+  self.item.itemSweetness = self.sweetnessLabel.text;
   self.item.itemSweetnessValue = self.sweetnessStepper.value;
-  self.item.itemAcidity = self.acidity.text;
+  self.item.itemAcidity = self.acidityLabel.text;
   self.item.itemAcidityValue = self.acidityStepper.value;
-  self.item.itemTannin = self.tannin.text;
+  self.item.itemTannin = self.tanninLabel.text;
   self.item.itemTanninValue = self.tanninStepper.value;
-  self.item.itemAlchohol = self.alchohol.text;
+  self.item.itemAlchohol = self.alchoholLabel.text;
   self.item.itemAlchoholValue = self.alchoholStepper.value;
-  self.item.itemBody = self.body.text;
+  self.item.itemBody = self.bodyLabel.text;
   self.item.itemBodyValue = self.bodyStepper.value;
-  self.item.itemFlavorIntensity = self.flavorIntensity.text;
+  self.item.itemFlavorIntensity = self.flavorIntensityLabel.text;
   self.item.itemFlavorIntensityValue = self.flavorIntensityStepper.value;
   self.item.itemFlavors = self.flavorsTextView.text;
   self.item.itemBalance = self.balanceTextField.text;
-  self.item.itemMousse = self.mousse.text;
+  self.item.itemMousse = self.mousseLabel.text;
   self.item.itemMousseValue = self.mousseStepper.value;
-  self.item.itemFinish = self.finish.text;
+  self.item.itemFinish = self.finishLabel.text;
   self.item.itemFinishValue = self.finishStepper.value;
   self.item.itemQuality = self.qualityLabel.text;
   self.item.itemQualityValue = self.qualitySlider.value;
@@ -299,6 +286,10 @@
 
 - (IBAction)colorIntensityValueChanged:(id)sender {
   
+  if ([_colorIntensityLabel.text isEqualToString:@"Color Intensity"]) {
+    _colorIntensityStepper.value = 1;
+  }
+  
   if (_colorIntensityStepper.value == 1) {
     
     if (_colorSlider.value == 50) {
@@ -359,16 +350,24 @@
 
 - (IBAction)petillanceValueChanged:(id)sender {
   
+  if ([_petillanceLabel.text isEqualToString:@"Petillance"]) {
+    _petillanceStepper.value = 1;
+  }
+  
   if (_petillanceStepper.value == 1) {
-    _petillanceLabel.text = @"None";
+    _petillanceLabel.text = @"No petillance";
   } else if (_petillanceStepper.value == 2) {
-    _petillanceLabel.text = @"Light";
+    _petillanceLabel.text = @"Light petillance";
   } else {
-    _petillanceLabel.text = @"Pronounced";
+    _petillanceLabel.text = @"Pronounced petillance";
   }
 }
 
 - (IBAction)viscosityValueChanged:(id)sender {
+  
+  if ([_viscosityLabel.text isEqualToString:@"Viscosity"]) {
+    _viscosityStepper.value = 1;
+  }
   
   if (_viscosityStepper.value == 1) {
     _viscosityLabel.text = @"Clear legs";
@@ -409,20 +408,29 @@
 }
 
 - (IBAction)aromaIntensityValueChanged:(id)sender {
+  
+  if ([_aromaIntensityLabel.text isEqualToString:@"Aroma Intensity"]) {
+    _aromaIntensityStepper.value = 1;
+  }
+  
   if (_aromaIntensityStepper.value == 1) {
-    _aromaIntensityLabel.text = @"Light";
+    _aromaIntensityLabel.text = @"Light aroma";
   } else if (_aromaIntensityStepper.value == 2) {
-    _aromaIntensityLabel.text = @"Medium -";
+    _aromaIntensityLabel.text = @"Medium-minus aroma";
   } else if (_aromaIntensityStepper.value == 3) {
-    _aromaIntensityLabel.text = @"Medium";
+    _aromaIntensityLabel.text = @"Medium-intensity aroma";
   } else if (_aromaIntensityStepper.value == 4) {
-    _aromaIntensityLabel.text = @"Medium +";
+    _aromaIntensityLabel.text = @"Medium-plus aroma";
   } else {
-    _aromaIntensityLabel.text = @"Pronounced";
+    _aromaIntensityLabel.text = @"Pronounced aroma";
   }
 }
 
 - (IBAction)developmentValueChanged:(id)sender {
+  
+  if ([_developmentLabel.text isEqualToString:@"State of Development"]) {
+    _developmentStepper.value = 1;
+  }
   
   if (_developmentStepper.value == 1) {
     _developmentLabel.text = @"Youthful";
@@ -436,6 +444,10 @@
 }
 
 - (IBAction)sweetnessValueChanged:(id)sender {
+  
+  if ([_sweetnessLabel.text isEqualToString:@"Sweetness"]) {
+    _sweetnessStepper.value = 1;
+  }
   
   if (_sweetnessStepper.value == 1) {
     _sweetnessLabel.text = @"Dry";
@@ -453,98 +465,133 @@
 }
 
 - (IBAction)acidityValueChanged:(id)sender {
+  
+  if ([_acidityLabel.text isEqualToString:@"Acidity"]) {
+    _acidityStepper.value = 1;
+  }
+  
   if (_acidityStepper.value == 1) {
-    _acidityLabel.text = @"Low";
+    _acidityLabel.text = @"Low acidity";
   } else if (_acidityStepper.value == 2) {
-    _acidityLabel.text = @"Medium -";
+    _acidityLabel.text = @"Medium-minus acidity";
   } else if (_acidityStepper.value == 3) {
-    _acidityLabel.text = @"Medium";
+    _acidityLabel.text = @"Medium acidity";
   } else if (_acidityStepper.value == 4) {
-    _acidityLabel.text = @"Medium +";
+    _acidityLabel.text = @"Medium-plus acidity";
   } else {
-    _acidityLabel.text = @"High";
+    _acidityLabel.text = @"High acidity";
   }
 }
 
 - (IBAction)tanninValueChanged:(id)sender {
+  
+  if ([_tanninLabel.text isEqualToString:@"Tannin"]) {
+    _tanninStepper.value = 1;
+  }
+  
   if (_tanninStepper.value == 1) {
-    _tanninLabel.text = @"Low";
+    _tanninLabel.text = @"Low tannin";
   } else if (_tanninStepper.value == 2) {
-    _tanninLabel.text = @"Medium -";
+    _tanninLabel.text = @"Medium-minus tannins";
   } else if (_tanninStepper.value == 3) {
-    _tanninLabel.text = @"Medium";
+    _tanninLabel.text = @"Medium tannins";
   } else if (_tanninStepper.value == 4) {
-    _tanninLabel.text = @"Medium +";
+    _tanninLabel.text = @"Medium-plus tannins";
   } else {
-    _tanninLabel.text = @"High";
+    _tanninLabel.text = @"High tannins";
   }
 }
 
 - (IBAction)alchoholValueChanged:(id)sender {
+  
+  if ([_alchoholLabel.text isEqualToString:@"Alchohol Level"]) {
+    _alchoholStepper.value = 1;
+  }
+  
   if (_alchoholStepper.value == 1) {
-    _alchoholLabel.text = @"Low (<11.5>";
+    _alchoholLabel.text = @"Low alchohol (<11.5%)";
   } else if (_alchoholStepper.value == 2) {
-    _alchoholLabel.text = @"Medium - (<12.5)";
+    _alchoholLabel.text = @"Medium- alchohol (<12.5%)";
   } else if (_alchoholStepper.value == 3) {
-    _alchoholLabel.text = @"Medium (<13.5)";
+    _alchoholLabel.text = @"Medium alchohol (<13.5%)";
   } else if (_alchoholStepper.value == 4) {
-    _alchoholLabel.text = @"Medium + (<13.9)";
+    _alchoholLabel.text = @"Medium+ alchohol (<13.9%)";
   } else {
-    _alchoholLabel.text = @"High (14+)";
+    _alchoholLabel.text = @"High alchohol (14%+)";
   }
 }
 
 - (IBAction)bodyValueChanged:(id)sender {
+  
+  if ([_bodyLabel.text isEqualToString:@"Body"]) {
+    _bodyStepper.value = 1;
+  }
+  
   if (_bodyStepper.value == 1) {
-    _bodyLabel.text = @"Light";
+    _bodyLabel.text = @"Light-bodied";
   } else if (_bodyStepper.value == 2) {
-    _bodyLabel.text = @"Medium -";
+    _bodyLabel.text = @"Medium-minus body";
   } else if (_bodyStepper.value == 3) {
-    _bodyLabel.text = @"Medium";
+    _bodyLabel.text = @"Medium-bodied";
   } else if (_bodyStepper.value == 4) {
-    _bodyLabel.text = @"Medium +";
+    _bodyLabel.text = @"Medium-plus body";
   } else {
-    _bodyLabel.text = @"Full";
+    _bodyLabel.text = @"Full-bodied";
   }
 }
 
 - (IBAction)flavorIntensityValueChanged:(id)sender {
+  
+  if ([_flavorIntensityLabel.text isEqualToString:@"Intensity of Flavor"]) {
+    _flavorIntensityStepper.value = 1;
+  }
+  
   if (_flavorIntensityStepper.value == 1) {
-    _flavorIntensityLabel.text = @"Light";
+    _flavorIntensityLabel.text = @"Light flavor";
   } else if (_flavorIntensityStepper.value == 2) {
-    _flavorIntensityLabel.text = @"Medium -";
+    _flavorIntensityLabel.text = @"Medium-minus flavors";
   } else if (_flavorIntensityStepper.value == 3) {
-    _flavorIntensityLabel.text = @"Medium";
+    _flavorIntensityLabel.text = @"Medium flavors";
   } else if (_flavorIntensityStepper.value == 4) {
-    _flavorIntensityLabel.text = @"Medium +";
+    _flavorIntensityLabel.text = @"Medium-plus flavors";
   } else {
-    _flavorIntensityLabel.text = @"Pronounced";
+    _flavorIntensityLabel.text = @"Pronounced flavors";
   }
 }
 
 - (IBAction)mousseValueChanged:(id)sender {
+  
+  if ([_mousseLabel.text isEqualToString:@"Mousse"]) {
+    _mousseStepper.value = 1;
+  }
+  
   if (_mousseStepper.value == 1) {
     _mousseLabel.text = @"No mousse";
   } else if (_mousseStepper.value == 2) {
-    _mousseLabel.text = @"Delicate";
+    _mousseLabel.text = @"Delicate mousse";
   } else if (_mousseStepper.value == 3) {
-    _mousseLabel.text = @"Creamy";
+    _mousseLabel.text = @"Creamy mousse";
   } else {
-    _mousseLabel.text = @"Aggressive";
+    _mousseLabel.text = @"Aggressive mousse";
   }
 }
 
 - (IBAction)finishValueChanged:(id)sender {
+  
+  if ([_finishLabel.text isEqualToString:@"Length of Finish"]) {
+    _finishStepper.value = 1;
+  }
+  
   if (_finishStepper.value == 1) {
-    _finishLabel.text = @"Short";
+    _finishLabel.text = @"Short finish";
   } else if (_finishStepper.value == 2) {
-    _finishLabel.text = @"Medium -";
+    _finishLabel.text = @"Medium-minus finish";
   } else if (_finishStepper.value == 3) {
-    _finishLabel.text = @"Medium";
+    _finishLabel.text = @"Medium-length finish";
   } else if (_finishStepper.value == 4) {
-    _finishLabel.text = @"Medium +";
+    _finishLabel.text = @"Medium-plus finish";
   } else {
-    _finishLabel.text = @"Long";
+    _finishLabel.text = @"Long finish";
   }
 }
 
@@ -724,42 +771,29 @@
   self.clarityLabel.font = font;
   self.colorLabel.font = font;
   self.colorIntensityLabel.font = font;
-  self.colorIntensity.font = font;
   self.colorShadeLabel.font = font;
   self.petillanceLabel.font = font;
-  self.petillance.font = font;
   self.viscosityLabel.font = font;
-  self.viscosity.font = font;
   self.sedimentLabel.font = font;
   self.noseBanner.font = font;
   self.conditionLabel.font = font;
   self.aromaIntensityLabel.font = font;
-  self.aromaIntensity.font = font;
   self.aromasLabel.font = font;
   self.aromasTextView.font = font;
   self.developmentLabel.font = font;
-  self.development.font = font;
   self.palateBanner.font = font;
   self.sweetnessLabel.font = font;
-  self.sweetness.font = font;
   self.acidityLabel.font = font;
-  self.acidity.font = font;
   self.tanninLabel.font = font;
-  self.tannin.font = font;
   self.alchoholLabel.font = font;
-  self.alchohol.font = font;
   self.bodyLabel.font = font;
-  self.body.font = font;
   self.flavorIntensityLabel.font = font;
-  self.flavorIntensity.font = font;
   self.flavorsLabel.font = font;
   self.flavorsTextView.font = font;
   self.balanceLabel.font = font;
   self.balanceTextField.font = font;
   self.mousseLabel.font = font;
-  self.mousse.font = font;
   self.finishLabel.font = font;
-  self.finish.font = font;
   self.conclusionsBanner.font = font;
   self.qualityLabel.font = font;
   self.readinessLabel.font = font;
@@ -797,40 +831,40 @@
   self.claritySlider.value = item.itemClarityValue;
   self.colorLabel.text = item.itemColor;
   self.colorSlider.value = item.itemColorValue;
-  self.colorIntensity.text = item.itemColorIntensity;
+  self.colorIntensityLabel.text = item.itemColorIntensity;
   self.colorIntensityStepper.value = item.itemColorIntensityValue;
   self.colorShadeLabel.text = item.itemColorShade;
   self.colorShadeSlider.value = item.itemColorShadeValue;
-  self.petillance.text = item.itemPetillance;
+  self.petillanceLabel.text = item.itemPetillance;
   self.petillanceStepper.value = item.itemPetillanceValue;
-  self.viscosity.text = item.itemViscosity;
+  self.viscosityLabel.text = item.itemViscosity;
   self.viscosityStepper.value = item.itemViscosityValue;
   self.sedimentLabel.text = item.itemSediment;
   self.sedimentSlider.value = item.itemSedimentValue;
   self.conditionLabel.text = item.itemCondition;
   self.conditionSlider.value = item.itemConditionSliderValue;
-  self.aromaIntensity.text = item.itemAromaIntensity;
+  self.aromaIntensityLabel.text = item.itemAromaIntensity;
   self.aromaIntensityStepper.value = item.itemAromaIntensityValue;
   self.aromasTextView.text = item.itemAromas;
-  self.development.text = item.itemDevelopment;
+  self.developmentLabel.text = item.itemDevelopment;
   self.developmentStepper.value = item.itemDevelopmentValue;
-  self.sweetness.text = item.itemSweetness;
+  self.sweetnessLabel.text = item.itemSweetness;
   self.sweetnessStepper.value = item.itemSweetnessValue;
-  self.acidity.text = item.itemAcidity;
+  self.acidityLabel.text = item.itemAcidity;
   self.acidityStepper.value = item.itemAcidityValue;
-  self.tannin.text = item.itemTannin;
+  self.tanninLabel.text = item.itemTannin;
   self.tanninStepper.value = item.itemTanninValue;
-  self.alchohol.text = item.itemAlchohol;
+  self.alchoholLabel.text = item.itemAlchohol;
   self.alchoholStepper.value = item.itemAlchoholValue;
-  self.body.text = item.itemBody;
+  self.bodyLabel.text = item.itemBody;
   self.bodyStepper.value = item.itemBodyValue;
-  self.flavorIntensity.text = item.itemFlavorIntensity;
+  self.flavorIntensityLabel.text = item.itemFlavorIntensity;
   self.flavorIntensityStepper.value = item.itemFlavorIntensityValue;
   self.flavorsTextView.text = item.itemFlavors;
   self.balanceTextField.text = item.itemBalance;
-  self.mousse.text = item.itemMousse;
+  self.mousseLabel.text = item.itemMousse;
   self.mousseStepper.value = item.itemMousseValue;
-  self.finish.text = item.itemFinish;
+  self.finishLabel.text = item.itemFinish;
   self.finishStepper.value = item.itemFinishValue;
   self.qualityLabel.text = item.itemQuality;
   self.qualitySlider.value = item.itemQualityValue;
@@ -867,6 +901,11 @@
   self.assetTypeButton.title = [NSString stringWithFormat:NSLocalizedString(@"Type: %@", @"Asset type button"), typeLabel];
   
   [self updateFonts];
+  
+  if ([_nameTextView.text isEqualToString:@""]) {
+    [_nameTextView becomeFirstResponder];
+  }
+  
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -883,40 +922,40 @@
   item.itemClarityValue = self.claritySlider.value;
   item.itemColor = self.colorLabel.text;
   item.itemColorValue = self.colorSlider.value;
-  item.itemColorIntensity = self.colorIntensity.text;
+  item.itemColorIntensity = self.colorIntensityLabel.text;
   item.itemColorIntensityValue = self.colorIntensityStepper.value;
   item.itemColorShade = self.colorShadeLabel.text;
   item.itemColorShadeValue = self.colorShadeSlider.value;
-  item.itemPetillance = self.petillance.text;
+  item.itemPetillance = self.petillanceLabel.text;
   item.itemPetillanceValue = self.petillanceStepper.value;
-  item.itemViscosity = self.viscosity.text;
+  item.itemViscosity = self.viscosityLabel.text;
   item.itemViscosityValue = self.viscosityStepper.value;
   item.itemSediment = self.sedimentLabel.text;
   item.itemSedimentValue = self.sedimentSlider.value;
   item.itemCondition = self.conditionLabel.text;
   item.itemConditionSliderValue = self.conditionSlider.value;
-  item.itemAromaIntensity = self.aromaIntensity.text;
+  item.itemAromaIntensity = self.aromaIntensityLabel.text;
   item.itemAromaIntensityValue = self.aromaIntensityStepper.value;
   item.itemAromas = self.aromasTextView.text;
-  item.itemDevelopment = self.development.text;
+  item.itemDevelopment = self.developmentLabel.text;
   item.itemDevelopmentValue = self.developmentStepper.value;
-  item.itemSweetness = self.sweetness.text;
+  item.itemSweetness = self.sweetnessLabel.text;
   item.itemSweetnessValue = self.sweetnessStepper.value;
-  item.itemAcidity = self.acidity.text;
+  item.itemAcidity = self.acidityLabel.text;
   item.itemAcidityValue = self.acidityStepper.value;
-  item.itemTannin = self.tannin.text;
+  item.itemTannin = self.tanninLabel.text;
   item.itemTanninValue = self.tanninStepper.value;
-  item.itemAlchohol = self.alchohol.text;
+  item.itemAlchohol = self.alchoholLabel.text;
   item.itemAlchoholValue = self.alchoholStepper.value;
-  item.itemBody = self.body.text;
+  item.itemBody = self.bodyLabel.text;
   item.itemBodyValue = self.bodyStepper.value;
-  item.itemFlavorIntensity = self.flavorIntensity.text;
+  item.itemFlavorIntensity = self.flavorIntensityLabel.text;
   item.itemFlavorIntensityValue = self.flavorIntensityStepper.value;
   item.itemFlavors = self.flavorsTextView.text;
   item.itemBalance = self.balanceTextField.text;
-  item.itemMousse = self.mousse.text;
+  item.itemMousse = self.mousseLabel.text;
   item.itemMousseValue = self.mousseStepper.value;
-  item.itemFinish = self.finish.text;
+  item.itemFinish = self.finishLabel.text;
   item.itemFinishValue = self.finishStepper.value;
   item.itemQuality = self.qualityLabel.text;
   item.itemQualityValue = self.qualitySlider.value;
