@@ -416,6 +416,9 @@
                                             <rect key="frame" x="167" y="1025" width="228" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <action selector="balanceTextFieldDidBeginEditing:" destination="-1" eventType="editingDidBegin" id="H85-JQ-tde"/>
+                                            </connections>
                                         </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Conclusions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXH-rn-Tfx" userLabel="conclusionsBanner">
                                             <rect key="frame" x="8" y="1143" width="399" height="21"/>

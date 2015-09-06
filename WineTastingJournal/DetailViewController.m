@@ -14,7 +14,7 @@
 #import "AppDelegate.h"
 
 @interface DetailViewController ()
-    <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, UIPopoverControllerDelegate>
+    <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, UIPopoverControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIGestureRecognizerDelegate>
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UIView *contentView;
@@ -117,6 +117,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *priceTextField;
 
 @property (weak, nonatomic) IBOutlet UILabel *tastedOnBanner;
+
+@property (retain, nonatomic) IBOutlet UIPickerView *balancePickerView;
+@property (strong, nonatomic) NSArray *balancePickerOptions;
 
 @property (strong, nonatomic) UIPopoverController *imagePickerPopover;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -644,12 +647,6 @@
     [self.view endEditing:YES];
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [textField resignFirstResponder];
-    return YES;
-}
-
 - (IBAction)takePicture:(id)sender
 {
     if ([self.imagePickerPopover isPopoverVisible]) {
@@ -736,26 +733,119 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+  [super viewDidLoad];
   
-    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self.view action:@selector(endEditing:)]];
+  [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self.view action:@selector(endEditing:)]];
   
-    UIImageView *iv = [[UIImageView alloc] initWithImage:nil];
-    iv.contentMode = UIViewContentModeScaleAspectFit;
-    iv.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.contentView addSubview:iv];
-    self.imageView = iv;
+  UIImageView *iv = [[UIImageView alloc] initWithImage:nil];
+  iv.contentMode = UIViewContentModeScaleAspectFit;
+  iv.translatesAutoresizingMaskIntoConstraints = NO;
+  [self.contentView addSubview:iv];
+  self.imageView = iv;
   
-    [self.imageView setContentHuggingPriority:200 forAxis:UILayoutConstraintAxisVertical];
-    [self.imageView setContentCompressionResistancePriority:700 forAxis:UILayoutConstraintAxisVertical];
+  [self.imageView setContentHuggingPriority:200 forAxis:UILayoutConstraintAxisVertical];
+  [self.imageView setContentCompressionResistancePriority:700 forAxis:UILayoutConstraintAxisVertical];
   
-    NSDictionary *nameMap = @{@"imageView" : self.imageView, @"tastedOnBanner" : self.tastedOnBanner};
-    NSArray *horizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[imageView]-0-|" options:0 metrics:nil views:nameMap];
-    NSArray *verticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[tastedOnBanner]-[imageView]-0-|" options:0 metrics:nil views:nameMap];
+  NSDictionary *nameMap = @{@"imageView" : self.imageView, @"tastedOnBanner" : self.tastedOnBanner};
+  NSArray *horizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[imageView]-0-|" options:0 metrics:nil views:nameMap];
+  NSArray *verticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[tastedOnBanner]-[imageView]-0-|" options:0 metrics:nil views:nameMap];
   
-    [self.contentView addConstraints:horizontalConstraints];
-    [self.contentView addConstraints:verticalConstraints];
+  [self.contentView addConstraints:horizontalConstraints];
+  [self.contentView addConstraints:verticalConstraints];
+  
+  // Add the balanceTextField's PickerView
+  _balancePickerOptions = [[NSArray alloc] initWithObjects:@"Well-balanced", @"Ascetic",@"Acidic",@"Thin",@"Flabby",@"Jammy",@"Alchoholic", nil];
+  
+  _balancePickerView = [[UIPickerView alloc] init];
+  
+  UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(balancePickerViewTapped:)];
+  //tap.cancelsTouchesInView = NO;
+  [_balancePickerView addGestureRecognizer:tap];
+  tap.delegate = self;
+  
+  _balancePickerView.delegate = self;
+  _balancePickerView.dataSource = self;
 }
+
+#pragma mark - TextField
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+  [textField resignFirstResponder];
+  return YES;
+}
+
+
+- (IBAction)balanceTextFieldDidBeginEditing:(id)sender
+{
+  if (_balanceTextField.isEditing==YES)
+  {
+    _balanceTextField.inputView = _balancePickerView;
+  }
+}
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+  
+  if (_balanceTextField.isEditing==YES)
+  {
+    textField.inputView = _balancePickerView;
+    _balanceTextField = textField;
+  }
+  
+  [[textField valueForKey:@"textInputTraits"]
+   setValue:[UIColor lightGrayColor] forKey:@"insertionPointColor"];
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField {
+  [_balancePickerView selectRow:0 inComponent:0 animated:NO];
+}
+
+#pragma mark - PickerView
+
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
+  // return
+  return true;
+}
+
+- (void)balancePickerViewTapped:(UIGestureRecognizer *)tap
+{
+  
+  CGPoint touchPoint = [tap locationInView:tap.view.superview];
+  
+  CGRect frame = self.balancePickerView.frame;
+  CGRect selectorFrame = CGRectInset(frame, 0.0, self.balancePickerView.bounds.size.height);
+  
+  if (CGRectContainsPoint(selectorFrame, touchPoint)) {
+    NSLog( @"Selected Row: %@", self.balanceTextField.text);
+  }
+  
+  [self.view endEditing:YES];
+  // [self resignFirstResponder];
+  // [_balanceTextField resignFirstResponder];
+}
+
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+  return 1;
+}
+
+-(NSInteger)pickerView:(UIPickerView *)pickerView
+numberOfRowsInComponent:(NSInteger)component{
+  return [_balancePickerOptions count];
+}
+
+-(NSString *)pickerView:(UIPickerView *)pickerView
+            titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+  return [_balancePickerOptions objectAtIndex:row];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView
+      didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+  _balanceTextField.text = [_balancePickerOptions objectAtIndex:row];
+}
+
+
 
 #pragma mark - Form Maintenance
 
