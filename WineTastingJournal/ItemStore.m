@@ -16,6 +16,7 @@
 
 @property (nonatomic) NSMutableArray *privateItems;
 @property (nonatomic, strong) NSMutableArray *allAssetTypes;
+@property (nonatomic, strong) NSMutableArray *allAromas;
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic, strong) NSManagedObjectModel *model;
 
@@ -93,6 +94,7 @@
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   item.valueInDollars = [[defaults objectForKey:NextItemValuePrefsKey] intValue];
   item.itemName = [defaults objectForKey:NextItemNamePrefsKey];
+  item.itemTastingID = [defaults objectForKey:NextItemTastingIDPrefsKey];
   item.itemNotes = [defaults objectForKey:NextItemNotesPrefsKey];
   item.itemClarity = [defaults objectForKey:NextItemClarityPrefsKey];
   item.itemClarityValue = [[defaults objectForKey:NextItemClarityValuePrefsKey] intValue];
@@ -136,6 +138,11 @@
   item.itemQuality = [defaults objectForKey:NextItemQualityPrefsKey];
   item.itemQualityValue = [[defaults objectForKey:NextItemQualityValuePrefsKey] intValue];
   item.itemReadiness = [defaults objectForKey:NextItemReadinessPrefsKey];
+  item.itemHundredPointScore = [defaults objectForKey:NextItemHundredPointScorePrefsKey];
+  item.itemHundredPointScoreValue = [[defaults objectForKey:NextItemHundredPointScoreValuePrefsKey] intValue];
+  item.itemFivePointScore = [defaults objectForKey:NextItemFivePointScorePrefsKey];
+  item.itemFivePointScoreValue = [[defaults objectForKey:NextItemFivePointScoreValuePrefsKey] intValue];
+  item.itemOtherScores = [defaults objectForKey:NextItemOtherScoresPrefsKey];
   item.itemWinemaker = [defaults objectForKey:NextItemWinemakerPrefsKey];
   item.itemVintage = [defaults objectForKey:NextItemVintagePrefsKey];
   item.itemAppellation = [defaults objectForKey:NextItemAppellationPrefsKey];
@@ -226,6 +233,138 @@
     [_allAssetTypes addObject:type];
   }
   return _allAssetTypes;
+}
+
+#pragma mark - Aromas
+
+- (NSArray *)allAromas {
+  
+  if (!_allAromas) {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *e = [NSEntityDescription entityForName:@"Aromas"
+                                         inManagedObjectContext:self.context];
+    request.entity = e;
+    
+    NSError *error;
+    NSArray *result = [self.context executeFetchRequest:request
+                                                  error:&error];
+    if (!result) {
+      [NSException raise:@"Fetch failed"
+                  format:@"Reason: %@", [error localizedDescription]];
+    }
+    _allAromas = [result mutableCopy];
+  }
+  
+  if ([_allAromas count] == 0) {
+    NSManagedObject *aroma;
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                         inManagedObjectContext:self.context];
+    [aroma setValue:@"Floral" forKey:@"category"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                         inManagedObjectContext:self.context];
+    [aroma setValue:@"Green Fruit" forKey:@"category"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                         inManagedObjectContext:self.context];
+    [aroma setValue:@"Citrus Fruit" forKey:@"category"];
+    [_allAromas addObject:aroma];
+    
+    [aroma setValue:@"Stone Fruit" forKey:@"category"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Tropical Fruit" forKey:@"category"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Red Fruit" forKey:@"category"];
+    [_allAromas addObject:aroma];
+    
+    [aroma setValue:@"Black Fruit" forKey:@"category"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Dried Fruit" forKey:@"category"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Under-Ripeness" forKey:@"category"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Herbaceous" forKey:@"category"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Herbal" forKey:@"category"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Vegetable" forKey:@"category"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Sweet Spice" forKey:@"category"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Pungent Spice" forKey:@"category"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Neutrality" forKey:@"category"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Autolytic" forKey:@"category"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Dairy" forKey:@"category"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Oak" forKey:@"category"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Kernal" forKey:@"category"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Maturity" forKey:@"category"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Animal" forKey:@"category"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Mineral" forKey:@"category"];
+    [_allAromas addObject:aroma];
+  }
+  return _allAromas;
 }
 
 #pragma mark - Data Handling

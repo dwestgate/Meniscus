@@ -79,14 +79,13 @@
   Item *item = items[indexPath.row];
     
   cell.nameLabel.text = item.itemName;
-  // cell.vintageLabel.text = item.vintage;
   
   static NSNumberFormatter *currencyFormatter = nil;
   if (currencyFormatter == nil) {
     currencyFormatter = [[NSNumberFormatter alloc] init];
     currencyFormatter.numberStyle = NSNumberFormatterCurrencyStyle;
   }
-  cell.valueLabel.text = [currencyFormatter stringFromNumber:@(item.valueInDollars)];
+ // cell.valueLabel.text = [currencyFormatter stringFromNumber:@(item.valueInDollars)];
   
   cell.thumbnailView.image = item.thumbnail;
     

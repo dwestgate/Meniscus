@@ -21,5 +21,6 @@
                 toIndex:(NSUInteger) toIndex;
 - (BOOL)saveChanges;
 - (NSArray *)allAssetTypes;
+- (NSArray *)allAromas;
 
 @end

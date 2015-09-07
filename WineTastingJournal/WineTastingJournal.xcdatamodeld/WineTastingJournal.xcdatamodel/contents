@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14F27" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Aromas" syncable="YES">
+        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="items" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="aromas" inverseEntity="Item" syncable="YES"/>
+    </entity>
     <entity name="AssetType" syncable="YES">
         <attribute name="label" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="items" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="assetType" inverseEntity="Item" syncable="YES"/>
@@ -31,14 +35,19 @@
         <attribute name="itemDevelopmentValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="itemFinish" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="itemFinishValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="itemFivePointScore" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemFivePointScoreValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="itemFlavorIntensity" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="itemFlavorIntensityValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="itemFlavors" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemHundredPointScore" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemHundredPointScoreValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="itemKey" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="itemMousse" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="itemMousseValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="itemName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="itemNotes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemOtherScores" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="itemPetillance" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="itemPetillanceValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="itemQuality" optional="YES" attributeType="String" syncable="YES"/>
@@ -50,6 +59,7 @@
         <attribute name="itemSweetnessValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="itemTannin" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="itemTanninValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="itemTastingID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="itemVintage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="itemViscosity" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="itemViscosityValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -57,10 +67,12 @@
         <attribute name="orderingValue" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="thumbnail" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="valueInDollars" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="aromas" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Aromas" inverseName="items" inverseEntity="Aromas" syncable="YES"/>
         <relationship name="assetType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AssetType" inverseName="items" inverseEntity="AssetType" syncable="YES"/>
     </entity>
     <elements>
-        <element name="AssetType" positionX="0" positionY="0" width="128" height="75"/>
-        <element name="Item" positionX="0" positionY="0" width="128" height="840"/>
+        <element name="AssetType" positionX="9" positionY="870" width="128" height="75"/>
+        <element name="Item" positionX="-209" positionY="-45" width="128" height="943"/>
+        <element name="Aromas" positionX="9" positionY="738" width="128" height="73"/>
     </elements>
 </model>

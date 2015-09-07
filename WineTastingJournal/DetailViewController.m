@@ -11,6 +11,8 @@
 #import "ImageStore.h"
 #import "ItemStore.h"
 #import "AssetTypeViewController.h"
+#import "AromasViewController.h"
+#import "FlavorsViewController.h"
 #import "AppDelegate.h"
 
 @interface DetailViewController ()
@@ -21,6 +23,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UITextView *nameTextView;
+
+@property (weak, nonatomic) IBOutlet UITextField *tastingIDTextField;
 
 @property (weak, nonatomic) IBOutlet UILabel *notesLabel;
 @property (weak, nonatomic) IBOutlet UITextView *notesTextView;
@@ -57,6 +61,7 @@
 @property (weak, nonatomic) IBOutlet UIStepper *aromaIntensityStepper;
 
 @property (weak, nonatomic) IBOutlet UILabel *aromasLabel;
+@property (weak, nonatomic) IBOutlet UIButton *aromasButton;
 @property (weak, nonatomic) IBOutlet UITextView *aromasTextView;
 
 @property (weak, nonatomic) IBOutlet UILabel *developmentLabel;
@@ -83,9 +88,9 @@
 @property (weak, nonatomic) IBOutlet UIStepper *flavorIntensityStepper;
 
 @property (weak, nonatomic) IBOutlet UILabel *flavorsLabel;
+@property (weak, nonatomic) IBOutlet UIButton *flavorsButton;
 @property (weak, nonatomic) IBOutlet UITextView *flavorsTextView;
 
-@property (weak, nonatomic) IBOutlet UILabel *balanceLabel;
 @property (weak, nonatomic) IBOutlet UITextField *balanceTextField;
 
 @property (weak, nonatomic) IBOutlet UILabel *mousseLabel;
@@ -99,27 +104,29 @@
 @property (weak, nonatomic) IBOutlet UILabel *qualityLabel;
 @property (weak, nonatomic) IBOutlet UISlider *qualitySlider;
 
-@property (weak, nonatomic) IBOutlet UILabel *readinessLabel;
 @property (weak, nonatomic) IBOutlet UITextField *readinessTextField;
+
+@property (weak, nonatomic) IBOutlet UILabel *hundredPointScoreLabel;
+@property (weak, nonatomic) IBOutlet UISlider *hundredPointScoreSlider;
+
+@property (weak, nonatomic) IBOutlet UILabel *fivePointScoreLabel;
+@property (weak, nonatomic) IBOutlet UIStepper *fivePointScoreStepper;
+
+@property (weak, nonatomic) IBOutlet UITextField *otherScoresTextField;
 
 @property (weak, nonatomic) IBOutlet UILabel *detailsBanner;
 
-@property (weak, nonatomic) IBOutlet UILabel *winemakerLabel;
 @property (weak, nonatomic) IBOutlet UITextField *winemakerTextField;
-
-@property (weak, nonatomic) IBOutlet UILabel *vintageLabel;
 @property (weak, nonatomic) IBOutlet UITextField *vintageTextField;
-
-@property (weak, nonatomic) IBOutlet UILabel *appellationLabel;
 @property (weak, nonatomic) IBOutlet UITextField *appellationTextField;
-
-@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UITextField *priceTextField;
 
 @property (weak, nonatomic) IBOutlet UILabel *tastedOnBanner;
 
-@property (retain, nonatomic) IBOutlet UIPickerView *balancePickerView;
+@property (strong, nonatomic) IBOutlet UIPickerView *balancePickerView;
 @property (strong, nonatomic) NSArray *balancePickerOptions;
+@property (strong, nonatomic) IBOutlet UIPickerView *readinessPickerView;
+@property (strong, nonatomic) NSArray *readinessPickerOptions;
 
 @property (strong, nonatomic) UIPopoverController *imagePickerPopover;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -149,6 +156,7 @@
                forKey:@"item.itemKey"];
   
   self.item.itemName = self.nameTextView.text;
+  self.item.itemTastingID = self.tastingIDTextField.text;
   self.item.itemNotes = self.notesTextView.text;
   self.item.itemClarity = self.clarityLabel.text;
   self.item.itemClarityValue = self.claritySlider.value;
@@ -192,15 +200,15 @@
   self.item.itemQuality = self.qualityLabel.text;
   self.item.itemQualityValue = self.qualitySlider.value;
   self.item.itemReadiness = self.readinessTextField.text;
+  self.item.itemHundredPointScore = self.hundredPointScoreLabel.text;
+  self.item.itemHundredPointScoreValue = self.hundredPointScoreSlider.value;
+  self.item.itemFivePointScore = self.fivePointScoreLabel.text;
+  self.item.itemFivePointScoreValue = self.fivePointScoreStepper.value;
+  self.item.itemOtherScores = self.otherScoresTextField.text;
   self.item.itemWinemaker = self.winemakerTextField.text;
   self.item.itemVintage = self.vintageTextField.text;
   self.item.itemAppellation = self.appellationTextField.text;
   self.item.valueInDollars = [self.priceTextField.text intValue];
-  /*
-  self.item.itemName = self.nameTextView.text;
-  self.item.vintage = self.vintageTextField.text;
-  self.item.valueInDollars = [self.priceTextField.text intValue];
-  */
   
   [[ItemStore sharedStore] saveChanges];
   
@@ -284,7 +292,7 @@
     _colorLabel.text = @"Red";
   }
   [self colorShadeSliderValueChanged:nil];
-  [self colorShadeSliderValueChanged:nil];
+  [self populateNameTextView];
 }
 
 - (IBAction)colorIntensityValueChanged:(id)sender {
@@ -429,6 +437,16 @@
   }
 }
 
+- (IBAction)aromasButtonTouchUpInside:(id)sender {
+  [self.view endEditing:YES];
+  
+  AromasViewController *avc = [[AromasViewController alloc] init];
+  avc.item = self.item;
+  
+  [self.navigationController pushViewController:avc
+                                       animated:YES];
+}
+
 - (IBAction)developmentValueChanged:(id)sender {
   
   if ([_developmentLabel.text isEqualToString:@"State of Development"]) {
@@ -562,6 +580,17 @@
   }
 }
 
+- (IBAction)flavorsButtonTouchUpInside:(id)sender {
+  [self.view endEditing:YES];
+  
+  FlavorsViewController *fvc = [[FlavorsViewController alloc] init];
+  fvc.item = self.item;
+  
+  [self.navigationController pushViewController:fvc
+                                       animated:YES];
+}
+
+
 - (IBAction)mousseValueChanged:(id)sender {
   
   if ([_mousseLabel.text isEqualToString:@"Mousse"]) {
@@ -619,6 +648,16 @@
     _qualityLabel.text = @"Outstanding";
   }
 }
+
+- (IBAction)hundredPointSliderValueChanged:(id)sender {
+  _hundredPointScoreLabel.text = [NSString stringWithFormat:@"%d Points", (int) _hundredPointScoreSlider.value];
+}
+
+- (IBAction)fivePointStepperValueChanged:(id)sender {
+  _fivePointScoreLabel.text = [NSString stringWithFormat:@"%d Stars", (int) _fivePointScoreStepper.value];
+}
+
+
 
 - (IBAction)showAssetTypePicker:(id)sender {
   [self.view endEditing:YES];
@@ -753,65 +792,84 @@
   [self.contentView addConstraints:horizontalConstraints];
   [self.contentView addConstraints:verticalConstraints];
   
-  // Add the balanceTextField's PickerView
-  _balancePickerOptions = [[NSArray alloc] initWithObjects:@"Well-balanced", @"Ascetic",@"Acidic",@"Thin",@"Flabby",@"Jammy",@"Alchoholic", nil];
-  
+  // Add the PickerViews
+  UITapGestureRecognizer *balancePickerViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(balancePickerViewTapped:)];
+  _balancePickerOptions = [[NSArray alloc] initWithObjects:@"Well-balanced",
+                           @"Ascetic",
+                           @"Acidic",
+                           @"Thin",
+                           @"Flabby",
+                           @"Jammy",
+                           @"Alchoholic",
+                           nil];
   _balancePickerView = [[UIPickerView alloc] init];
+  [_balancePickerView addGestureRecognizer:balancePickerViewTap];
   
-  UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(balancePickerViewTapped:)];
-  //tap.cancelsTouchesInView = NO;
-  [_balancePickerView addGestureRecognizer:tap];
-  tap.delegate = self;
-  
+  balancePickerViewTap.delegate = self;
   _balancePickerView.delegate = self;
   _balancePickerView.dataSource = self;
+  
+  UITapGestureRecognizer *readinessPickerViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(readinessPickerViewTapped:)];
+  _readinessPickerOptions = [[NSArray alloc] initWithObjects:@"Not yet ready for drinking",
+                              @"Has potential for aging",
+                              @"Drink now; not intended for aging",
+                              @"Past its prime",
+                              nil];
+  _readinessPickerView = [[UIPickerView alloc] init];
+  [_readinessPickerView addGestureRecognizer:readinessPickerViewTap];
+  
+  readinessPickerViewTap.delegate = self;
+  _readinessPickerView.delegate = self;
+  _readinessPickerView.dataSource = self;
 }
 
 #pragma mark - TextField
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
   [textField resignFirstResponder];
   return YES;
 }
 
 
-- (IBAction)balanceTextFieldDidBeginEditing:(id)sender
-{
+- (IBAction)balanceTextFieldDidBeginEditing:(id)sender {
+  CGRect rc = [_balanceTextField bounds];
+  rc = [_balanceTextField convertRect:rc toView:_scrollView];
+  rc.origin.x = 0 ;
+  rc.origin.y -= 60 ;
+  rc.size.height = 400;
+  [_scrollView scrollRectToVisible:rc animated:YES];
+  
   if (_balanceTextField.isEditing==YES)
   {
     _balanceTextField.inputView = _balancePickerView;
   }
 }
 
--(void)textFieldDidBeginEditing:(UITextField *)textField
-{
+- (IBAction)readinessTextFieldDidBeginEditing:(id)sender {
+  CGRect rc = [_readinessTextField bounds];
+  rc = [_readinessTextField convertRect:rc toView:_scrollView];
+  rc.origin.x = 0 ;
+  rc.origin.y -= 60 ;
+  rc.size.height = 400;
+  [_scrollView scrollRectToVisible:rc animated:YES];
   
-  if (_balanceTextField.isEditing==YES)
+  if (_readinessTextField.isEditing==YES)
   {
-    textField.inputView = _balancePickerView;
-    _balanceTextField = textField;
+    _readinessTextField.inputView = _readinessPickerView;
   }
-  
-  [[textField valueForKey:@"textInputTraits"]
-   setValue:[UIColor lightGrayColor] forKey:@"insertionPointColor"];
 }
 
--(void)textFieldDidEndEditing:(UITextField *)textField {
-  [_balancePickerView selectRow:0 inComponent:0 animated:NO];
-}
 
 #pragma mark - PickerView
 
 -(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
-  // return
+  
   return true;
 }
 
-- (void)balancePickerViewTapped:(UIGestureRecognizer *)tap
-{
+- (void)balancePickerViewTapped:(UIGestureRecognizer *)balancePickerViewTap {
   
-  CGPoint touchPoint = [tap locationInView:tap.view.superview];
+  CGPoint touchPoint = [balancePickerViewTap locationInView:balancePickerViewTap.view.superview];
   
   CGRect frame = self.balancePickerView.frame;
   CGRect selectorFrame = CGRectInset(frame, 0.0, self.balancePickerView.bounds.size.height);
@@ -821,40 +879,76 @@
   }
   
   [self.view endEditing:YES];
-  // [self resignFirstResponder];
-  // [_balanceTextField resignFirstResponder];
 }
 
--(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+- (void)readinessPickerViewTapped:(UIGestureRecognizer *)readinessPickerViewTap {
+  
+  CGPoint touchPoint = [readinessPickerViewTap locationInView:readinessPickerViewTap.view.superview];
+  
+  CGRect frame = self.readinessPickerView.frame;
+  CGRect selectorFrame = CGRectInset(frame, 0.0, self.readinessPickerView.bounds.size.height);
+  
+  if (CGRectContainsPoint(selectorFrame, touchPoint)) {
+    NSLog( @"Selected Row: %@", self.readinessTextField.text);
+  }
+  
+  [self.view endEditing:YES];
+}
+
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+  
   return 1;
 }
 
 -(NSInteger)pickerView:(UIPickerView *)pickerView
-numberOfRowsInComponent:(NSInteger)component{
-  return [_balancePickerOptions count];
+      numberOfRowsInComponent:(NSInteger)component {
+  
+  NSInteger numberOfRows = 0;
+  
+  if (_balanceTextField.isEditing) {
+    numberOfRows = [_balancePickerOptions count];
+  } else if (_readinessTextField.isEditing) {
+    numberOfRows = [_readinessPickerOptions count];
+  }
+  
+  return numberOfRows;
 }
 
 -(NSString *)pickerView:(UIPickerView *)pickerView
-            titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-  return [_balancePickerOptions objectAtIndex:row];
+            titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+  NSString *titleForRow;
+  
+  if (_balanceTextField.isEditing) {
+    titleForRow = [_balancePickerOptions objectAtIndex:row];
+    _balanceTextField.text = [_balancePickerOptions objectAtIndex:row];
+  } else if (_readinessTextField.isEditing) {
+    titleForRow = [_readinessPickerOptions objectAtIndex:row];
+    _readinessTextField.text = [_readinessPickerOptions objectAtIndex:row];
+  }
+  
+  return titleForRow;
 }
 
 - (void)pickerView:(UIPickerView *)pickerView
       didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-  _balanceTextField.text = [_balancePickerOptions objectAtIndex:row];
+  if (_balanceTextField.isEditing) {
+    _balanceTextField.text = [_balancePickerOptions objectAtIndex:row];
+  } else if (_readinessTextField.isEditing) {
+    _readinessTextField.text = [_readinessPickerOptions objectAtIndex:row];
+  }
 }
-
 
 
 #pragma mark - Form Maintenance
 
 - (void)updateFonts
 {
-    UIFont *font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+  UIFont *font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
     
   self.nameLabel.font = font;
   self.nameTextView.font = font;
+  self.tastingIDTextField.font = font;
   self.notesLabel.font = font;
   self.notesTextView.font = font;
   self.appearanceBanner.font = font;
@@ -880,22 +974,19 @@ numberOfRowsInComponent:(NSInteger)component{
   self.flavorIntensityLabel.font = font;
   self.flavorsLabel.font = font;
   self.flavorsTextView.font = font;
-  self.balanceLabel.font = font;
   self.balanceTextField.font = font;
   self.mousseLabel.font = font;
   self.finishLabel.font = font;
   self.conclusionsBanner.font = font;
   self.qualityLabel.font = font;
-  self.readinessLabel.font = font;
   self.readinessTextField.font = font;
+  self.hundredPointScoreLabel.font = font;
+  self.fivePointScoreLabel.font = font;
+  self.otherScoresTextField.font = font;
   self.detailsBanner.font = font;
-  self.winemakerLabel.font = font;
   self.winemakerTextField.font = font;
-  self.vintageLabel.font = font;
   self.vintageTextField.font = font;
-  self.appellationLabel.font = font;
   self.appellationTextField.font = font;
-  self.priceLabel.font = font;
   self.priceTextField.font = font;
   self.tastedOnBanner.font = font;
 }
@@ -916,6 +1007,7 @@ numberOfRowsInComponent:(NSInteger)component{
   Item *item = self.item;
   
   self.nameTextView.text = item.itemName;
+  self.tastingIDTextField.text = item.itemTastingID;
   self.notesTextView.text = item.itemNotes;
   self.clarityLabel.text = item.itemClarity;
   self.claritySlider.value = item.itemClarityValue;
@@ -959,22 +1051,21 @@ numberOfRowsInComponent:(NSInteger)component{
   self.qualityLabel.text = item.itemQuality;
   self.qualitySlider.value = item.itemQualityValue;
   self.readinessTextField.text = item.itemReadiness;
+  self.hundredPointScoreLabel.text = item.itemHundredPointScore;
+  self.hundredPointScoreSlider.value = item.itemHundredPointScoreValue;
+  self.fivePointScoreLabel.text = item.itemFivePointScore;
+  self.fivePointScoreStepper.value = item.itemFivePointScoreValue;
+  self.otherScoresTextField.text = item.itemOtherScores;
   self.winemakerTextField.text = item.itemWinemaker;
   self.vintageTextField.text = item.itemVintage;
   self.appellationTextField.text = item.itemAppellation;
   self.priceTextField.text = [NSString stringWithFormat:@"%d", item.valueInDollars];
   
-  /*
-   self.nameTextView.text = item.itemName;
-   self.vintageTextField.text = item.vintage;
-   self.priceTextField.text = [NSString stringWithFormat:@"%d", item.valueInDollars];
-   */
-  
   static NSDateFormatter *dateFormatter;
   if (!dateFormatter) {
     dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateStyle = NSDateFormatterMediumStyle;
-    dateFormatter.timeStyle = NSDateFormatterNoStyle;
+    dateFormatter.timeStyle = NSDateFormatterShortStyle;
   }
   
   self.tastedOnBanner.text = [dateFormatter stringFromDate:item.dateCreated];
@@ -992,8 +1083,11 @@ numberOfRowsInComponent:(NSInteger)component{
   
   [self updateFonts];
   
-  if ([_nameTextView.text isEqualToString:@""]) {
+  if (_nameTextView.text.length == 0) {
+    [self populateNameTextView];
     [_nameTextView becomeFirstResponder];
+    [_nameTextView selectAll:self];
+    [UIMenuController sharedMenuController].menuVisible = NO;
   }
   
 }
@@ -1003,10 +1097,13 @@ numberOfRowsInComponent:(NSInteger)component{
   [super viewWillDisappear:animated];
   
   [self.view endEditing:YES];
+
+  [self populateNameTextView];
   
   Item *item = self.item;
   
   item.itemName = self.nameTextView.text;
+  item.itemTastingID = self.tastingIDTextField.text;
   item.itemNotes = self.notesTextView.text;
   item.itemClarity = self.clarityLabel.text;
   item.itemClarityValue = self.claritySlider.value;
@@ -1050,19 +1147,42 @@ numberOfRowsInComponent:(NSInteger)component{
   item.itemQuality = self.qualityLabel.text;
   item.itemQualityValue = self.qualitySlider.value;
   item.itemReadiness = self.readinessTextField.text;
+  item.itemHundredPointScore = self.hundredPointScoreLabel.text;
+  item.itemHundredPointScoreValue = self.hundredPointScoreSlider.value;
+  item.itemFivePointScore = self.fivePointScoreLabel.text;
+  item.itemFivePointScoreValue = self.fivePointScoreStepper.value;
+  item.itemOtherScores = self.otherScoresTextField.text;
   item.itemWinemaker = self.winemakerTextField.text;
   item.itemVintage = self.vintageTextField.text;
   item.itemAppellation = self.appellationTextField.text;
-  /*
-  item.itemName = self.nameTextView.text;
-  item.vintage = self.vintageTextField.text;
-  */
+
   int newValue = [self.priceTextField.text intValue];
   
   if (newValue != item.valueInDollars) {
     item.valueInDollars = newValue;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setInteger:newValue forKey:NextItemValuePrefsKey];
+  }
+}
+
+#pragma mark - Text Manipulation
+
+-(void)populateNameTextView
+{
+  
+  // Set a name if it is not set already
+  if ((self.nameTextView.text.length == 0) ||
+      ([self.nameTextView.text hasPrefix:@"White wine tasted on"]) ||
+      ([self.nameTextView.text hasPrefix:@"Rosé wine tasted on"]) ||
+      ([self.nameTextView.text hasPrefix:@"Red wine tasted on"]) ||
+      ([self.nameTextView.text hasPrefix:@"Wine tasted on"])) {
+    
+    if (![self.colorLabel.text isEqualToString:@"Wine Color"]) {
+      self.nameTextView.text = [NSString stringWithFormat:@"%@ wine tasted on %@", self.colorLabel.text, self.tastedOnBanner.text];
+    } else {
+      self.nameTextView.text = [NSString stringWithFormat:@"Wine tasted on %@", self.tastedOnBanner.text];
+    }
+    
   }
 }
 

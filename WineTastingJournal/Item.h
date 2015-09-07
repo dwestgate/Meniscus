@@ -15,6 +15,7 @@
 @interface Item : NSManagedObject
 
 @property (nonatomic, strong) NSString * itemName;
+@property (nonatomic, strong) NSString * itemTastingID;
 @property (nonatomic, strong) NSString * itemNotes;
 @property (nonatomic, strong) NSString * itemClarity;
 @property (nonatomic) int itemClarityValue;
@@ -58,15 +59,14 @@
 @property (nonatomic, strong) NSString * itemQuality;
 @property (nonatomic) int itemQualityValue;
 @property (nonatomic, strong) NSString * itemReadiness;
+@property (nonatomic, strong) NSString * itemHundredPointScore;
+@property (nonatomic) int itemHundredPointScoreValue;
+@property (nonatomic, strong) NSString * itemFivePointScore;
+@property (nonatomic) int itemFivePointScoreValue;
+@property (nonatomic, strong) NSString * itemOtherScores;
 @property (nonatomic, strong) NSString * itemWinemaker;
 @property (nonatomic, strong) NSString * itemVintage;
 @property (nonatomic, strong) NSString * itemAppellation;
-
-/*
-@property (nonatomic, strong) NSString * itemName;
-@property (nonatomic, strong) NSString * vintage;
-*/
-
 @property (nonatomic) int valueInDollars;
 @property (nonatomic, strong) NSDate * dateCreated;
 @property (nonatomic, strong) NSString * itemKey;

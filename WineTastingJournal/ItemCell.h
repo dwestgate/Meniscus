@@ -13,8 +13,6 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnailView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *vintageLabel;
-@property (weak, nonatomic) IBOutlet UILabel *valueLabel;
 @property (copy, nonatomic) void (^actionBlock)(void);
 
 @end
