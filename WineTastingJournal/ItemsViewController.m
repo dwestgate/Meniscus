@@ -3,7 +3,7 @@
 //  WineTastingJournal
 //
 //  Created by David Westgate on 6/15/15.
-//  Copyright (c) 2015 Big Nerd Ranch. All rights reserved.
+//  Copyright (c) 2015 David Westgate. All rights reserved.
 //
 
 #import "ItemsViewController.h"

@@ -3,7 +3,7 @@
 //  WineTastingJournal
 //
 //  Created by David Westgate on 6/15/15.
-//  Copyright (c) 2015 Big Nerd Ranch. All rights reserved.
+//  Copyright (c) 2015 David Westgate. All rights reserved.
 //
 
 #import "AppDelegate.h"
@@ -96,7 +96,7 @@ NSString * const NextItemAppellationPrefsKey = @"NextItemAppellationPrefsKey";
                                     NextItemConditionPrefsKey : @"Condition",
                                     NextItemConditionSliderValuePrefsKey : @1,
                                     NextItemAromaIntensityPrefsKey : @"Aroma Intensity",
-                                    NextItemAromaIntensityValuePrefsKey : @3,
+                                    NextItemAromaIntensityValuePrefsKey : @1,
                                     NextItemAromasPrefsKey : @"",
                                     NextItemDevelopmentPrefsKey : @"State of Development",
                                     NextItemDevelopmentValuePrefsKey : @1,
@@ -107,12 +107,12 @@ NSString * const NextItemAppellationPrefsKey = @"NextItemAppellationPrefsKey";
                                     NextItemTanninPrefsKey : @"Tannin",
                                     NextItemTanninValuePrefsKey : @"1",
                                     NextItemAlchoholPrefsKey : @"Alchohol Level",
-                                    NextItemAlchoholValuePrefsKey : @3,
+                                    NextItemAlchoholValuePrefsKey : @1,
                                     NextItemBodyPrefsKey : @"Body",
                                     NextItemBodyValuePrefsKey : @1,
                                     NextItemFlavorIntensityPrefsKey : @"Intensity of Flavor",
                                     NextItemFlavorIntensityValuePrefsKey : @1,
-                                    NextItemFlavorsPrefsKey : @"Flavors",
+                                    NextItemFlavorsPrefsKey : @"",
                                     NextItemBalancePrefsKey : @"Balance",
                                     NextItemMoussePrefsKey : @"Mousse",
                                     NextItemMousseValuePrefsKey : @1,

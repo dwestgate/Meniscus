@@ -3,7 +3,7 @@
 "jct-NK-8pZ.text" = "Appearance";
 
 /* Class = "UILabel"; text = "Name"; ObjectID = "mBD-xV-3bE"; */
-"mBD-xV-3bE.text" = "Name";
+"mBD-xV-3bE.text" = "Wine Name";
 
 /* Class = "UILabel"; text = "Winemaker"; ObjectID = "ppY-uT-2fP"; */
 "ppY-uT-2fP.text" = "Winemaker";

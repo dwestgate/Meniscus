@@ -10,6 +10,12 @@
 #import "ItemStore.h"
 #import "Item.h"
 
+@interface AromasViewController ()
+
+@property (strong, nonatomic) NSMutableArray *sectionHeaders;
+
+@end
+
 @implementation AromasViewController
 
 - (instancetype)init {
@@ -34,13 +40,32 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+  
+  int count = 0;
+  NSString *lastCategory;
+  
+  for (NSManagedObject *aroma in [[ItemStore sharedStore] allAromas]) {
+    NSString *aromaCategory = [aroma valueForKey:@"category"];
+    if ([aromaCategory isEqualToString:lastCategory]) {
+      lastCategory = aromaCategory;
+      count++;
+    }
+  }
+  
+  return  count;
+}
+
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+  if(section == 0)
+    return @"Section 1";
+  else
+    return @"Section 2";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return  [[[ItemStore sharedStore] allAromas] count];
-  
+  return  [[[ItemStore sharedStore] allAromas] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

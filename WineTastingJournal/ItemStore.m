@@ -3,7 +3,7 @@
 //  WineTastingJournal
 //
 //  Created by David Westgate on 6/15/15.
-//  Copyright (c) 2015 Big Nerd Ranch. All rights reserved.
+//  Copyright (c) 2015 Refabricants. All rights reserved.
 //
 
 #import "ItemStore.h"
@@ -261,107 +261,667 @@
     aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
                                          inManagedObjectContext:self.context];
     [aroma setValue:@"Floral" forKey:@"category"];
+    [aroma setValue:@"Acacia" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Floral" forKey:@"category"];
+    [aroma setValue:@"Chamomile" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Floral" forKey:@"category"];
+    [aroma setValue:@"Elderflower" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Floral" forKey:@"category"];
+    [aroma setValue:@"Rose" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Floral" forKey:@"category"];
+    [aroma setValue:@"Violet" forKey:@"taste"];
     [_allAromas addObject:aroma];
     
     aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
                                          inManagedObjectContext:self.context];
     [aroma setValue:@"Green Fruit" forKey:@"category"];
+    [aroma setValue:@"Apple" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Green Fruit" forKey:@"category"];
+    [aroma setValue:@"Gooseberry" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Green Fruit" forKey:@"category"];
+    [aroma setValue:@"Pear" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Green Fruit" forKey:@"category"];
+    [aroma setValue:@"Grape" forKey:@"taste"];
     [_allAromas addObject:aroma];
     
     aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
                                          inManagedObjectContext:self.context];
     [aroma setValue:@"Citrus Fruit" forKey:@"category"];
+    [aroma setValue:@"Grapefruit" forKey:@"taste"];
     [_allAromas addObject:aroma];
     
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Citrus Fruit" forKey:@"category"];
+    [aroma setValue:@"Lemon" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Citrus Fruit" forKey:@"category"];
+    [aroma setValue:@"Lime" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
     [aroma setValue:@"Stone Fruit" forKey:@"category"];
+    [aroma setValue:@"Peach" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Stone Fruit" forKey:@"category"];
+    [aroma setValue:@"Apricot" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Stone Fruit" forKey:@"category"];
+    [aroma setValue:@"Nectarine" forKey:@"taste"];
     [_allAromas addObject:aroma];
     
     aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
                                           inManagedObjectContext:self.context];
     [aroma setValue:@"Tropical Fruit" forKey:@"category"];
+    [aroma setValue:@"Banana" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Tropical Fruit" forKey:@"category"];
+    [aroma setValue:@"Kiwi" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Tropical Fruit" forKey:@"category"];
+    [aroma setValue:@"Lychee" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Tropical Fruit" forKey:@"category"];
+    [aroma setValue:@"Mango" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Tropical Fruit" forKey:@"category"];
+    [aroma setValue:@"Melon" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Tropical Fruit" forKey:@"category"];
+    [aroma setValue:@"Passion fruit" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Tropical Fruit" forKey:@"category"];
+    [aroma setValue:@"Pineapple" forKey:@"taste"];
     [_allAromas addObject:aroma];
     
     aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
                                           inManagedObjectContext:self.context];
     [aroma setValue:@"Red Fruit" forKey:@"category"];
+    [aroma setValue:@"Redcurrant" forKey:@"taste"];
     [_allAromas addObject:aroma];
     
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Red Fruit" forKey:@"category"];
+    [aroma setValue:@"Cranberry" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Red Fruit" forKey:@"category"];
+    [aroma setValue:@"Raspberry" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Red Fruit" forKey:@"category"];
+    [aroma setValue:@"Strawberry" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Red Fruit" forKey:@"category"];
+    [aroma setValue:@"Red cherry" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Red Fruit" forKey:@"category"];
+    [aroma setValue:@"Plum" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
     [aroma setValue:@"Black Fruit" forKey:@"category"];
+    [aroma setValue:@"Blackcurrent" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Black Fruit" forKey:@"category"];
+    [aroma setValue:@"Blackberry" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Black Fruit" forKey:@"category"];
+    [aroma setValue:@"Blueberry" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Black Fruit" forKey:@"category"];
+    [aroma setValue:@"Black cherry" forKey:@"taste"];
     [_allAromas addObject:aroma];
     
     aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
                                           inManagedObjectContext:self.context];
     [aroma setValue:@"Dried Fruit" forKey:@"category"];
+    [aroma setValue:@"Fig" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Dried Fruit" forKey:@"category"];
+    [aroma setValue:@"Prune" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Dried Fruit" forKey:@"category"];
+    [aroma setValue:@"Raisin" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Dried Fruit" forKey:@"category"];
+    [aroma setValue:@"Sultana" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Dried Fruit" forKey:@"category"];
+    [aroma setValue:@"Kirsch" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Dried Fruit" forKey:@"category"];
+    [aroma setValue:@"Stewed fruit" forKey:@"taste"];
     [_allAromas addObject:aroma];
     
     aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
                                           inManagedObjectContext:self.context];
     [aroma setValue:@"Under-Ripeness" forKey:@"category"];
+    [aroma setValue:@"Bell pepper" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Under-Ripeness" forKey:@"category"];
+    [aroma setValue:@"Grass" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Under-Ripeness" forKey:@"category"];
+    [aroma setValue:@"White pepper" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Under-Ripeness" forKey:@"category"];
+    [aroma setValue:@"Greens" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Under-Ripeness" forKey:@"category"];
+    [aroma setValue:@"Tomato" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Under-Ripeness" forKey:@"category"];
+    [aroma setValue:@"Potato" forKey:@"taste"];
     [_allAromas addObject:aroma];
     
     aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
                                           inManagedObjectContext:self.context];
     [aroma setValue:@"Herbaceous" forKey:@"category"];
+    [aroma setValue:@"Grass" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Herbaceous" forKey:@"category"];
+    [aroma setValue:@"Asparagus" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Herbaceous" forKey:@"category"];
+    [aroma setValue:@"Blackcurrant leaf" forKey:@"taste"];
     [_allAromas addObject:aroma];
     
     aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
                                           inManagedObjectContext:self.context];
     [aroma setValue:@"Herbal" forKey:@"category"];
+    [aroma setValue:@"Eucalyptus" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Herbal" forKey:@"category"];
+    [aroma setValue:@"Mint" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Herbal" forKey:@"category"];
+    [aroma setValue:@"Medicine" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Herbal" forKey:@"category"];
+    [aroma setValue:@"Lavender" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Herbal" forKey:@"category"];
+    [aroma setValue:@"Fennel" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Herbal" forKey:@"category"];
+    [aroma setValue:@"Dill" forKey:@"taste"];
     [_allAromas addObject:aroma];
     
     aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
                                           inManagedObjectContext:self.context];
     [aroma setValue:@"Vegetable" forKey:@"category"];
+    [aroma setValue:@"Cabbage" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Vegetable" forKey:@"category"];
+    [aroma setValue:@"Peas" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Vegetable" forKey:@"category"];
+    [aroma setValue:@"Beans" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Vegetable" forKey:@"category"];
+    [aroma setValue:@"Olive" forKey:@"taste"];
     [_allAromas addObject:aroma];
     
     aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
                                           inManagedObjectContext:self.context];
     [aroma setValue:@"Sweet Spice" forKey:@"category"];
+    [aroma setValue:@"Cinnamon" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Sweet Spice" forKey:@"category"];
+    [aroma setValue:@"Cloves" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Sweet Spice" forKey:@"category"];
+    [aroma setValue:@"Ginger" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Sweet Spice" forKey:@"category"];
+    [aroma setValue:@"Nutmeg" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Sweet Spice" forKey:@"category"];
+    [aroma setValue:@"Vanilla" forKey:@"taste"];
     [_allAromas addObject:aroma];
     
     aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
                                           inManagedObjectContext:self.context];
     [aroma setValue:@"Pungent Spice" forKey:@"category"];
+    [aroma setValue:@"Black pepper" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Pungent Spice" forKey:@"category"];
+    [aroma setValue:@"White pepper" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Pungent Spice" forKey:@"category"];
+    [aroma setValue:@"Liquorice" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Pungent Spice" forKey:@"category"];
+    [aroma setValue:@"Juniper" forKey:@"taste"];
     [_allAromas addObject:aroma];
     
     aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
                                           inManagedObjectContext:self.context];
     [aroma setValue:@"Neutrality" forKey:@"category"];
+    [aroma setValue:@"Simple" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Neutrality" forKey:@"category"];
+    [aroma setValue:@"Neutral" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Neutrality" forKey:@"category"];
+    [aroma setValue:@"Indistinct" forKey:@"taste"];
     [_allAromas addObject:aroma];
     
     aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
                                           inManagedObjectContext:self.context];
     [aroma setValue:@"Autolytic" forKey:@"category"];
+    [aroma setValue:@"Yeast" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Autolytic" forKey:@"category"];
+    [aroma setValue:@"Biscuit" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Autolytic" forKey:@"category"];
+    [aroma setValue:@"Bread" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Autolytic" forKey:@"category"];
+    [aroma setValue:@"Toast" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Autolytic" forKey:@"category"];
+    [aroma setValue:@"Lees" forKey:@"taste"];
     [_allAromas addObject:aroma];
     
     aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
                                           inManagedObjectContext:self.context];
     [aroma setValue:@"Dairy" forKey:@"category"];
+    [aroma setValue:@"Butter" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Dairy" forKey:@"category"];
+    [aroma setValue:@"Cheese" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Dairy" forKey:@"category"];
+    [aroma setValue:@"Cream" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Dairy" forKey:@"category"];
+    [aroma setValue:@"Yoghurt" forKey:@"taste"];
     [_allAromas addObject:aroma];
     
     aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
                                           inManagedObjectContext:self.context];
     [aroma setValue:@"Oak" forKey:@"category"];
+    [aroma setValue:@"Vanilla" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Oak" forKey:@"category"];
+    [aroma setValue:@"Toast" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Oak" forKey:@"category"];
+    [aroma setValue:@"Cedar" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Oak" forKey:@"category"];
+    [aroma setValue:@"Charred wood" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Oak" forKey:@"category"];
+    [aroma setValue:@"Smoke" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Oak" forKey:@"category"];
+    [aroma setValue:@"Resin" forKey:@"taste"];
     [_allAromas addObject:aroma];
     
     aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
                                           inManagedObjectContext:self.context];
     [aroma setValue:@"Kernal" forKey:@"category"];
+    [aroma setValue:@"Almond" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Kernal" forKey:@"category"];
+    [aroma setValue:@"Coconut" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Kernal" forKey:@"category"];
+    [aroma setValue:@"Hazelnut" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Kernal" forKey:@"category"];
+    [aroma setValue:@"Walnut" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Kernal" forKey:@"category"];
+    [aroma setValue:@"Chocolate" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Kernal" forKey:@"category"];
+    [aroma setValue:@"Coffee" forKey:@"taste"];
     [_allAromas addObject:aroma];
     
     aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
                                           inManagedObjectContext:self.context];
     [aroma setValue:@"Maturity" forKey:@"category"];
+    [aroma setValue:@"Vegetal" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Maturity" forKey:@"category"];
+    [aroma setValue:@"Mushroom" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Maturity" forKey:@"category"];
+    [aroma setValue:@"Hay" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Maturity" forKey:@"category"];
+    [aroma setValue:@"Wet leaves" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Maturity" forKey:@"category"];
+    [aroma setValue:@"Forest floor" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Maturity" forKey:@"category"];
+    [aroma setValue:@"Game" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Maturity" forKey:@"category"];
+    [aroma setValue:@"Savoury" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Maturity" forKey:@"category"];
+    [aroma setValue:@"Tobacco" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Maturity" forKey:@"category"];
+    [aroma setValue:@"Cedar" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Maturity" forKey:@"category"];
+    [aroma setValue:@"Honey" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Maturity" forKey:@"category"];
+    [aroma setValue:@"Cereal" forKey:@"taste"];
     [_allAromas addObject:aroma];
     
     aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
                                           inManagedObjectContext:self.context];
     [aroma setValue:@"Animal" forKey:@"category"];
+    [aroma setValue:@"Leather" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Animal" forKey:@"category"];
+    [aroma setValue:@"Meaty" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Animal" forKey:@"category"];
+    [aroma setValue:@"Farmyard" forKey:@"taste"];
     [_allAromas addObject:aroma];
     
     aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
                                           inManagedObjectContext:self.context];
     [aroma setValue:@"Mineral" forKey:@"category"];
+    [aroma setValue:@"Earth" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Mineral" forKey:@"category"];
+    [aroma setValue:@"Petrol" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Mineral" forKey:@"category"];
+    [aroma setValue:@"Rubber" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Mineral" forKey:@"category"];
+    [aroma setValue:@"Tar" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Mineral" forKey:@"category"];
+    [aroma setValue:@"Stone" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Mineral" forKey:@"category"];
+    [aroma setValue:@"Steel" forKey:@"taste"];
+    [_allAromas addObject:aroma];
+    
+    aroma = [NSEntityDescription insertNewObjectForEntityForName:@"Aromas"
+                                          inManagedObjectContext:self.context];
+    [aroma setValue:@"Mineral" forKey:@"category"];
+    [aroma setValue:@"Wet wool" forKey:@"taste"];
     [_allAromas addObject:aroma];
   }
   return _allAromas;

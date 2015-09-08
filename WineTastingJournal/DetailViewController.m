@@ -3,7 +3,7 @@
 //  WineTastingJournal
 //
 //  Created by David Westgate on 6/17/15.
-//  Copyright (c) 2015 Big Nerd Ranch. All rights reserved.
+//  Copyright (c) 2015 David Westgate. All rights reserved.
 //
 
 #import "DetailViewController.h"
@@ -1086,7 +1086,6 @@
   if (_nameTextView.text.length == 0) {
     [self populateNameTextView];
     [_nameTextView becomeFirstResponder];
-    [_nameTextView selectAll:self];
     [UIMenuController sharedMenuController].menuVisible = NO;
   }
   
