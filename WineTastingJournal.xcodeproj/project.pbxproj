@@ -23,6 +23,7 @@
 		C41516CA1B6E7B30009CBA93 /* WineTastingJournal.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C41516C91B6E7B30009CBA93 /* WineTastingJournal.bundle */; };
 		C41516CE1B6E8DFA009CBA93 /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C41516CD1B6E8DFA009CBA93 /* ItemCell.xib */; };
 		C41516D11B6E8F05009CBA93 /* WineTastingJournal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C41516CF1B6E8F05009CBA93 /* WineTastingJournal.xcdatamodeld */; };
+		C435586F1BA19DF7008FF2AE /* AromaCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C435586E1BA19DF7008FF2AE /* AromaCategoriesViewController.m */; };
 		C451B4BE1B6E9C07007F06E2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C451B4C01B6E9C07007F06E2 /* Localizable.strings */; };
 		C451B4C21B6E9D64007F06E2 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C451B4C41B6E9D64007F06E2 /* DetailViewController.xib */; };
 		C4EAC9341B9DC62F006E4CFC /* AromasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EAC9331B9DC62F006E4CFC /* AromasViewController.m */; };
@@ -70,6 +71,8 @@
 		C41516C91B6E7B30009CBA93 /* WineTastingJournal.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = WineTastingJournal.bundle; path = ../../../Workspace/WineTastingJournal/WineTastingJournal/WineTastingJournal.bundle; sourceTree = "<group>"; };
 		C41516CD1B6E8DFA009CBA93 /* ItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemCell.xib; sourceTree = "<group>"; };
 		C41516D01B6E8F05009CBA93 /* WineTastingJournal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WineTastingJournal.xcdatamodel; sourceTree = "<group>"; };
+		C435586D1BA19DF7008FF2AE /* AromaCategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AromaCategoriesViewController.h; path = ../../../Workspace/WineTastingJournal/WineTastingJournal/AromaCategoriesViewController.h; sourceTree = "<group>"; };
+		C435586E1BA19DF7008FF2AE /* AromaCategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AromaCategoriesViewController.m; path = ../../../Workspace/WineTastingJournal/WineTastingJournal/AromaCategoriesViewController.m; sourceTree = "<group>"; };
 		C451B4BF1B6E9C07007F06E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C451B4C11B6E9C1B007F06E2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C451B4C31B6E9D64007F06E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DetailViewController.xib; sourceTree = "<group>"; };
@@ -152,6 +155,8 @@
 				C41516831B6E6042009CBA93 /* Supporting Files */,
 				C41516C91B6E7B30009CBA93 /* WineTastingJournal.bundle */,
 				C41516CF1B6E8F05009CBA93 /* WineTastingJournal.xcdatamodeld */,
+				C435586D1BA19DF7008FF2AE /* AromaCategoriesViewController.h */,
+				C435586E1BA19DF7008FF2AE /* AromaCategoriesViewController.m */,
 			);
 			path = WineTastingJournal;
 			sourceTree = "<group>";
@@ -296,6 +301,7 @@
 				C41516C21B6E60A7009CBA93 /* ItemStore.m in Sources */,
 				C41516861B6E6042009CBA93 /* main.m in Sources */,
 				C41516C01B6E60A7009CBA93 /* Item.m in Sources */,
+				C435586F1BA19DF7008FF2AE /* AromaCategoriesViewController.m in Sources */,
 				C41516BE1B6E60A7009CBA93 /* ImageTransformer.m in Sources */,
 				C41516BB1B6E60A7009CBA93 /* AssetTypeViewController.m in Sources */,
 				C41516D11B6E8F05009CBA93 /* WineTastingJournal.xcdatamodeld in Sources */,

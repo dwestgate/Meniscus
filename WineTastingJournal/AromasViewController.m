@@ -12,7 +12,8 @@
 
 @interface AromasViewController ()
 
-@property (strong, nonatomic) NSMutableArray *sectionHeaders;
+@property (strong, nonatomic) NSMutableDictionary *sectionHeaders;
+@property (strong, nonatomic) NSMutableArray *sortedSectionHeaders;
 
 @end
 
@@ -23,6 +24,7 @@
   if (self) {
     self.navigationItem.title = NSLocalizedString(@"Aromas", @"AromasViewController title");
   }
+
   return self;
 }
 
@@ -33,6 +35,31 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   
+  _sectionHeaders = [[NSMutableDictionary alloc] init];
+  
+  for (NSManagedObject *aroma in [[ItemStore sharedStore] allAromas]) {
+    if ([_sectionHeaders objectForKey:[aroma valueForKey:@"category"]] == nil) {
+      NSMutableArray *firstAromaInCategory = [NSMutableArray arrayWithObjects:[aroma valueForKey:@"taste"], nil];
+      NSLog(@"%@", [aroma valueForKey:@"category"]);
+      NSLog(@"%@", [aroma valueForKey:@"taste"]);
+      //NSMutableArray *firstAromaInCategory = [NSMutableArray arrayWithObjects:@"hai",@"how",@"are",@"you",[aroma valueForKey:@"taste"],nil];
+      [_sectionHeaders setObject:firstAromaInCategory forKey:[aroma valueForKey:@"category"]];
+      
+      
+      /*
+       NSMutableDictionary *yourMutableDictionary = [NSMutableDictionary alloc] init];
+       [yourMutableDictionary setObject:@"Value" forKey:@"your key"];
+       */
+      
+    } else {
+      [[_sectionHeaders objectForKey:[aroma valueForKey:@"category"]] addObject:[aroma valueForKey:@"taste"]];
+    }
+  }
+  
+  // NSArray *sectionHeaderArray = [NSArray arrayWithArray:[_sectionHeaders valueForKey:@"category"]];
+  _sortedSectionHeaders = [[_sectionHeaders allKeys] mutableCopy];
+  // _sortedSectionHeaders = [[[_sectionHeaders allKeys] mutableCopy] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+  
   [self.tableView registerClass:[UITableViewCell class]
          forCellReuseIdentifier:@"UITableViewCell"];
 }
@@ -40,48 +67,50 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-  
-  int count = 0;
-  NSString *lastCategory;
-  
-  for (NSManagedObject *aroma in [[ItemStore sharedStore] allAromas]) {
-    NSString *aromaCategory = [aroma valueForKey:@"category"];
-    if ([aromaCategory isEqualToString:lastCategory]) {
-      lastCategory = aromaCategory;
-      count++;
-    }
-  }
-  
-  return  count;
+  return  [_sectionHeaders count];
 }
 
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-  if(section == 0)
-    return @"Section 1";
-  else
-    return @"Section 2";
+  return [[self sortedSectionHeaders] objectAtIndex:section];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-  return  [[[ItemStore sharedStore] allAromas] count];
+  // NSString *key = [[self sectionKeys] objectAtIndex:[indexPath section]];
+  NSString *key = [[self sortedSectionHeaders] objectAtIndex:section];
+  // NSArray *contents = [[self sectionContents] objectForKey:key];
+  NSArray *contents = [[self sectionHeaders] objectForKey:key];
+  
+  // NSString *contentForThisRow = [contents objectAtIndex:[indexPath row]];
+  return [contents count];
+  // return  [[[ItemStore sharedStore] allAromas] count];
+          /*
+           NSString *key = [[self sectionKeys] objectAtIndex:[indexPath section]];
+           NSArray *contents = [[self sectionContents] objectForKey:key];
+           NSString *contentForThisRow = [contents objectAtIndex:[indexPath row]];*/
+  // return  [[[ItemStore sharedStore] allAromas] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
-    
+  
+  /*
   NSArray *allAromas = [[ItemStore sharedStore] allAromas];
   NSManagedObject *aroma = allAromas[indexPath.row];
   
   NSString *aromaCategory = [aroma valueForKey:@"category"];
   cell.textLabel.text = aromaCategory;
+  */
+  NSString *key = [[self sortedSectionHeaders] objectAtIndex:[indexPath section]];
+  NSArray *section = [[self sectionHeaders] objectForKey:key];
+  NSString *aroma = [section objectAtIndex:[indexPath row]];
+  cell.textLabel.text = aroma;
   
   Boolean found = NO;
   
   for (NSString *itemAroma in [self aromasArrayFromString]) {
-    if ([[aroma valueForKey:@"category"] isEqualToString:itemAroma]) {
+    if ([aroma isEqualToString:itemAroma]) {
       found = YES;
       break;
     }

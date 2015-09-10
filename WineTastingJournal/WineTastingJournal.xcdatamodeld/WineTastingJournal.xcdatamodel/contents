@@ -2,6 +2,7 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14F27" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Aromas" syncable="YES">
         <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="taste" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="items" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="aromas" inverseEntity="Item" syncable="YES"/>
     </entity>
     <entity name="AssetType" syncable="YES">
@@ -71,8 +72,8 @@
         <relationship name="assetType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AssetType" inverseName="items" inverseEntity="AssetType" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Aromas" positionX="9" positionY="738" width="128" height="90"/>
         <element name="AssetType" positionX="9" positionY="870" width="128" height="75"/>
         <element name="Item" positionX="-209" positionY="-45" width="128" height="943"/>
-        <element name="Aromas" positionX="9" positionY="738" width="128" height="73"/>
     </elements>
 </model>
