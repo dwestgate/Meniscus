@@ -11,7 +11,7 @@
 #import "ImageStore.h"
 #import "ItemStore.h"
 #import "AssetTypeViewController.h"
-#import "AromasViewController.h"
+#import "AromaCategoriesViewController.h"
 #import "FlavorsViewController.h"
 #import "AppDelegate.h"
 
@@ -440,7 +440,7 @@
 - (IBAction)aromasButtonTouchUpInside:(id)sender {
   [self.view endEditing:YES];
   
-  AromasViewController *avc = [[AromasViewController alloc] init];
+  AromaCategoriesViewController *avc = [[AromaCategoriesViewController alloc] init];
   avc.item = self.item;
   
   [self.navigationController pushViewController:avc

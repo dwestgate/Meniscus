@@ -39,7 +39,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
   
-  return  [[[ItemStore sharedStore] allAromas] count];
+  return  [[[ItemStore sharedStore] allTastes] count];
   
 }
 
@@ -47,7 +47,7 @@
   
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
   
-  NSArray *allFlavors = [[ItemStore sharedStore] allAromas];
+  NSArray *allFlavors = [[ItemStore sharedStore] allTastes];
   NSManagedObject *flavor = allFlavors[indexPath.row];
   
   NSString *flavorCategory = [flavor valueForKey:@"category"];
@@ -75,7 +75,7 @@
   
   UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
   
-  NSArray *allFlavors = [[ItemStore sharedStore] allAromas];
+  NSArray *allFlavors = [[ItemStore sharedStore] allTastes];
   NSManagedObject *flavor = allFlavors[indexPath.row];
   
   if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {

@@ -14,5 +14,6 @@
 @interface AromasViewController : UITableViewController
 
 @property (nonatomic, strong) Item *item;
+@property (nonatomic, strong) NSArray *tastes;
 
 @end
