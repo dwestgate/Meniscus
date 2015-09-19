@@ -60,10 +60,9 @@
     [_categoriesArray addObjectsFromArray:[uniqueCategories allObjects]];
     
     //
-    // WORKING HERE - need to get the taste-characteristic mappng to aromaviewcontroller
+    // WORKING HERE - need to get the taste-characteristic mapping to aromaviewcontroller
+    // tastes, characteristics
     //
-    // NSMutableArray *characteristics = [NSMutableArray arrayWithArray:[[categoryAromas valueForKey:@"characteristic"]];
-    
     NSMutableArray *tastes = [NSMutableArray arrayWithArray:[[categoryAromas valueForKey:@"taste"] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)]];
     
     [_tastesArray addObject:[NSMutableArray arrayWithArray:tastes]];
