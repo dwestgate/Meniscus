@@ -64,7 +64,7 @@
                     format:@"Reason: %@", [error localizedDescription]];
       }
       
-      _context = [[NSManagedObjectContext alloc] init];
+      _context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
       _context.persistentStoreCoordinator = psc;
       
       [self loadAllItems];
@@ -372,7 +372,7 @@
                                           inManagedObjectContext:self.context];
     [taste setValue:@1 forKey:@"categoryOrder"];
     [taste setValue:@"Citrus and tropical fruits" forKey:@"category"];
-    [taste setValue:@"." forKey:@"characteristic"];
+    [taste setValue:@"tropical fruit" forKey:@"characteristic"];
     [taste setValue:@"banana" forKey:@"taste"];
     [_allTastes addObject:taste];
     
@@ -439,7 +439,7 @@
                                           inManagedObjectContext:self.context];
     [taste setValue:@2 forKey:@"categoryOrder"];
     [taste setValue:@"Green fruits and stone fruits" forKey:@"category"];
-    [taste setValue:@"." forKey:@"characteristic"];
+    [taste setValue:@"green fruit" forKey:@"characteristic"];
     [taste setValue:@"apple" forKey:@"taste"];
     [_allTastes addObject:taste];
     
@@ -447,7 +447,7 @@
                                           inManagedObjectContext:self.context];
     [taste setValue:@2 forKey:@"categoryOrder"];
     [taste setValue:@"Green fruits and stone fruits" forKey:@"category"];
-    [taste setValue:@"." forKey:@"characteristic"];
+    [taste setValue:@"green fruit" forKey:@"characteristic"];
     [taste setValue:@"gooseberry" forKey:@"taste"];
     [_allTastes addObject:taste];
     
@@ -455,7 +455,7 @@
                                           inManagedObjectContext:self.context];
     [taste setValue:@2 forKey:@"categoryOrder"];
     [taste setValue:@"Green fruits and stone fruits" forKey:@"category"];
-    [taste setValue:@"." forKey:@"characteristic"];
+    [taste setValue:@"green fruit" forKey:@"characteristic"];
     [taste setValue:@"pear" forKey:@"taste"];
     [_allTastes addObject:taste];
     
@@ -463,7 +463,7 @@
                                           inManagedObjectContext:self.context];
     [taste setValue:@2 forKey:@"categoryOrder"];
     [taste setValue:@"Green fruits and stone fruits" forKey:@"category"];
-    [taste setValue:@"." forKey:@"characteristic"];
+    [taste setValue:@"green fruit" forKey:@"characteristic"];
     [taste setValue:@"grape" forKey:@"taste"];
     [_allTastes addObject:taste];
     
@@ -514,7 +514,7 @@
                                           inManagedObjectContext:self.context];
     [taste setValue:@3 forKey:@"categoryOrder"];
     [taste setValue:@"Red and black fruits" forKey:@"category"];
-    [taste setValue:@"." forKey:@"characteristic"];
+    [taste setValue:@"red fruit" forKey:@"characteristic"];
     [taste setValue:@"strawberry" forKey:@"taste"];
     [_allTastes addObject:taste];
     
@@ -972,7 +972,7 @@
                                           inManagedObjectContext:self.context];
     [taste setValue:@9 forKey:@"categoryOrder"];
     [taste setValue:@"Nutty and bready" forKey:@"category"];
-    [taste setValue:@"." forKey:@"characteristic"];
+    [taste setValue:@"nutty" forKey:@"characteristic"];
     [taste setValue:@"chocolate" forKey:@"taste"];
     [_allTastes addObject:taste];
     
@@ -980,7 +980,7 @@
                                           inManagedObjectContext:self.context];
     [taste setValue:@9 forKey:@"categoryOrder"];
     [taste setValue:@"Nutty and bready" forKey:@"category"];
-    [taste setValue:@"." forKey:@"characteristic"];
+    [taste setValue:@"nutty" forKey:@"characteristic"];
     [taste setValue:@"coffee" forKey:@"taste"];
     [_allTastes addObject:taste];
     
@@ -1181,7 +1181,7 @@
                                           inManagedObjectContext:self.context];
     [taste setValue:@12 forKey:@"categoryOrder"];
     [taste setValue:@"Other" forKey:@"category"];
-    [taste setValue:@"." forKey:@"characteristic"];
+    [taste setValue:@"other" forKey:@"characteristic"];
     [taste setValue:@"medicinal" forKey:@"taste"];
     [_allTastes addObject:taste];
   }

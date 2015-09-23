@@ -13,9 +13,13 @@
 
 @interface AromaCategoriesViewController ()
 
-@property (strong, nonatomic) NSMutableDictionary *tasteDictionary;
+@property (strong, nonatomic) NSArray *allTastes;
 @property (strong, nonatomic) NSMutableArray *categoriesArray;
 @property (strong, nonatomic) NSMutableArray *tastesArray;
+@property (strong, nonatomic) NSMutableArray *characteristicsArray;
+
+@property (strong, nonatomic) NSArray *test;
+@property (strong, nonatomic) NSArray *test2;
 
 @end
 
@@ -36,40 +40,43 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   
-  _tasteDictionary = [[NSMutableDictionary alloc] init];
   _categoriesArray = [[NSMutableArray alloc] init];
   _tastesArray = [[NSMutableArray alloc] init];
+  _characteristicsArray = [[NSMutableArray alloc] init];
+  _allTastes = [[NSArray alloc] init];
+
+  // test - can I just sort aroma?
   
-  for (NSManagedObject *aroma in [[ItemStore sharedStore] allTastes]) {
+  NSSortDescriptor *valueDescriptor = [[NSSortDescriptor alloc] initWithKey:@"categoryOrder" ascending:YES];
+  NSArray *descriptors = [NSArray arrayWithObject:valueDescriptor];
+  _allTastes = [[[ItemStore sharedStore] allTastes] sortedArrayUsingDescriptors:descriptors];
+
+  for (NSManagedObject *aroma in _allTastes) {
     
-    // if the category isn't in our list already, add it - otherwise just add the taste
-    if ([_tasteDictionary objectForKey:[aroma valueForKey:@"categoryOrder"]] == nil) {
-      NSMutableArray *firstTasteInNewCategory = [NSMutableArray arrayWithObjects:aroma, nil];
+    // if the category isn't in our list already, add it - otherwise skip
+    if (([_categoriesArray count] < 1) || (([_categoriesArray count] > 0) && (![[_categoriesArray lastObject] isEqualToString:[aroma valueForKey:@"category"]]))) {
       
-      [_tasteDictionary setObject:firstTasteInNewCategory forKey:[aroma valueForKey:@"categoryOrder"]];
-    } else {
-      [[_tasteDictionary objectForKey:[aroma valueForKey:@"categoryOrder"]] addObject:aroma];
+      [_categoriesArray addObject:[aroma valueForKey:@"category"]];
+
+      NSMutableArray *tastes = [NSMutableArray arrayWithArray:[_allTastes filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"category MATCHES %@", [aroma valueForKey:@"category"]]]];
+      [_tastesArray addObject:[NSMutableArray arrayWithArray:[[tastes valueForKey:@"taste"] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)]]];
+      
+      NSMutableArray *characteristics = [[NSMutableArray alloc] init];
+      
+      for (NSString *member in [_tastesArray lastObject]) {
+        NSArray *characteristic = [NSArray arrayWithArray:[tastes filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"taste MATCHES %@", member]]];
+        if ([characteristic count] > 0) {
+          [characteristics addObject:[[characteristic lastObject] valueForKey:@"characteristic"]];
+        }
+      }
+      [_characteristicsArray addObject:[NSArray arrayWithArray:characteristics]];
+      
     }
   }
-  
-  // Arrange categories in our custom order
-  for (int c = 0; c < [_tasteDictionary count]; c++) {
-    NSMutableArray *categoryAromas = [_tasteDictionary objectForKey:[NSNumber numberWithInt:c]];
-    NSSet *uniqueCategories = [NSSet setWithArray:[categoryAromas valueForKey:@"category"]];
-    
-    [_categoriesArray addObjectsFromArray:[uniqueCategories allObjects]];
-    
-    //
-    // WORKING HERE - need to get the taste-characteristic mapping to aromaviewcontroller
-    // tastes, characteristics
-    //
-    NSMutableArray *tastes = [NSMutableArray arrayWithArray:[[categoryAromas valueForKey:@"taste"] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)]];
-    
-    [_tastesArray addObject:[NSMutableArray arrayWithArray:tastes]];
-  }
-  
+
   [self.tableView registerClass:[UITableViewCell class]
          forCellReuseIdentifier:@"UITableViewCell"];
+   
 }
 
 #pragma mark - Table view data source
@@ -99,25 +106,23 @@
     }
   }
   
-  if (found) {
-    cell.accessoryType = UITableViewCellAccessoryCheckmark;
-  } else {
-    cell.accessoryType = UITableViewCellAccessoryNone;
-  }
-  
   // Set font to bold and itallic
   UIFontDescriptor *fontDescriptor = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleBody];
-  
   UIFontDescriptor *changedFontDescriptor;
   NSDictionary *attributes;
+  uint32_t existingTraitsWithNewTrait;
   
-  uint32_t existingTraitsWithNewTrait = [fontDescriptor symbolicTraits] | UIFontDescriptorTraitBold | UIFontDescriptorTraitItalic;
+  if (found) {
+      existingTraitsWithNewTrait = [fontDescriptor symbolicTraits] | UIFontDescriptorTraitBold | UIFontDescriptorTraitItalic;
+  } else {
+      existingTraitsWithNewTrait = [fontDescriptor symbolicTraits] & ~UIFontDescriptorTraitBold & ~UIFontDescriptorTraitItalic;
+  }
+
   changedFontDescriptor = [fontDescriptor fontDescriptorWithSymbolicTraits:existingTraitsWithNewTrait];
   
   UIFont *updatedFont = [UIFont fontWithDescriptor:changedFontDescriptor size:0.0];
   
   attributes = @{ NSFontAttributeName : updatedFont };
-  
   // end setting to bold and itallic
   
   NSMutableAttributedString *category = [[NSMutableAttributedString alloc] initWithString:[_categoriesArray objectAtIndex:[indexPath row]] attributes:attributes];
@@ -137,7 +142,9 @@
   
   AromasViewController *avc = [[AromasViewController alloc] init];
   avc.item = self.item;
+  avc.category = [_categoriesArray objectAtIndex:[indexPath row]];
   avc.tastes = [_tastesArray objectAtIndex:[indexPath row]];
+  avc.characteristics = [_characteristicsArray objectAtIndex:[indexPath row]];
   
   [self.navigationController pushViewController:avc
                                        animated:YES];
