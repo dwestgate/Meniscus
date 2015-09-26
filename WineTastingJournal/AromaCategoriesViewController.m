@@ -15,11 +15,12 @@
 
 @property (strong, nonatomic) NSArray *allTastes;
 @property (strong, nonatomic) NSMutableArray *categoriesArray;
-@property (strong, nonatomic) NSMutableArray *tastesArray;
 @property (strong, nonatomic) NSMutableArray *characteristicsArray;
-
-@property (strong, nonatomic) NSArray *test;
-@property (strong, nonatomic) NSArray *test2;
+@property (strong, nonatomic) NSMutableArray *tastesArray;
+@property (strong, nonatomic) NSMutableDictionary *characteristicToCategory;
+@property (strong, nonatomic) NSMutableSet *selectedCategories;
+@property (strong, nonatomic) NSMutableDictionary *selectedAromas;
+@property (strong, nonatomic) NSMutableOrderedSet *selectedCharacteristics;
 
 @end
 
@@ -37,13 +38,21 @@
   return [super initWithStyle:UITableViewStylePlain];
 }
 
+
+- (void)viewWillAppear:(BOOL)animated {
+  [super viewWillAppear:animated];
+  [self.tableView reloadData];
+}
+
+
 - (void)viewDidLoad {
   [super viewDidLoad];
   
-  _categoriesArray = [[NSMutableArray alloc] init];
-  _tastesArray = [[NSMutableArray alloc] init];
-  _characteristicsArray = [[NSMutableArray alloc] init];
   _allTastes = [[NSArray alloc] init];
+  _categoriesArray = [[NSMutableArray alloc] init];
+  _characteristicsArray = [[NSMutableArray alloc] init];
+  _tastesArray = [[NSMutableArray alloc] init];
+  _characteristicToCategory = [[NSMutableDictionary alloc] init];
 
   // test - can I just sort aroma?
   
@@ -52,6 +61,10 @@
   _allTastes = [[[ItemStore sharedStore] allTastes] sortedArrayUsingDescriptors:descriptors];
 
   for (NSManagedObject *aroma in _allTastes) {
+    
+    if ([_characteristicToCategory objectForKey:[aroma valueForKey:@"characteristic"]] == nil) {
+      [_characteristicToCategory setObject:[aroma valueForKey:@"category"] forKey:[aroma valueForKey:@"characteristic"]];
+    }
     
     // if the category isn't in our list already, add it - otherwise skip
     if (([_categoriesArray count] < 1) || (([_categoriesArray count] > 0) && (![[_categoriesArray lastObject] isEqualToString:[aroma valueForKey:@"category"]]))) {
@@ -73,6 +86,7 @@
       
     }
   }
+  [self readUserSelections];
 
   [self.tableView registerClass:[UITableViewCell class]
          forCellReuseIdentifier:@"UITableViewCell"];
@@ -85,11 +99,13 @@
   return 1;
 }
 
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
   
   return  [_tastesArray count];
   
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   
@@ -99,11 +115,8 @@
   
   // floral (lavendar, rose); nutty (almonds, chocolate)
   
-  for (NSString *itemAroma in [self AromaCategoriesArrayFromString]) {
-    if ([cell.textLabel.text isEqualToString:itemAroma]) {
-      found = YES;
-      break;
-    }
+  if ([_selectedCategories containsObject:[_categoriesArray objectAtIndex:[indexPath row]]]) {
+    found = YES;
   }
   
   // Set font to bold and itallic
@@ -133,87 +146,60 @@
   return cell;
 }
 
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  
-  // UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-  
-  // NSArray *allAromaCategories = [[ItemStore sharedStore] allAromas];
-  // NSManagedObject *aroma = allAromaCategories[indexPath.row];
   
   AromasViewController *avc = [[AromasViewController alloc] init];
   avc.item = self.item;
   avc.category = [_categoriesArray objectAtIndex:[indexPath row]];
   avc.tastes = [_tastesArray objectAtIndex:[indexPath row]];
-  avc.characteristics = [_characteristicsArray objectAtIndex:[indexPath row]];
+  avc.selectedCategories = _selectedCategories;
+  avc.selectedAromas = _selectedAromas;
+  avc.selectedCharacteristics = _selectedCharacteristics;
   
+  avc.characteristics = [_characteristicsArray objectAtIndex:[indexPath row]];
+ 
   [self.navigationController pushViewController:avc
                                        animated:YES];
-  
-   /*
-   if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
-   cell.accessoryType = UITableViewCellAccessoryNone;
-   
-   self.item.itemAromas = [self.item.itemAromas stringByReplacingOccurrencesOfString:[aroma valueForKey:@"category"] withString:@""];
-   self.item.itemAromas = [self.item.itemAromas stringByReplacingOccurrencesOfString:@", , " withString:@", "];
-   } else {
-   cell.accessoryType = UITableViewCellAccessoryCheckmark;
-   
-   self.item.itemAromas = [NSString stringWithFormat:@"%@, %@", self.item.itemAromas, [aroma valueForKey:@"category"]];
-   }
-
-   self.item.itemAromas = [self.item.itemAromas stringByTrimmingCharactersInSet:[NSCharacterSet punctuationCharacterSet]];
-   self.item.itemAromas = [self.item.itemAromas stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-   self.item.itemAromas = [self.item.itemAromas stringByTrimmingCharactersInSet:[NSCharacterSet punctuationCharacterSet]];
-   */
-  
 }
 
-- (NSArray *)AromaCategoriesArrayFromString {
-  return [self.item.itemAromas componentsSeparatedByString:@", "];
+
+- (void)readUserSelections {
+  _selectedCategories = [[NSMutableSet alloc] init];
+  _selectedAromas = [[NSMutableDictionary alloc] init];
+  _selectedCharacteristics = [[NSMutableOrderedSet alloc] init];
+  
+  NSArray *groupings = [self.item.itemAromas componentsSeparatedByString: @");"];
+  // groupings = "tropical fruit (banana, pear" , "red fruit (red apple, red cherry)"
+  
+  if ([[groupings objectAtIndex:0] length] > 0) {
+    for (NSString *grouping in groupings) {
+      NSMutableOrderedSet *components = [NSMutableOrderedSet orderedSetWithArray:[grouping componentsSeparatedByString:@"("]];
+      // components[0] = "tropical fruit" , "banana, pear"
+      // components[1] = "red fruit" , "red apple, red cherry)"
+      
+      components[0] = [components[0] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+      components[1] = [components[1] stringByTrimmingCharactersInSet:[NSCharacterSet punctuationCharacterSet]];
+      
+      [_selectedAromas setObject:[NSMutableArray arrayWithArray:[[components objectAtIndex:1] componentsSeparatedByString:@", "]] forKey:[components objectAtIndex:0]];
+      // selecedAromas = (key: "tropical fruit" , value: "banana, pear") , (key: "red fruit" , value: "red apple, cherry)")
+      [_selectedCharacteristics addObject:[components objectAtIndex:0]];
+      // selectedCategoreis = "tropical fruit", "red fruit"
+      
+      [_selectedCategories addObject:[_characteristicToCategory objectForKey:[components objectAtIndex:0]]];
+    }
+  }
 }
 
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
 
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- } else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+- (Boolean)isAromaSelected:(NSString *)aroma withCharacteristic:(NSString *)characteristic {
+  
+  Boolean found = NO;
+  
+  if (!([_selectedAromas objectForKey:characteristic] == nil) && ([[_selectedAromas objectForKey:characteristic] containsObject:aroma])) {
+    found = YES;
+  }
+  return found;
+}
 
 @end

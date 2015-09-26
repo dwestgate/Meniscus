@@ -17,5 +17,8 @@
 @property (nonatomic, strong) NSString *category;
 @property (nonatomic, strong) NSArray *tastes;
 @property (nonatomic, strong) NSArray *characteristics;
+@property (nonatomic, strong) NSMutableSet *selectedCategories;
+@property (nonatomic, strong) NSMutableOrderedSet *selectedCharacteristics;
+@property (nonatomic, strong) NSMutableDictionary *selectedAromas;
 
 @end

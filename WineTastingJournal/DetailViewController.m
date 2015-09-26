@@ -12,7 +12,7 @@
 #import "ItemStore.h"
 #import "AssetTypeViewController.h"
 #import "AromaCategoriesViewController.h"
-#import "FlavorsViewController.h"
+#import "FlavorCategoriesViewController.h"
 #import "AppDelegate.h"
 
 @interface DetailViewController ()
@@ -583,7 +583,7 @@
 - (IBAction)flavorsButtonTouchUpInside:(id)sender {
   [self.view endEditing:YES];
   
-  FlavorsViewController *fvc = [[FlavorsViewController alloc] init];
+  FlavorCategoriesViewController *fvc = [[FlavorCategoriesViewController alloc] init];
   fvc.item = self.item;
   
   [self.navigationController pushViewController:fvc
