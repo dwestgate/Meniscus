@@ -16,7 +16,8 @@
 
 @interface ItemsViewController () <UIPopoverControllerDelegate, UIDataSourceModelAssociation>
 
-@property (strong, nonatomic) UIPopoverController *imagePopover;
+// @property (strong, nonatomic) UIPopoverController *imagePopover;
+// @property (strong, nonatomic) UIPopoverPresentationController *imagePopover;
 
 @end
 
@@ -77,7 +78,7 @@
   
   NSArray *items = [[ItemStore sharedStore] allItems];
   Item *item = items[indexPath.row];
-    
+  
   cell.nameLabel.text = item.itemName;
   
   static NSNumberFormatter *currencyFormatter = nil;
@@ -85,42 +86,55 @@
     currencyFormatter = [[NSNumberFormatter alloc] init];
     currencyFormatter.numberStyle = NSNumberFormatterCurrencyStyle;
   }
- // cell.valueLabel.text = [currencyFormatter stringFromNumber:@(item.valueInDollars)];
+  // cell.valueLabel.text = [currencyFormatter stringFromNumber:@(item.valueInDollars)];
   
   cell.thumbnailView.image = item.thumbnail;
-    
+  
   __weak ItemCell *weakCell = cell;
-    
+  
   cell.actionBlock = ^{NSLog(@"Going to show image for %@", item);
-        
-  ItemCell *strongCell = weakCell;
-        
-  if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
-    NSString *itemKey = item.itemKey;
-            
-    UIImage *img = [[ImageStore sharedStore] imageForKey:itemKey];
+    
+    ItemCell *strongCell = weakCell;
+    
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+      NSString *itemKey = item.itemKey;
+      
+      UIImage *img = [[ImageStore sharedStore] imageForKey:itemKey];
       if (!img) {
         return;
       }
       CGRect rect = [self.view convertRect:strongCell.thumbnailView.bounds fromView:strongCell.thumbnailView];
-        
+      
       ImageViewController *ivc = [[ImageViewController alloc] init];
       ivc.image = img;
-        
-      self.imagePopover = [[UIPopoverController alloc] initWithContentViewController:ivc];
-      self.imagePopover.delegate = self;
-      self.imagePopover.popoverContentSize = CGSizeMake(600, 600);
-      [self.imagePopover presentPopoverFromRect:rect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-      }
+      
+      ivc.modalPresentationStyle = UIModalPresentationPopover;
+      [self presentViewController:ivc animated:YES completion:nil];
+      
+      UIPopoverPresentationController *imagePopover = [ivc popoverPresentationController];
+      
+      imagePopover.permittedArrowDirections = UIPopoverArrowDirectionAny;
+      imagePopover.sourceView = self.view;
+      imagePopover.sourceRect = rect;
+      
+      /*
+       self.imagePopover = [[UIPopoverController alloc] initWithContentViewController:ivc];
+       self.imagePopover.delegate = self;
+       self.imagePopover.popoverContentSize = CGSizeMake(600, 600);
+       [self.imagePopover presentPopoverFromRect:rect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+       */
+    }
   };
-    
+  
   return cell;
 }
 
+/*
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
 {
     self.imagePopover = nil;
 }
+*/
 
 - (void)viewDidLoad
 {

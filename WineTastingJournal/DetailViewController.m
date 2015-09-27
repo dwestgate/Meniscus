@@ -128,7 +128,7 @@
 @property (strong, nonatomic) IBOutlet UIPickerView *readinessPickerView;
 @property (strong, nonatomic) NSArray *readinessPickerOptions;
 
-@property (strong, nonatomic) UIPopoverController *imagePickerPopover;
+// @property (strong, nonatomic) UIPopoverController *imagePickerPopover;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cameraButton;
@@ -688,38 +688,50 @@
 
 - (IBAction)takePicture:(id)sender
 {
-    if ([self.imagePickerPopover isPopoverVisible]) {
-        [self.imagePickerPopover dismissPopoverAnimated:YES];
-        self.imagePickerPopover = nil;
-        return;
-    }
+  /*
+  if ([self.imagePickerPopover isPopoverVisible]) {
+    [self.imagePickerPopover dismissPopoverAnimated:YES];
+    self.imagePickerPopover = nil;
+    return;
+  }
+   */
+  
+  UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+  
+  if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+    imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+  } else {
+    imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+  }
+  
+  imagePicker.delegate = self;
+  
+  if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
     
-    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    [self presentViewController:imagePicker animated:YES completion:nil];
     
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    } else {
-        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    }
+    UIPopoverPresentationController *imagePopover = [imagePicker popoverPresentationController];
     
-    imagePicker.delegate = self;
-    
-    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
-        self.imagePickerPopover = [[UIPopoverController alloc] initWithContentViewController:imagePicker];
-        self.imagePickerPopover.delegate = self;
-        [self.imagePickerPopover presentPopoverFromBarButtonItem:sender
-                                        permittedArrowDirections:UIPopoverArrowDirectionAny
-                                                        animated:YES];
-    } else {
-        [self presentViewController:imagePicker animated:YES completion:NULL];
-    }
+    imagePopover.permittedArrowDirections = UIPopoverArrowDirectionAny;
+    imagePopover.sourceView = self.view;
+    /*
+    self.imagePickerPopover = [[UIPopoverController alloc] initWithContentViewController:imagePicker];
+    self.imagePickerPopover.delegate = self;
+    [self.imagePickerPopover presentPopoverFromBarButtonItem:sender
+                                    permittedArrowDirections:UIPopoverArrowDirectionAny
+                                                    animated:YES];
+     */
+  } else {
+    [self presentViewController:imagePicker animated:YES completion:NULL];
+  }
 }
-
+/*
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
 {
     NSLog(@"User dismissed popover");
     self.imagePickerPopover = nil;
 }
+*/
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
@@ -730,13 +742,16 @@
     [[ImageStore sharedStore] setImage:image
                                    forKey:self.item.itemKey];
     self.imageView.image = image;
-    
+  
+    [self dismissViewControllerAnimated:YES completion:NULL];
+    /*
     if (self.imagePickerPopover) {
         [self.imagePickerPopover dismissPopoverAnimated:YES];
         self.imagePickerPopover = nil;
     } else {
         [self dismissViewControllerAnimated:YES completion:NULL];
     }
+     */
 }
 
 #pragma mark - View Constraints
