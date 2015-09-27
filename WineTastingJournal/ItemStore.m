@@ -80,13 +80,8 @@
 
 - (Item *)createItem
 {
-  double order;
-  if ([self.allItems count] == 0) {
-    order = 1.0;
-  } else {
-    order = [[self.privateItems lastObject] orderingValue] + 1.0;
-  }
-  NSLog(@"Adding after %lu items, order %.2f", (unsigned long)[self.privateItems count], order);
+  double order = 1.0;
+
   Item *item = [NSEntityDescription insertNewObjectForEntityForName:@"Item"
                                                 inManagedObjectContext:self.context];
   item.orderingValue = order;
@@ -149,7 +144,7 @@
 
   NSLog(@"defaults = %@", [defaults dictionaryRepresentation]);
   
-  [self.privateItems addObject:item];
+  [self.privateItems insertObject:item atIndex:0];
   
   return item;
 }
