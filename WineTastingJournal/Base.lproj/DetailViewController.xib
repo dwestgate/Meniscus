@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController">
             <connections>
                 <outlet property="acidityLabel" destination="hLK-O0-MeZ" id="mDW-1b-EYG"/>
                 <outlet property="acidityStepper" destination="EWe-om-njh" id="RQh-yH-6fe"/>
-                <outlet property="alchoholLabel" destination="DeW-Rh-QPl" id="2Ot-hz-mtI"/>
-                <outlet property="alchoholStepper" destination="zJL-Sw-2oi" id="pyr-0m-VRP"/>
+                <outlet property="actionButton" destination="jUc-YW-ekr" id="Iaa-SK-uSP"/>
+                <outlet property="alcoholLabel" destination="DeW-Rh-QPl" id="2Ot-hz-mtI"/>
+                <outlet property="alcoholStepper" destination="zJL-Sw-2oi" id="pyr-0m-VRP"/>
                 <outlet property="appearanceBanner" destination="jct-NK-8pZ" id="lAj-Ug-qbE"/>
                 <outlet property="appellationTextField" destination="ddW-le-m4F" id="Wrr-pF-4Pe"/>
                 <outlet property="aromaIntensityLabel" destination="gPQ-Pr-bdD" id="cra-kB-00d"/>
@@ -17,7 +18,6 @@
                 <outlet property="aromasButton" destination="G4M-rZ-w25" id="38G-qW-8Vj"/>
                 <outlet property="aromasLabel" destination="fKr-72-PyK" id="54R-RF-8R7"/>
                 <outlet property="aromasTextView" destination="tMD-rA-k6m" id="fpe-bv-uQ3"/>
-                <outlet property="assetTypeButton" destination="sJQ-Ia-vRd" id="egH-kp-cAU"/>
                 <outlet property="balanceTextField" destination="v5m-6t-4g6" id="Maq-W3-iWl"/>
                 <outlet property="bodyLabel" destination="pop-jP-Ntn" id="7e1-yQ-llA"/>
                 <outlet property="bodyStepper" destination="JIY-hf-U2y" id="qct-q1-UHz"/>
@@ -48,6 +48,8 @@
                 <outlet property="flavorsTextView" destination="v9h-Ly-5qD" id="ODr-yq-96N"/>
                 <outlet property="hundredPointScoreLabel" destination="xWh-Lh-sRF" id="mjZ-qV-Zh9"/>
                 <outlet property="hundredPointScoreSlider" destination="lrU-kt-taL" id="SaH-zP-NPI"/>
+                <outlet property="meniscusLabel" destination="wl5-0J-lAD" id="hsP-07-lZ6"/>
+                <outlet property="meniscusSlider" destination="xHC-XF-ZeA" id="icw-2G-sZk"/>
                 <outlet property="mousseLabel" destination="1ld-gL-sef" id="nDO-lo-IJf"/>
                 <outlet property="mousseStepper" destination="HW5-wb-Cpm" id="2bZ-na-tnP"/>
                 <outlet property="nameLabel" destination="mBD-xV-3bE" id="H0G-BS-cAr"/>
@@ -92,22 +94,22 @@
                             <rect key="frame" x="0.0" y="0.0" width="415" height="1910"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Lh-sP-hcP" userLabel="contentView">
-                                    <rect key="frame" x="0.0" y="0.0" width="415" height="2187"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="415" height="2225"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Appearance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jct-NK-8pZ" userLabel="appearanceBanner">
                                             <rect key="frame" x="8" y="211" width="399" height="30"/>
-                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" red="0.24313725490196078" green="0.082352941176470587" blue="0.11372549019607843" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="1T5-RS-BeO"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wine Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBD-xV-3bE" userLabel="nameLabel">
                                             <rect key="frame" x="20" y="66" width="375" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.24313725489999999" green="0.08235294118" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="nameTextView" translatesAutoresizingMaskIntoConstraints="NO" id="ObE-G0-GeM" userLabel="nameTextView">
@@ -120,7 +122,7 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textView>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="notesTextView" translatesAutoresizingMaskIntoConstraints="NO" id="QEQ-Ts-TSv" userLabel="notesTextView">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" text="notesTextView" translatesAutoresizingMaskIntoConstraints="NO" id="QEQ-Ts-TSv" userLabel="notesTextView">
                                             <rect key="frame" x="16" y="169" width="379" height="33"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
@@ -141,118 +143,127 @@
                                         </label>
                                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="sdk-Y4-rMh" userLabel="claritySlider">
                                             <rect key="frame" x="165" y="250" width="232" height="31"/>
+                                            <color key="tintColor" red="0.24313725489999999" green="0.08235294118" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="claritySliderValueChanged:" destination="-1" eventType="valueChanged" id="o32-9m-fK2"/>
                                             </connections>
                                         </slider>
                                         <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="rHt-t2-zpo" userLabel="colorIntensityStepper">
-                                            <rect key="frame" x="301" y="329" width="94" height="29"/>
+                                            <rect key="frame" x="301" y="368" width="94" height="29"/>
+                                            <color key="tintColor" red="0.24313725489999999" green="0.08235294118" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="colorIntensityValueChanged:" destination="-1" eventType="valueChanged" id="cfm-iT-b0R"/>
                                             </connections>
                                         </stepper>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Red" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TEK-HF-ykr" userLabel="colorLabel">
-                                            <rect key="frame" x="20" y="292" width="140" height="24"/>
+                                            <rect key="frame" x="20" y="332" width="140" height="22"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="dJ4-bh-hbz" userLabel="colorSlider">
-                                            <rect key="frame" x="165" y="289" width="232" height="31"/>
+                                            <rect key="frame" x="165" y="328" width="232" height="31"/>
+                                            <color key="tintColor" red="0.24313725489999999" green="0.08235294118" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="colorSliderValueChanged:" destination="-1" eventType="valueChanged" id="FsS-Dx-VsA"/>
                                             </connections>
                                         </slider>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color Intensity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xMN-Fi-0di" userLabel="colorIntensityLabel">
-                                            <rect key="frame" x="20" y="332" width="111" height="23"/>
+                                            <rect key="frame" x="20" y="370" width="111" height="25"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="qtn-gA-H3R" userLabel="colorShadeSlider">
-                                            <rect key="frame" x="165" y="368" width="232" height="31"/>
+                                            <rect key="frame" x="165" y="407" width="232" height="31"/>
+                                            <color key="tintColor" red="0.24313725489999999" green="0.08235294118" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="colorShadeSliderValueChanged:" destination="-1" eventType="valueChanged" id="uk3-Ew-LCG"/>
                                             </connections>
                                         </slider>
                                         <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="doe-x4-C7s" userLabel="petillanceStepper">
-                                            <rect key="frame" x="301" y="408" width="94" height="29"/>
+                                            <rect key="frame" x="301" y="447" width="94" height="29"/>
+                                            <color key="tintColor" red="0.24313725489999999" green="0.08235294118" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="petillanceValueChanged:" destination="-1" eventType="valueChanged" id="C5z-QF-K68"/>
                                             </connections>
                                         </stepper>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Petillance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5y-4k-jHp" userLabel="petillanceLabel">
-                                            <rect key="frame" x="20" y="412" width="75" height="21"/>
+                                            <rect key="frame" x="20" y="450" width="74" height="23"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="ny3-BL-WfU" userLabel="viscosityStepper">
-                                            <rect key="frame" x="301" y="447" width="94" height="29"/>
+                                            <rect key="frame" x="301" y="486" width="94" height="29"/>
+                                            <color key="tintColor" red="0.24313725489999999" green="0.08235294118" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="viscosityValueChanged:" destination="-1" eventType="valueChanged" id="z82-ww-cfB"/>
                                             </connections>
                                         </stepper>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Viscosity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y53-LD-Ggp" userLabel="viscosityLabel">
-                                            <rect key="frame" x="20" y="449" width="68" height="25"/>
+                                            <rect key="frame" x="20" y="489" width="70" height="23"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thick sediment" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JP8-Gd-Gb7" userLabel="sedimentLabel">
-                                            <rect key="frame" x="20" y="491" width="140" height="21"/>
+                                            <rect key="frame" x="20" y="529" width="140" height="23"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="gTc-tb-e3e" userLabel="sedimentSlider">
-                                            <rect key="frame" x="165" y="486" width="232" height="32"/>
+                                            <rect key="frame" x="165" y="525" width="232" height="31"/>
+                                            <color key="tintColor" red="0.24313725489999999" green="0.08235294118" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="sedimentSliderValueChanged:" destination="-1" eventType="valueChanged" id="tOy-j8-FtE"/>
                                             </connections>
                                         </slider>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nose" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8g-p3-Hg0" userLabel="noseBanner">
-                                            <rect key="frame" x="8" y="526" width="399" height="30"/>
-                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <rect key="frame" x="8" y="564" width="399" height="30"/>
+                                            <color key="backgroundColor" red="0.24313725489999999" green="0.08235294118" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="rlE-wB-0R4"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clean" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1af-f0-gmw" userLabel="conditionLabel">
-                                            <rect key="frame" x="20" y="569" width="140" height="21"/>
+                                            <rect key="frame" x="20" y="607" width="140" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="aAs-Z8-UED" userLabel="conditionSlider">
-                                            <rect key="frame" x="165" y="565" width="232" height="31"/>
+                                            <rect key="frame" x="165" y="603" width="232" height="31"/>
+                                            <color key="tintColor" red="0.24313725489999999" green="0.08235294118" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="conditionSliderValueChanged:" destination="-1" eventType="valueChanged" id="TfF-KD-e4d"/>
                                             </connections>
                                         </slider>
-                                        <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minimumValue="1" maximumValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="5Rp-ww-sI9" userLabel="aromaIntensityStepper">
-                                            <rect key="frame" x="301" y="605" width="94" height="29"/>
+                                        <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="5Rp-ww-sI9" userLabel="aromaIntensityStepper">
+                                            <rect key="frame" x="301" y="643" width="94" height="29"/>
+                                            <color key="tintColor" red="0.24313725489999999" green="0.08235294118" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="aromaIntensityValueChanged:" destination="-1" eventType="valueChanged" id="DE4-Go-oHX"/>
                                             </connections>
                                         </stepper>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aroma Intensity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPQ-Pr-bdD" userLabel="aromaIntensityLabel">
-                                            <rect key="frame" x="20" y="606" width="120" height="27"/>
+                                            <rect key="frame" x="20" y="644" width="120" height="27"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aromas" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKr-72-PyK" userLabel="aromasLabel">
-                                            <rect key="frame" x="20" y="644" width="59" height="21"/>
+                                            <rect key="frame" x="20" y="682" width="59" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tMD-rA-k6m" userLabel="aromasTextView">
-                                            <rect key="frame" x="16" y="674" width="379" height="33"/>
+                                            <rect key="frame" x="16" y="712" width="379" height="33"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="33" id="QT6-wc-19m"/>
@@ -262,107 +273,114 @@
                                             <textInputTraits key="textInputTraits"/>
                                         </textView>
                                         <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="4" translatesAutoresizingMaskIntoConstraints="NO" id="KCd-om-5lj" userLabel="developmentStepper">
-                                            <rect key="frame" x="301" y="717" width="94" height="29"/>
+                                            <rect key="frame" x="301" y="755" width="94" height="29"/>
+                                            <color key="tintColor" red="0.24313725489999999" green="0.08235294118" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="developmentValueChanged:" destination="-1" eventType="valueChanged" id="Dlq-Ra-kmZ"/>
                                             </connections>
                                         </stepper>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Development" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E6U-27-iIR" userLabel="developmentLabel">
-                                            <rect key="frame" x="20" y="719" width="102" height="25"/>
+                                            <rect key="frame" x="20" y="757" width="102" height="25"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Palate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZz-fv-ry1" userLabel="palateBanner">
-                                            <rect key="frame" x="8" y="756" width="399" height="30"/>
-                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <rect key="frame" x="8" y="794" width="399" height="30"/>
+                                            <color key="backgroundColor" red="0.24313725489999999" green="0.08235294118" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="D0y-dy-qYi"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="C4c-OD-3KV" userLabel="sweetnessStepper">
-                                            <rect key="frame" x="301" y="796" width="94" height="29"/>
+                                            <rect key="frame" x="301" y="834" width="94" height="29"/>
+                                            <color key="tintColor" red="0.24313725489999999" green="0.08235294118" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="sweetnessValueChanged:" destination="-1" eventType="valueChanged" id="yA0-mu-DcA"/>
                                             </connections>
                                         </stepper>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sweetness" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UcL-33-rjJ" userLabel="sweetnessLabel">
-                                            <rect key="frame" x="20" y="798" width="84" height="25"/>
+                                            <rect key="frame" x="20" y="836" width="84" height="25"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="4" minimumValue="1" maximumValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="EWe-om-njh" userLabel="acidityStepper">
-                                            <rect key="frame" x="301" y="835" width="94" height="29"/>
+                                        <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="EWe-om-njh" userLabel="acidityStepper">
+                                            <rect key="frame" x="301" y="873" width="94" height="29"/>
+                                            <color key="tintColor" red="0.24313725489999999" green="0.08235294118" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="acidityValueChanged:" destination="-1" eventType="valueChanged" id="5xL-Vo-gWg"/>
                                             </connections>
                                         </stepper>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Acidity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLK-O0-MeZ" userLabel="acidityLabel">
-                                            <rect key="frame" x="20" y="839" width="53" height="21"/>
+                                            <rect key="frame" x="20" y="877" width="52" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="bcT-iX-jRp" userLabel="tanninStepper">
-                                            <rect key="frame" x="301" y="874" width="94" height="29"/>
+                                            <rect key="frame" x="301" y="912" width="94" height="29"/>
+                                            <color key="tintColor" red="0.24313725489999999" green="0.08235294118" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="tanninValueChanged:" destination="-1" eventType="valueChanged" id="lUN-8K-wei"/>
                                             </connections>
                                         </stepper>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tannin" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lny-iu-Kiw" userLabel="tanninLabel">
-                                            <rect key="frame" x="20" y="876" width="140" height="25"/>
+                                            <rect key="frame" x="20" y="914" width="140" height="25"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minimumValue="1" maximumValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="zJL-Sw-2oi" userLabel="alchoholStepper">
-                                            <rect key="frame" x="301" y="913" width="94" height="29"/>
+                                        <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="zJL-Sw-2oi" userLabel="alcoholStepper">
+                                            <rect key="frame" x="301" y="951" width="94" height="29"/>
+                                            <color key="tintColor" red="0.24313725489999999" green="0.08235294118" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
-                                                <action selector="alchoholValueChanged:" destination="-1" eventType="valueChanged" id="75Y-0d-ttd"/>
+                                                <action selector="alcoholValueChanged:" destination="-1" eventType="valueChanged" id="75Y-0d-ttd"/>
                                             </connections>
                                         </stepper>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alchohol" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DeW-Rh-QPl" userLabel="alchoholLabel">
-                                            <rect key="frame" x="20" y="917" width="67" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="alcohol" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DeW-Rh-QPl" userLabel="alcoholLabel">
+                                            <rect key="frame" x="20" y="955" width="67" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minimumValue="1" maximumValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="JIY-hf-U2y" userLabel="bodyStepper">
-                                            <rect key="frame" x="301" y="952" width="94" height="29"/>
+                                        <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="JIY-hf-U2y" userLabel="bodyStepper">
+                                            <rect key="frame" x="301" y="990" width="94" height="29"/>
+                                            <color key="tintColor" red="0.24313725489999999" green="0.08235294118" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="bodyValueChanged:" destination="-1" eventType="valueChanged" id="t5w-59-ljy"/>
                                             </connections>
                                         </stepper>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Body" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pop-jP-Ntn" userLabel="bodyLabel">
-                                            <rect key="frame" x="20" y="954" width="41" height="25"/>
+                                            <rect key="frame" x="20" y="992" width="40" height="25"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minimumValue="1" maximumValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ho7-tz-PHp" userLabel="flavorIntensityStepper">
-                                            <rect key="frame" x="301" y="991" width="94" height="29"/>
+                                        <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ho7-tz-PHp" userLabel="flavorIntensityStepper">
+                                            <rect key="frame" x="301" y="1029" width="94" height="29"/>
+                                            <color key="tintColor" red="0.24313725489999999" green="0.08235294118" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="flavorIntensityValueChanged:" destination="-1" eventType="valueChanged" id="49r-81-h5c"/>
                                             </connections>
                                         </stepper>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flavor Intensity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ur0-k8-f3h" userLabel="flavorIntensityLabel">
-                                            <rect key="frame" x="20" y="995" width="117" height="21"/>
+                                            <rect key="frame" x="20" y="1033" width="116" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flavors" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iBu-Xp-mAY" userLabel="flavorsLabel">
-                                            <rect key="frame" x="20" y="1030" width="56" height="21"/>
+                                            <rect key="frame" x="20" y="1068" width="55" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v9h-Ly-5qD" userLabel="flavorsTextView">
-                                            <rect key="frame" x="16" y="1060" width="379" height="33"/>
+                                            <rect key="frame" x="16" y="1098" width="379" height="33"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="s1u-EY-CIO"/>
@@ -372,49 +390,52 @@
                                             <textInputTraits key="textInputTraits"/>
                                         </textView>
                                         <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="4" translatesAutoresizingMaskIntoConstraints="NO" id="HW5-wb-Cpm" userLabel="mousseStepper">
-                                            <rect key="frame" x="301" y="1142" width="94" height="29"/>
+                                            <rect key="frame" x="301" y="1180" width="94" height="29"/>
+                                            <color key="tintColor" red="0.24313725489999999" green="0.08235294118" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="mousseValueChanged:" destination="-1" eventType="valueChanged" id="rjQ-Rl-eO8"/>
                                             </connections>
                                         </stepper>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mousse" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ld-gL-sef" userLabel="mousseLabel">
-                                            <rect key="frame" x="20" y="1144" width="61" height="25"/>
+                                            <rect key="frame" x="20" y="1182" width="60" height="25"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minimumValue="1" maximumValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="6ng-Z6-8GM" userLabel="finishStepper">
-                                            <rect key="frame" x="301" y="1181" width="94" height="29"/>
+                                        <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="6ng-Z6-8GM" userLabel="finishStepper">
+                                            <rect key="frame" x="301" y="1219" width="94" height="29"/>
+                                            <color key="tintColor" red="0.24313725489999999" green="0.08235294118" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="finishValueChanged:" destination="-1" eventType="valueChanged" id="IqQ-Hm-uhh"/>
                                             </connections>
                                         </stepper>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Finish" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EDC-Ze-u8z" userLabel="finishLabel">
-                                            <rect key="frame" x="20" y="1185" width="46" height="21"/>
+                                            <rect key="frame" x="20" y="1223" width="45" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quality" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epn-W1-bye" userLabel="qualityLabel">
-                                            <rect key="frame" x="20" y="1263" width="140" height="21"/>
+                                            <rect key="frame" x="20" y="1301" width="140" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="meW-j7-bKR" userLabel="qualitySlider">
-                                            <rect key="frame" x="165" y="1259" width="232" height="31"/>
+                                            <rect key="frame" x="165" y="1297" width="232" height="31"/>
+                                            <color key="tintColor" red="0.24313725489999999" green="0.08235294118" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="qualitySliderValueChanged:" destination="-1" eventType="valueChanged" id="lCK-fP-0DH"/>
                                             </connections>
                                         </slider>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ruby" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2X-nq-2uH" userLabel="colorShadeLabel">
-                                            <rect key="frame" x="20" y="371" width="140" height="24"/>
+                                            <rect key="frame" x="20" y="411" width="140" height="22"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Balance" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v5m-6t-4g6" userLabel="balanceTextField">
-                                            <rect key="frame" x="20" y="1102" width="375" height="30"/>
+                                            <rect key="frame" x="20" y="1140" width="375" height="30"/>
                                             <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
@@ -423,17 +444,17 @@
                                             </connections>
                                         </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Conclusions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXH-rn-Tfx" userLabel="conclusionsBanner">
-                                            <rect key="frame" x="8" y="1220" width="399" height="30"/>
-                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <rect key="frame" x="8" y="1258" width="399" height="30"/>
+                                            <color key="backgroundColor" red="0.24313725489999999" green="0.08235294118" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="kM6-xl-sad"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Readiness" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0uJ-49-zxv" userLabel="readinessTextField">
-                                            <rect key="frame" x="20" y="1298" width="375" height="30"/>
+                                            <rect key="frame" x="20" y="1336" width="375" height="30"/>
                                             <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
@@ -443,7 +464,7 @@
                                             </connections>
                                         </textField>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Winemaker" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="By6-B8-T1Q" userLabel="winemakerTextField">
-                                            <rect key="frame" x="20" y="1494" width="375" height="30"/>
+                                            <rect key="frame" x="20" y="1532" width="375" height="30"/>
                                             <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
@@ -452,7 +473,7 @@
                                             </connections>
                                         </textField>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Vintage" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rx8-1S-YWo" userLabel="vintageTextField">
-                                            <rect key="frame" x="20" y="1533" width="375" height="30"/>
+                                            <rect key="frame" x="20" y="1571" width="375" height="30"/>
                                             <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
@@ -461,7 +482,7 @@
                                             </connections>
                                         </textField>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Appellation" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ddW-le-m4F" userLabel="appellationTextField">
-                                            <rect key="frame" x="20" y="1572" width="375" height="30"/>
+                                            <rect key="frame" x="20" y="1610" width="375" height="30"/>
                                             <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
@@ -470,7 +491,7 @@
                                             </connections>
                                         </textField>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ygH-u3-YwE" userLabel="priceTextField">
-                                            <rect key="frame" x="20" y="1611" width="375" height="30"/>
+                                            <rect key="frame" x="20" y="1649" width="375" height="30"/>
                                             <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
@@ -479,23 +500,23 @@
                                             </connections>
                                         </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="plF-LH-dnO" userLabel="detailsBanner">
-                                            <rect key="frame" x="8" y="1455" width="399" height="30"/>
-                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <rect key="frame" x="8" y="1493" width="399" height="30"/>
+                                            <color key="backgroundColor" red="0.24313725489999999" green="0.08235294118" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="NHs-mv-Pp3"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tasted on" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5O-cV-mSq" userLabel="tastedOnBanner">
-                                            <rect key="frame" x="8" y="1650" width="399" height="30"/>
-                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <rect key="frame" x="8" y="1688" width="399" height="30"/>
+                                            <color key="backgroundColor" red="0.24313725489999999" green="0.08235294118" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="nod-uv-5ec"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tasting-specific ID (e.g. &quot;Wine A&quot;)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xEc-qv-leR" userLabel="tastingIDTextField">
@@ -505,37 +526,40 @@
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="85" minValue="70" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="lrU-kt-taL" userLabel="100pointScoreSlider">
-                                            <rect key="frame" x="165" y="1337" width="232" height="31"/>
+                                            <rect key="frame" x="165" y="1375" width="232" height="31"/>
+                                            <color key="tintColor" red="0.24313725489999999" green="0.08235294118" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="hundredPointSliderValueChanged:" destination="-1" eventType="valueChanged" id="OMu-RZ-nNN"/>
                                             </connections>
                                         </slider>
                                         <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="P4y-qm-mjE" userLabel="5pointScoreStepper">
-                                            <rect key="frame" x="301" y="1377" width="94" height="29"/>
+                                            <rect key="frame" x="301" y="1415" width="94" height="29"/>
+                                            <color key="tintColor" red="0.24313725489999999" green="0.08235294118" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="fivePointStepperValueChanged:" destination="-1" eventType="valueChanged" id="jhn-ae-ux9"/>
                                             </connections>
                                         </stepper>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Other Scores" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="teB-M3-qQC" userLabel="otherScoresTextField">
-                                            <rect key="frame" x="20" y="1416" width="375" height="30"/>
+                                            <rect key="frame" x="20" y="1454" width="375" height="30"/>
                                             <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5-point Score" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nr0-1I-Ewo" userLabel="fivePointScoreLabel">
-                                            <rect key="frame" x="20" y="1379" width="105" height="25"/>
+                                            <rect key="frame" x="20" y="1417" width="106" height="25"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100-Point Score" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWh-Lh-sRF" userLabel="hundredPointScoreLabel">
-                                            <rect key="frame" x="20" y="1341" width="125" height="22"/>
+                                            <rect key="frame" x="20" y="1379" width="124" height="22"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G4M-rZ-w25" userLabel="aromasButton">
-                                            <rect key="frame" x="373" y="644" width="22" height="22"/>
+                                            <rect key="frame" x="373" y="682" width="22" height="22"/>
+                                            <color key="tintColor" red="0.24313725489999999" green="0.08235294118" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                             <state key="normal">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -544,7 +568,8 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbD-Fn-E2t" userLabel="flavorsButton">
-                                            <rect key="frame" x="373" y="1030" width="22" height="22"/>
+                                            <rect key="frame" x="373" y="1068" width="22" height="22"/>
+                                            <color key="tintColor" red="0.24313725489999999" green="0.08235294118" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                             <state key="normal">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -554,6 +579,19 @@
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XFD-Pz-X4y" userLabel="notesLabel">
                                             <rect key="frame" x="20" y="140" width="375" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="xHC-XF-ZeA" userLabel="meniscusSlider">
+                                            <rect key="frame" x="165" y="289" width="232" height="31"/>
+                                            <color key="tintColor" red="0.24313725489999999" green="0.08235294118" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="meniscusSliderValueChanged:" destination="-1" eventType="valueChanged" id="Rfy-VC-VxJ"/>
+                                            </connections>
+                                        </slider>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meniscus" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wl5-0J-lAD" userLabel="meniscusLabel">
+                                            <rect key="frame" x="20" y="292" width="140" height="23"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -609,6 +647,7 @@
                                         <constraint firstItem="rHt-t2-zpo" firstAttribute="trailing" secondItem="mBD-xV-3bE" secondAttribute="trailing" id="DxR-1q-77Z"/>
                                         <constraint firstItem="E6U-27-iIR" firstAttribute="top" secondItem="tMD-rA-k6m" secondAttribute="bottom" constant="12" id="EO3-bb-gc4"/>
                                         <constraint firstItem="m8g-p3-Hg0" firstAttribute="trailing" secondItem="jct-NK-8pZ" secondAttribute="trailing" id="EbG-6O-LrG"/>
+                                        <constraint firstItem="TEK-HF-ykr" firstAttribute="top" secondItem="wl5-0J-lAD" secondAttribute="bottom" constant="17" id="FM4-7c-WrZ"/>
                                         <constraint firstItem="mBD-xV-3bE" firstAttribute="trailing" secondItem="By6-B8-T1Q" secondAttribute="trailing" id="FT9-Js-vbi"/>
                                         <constraint firstItem="P4y-qm-mjE" firstAttribute="centerY" secondItem="Nr0-1I-Ewo" secondAttribute="centerY" id="FVZ-Qy-XyG"/>
                                         <constraint firstItem="teB-M3-qQC" firstAttribute="trailing" secondItem="mBD-xV-3bE" secondAttribute="trailing" id="FWa-yd-VdB"/>
@@ -616,6 +655,7 @@
                                         <constraint firstItem="doe-x4-C7s" firstAttribute="trailing" secondItem="mBD-xV-3bE" secondAttribute="trailing" id="Fcm-4n-ibl"/>
                                         <constraint firstItem="aAs-Z8-UED" firstAttribute="top" secondItem="m8g-p3-Hg0" secondAttribute="bottom" constant="9" id="GBi-iu-kbG"/>
                                         <constraint firstItem="v5m-6t-4g6" firstAttribute="trailing" secondItem="sdk-Y4-rMh" secondAttribute="trailing" id="Gg0-b8-WIm"/>
+                                        <constraint firstItem="xHC-XF-ZeA" firstAttribute="top" secondItem="sdk-Y4-rMh" secondAttribute="bottom" constant="9" id="Hev-oZ-mg4"/>
                                         <constraint firstItem="TEK-HF-ykr" firstAttribute="trailing" secondItem="erT-TO-rFb" secondAttribute="trailing" id="IWF-zM-ggE"/>
                                         <constraint firstItem="a5O-cV-mSq" firstAttribute="trailing" secondItem="jct-NK-8pZ" secondAttribute="trailing" id="JCS-Io-3Ku"/>
                                         <constraint firstItem="epn-W1-bye" firstAttribute="leading" secondItem="mBD-xV-3bE" secondAttribute="leading" id="Jev-Ns-8wn"/>
@@ -626,6 +666,7 @@
                                         <constraint firstItem="Lny-iu-Kiw" firstAttribute="top" secondItem="hLK-O0-MeZ" secondAttribute="bottom" constant="16" id="LYN-33-m5o"/>
                                         <constraint firstItem="hLK-O0-MeZ" firstAttribute="top" secondItem="UcL-33-rjJ" secondAttribute="bottom" constant="16" id="LZt-l2-sSu"/>
                                         <constraint firstItem="ygH-u3-YwE" firstAttribute="trailing" secondItem="mBD-xV-3bE" secondAttribute="trailing" id="Lhw-UT-RWS"/>
+                                        <constraint firstItem="dJ4-bh-hbz" firstAttribute="top" secondItem="xHC-XF-ZeA" secondAttribute="bottom" constant="9" id="NAk-9R-yDY"/>
                                         <constraint firstItem="erT-TO-rFb" firstAttribute="leading" secondItem="mBD-xV-3bE" secondAttribute="leading" id="Nei-db-FSU"/>
                                         <constraint firstItem="y53-LD-Ggp" firstAttribute="top" secondItem="j5y-4k-jHp" secondAttribute="bottom" constant="16" id="OMP-0t-5RQ"/>
                                         <constraint firstItem="m8g-p3-Hg0" firstAttribute="leading" secondItem="jct-NK-8pZ" secondAttribute="leading" id="P3E-me-JRL"/>
@@ -639,11 +680,9 @@
                                         <constraint firstItem="EDC-Ze-u8z" firstAttribute="centerY" secondItem="6ng-Z6-8GM" secondAttribute="centerY" id="RdV-WI-nq4"/>
                                         <constraint firstItem="mBD-xV-3bE" firstAttribute="leading" secondItem="By6-B8-T1Q" secondAttribute="leading" id="RoZ-Mb-3hw"/>
                                         <constraint firstItem="pop-jP-Ntn" firstAttribute="centerY" secondItem="JIY-hf-U2y" secondAttribute="centerY" id="SAZ-qd-qoC"/>
-                                        <constraint firstItem="TEK-HF-ykr" firstAttribute="top" secondItem="erT-TO-rFb" secondAttribute="bottom" constant="17" id="SoY-ov-Ovb"/>
                                         <constraint firstItem="mBD-xV-3bE" firstAttribute="leading" secondItem="UcL-33-rjJ" secondAttribute="leading" id="Ss1-eq-QeM"/>
                                         <constraint firstItem="QEQ-Ts-TSv" firstAttribute="trailing" secondItem="mBD-xV-3bE" secondAttribute="trailing" id="TI1-95-JW0"/>
                                         <constraint firstItem="epn-W1-bye" firstAttribute="centerY" secondItem="meW-j7-bKR" secondAttribute="centerY" id="TJZ-pA-VLQ"/>
-                                        <constraint firstItem="dJ4-bh-hbz" firstAttribute="top" secondItem="sdk-Y4-rMh" secondAttribute="bottom" constant="9" id="TnG-0t-pGf"/>
                                         <constraint firstItem="mBD-xV-3bE" firstAttribute="trailing" secondItem="XFD-Pz-X4y" secondAttribute="trailing" id="TpI-By-MS5"/>
                                         <constraint firstItem="erT-TO-rFb" firstAttribute="top" secondItem="jct-NK-8pZ" secondAttribute="bottom" constant="13" id="UAA-bA-x8Q"/>
                                         <constraint firstItem="meW-j7-bKR" firstAttribute="top" secondItem="kXH-rn-Tfx" secondAttribute="bottom" constant="9" id="UAE-fY-v1b"/>
@@ -668,9 +707,11 @@
                                         <constraint firstItem="xMN-Fi-0di" firstAttribute="top" secondItem="TEK-HF-ykr" secondAttribute="bottom" constant="16" id="Zzo-67-MmO"/>
                                         <constraint firstItem="C4c-OD-3KV" firstAttribute="top" secondItem="DZz-fv-ry1" secondAttribute="bottom" constant="10" id="a2U-Dm-nS1"/>
                                         <constraint firstItem="DZz-fv-ry1" firstAttribute="trailing" secondItem="jct-NK-8pZ" secondAttribute="trailing" id="aUK-LA-Etb"/>
+                                        <constraint firstItem="wl5-0J-lAD" firstAttribute="centerY" secondItem="xHC-XF-ZeA" secondAttribute="centerY" id="bVh-kO-RyO"/>
                                         <constraint firstItem="mBD-xV-3bE" firstAttribute="leading" secondItem="ur0-k8-f3h" secondAttribute="leading" id="bjU-jh-zIv"/>
                                         <constraint firstItem="rHt-t2-zpo" firstAttribute="centerY" secondItem="xMN-Fi-0di" secondAttribute="centerY" id="bnh-Gf-bbH"/>
                                         <constraint firstItem="mBD-xV-3bE" firstAttribute="leading" secondItem="pop-jP-Ntn" secondAttribute="leading" id="bsI-zg-KgR"/>
+                                        <constraint firstItem="wl5-0J-lAD" firstAttribute="leading" secondItem="mBD-xV-3bE" secondAttribute="leading" id="bwJ-GF-Xyb"/>
                                         <constraint firstItem="xEc-qv-leR" firstAttribute="top" secondItem="3Lh-sP-hcP" secondAttribute="top" constant="20" id="bwV-fG-hzL"/>
                                         <constraint firstItem="kXH-rn-Tfx" firstAttribute="top" secondItem="6ng-Z6-8GM" secondAttribute="bottom" constant="10" id="bzX-TI-8fv"/>
                                         <constraint firstItem="0uJ-49-zxv" firstAttribute="top" secondItem="meW-j7-bKR" secondAttribute="bottom" constant="9" id="c3V-1o-YUp"/>
@@ -683,6 +724,7 @@
                                         <constraint firstItem="ddW-le-m4F" firstAttribute="trailing" secondItem="mBD-xV-3bE" secondAttribute="trailing" id="dJd-F2-sX1"/>
                                         <constraint firstItem="jct-NK-8pZ" firstAttribute="leading" secondItem="3Lh-sP-hcP" secondAttribute="leading" constant="8" id="e8w-DG-4bp"/>
                                         <constraint firstItem="mBD-xV-3bE" firstAttribute="trailing" secondItem="HW5-wb-Cpm" secondAttribute="trailing" id="eTO-qf-rNZ"/>
+                                        <constraint firstItem="wl5-0J-lAD" firstAttribute="trailing" secondItem="erT-TO-rFb" secondAttribute="trailing" id="ei3-I1-3Mx"/>
                                         <constraint firstItem="gTc-tb-e3e" firstAttribute="trailing" secondItem="mBD-xV-3bE" secondAttribute="trailing" id="elG-uq-gOP"/>
                                         <constraint firstItem="0uJ-49-zxv" firstAttribute="leading" secondItem="mBD-xV-3bE" secondAttribute="leading" id="eus-z5-aAa"/>
                                         <constraint firstItem="meW-j7-bKR" firstAttribute="leading" secondItem="sdk-Y4-rMh" secondAttribute="leading" id="fL3-Vj-BFY"/>
@@ -698,6 +740,7 @@
                                         <constraint firstItem="G4M-rZ-w25" firstAttribute="top" secondItem="5Rp-ww-sI9" secondAttribute="bottom" constant="10" id="h4H-uI-enX"/>
                                         <constraint firstItem="gTc-tb-e3e" firstAttribute="top" secondItem="ny3-BL-WfU" secondAttribute="bottom" constant="10" id="hI2-J3-m03"/>
                                         <constraint firstItem="plF-LH-dnO" firstAttribute="leading" secondItem="jct-NK-8pZ" secondAttribute="leading" id="hND-yK-Vue"/>
+                                        <constraint firstItem="xHC-XF-ZeA" firstAttribute="trailing" secondItem="mBD-xV-3bE" secondAttribute="trailing" id="hQy-Md-cYz"/>
                                         <constraint firstItem="erT-TO-rFb" firstAttribute="centerY" secondItem="sdk-Y4-rMh" secondAttribute="centerY" id="hYR-fc-9eC"/>
                                         <constraint firstItem="xWh-Lh-sRF" firstAttribute="top" secondItem="0uJ-49-zxv" secondAttribute="bottom" constant="13" id="hn1-e3-FnG"/>
                                         <constraint firstItem="By6-B8-T1Q" firstAttribute="top" secondItem="plF-LH-dnO" secondAttribute="bottom" constant="9" id="hnC-7Z-cjz"/>
@@ -721,6 +764,7 @@
                                         <constraint firstItem="mBD-xV-3bE" firstAttribute="top" secondItem="xEc-qv-leR" secondAttribute="bottom" constant="16" id="nZX-bc-bhv"/>
                                         <constraint firstItem="zJL-Sw-2oi" firstAttribute="top" secondItem="bcT-iX-jRp" secondAttribute="bottom" constant="10" id="ne5-6U-Eua"/>
                                         <constraint firstItem="epn-W1-bye" firstAttribute="trailing" secondItem="erT-TO-rFb" secondAttribute="trailing" id="ovJ-yt-HfR"/>
+                                        <constraint firstItem="wl5-0J-lAD" firstAttribute="top" secondItem="erT-TO-rFb" secondAttribute="bottom" constant="17" id="p11-JO-iny"/>
                                         <constraint firstItem="KCd-om-5lj" firstAttribute="centerY" secondItem="E6U-27-iIR" secondAttribute="centerY" id="pb1-zS-jtI"/>
                                         <constraint firstItem="xWh-Lh-sRF" firstAttribute="leading" secondItem="mBD-xV-3bE" secondAttribute="leading" id="q2G-do-wt9"/>
                                         <constraint firstItem="1af-f0-gmw" firstAttribute="leading" secondItem="mBD-xV-3bE" secondAttribute="leading" id="q85-6I-jWY"/>
@@ -735,6 +779,7 @@
                                         <constraint firstItem="ny3-BL-WfU" firstAttribute="top" secondItem="doe-x4-C7s" secondAttribute="bottom" constant="10" id="sgH-Jk-C7l"/>
                                         <constraint firstItem="mBD-xV-3bE" firstAttribute="leading" secondItem="iBu-Xp-mAY" secondAttribute="leading" id="tBm-eU-5S0"/>
                                         <constraint firstItem="EDC-Ze-u8z" firstAttribute="leading" secondItem="mBD-xV-3bE" secondAttribute="leading" id="tRp-uG-Udp"/>
+                                        <constraint firstItem="xHC-XF-ZeA" firstAttribute="leading" secondItem="sdk-Y4-rMh" secondAttribute="leading" id="tUu-3z-nyh"/>
                                         <constraint firstItem="ObE-G0-GeM" firstAttribute="trailing" secondItem="mBD-xV-3bE" secondAttribute="trailing" id="tfj-VG-VlY"/>
                                         <constraint firstItem="5Rp-ww-sI9" firstAttribute="top" secondItem="aAs-Z8-UED" secondAttribute="bottom" constant="10" id="uEi-Rr-2Uw"/>
                                         <constraint firstItem="ur0-k8-f3h" firstAttribute="top" secondItem="pop-jP-Ntn" secondAttribute="bottom" constant="16" id="udl-tj-4fI"/>
@@ -766,13 +811,15 @@
                             <rect key="frame" x="0.0" y="1910" width="415" height="44"/>
                             <items>
                                 <barButtonItem systemItem="camera" id="NGK-nZ-8Y8">
+                                    <color key="tintColor" red="0.68627452850341797" green="0.12941177189350128" blue="0.23137256503105164" alpha="1" colorSpace="deviceRGB"/>
                                     <connections>
                                         <action selector="takePicture:" destination="-1" id="avF-cy-NT9"/>
                                     </connections>
                                 </barButtonItem>
-                                <barButtonItem title="Item" id="sJQ-Ia-vRd">
+                                <barButtonItem style="plain" systemItem="action" id="jUc-YW-ekr">
+                                    <color key="tintColor" red="0.68627452850000004" green="0.1294117719" blue="0.231372565" alpha="1" colorSpace="deviceRGB"/>
                                     <connections>
-                                        <action selector="showAssetTypePicker:" destination="-1" id="KAV-Ow-gGg"/>
+                                        <action selector="actionButtonPressed:" destination="-1" id="zWX-xo-pBn"/>
                                     </connections>
                                 </barButtonItem>
                             </items>

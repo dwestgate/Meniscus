@@ -16,6 +16,8 @@ NSString * const NextItemTastingIDPrefsKey = @"NextItemTastingID";
 NSString * const NextItemNotesPrefsKey = @"NextItemNotes";
 NSString * const NextItemClarityPrefsKey = @"NextItemClarity";
 NSString * const NextItemClarityValuePrefsKey = @"NextItemClarityValuePrefsKey";
+NSString * const NextItemMeniscusPrefsKey = @"NextItemMeniscus";
+NSString * const NextItemMeniscusValuePrefsKey = @"NextItemMeniscusValuePrefsKey";
 NSString * const NextItemColorPrefsKey = @"NextItemColorPrefsKey";
 NSString * const NextItemColorValuePrefsKey = @"NextItemColorValuePrefsKey";
 NSString * const NextItemColorIntensityPrefsKey = @"NextItemColorIntensityPrefsKey";
@@ -41,8 +43,8 @@ NSString * const NextItemAcidityPrefsKey = @"NextItemAcidityPrefsKey";
 NSString * const NextItemAcidityValuePrefsKey = @"NextItemAcidityValuePrefsKey";
 NSString * const NextItemTanninPrefsKey = @"NextItemTanninPrefsKey";
 NSString * const NextItemTanninValuePrefsKey = @"NextItemTanninValuePrefsKey";
-NSString * const NextItemAlchoholPrefsKey = @"NextItemAlchoholPrefsKey";
-NSString * const NextItemAlchoholValuePrefsKey = @"NextItemAlchoholValuePrefsKey";
+NSString * const NextItemAlcoholPrefsKey = @"NextItemAlcoholPrefsKey";
+NSString * const NextItemAlcoholValuePrefsKey = @"NextItemAlcoholValuePrefsKey";
 NSString * const NextItemBodyPrefsKey = @"NextItemBodyPrefsKey";
 NSString * const NextItemBodyValuePrefsKey = @"NextItemBodyValuePrefsKey";
 NSString * const NextItemFlavorIntensityPrefsKey = @"NextItemFlavorIntensityPrefsKey";
@@ -81,6 +83,8 @@ NSString * const NextItemAppellationPrefsKey = @"NextItemAppellationPrefsKey";
                                     NextItemNotesPrefsKey : @"",
                                     NextItemClarityPrefsKey : @"Wine Clarity",
                                     NextItemClarityValuePrefsKey : @1,
+                                    NextItemMeniscusPrefsKey : @"Meniscus",
+                                    NextItemMeniscusValuePrefsKey : @1,
                                     NextItemColorPrefsKey : @"Wine Color",
                                     NextItemColorValuePrefsKey : @1,
                                     NextItemColorIntensityPrefsKey : @"Color Intensity",
@@ -106,8 +110,8 @@ NSString * const NextItemAppellationPrefsKey = @"NextItemAppellationPrefsKey";
                                     NextItemAcidityValuePrefsKey : @1,
                                     NextItemTanninPrefsKey : @"Tannin",
                                     NextItemTanninValuePrefsKey : @"1",
-                                    NextItemAlchoholPrefsKey : @"Alchohol Level",
-                                    NextItemAlchoholValuePrefsKey : @1,
+                                    NextItemAlcoholPrefsKey : @"Alcohol Level",
+                                    NextItemAlcoholValuePrefsKey : @1,
                                     NextItemBodyPrefsKey : @"Body",
                                     NextItemBodyValuePrefsKey : @1,
                                     NextItemFlavorIntensityPrefsKey : @"Intensity of Flavor",

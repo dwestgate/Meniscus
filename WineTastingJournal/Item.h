@@ -19,6 +19,8 @@
 @property (nonatomic, strong) NSString * itemNotes;
 @property (nonatomic, strong) NSString * itemClarity;
 @property (nonatomic) int itemClarityValue;
+@property (nonatomic, strong) NSString * itemMeniscus;
+@property (nonatomic) int itemMeniscusValue;
 @property (nonatomic, strong) NSString * itemColor;
 @property (nonatomic) int itemColorValue;
 @property (nonatomic, strong) NSString * itemColorIntensity;
@@ -44,8 +46,8 @@
 @property (nonatomic) int itemAcidityValue;
 @property (nonatomic, strong) NSString * itemTannin;
 @property (nonatomic) int itemTanninValue;
-@property (nonatomic, strong) NSString * itemAlchohol;
-@property (nonatomic) int itemAlchoholValue;
+@property (nonatomic, strong) NSString * itemAlcohol;
+@property (nonatomic) int itemAlcoholValue;
 @property (nonatomic, strong) NSString * itemBody;
 @property (nonatomic) int itemBodyValue;
 @property (nonatomic, strong) NSString * itemFlavorIntensity;
@@ -72,7 +74,6 @@
 @property (nonatomic, strong) NSString * itemKey;
 @property (nonatomic, strong) UIImage *thumbnail;
 @property (nonatomic) double orderingValue;
-@property (nonatomic, strong) NSManagedObject *assetType;
 
 - (void)setThumbnailFromImage:(UIImage *)image;
 

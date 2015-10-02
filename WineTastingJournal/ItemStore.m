@@ -15,7 +15,6 @@
 @interface ItemStore ()
 
 @property (nonatomic) NSMutableArray *privateItems;
-@property (nonatomic, strong) NSMutableArray *allAssetTypes;
 @property (nonatomic, strong) NSMutableArray *allTastes;
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic, strong) NSManagedObjectModel *model;
@@ -93,6 +92,8 @@
   item.itemNotes = [defaults objectForKey:NextItemNotesPrefsKey];
   item.itemClarity = [defaults objectForKey:NextItemClarityPrefsKey];
   item.itemClarityValue = [[defaults objectForKey:NextItemClarityValuePrefsKey] intValue];
+  item.itemMeniscus = [defaults objectForKey:NextItemMeniscusPrefsKey];
+  item.itemMeniscusValue = [[defaults objectForKey:NextItemMeniscusValuePrefsKey] intValue];
   item.itemColor = [defaults objectForKey:NextItemColorPrefsKey];
   item.itemColorValue = [[defaults objectForKey:NextItemColorValuePrefsKey] intValue];
   item.itemColorIntensity = [defaults objectForKey:NextItemColorIntensityPrefsKey];
@@ -118,8 +119,8 @@
   item.itemAcidityValue = [[defaults objectForKey:NextItemAcidityValuePrefsKey] intValue];
   item.itemTannin = [defaults objectForKey:NextItemTanninPrefsKey];
   item.itemTanninValue = [[defaults objectForKey:NextItemTanninValuePrefsKey] intValue];
-  item.itemAlchohol = [defaults objectForKey:NextItemAlchoholPrefsKey];
-  item.itemAlchoholValue = [[defaults objectForKey:NextItemAlchoholValuePrefsKey] intValue];
+  item.itemAlcohol = [defaults objectForKey:NextItemAlcoholPrefsKey];
+  item.itemAlcoholValue = [[defaults objectForKey:NextItemAlcoholValuePrefsKey] intValue];
   item.itemBody = [defaults objectForKey:NextItemBodyPrefsKey];
   item.itemBodyValue = [[defaults objectForKey:NextItemBodyValuePrefsKey] intValue];
   item.itemFlavorIntensity = [defaults objectForKey:NextItemFlavorIntensityPrefsKey];
@@ -189,46 +190,6 @@
   item.orderingValue = newOrderValue;
 }
 
-#pragma mark - Asset Types
-
-- (NSArray *)allAssetTypes
-{
-  if (!_allAssetTypes) {
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSEntityDescription *e = [NSEntityDescription entityForName:@"AssetType"
-                                         inManagedObjectContext:self.context];
-    request.entity = e;
-    
-    NSError *error;
-    NSArray *result = [self.context executeFetchRequest:request
-                                                  error:&error];
-    if (!result) {
-      [NSException raise:@"Fetch failed"
-                  format:@"Reason: %@", [error localizedDescription]];
-    }
-    _allAssetTypes = [result mutableCopy];
-  }
-  
-  if ([_allAssetTypes count] == 0) {
-    NSManagedObject *type;
-    
-    type = [NSEntityDescription insertNewObjectForEntityForName:@"AssetType"
-                                         inManagedObjectContext:self.context];
-    [type setValue:@"Furniture" forKey:@"label"];
-    [_allAssetTypes addObject:type];
-    
-    type = [NSEntityDescription insertNewObjectForEntityForName:@"AssetType"
-                                         inManagedObjectContext:self.context];
-    [type setValue:@"Jewelry" forKey:@"label"];
-    [_allAssetTypes addObject:type];
-    
-    type = [NSEntityDescription insertNewObjectForEntityForName:@"AssetType"
-                                         inManagedObjectContext:self.context];
-    [type setValue:@"Electronics" forKey:@"label"];
-    [_allAssetTypes addObject:type];
-  }
-  return _allAssetTypes;
-}
 
 #pragma mark - Aromas
 

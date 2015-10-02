@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14F27" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="AssetType" syncable="YES">
-        <attribute name="label" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="items" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="assetType" inverseEntity="Item" syncable="YES"/>
-    </entity>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="14F27" minimumToolsVersion="Xcode 4.3">
     <entity name="Item" representedClassName="Item" syncable="YES">
         <attribute name="dateCreated" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="itemAcidity" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="itemAcidityValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="itemAlchohol" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="itemAlchoholValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="itemAlcohol" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemAlcoholValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="itemAppellation" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="itemAromaIntensity" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="itemAromaIntensityValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -39,6 +35,8 @@
         <attribute name="itemHundredPointScore" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="itemHundredPointScoreValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="itemKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemMeniscus" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemMeniscusValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="itemMousse" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="itemMousseValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="itemName" optional="YES" attributeType="String" syncable="YES"/>
@@ -63,7 +61,6 @@
         <attribute name="orderingValue" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="thumbnail" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="valueInDollars" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="assetType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AssetType" inverseName="items" inverseEntity="AssetType" syncable="YES"/>
         <relationship name="tastes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Tastes" inverseName="items" inverseEntity="Tastes" syncable="YES"/>
     </entity>
     <entity name="Tastes" syncable="YES">
@@ -74,8 +71,7 @@
         <relationship name="items" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="tastes" inverseEntity="Item" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Item" positionX="-209" positionY="-45" width="128" height="960"/>
         <element name="Tastes" positionX="9" positionY="738" width="128" height="120"/>
-        <element name="AssetType" positionX="9" positionY="870" width="128" height="75"/>
-        <element name="Item" positionX="-209" positionY="-45" width="128" height="945"/>
     </elements>
 </model>

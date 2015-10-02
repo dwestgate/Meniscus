@@ -16,6 +16,8 @@
 @dynamic itemNotes;
 @dynamic itemClarity;
 @dynamic itemClarityValue;
+@dynamic itemMeniscus;
+@dynamic itemMeniscusValue;
 @dynamic itemColor;
 @dynamic itemColorValue;
 @dynamic itemColorIntensity;
@@ -41,8 +43,8 @@
 @dynamic itemAcidityValue;
 @dynamic itemTannin;
 @dynamic itemTanninValue;
-@dynamic itemAlchohol;
-@dynamic itemAlchoholValue;
+@dynamic itemAlcohol;
+@dynamic itemAlcoholValue;
 @dynamic itemBody;
 @dynamic itemBodyValue;
 @dynamic itemFlavorIntensity;
@@ -69,7 +71,6 @@
 @dynamic itemKey;
 @dynamic thumbnail;
 @dynamic orderingValue;
-@dynamic assetType;
 
 #pragma mark - Data Handling
 
