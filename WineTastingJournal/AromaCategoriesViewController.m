@@ -169,7 +169,15 @@
   _selectedAromas = [[NSMutableDictionary alloc] init];
   _selectedCharacteristics = [[NSMutableOrderedSet alloc] init];
   
-  NSArray *groupings = [self.item.itemAromas componentsSeparatedByString: @");"];
+  NSString *string = [self.item.itemAromas stringByReplacingOccurrencesOfString:@"aromas of " withString:@"("];
+  string = [string stringByReplacingOccurrencesOfString:@"sells of " withString:@"("];
+  string = [string stringByReplacingOccurrencesOfString:@"notes of " withString:@"("];
+  string = [string stringByReplacingOccurrencesOfString:@", and " withString:@", "];
+  string = [string stringByReplacingOccurrencesOfString:@" and " withString:@", "];
+  string = [string stringByReplacingOccurrencesOfString:@";" withString:@");"]; // Can simplify this when finished
+  
+  NSArray *groupings = [string componentsSeparatedByString: @";"];
+  // NSArray *groupings = [self.item.itemAromas componentsSeparatedByString: @");"];
   // groupings = "tropical fruit (banana, pear" , "red fruit (red apple, red cherry)"
   
   if ([[groupings objectAtIndex:0] length] > 0) {

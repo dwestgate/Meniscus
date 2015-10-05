@@ -281,8 +281,11 @@
 }
 
 - (void)dealloc {
-    NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
-    [defaultCenter removeObserver:self];
+  [_aromasTextView removeObserver:self forKeyPath:@"text"];
+  [_flavorsTextView removeObserver:self forKeyPath:@"text"];
+  
+  NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
+  [defaultCenter removeObserver:self];
 }
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -548,7 +551,17 @@
   
   [self.navigationController pushViewController:avc
                                        animated:YES];
-  _aromasAreSet = ([_aromasTextView.text isEqualToString:@""] ? NO : YES);
+
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+  
+  if([keyPath isEqualToString:@"text"] && object == _aromasTextView) {
+    _aromasAreSet = ([_aromasTextView.text isEqualToString:@""] ? NO : YES);
+  } else if([keyPath isEqualToString:@"text"] && object == _flavorsTextView) {
+    _flavorsAreSet = ([_flavorsTextView.text isEqualToString:@""] ? NO : YES);
+  }
+  
   [self updateTastingNotes];
 }
 
@@ -568,7 +581,7 @@
   } else if (_developmentStepper.value == 3) {
     _developmentLabel.text = @"Fully developed";
   } else {
-    _developmentLabel.text = @"Tired/Past prime";
+    _developmentLabel.text = @"Tired/Past its prime";
   }
   [self updateTastingNotes];
 }
@@ -722,8 +735,6 @@
   
   [self.navigationController pushViewController:fvc
                                        animated:YES];
-  _flavorsAreSet = ([_flavorsTextView.text isEqualToString:@""] ? NO : YES);
-  [self updateTastingNotes];
 }
 
 
@@ -818,7 +829,7 @@
     _fivePointScoreStepper.value = 1;
     self.fivePointScoreLabel.font = [self normalFont];
     self.fivePointScoreLabel.textColor = [UIColor grayColor];
-    _hundredPointScoreIsSet = YES;
+    _fivePointScoreIsSet = YES;
   }
   
   if (_fivePointScoreStepper.value == 1) {
@@ -838,7 +849,6 @@
 
 - (void)save:(id)sender {
   [self.presentingViewController dismissViewControllerAnimated:YES completion:self.dismissBlock];
-  [self updateTastingNotes];
 }
 
 - (IBAction)backgroundTapped:(id)sender {
@@ -922,6 +932,7 @@
   
 }
 
+
 #pragma mark - Assemble Notes
 
 - (void)updateTastingNotes {
@@ -932,6 +943,7 @@
     
     NSString *clarity;
     NSString *meniscus;
+    NSString *colorIntensity;
     NSString *color;
     
     if (_clarityIsSet) {
@@ -950,8 +962,14 @@
       }
     }
     
+    if (_colorIntensityIsSet) {
+      colorIntensity = [_colorIntensityLabel.text lowercaseString];
+    } else {
+      colorIntensity = @"";
+    }
+    
     if (_colorShadeIsSet) {
-      color = [NSString stringWithFormat:@"%@ %@", _colorIntensityLabel.text, _colorShadeLabel.text];
+      color = [NSString stringWithFormat:@"%@ %@", colorIntensity, _colorShadeLabel.text];
       color = [[color lowercaseString] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     }
     
@@ -1012,48 +1030,55 @@
       }
     }
   
-    _notesTextView.text = [_notesTextView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    _notesTextView.text = [_notesTextView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
   }
 
   if (_conditionIsSet || _aromaIntensityIsSet || _aromasAreSet || _developmentIsSet) {
     
+    NSString *string;
     NSString *condition;
     NSString *aromaIntensity;
     NSString *aromas;
     NSString *development;
     
+    string = @"";
     if (_conditionIsSet) condition = [_conditionLabel.text lowercaseString];
     if (_aromaIntensityIsSet) aromaIntensity = [_aromaIntensityLabel.text lowercaseString];
     if (_aromasAreSet) aromas = [_aromasTextView.text lowercaseString];
-    if (_developmentIsSet) development = [_developmentLabel.text lowercaseString];
-    
-    _notesTextView.text = [NSString stringWithFormat:@"%@\r\n\r\n", _notesTextView.text];
+    if (_developmentIsSet) {
+      if ([_developmentLabel.text isEqualToString:@"Tired/Past its prime"]) {
+        development = @"tired and decidedly past its prime";
+      } else {
+        development = [_developmentLabel.text lowercaseString];
+      }
+    }
     
     if (_conditionIsSet && _aromaIntensityIsSet && _aromasAreSet) {
-      _notesTextView.text = [NSString stringWithFormat:@"%@ The nose is %@ and of %@, with %@.", _notesTextView.text, condition, aromaIntensity, aromas];
+      string = [NSString stringWithFormat:@"%@ The nose is %@ and of %@, with %@.", string, condition, aromaIntensity, aromas];
     } else if (_conditionIsSet && _aromaIntensityIsSet && !_aromasAreSet) {
-      _notesTextView.text = [NSString stringWithFormat:@"%@ The nose is %@ and of %@.", _notesTextView.text, condition, aromaIntensity];
+      string = [NSString stringWithFormat:@"%@ The nose is %@.", string, condition];
     } else if (_conditionIsSet && !_aromaIntensityIsSet && _aromasAreSet) {
-      _notesTextView.text = [NSString stringWithFormat:@"%@ The nose is %@, with %@.", _notesTextView.text, condition, aromas];
+      string = [NSString stringWithFormat:@"%@ The nose is %@, with %@.", string, condition, aromas];
     } else if (!_conditionIsSet && _aromaIntensityIsSet && _aromasAreSet) {
-      _notesTextView.text = [NSString stringWithFormat:@"%@ The nose is of %@, with %@.", _notesTextView.text, aromaIntensity, aromas];
+      string = [NSString stringWithFormat:@"%@ The nose is of %@, with %@.", string, aromaIntensity, aromas];
     } else if (!_conditionIsSet && !_aromaIntensityIsSet && _aromasAreSet) {
-      _notesTextView.text = [NSString stringWithFormat:@"%@ The nose has %@.", _notesTextView.text, aromas];
-    } else if (!_conditionIsSet && _aromaIntensityIsSet && !_aromasAreSet) {
-      _notesTextView.text = [NSString stringWithFormat:@"%@ The nose is of %@.", _notesTextView.text, aromaIntensity];
+      string = [NSString stringWithFormat:@"%@ The nose has %@.", string, aromas];
     } else if (_conditionIsSet && !_aromaIntensityIsSet && !_aromasAreSet) {
-      _notesTextView.text = [NSString stringWithFormat:@"%@ The nose is %@.", _notesTextView.text, condition];
+      string = [NSString stringWithFormat:@"%@ The nose is %@.", string, condition];
     }
     
     if (_developmentIsSet) {
-      _notesTextView.text = [NSString stringWithFormat:@"%@ From its nose, the wine %@.", _notesTextView.text, development];
+      string = [NSString stringWithFormat:@"%@ From its nose, the wine comes across as %@.", string, development];
     }
     
-    _notesTextView.text = [_notesTextView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    _notesTextView.text = [NSString stringWithFormat:@"%@\r\n\r\n%@", _notesTextView.text, string];
+    _notesTextView.text = [_notesTextView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
   }
   
   if (_sweetnessIsSet || _acidityIsSet || _tanninIsSet || _alcoholIsSet || _bodyIsSet || _flavorIntensityIsSet || _flavorsAreSet || _balanceIsSet || _mousseIsSet || _finishIsSet) {
     
+    NSString *string;
     NSString *sweetness;
     NSString *acidity;
     NSString *tannin;
@@ -1065,6 +1090,7 @@
     NSString *mousse;
     NSString *finish;
     
+    string = @"";
     if (_sweetnessIsSet) sweetness = [_sweetnessLabel.text lowercaseString];
     if (_acidityIsSet) acidity = [_acidityLabel.text lowercaseString];
     if (_tanninIsSet) tannin = [_tanninLabel.text lowercaseString];
@@ -1077,74 +1103,78 @@
     if (_finishIsSet) finish = [_finishLabel.text lowercaseString];
     
     if (_sweetnessIsSet && _acidityIsSet && tannin && alcohol) {
-      _notesTextView.text = [NSString stringWithFormat:@"%@ The wine is %@, with %@, %@, and %@.", _notesTextView.text, sweetness, acidity, tannin, alcohol];
+      string = [NSString stringWithFormat:@"%@ The wine is %@, with %@, %@, and %@.", string, sweetness, acidity, tannin, alcohol];
     } else if (_sweetnessIsSet && _acidityIsSet && tannin && !alcohol) {
-      _notesTextView.text = [NSString stringWithFormat:@"%@ The wine is %@, with %@ and %@.", _notesTextView.text, sweetness, acidity, tannin];
+      string = [NSString stringWithFormat:@"%@ The wine is %@, with %@ and %@.", string, sweetness, acidity, tannin];
     } else if (_sweetnessIsSet && _acidityIsSet && !tannin && alcohol) {
-      _notesTextView.text = [NSString stringWithFormat:@"%@ The wine is %@, with %@ and %@.", _notesTextView.text, sweetness, acidity, alcohol];
+      string = [NSString stringWithFormat:@"%@ The wine is %@, with %@ and %@.", string, sweetness, acidity, alcohol];
     } else if (_sweetnessIsSet && !_acidityIsSet && tannin && alcohol) {
-      _notesTextView.text = [NSString stringWithFormat:@"%@ The wine is %@, with %@ and %@.", _notesTextView.text, sweetness, tannin, alcohol];
+      string = [NSString stringWithFormat:@"%@ The wine is %@, with %@ and %@.", string, sweetness, tannin, alcohol];
     } else if (!_sweetnessIsSet && _acidityIsSet && tannin && alcohol) {
-      _notesTextView.text = [NSString stringWithFormat:@"%@ The wine has %@, %@, and %@.", _notesTextView.text, acidity, tannin, alcohol];
+      string = [NSString stringWithFormat:@"%@ The wine has %@, %@, and %@.", string, acidity, tannin, alcohol];
     } else if (_sweetnessIsSet && _acidityIsSet && !tannin && !alcohol) {
-      _notesTextView.text = [NSString stringWithFormat:@"%@ The wine is %@, with %@.", _notesTextView.text, sweetness, acidity];
+      string = [NSString stringWithFormat:@"%@ The wine is %@, with %@.", string, sweetness, acidity];
     } else if (_sweetnessIsSet && !_acidityIsSet && tannin && !alcohol) {
-      _notesTextView.text = [NSString stringWithFormat:@"%@ The wine is %@, with %@.", _notesTextView.text, sweetness, tannin];
+      string = [NSString stringWithFormat:@"%@ The wine is %@, with %@.", string, sweetness, tannin];
     } else if (!_sweetnessIsSet && _acidityIsSet && tannin && !alcohol) {
-      _notesTextView.text = [NSString stringWithFormat:@"%@ The wine has %@ and %@.", _notesTextView.text, acidity, tannin];
+      string = [NSString stringWithFormat:@"%@ The wine has %@ and %@.", string, acidity, tannin];
     } else if (_sweetnessIsSet && !_acidityIsSet && !tannin && alcohol) {
-      _notesTextView.text = [NSString stringWithFormat:@"%@ The wine is %@, with %@.", _notesTextView.text, sweetness, alcohol];
+      string = [NSString stringWithFormat:@"%@ The wine is %@, with %@.", string, sweetness, alcohol];
     } else if (!_sweetnessIsSet && _acidityIsSet && !tannin && alcohol) {
-      _notesTextView.text = [NSString stringWithFormat:@"%@ The wine has %@ and %@.", _notesTextView.text, acidity, alcohol];
+      string = [NSString stringWithFormat:@"%@ The wine has %@ and %@.", string, acidity, alcohol];
     } else if (!_sweetnessIsSet && !_acidityIsSet && tannin && alcohol) {
-      _notesTextView.text = [NSString stringWithFormat:@"%@ The wine has %@ and %@.", _notesTextView.text, tannin, alcohol];
+      string = [NSString stringWithFormat:@"%@ The wine has %@ and %@.", string, tannin, alcohol];
     } else if (!_sweetnessIsSet && !_acidityIsSet && !tannin && alcohol) {
-      _notesTextView.text = [NSString stringWithFormat:@"%@ The wine has %@.", _notesTextView.text, alcohol];
+      string = [NSString stringWithFormat:@"%@ The wine has %@.", string, alcohol];
     } else if (!_sweetnessIsSet && !_acidityIsSet && tannin && !alcohol) {
-      _notesTextView.text = [NSString stringWithFormat:@"%@ The wine has %@.", _notesTextView.text, tannin];
+      string = [NSString stringWithFormat:@"%@ The wine has %@.", string, tannin];
     } else if (!_sweetnessIsSet && _acidityIsSet && !tannin && !alcohol) {
-      _notesTextView.text = [NSString stringWithFormat:@"%@ The wine has %@.", _notesTextView.text, acidity];
+      string = [NSString stringWithFormat:@"%@ The wine has %@.", string, acidity];
     } else if (_sweetnessIsSet && !_acidityIsSet && !tannin && !alcohol) {
-      _notesTextView.text = [NSString stringWithFormat:@"%@ The wine is %@.", _notesTextView.text, sweetness];
+      string = [NSString stringWithFormat:@"%@ The wine is %@.", string, sweetness];
     }
     
     if (_bodyIsSet && _flavorIntensityIsSet && _flavorsAreSet) {
-      _notesTextView.text = [NSString stringWithFormat:@"%@ It is %@, with %@ of %@.", _notesTextView.text, body, flavorIntensity, flavors];
+      string = [NSString stringWithFormat:@"%@ It is %@, with %@ of %@.", string, body, flavorIntensity, flavors];
     } else if (_bodyIsSet && _flavorIntensityIsSet && !_flavorsAreSet) {
-      _notesTextView.text = [NSString stringWithFormat:@"%@ It is %@, with %@.", _notesTextView.text, body, flavorIntensity];
+      string = [NSString stringWithFormat:@"%@ It is %@, with %@.", string, body, flavorIntensity];
     } else if (_bodyIsSet && !_flavorIntensityIsSet && _flavorsAreSet) {
-      _notesTextView.text = [NSString stringWithFormat:@"%@ It is %@ and has %@.", _notesTextView.text, body, flavors];
+      string = [NSString stringWithFormat:@"%@ It is %@ and has %@.", string, body, flavors];
     } else if (!_bodyIsSet && _flavorIntensityIsSet && _flavorsAreSet) {
-      _notesTextView.text = [NSString stringWithFormat:@"%@ It has %@ of %@.", _notesTextView.text, flavorIntensity, flavors];
+      string = [NSString stringWithFormat:@"%@ It has %@ of %@.", string, flavorIntensity, flavors];
     } else if (_bodyIsSet && !_flavorIntensityIsSet && !_flavorsAreSet) {
-      _notesTextView.text = [NSString stringWithFormat:@"%@ It is %@.", _notesTextView.text, body];
+      string = [NSString stringWithFormat:@"%@ It is %@.", string, body];
     } else if (!_bodyIsSet && _flavorIntensityIsSet && !_flavorsAreSet) {
-      _notesTextView.text = [NSString stringWithFormat:@"%@ It is %@.", _notesTextView.text, flavorIntensity];
+      string = [NSString stringWithFormat:@"%@ It is %@.", string, flavorIntensity];
     } else if (!_bodyIsSet && !_flavorIntensityIsSet && _flavorsAreSet) {
-      _notesTextView.text = [NSString stringWithFormat:@"%@ It has %@.", _notesTextView.text, flavors];
+      string = [NSString stringWithFormat:@"%@ It has %@.", string, flavors];
     }
     
     if (_mousseIsSet) {
-      _notesTextView.text = [NSString stringWithFormat:@"%@ It has %@.", _notesTextView.text, mousse];
+      string = [NSString stringWithFormat:@"%@ It has %@.", string, mousse];
     }
     
     if (_balanceIsSet) {
-      _notesTextView.text = [NSString stringWithFormat:@"%@ It is %@.", _notesTextView.text, balance];
+      string = [NSString stringWithFormat:@"%@ It is %@.", string, balance];
     }
     
     if (_finishIsSet) {
-      _notesTextView.text = [NSString stringWithFormat:@"%@ It has a %@.", _notesTextView.text, finish];
+      string = [NSString stringWithFormat:@"%@ It has a %@.", string, finish];
     }
     
-    _notesTextView.text = [_notesTextView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    _notesTextView.text = [NSString stringWithFormat:@"%@\r\n\r\n%@", _notesTextView.text, string];
+    _notesTextView.text = [_notesTextView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
   }
   
   
-  if (_qualityIsSet || _readinessIsSet) {
+  if (_qualityIsSet || _readinessIsSet || _hundredPointScoreIsSet || _fivePointScoreIsSet || _otherScoresIsSet) {
     
+    NSString *string;
     NSString *quality;
     NSString *readiness;
     
+    string = @"";
     if (_qualityIsSet) {
       if ([_qualityLabel.text isEqualToString:@"Acceptable"]) {
         quality = @"an acceptable quality";
@@ -1168,29 +1198,31 @@
     }
     
     if (_qualityIsSet && _readinessIsSet) {
-      _notesTextView.text = [NSString stringWithFormat:@"%@ This is %@ wine that %@.", _notesTextView.text, quality, readiness];
+      string = [NSString stringWithFormat:@"%@ This is %@ wine that %@.", string, quality, readiness];
     } else if (_qualityIsSet && !_readinessIsSet) {
-      _notesTextView.text = [NSString stringWithFormat:@"%@ This is %@ wine.", _notesTextView.text, quality];
+      string = [NSString stringWithFormat:@"%@ This is %@ wine.", string, quality];
     } else if (!_qualityIsSet && _readinessIsSet) {
-      _notesTextView.text = [NSString stringWithFormat:@"%@ This wine %@.", _notesTextView.text, readiness];
+      string = [NSString stringWithFormat:@"%@ This wine %@.", string, readiness];
     }
+    
+    if (_hundredPointScoreIsSet) {
+      string = [NSString stringWithFormat:@"%@ On a scale of one to one hundred I give this wine %@.", string, [_hundredPointScoreLabel.text lowercaseString]];
+    }
+    
+    if (_fivePointScoreIsSet) {
+      string = [NSString stringWithFormat:@"%@ On a five star scale with five being the highest, I rate this wine a %@.", string, [_fivePointScoreLabel.text substringToIndex:1]];
+    }
+    
+    if (_otherScoresIsSet) {
+      string = [NSString stringWithFormat:@"%@\r\n%@.", string, _otherScoresTextField.text];
+    }
+    
+    string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    _notesTextView.text = [NSString stringWithFormat:@"%@\r\n\r\n%@", _notesTextView.text, string];
+    _notesTextView.text = [_notesTextView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
   }
 
-  if (_hundredPointScoreIsSet) {
-    _notesTextView.text = [NSString stringWithFormat:@"%@ On a scale of one to one hundred I give this wine %@.", _notesTextView.text, [_hundredPointScoreLabel.text lowercaseString]];
-  }
-  
-  if (_fivePointScoreIsSet) {
-    _notesTextView.text = [NSString stringWithFormat:@"%@ On a five star scale with five being the highest, I rate this wine a %@.", _notesTextView.text, [_fivePointScoreLabel.text substringToIndex:1]];
-  }
-  
-  if (_otherScoresIsSet) {
-    _notesTextView.text = [NSString stringWithFormat:@"%@\r\n%@.", _notesTextView.text, _otherScoresTextField.text];
-  }
-  
-  _notesTextView.text = [_notesTextView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-  
 }
 
 #pragma mark - View Constraints
@@ -1245,6 +1277,10 @@
   
   [self.contentView addConstraints:horizontalConstraints];
   [self.contentView addConstraints:verticalConstraints];
+  
+  // Add observers to the textViews
+  [_aromasTextView addObserver:self forKeyPath:@"text" options:0 context:nil];
+  [_flavorsTextView addObserver:self forKeyPath:@"text" options:0 context:nil];
   
   // Add the PickerViews
   UITapGestureRecognizer *balancePickerViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(balancePickerViewTapped:)];

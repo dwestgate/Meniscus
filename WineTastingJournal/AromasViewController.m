@@ -123,13 +123,16 @@
   if ([_selectedAromas count] > 0) {
     NSLog(@"Step 1: %@", self.item.itemAromas);
     for (NSString *key in _selectedCharacteristics) {
-      self.item.itemAromas = [NSString stringWithFormat:@"%@ %@ (", self.item.itemAromas, key];
+      self.item.itemAromas = [NSString stringWithFormat:@"%@ %@ aromas of ", self.item.itemAromas, key];
       NSLog(@"Step 2: %@", self.item.itemAromas);
+      
+      // if ([[_selectedAromas objectForKey:key] count] == 1)
       for (NSString *value in [_selectedAromas objectForKey:key]) {
         self.item.itemAromas = [NSString stringWithFormat:@"%@%@, ", self.item.itemAromas, value];
         NSLog(@"Step 3: %@", self.item.itemAromas);
       }
-      self.item.itemAromas = [NSString stringWithFormat:@"%@); ", [self.item.itemAromas substringToIndex:[self.item.itemAromas length]-2]];
+      
+      self.item.itemAromas = [NSString stringWithFormat:@"%@; ", [self.item.itemAromas substringToIndex:[self.item.itemAromas length]-2]];
       NSLog(@"Step 4: %@", self.item.itemAromas);
     }
     self.item.itemAromas = [NSString stringWithFormat:@"%@", [self.item.itemAromas substringToIndex:[self.item.itemAromas length]-2]];
