@@ -123,17 +123,29 @@
   if ([_selectedFlavors count] > 0) {
     NSLog(@"Step 1: %@", self.item.itemFlavors);
     for (NSString *key in _selectedCharacteristics) {
-      self.item.itemFlavors = [NSString stringWithFormat:@"%@ %@ (", self.item.itemFlavors, key];
+      self.item.itemFlavors = [NSString stringWithFormat:@"%@ %@ of ", self.item.itemFlavors, key];
       NSLog(@"Step 2: %@", self.item.itemFlavors);
+      
+      NSInteger c = 1;
+      NSInteger count = [[_selectedFlavors objectForKey:key] count];
       for (NSString *value in [_selectedFlavors objectForKey:key]) {
+        if (count == 2 && c == 2) {
+          self.item.itemFlavors = [NSString stringWithFormat:@"%@ and ", [self.item.itemFlavors substringToIndex:[self.item.itemFlavors length]-2]];
+        } else if (count > 2 && (c == count)) {
+          self.item.itemFlavors = [NSString stringWithFormat:@"%@and ", self.item.itemFlavors];
+        }
         self.item.itemFlavors = [NSString stringWithFormat:@"%@%@, ", self.item.itemFlavors, value];
+        
+        c++;
         NSLog(@"Step 3: %@", self.item.itemFlavors);
       }
-      self.item.itemFlavors = [NSString stringWithFormat:@"%@); ", [self.item.itemFlavors substringToIndex:[self.item.itemFlavors length]-2]];
+      
+      self.item.itemFlavors = [NSString stringWithFormat:@"%@;", [self.item.itemFlavors substringToIndex:[self.item.itemFlavors length]-2]];
       NSLog(@"Step 4: %@", self.item.itemFlavors);
     }
-    self.item.itemFlavors = [NSString stringWithFormat:@"%@", [self.item.itemFlavors substringToIndex:[self.item.itemFlavors length]-2]];
+    self.item.itemFlavors = [NSString stringWithFormat:@"%@", [self.item.itemFlavors substringToIndex:[self.item.itemFlavors length]-1]];
     self.item.itemFlavors = [self.item.itemFlavors stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    self.item.itemFlavors = [self.item.itemFlavors stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:[[self.item.itemFlavors substringToIndex:1] uppercaseString]];
     NSLog(@"Step 5: %@", self.item.itemFlavors);
   }
 }

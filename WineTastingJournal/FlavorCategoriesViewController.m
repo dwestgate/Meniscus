@@ -169,7 +169,13 @@
   _selectedFlavors = [[NSMutableDictionary alloc] init];
   _selectedCharacteristics = [[NSMutableOrderedSet alloc] init];
   
-  NSArray *groupings = [self.item.itemFlavors componentsSeparatedByString: @");"];
+  NSString *string = [self.item.itemFlavors stringByReplacingOccurrencesOfString:@" of " withString:@"("];
+  string = [string stringByReplacingOccurrencesOfString:@", and " withString:@", "];
+  string = [string stringByReplacingOccurrencesOfString:@" and " withString:@", "];
+  string = [string stringByReplacingOccurrencesOfString:@";" withString:@");"]; // Can simplify this when finished
+  
+  NSArray *groupings = [string componentsSeparatedByString: @";"];
+  // NSArray *groupings = [self.item.itemFlavors componentsSeparatedByString: @");"];
   // groupings = "tropical fruit (banana, pear" , "red fruit (red apple, red cherry)"
   
   if ([[groupings objectAtIndex:0] length] > 0) {

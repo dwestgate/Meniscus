@@ -169,9 +169,7 @@
   _selectedAromas = [[NSMutableDictionary alloc] init];
   _selectedCharacteristics = [[NSMutableOrderedSet alloc] init];
   
-  NSString *string = [self.item.itemAromas stringByReplacingOccurrencesOfString:@"aromas of " withString:@"("];
-  string = [string stringByReplacingOccurrencesOfString:@"sells of " withString:@"("];
-  string = [string stringByReplacingOccurrencesOfString:@"notes of " withString:@"("];
+  NSString *string = [self.item.itemAromas stringByReplacingOccurrencesOfString:@" of " withString:@"("];
   string = [string stringByReplacingOccurrencesOfString:@", and " withString:@", "];
   string = [string stringByReplacingOccurrencesOfString:@" and " withString:@", "];
   string = [string stringByReplacingOccurrencesOfString:@";" withString:@");"]; // Can simplify this when finished

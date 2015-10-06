@@ -33,7 +33,7 @@
     self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
       UINavigationItem *navItem = self.navigationItem;
-      navItem.title = NSLocalizedString(@"WineTastingJournal", @"Name of application");
+      navItem.title = NSLocalizedString(@"Meniscus", @"Name of application");
       
       self.restorationIdentifier = NSStringFromClass([self class]);
       self.restorationClass = [self class];

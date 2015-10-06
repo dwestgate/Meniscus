@@ -183,8 +183,8 @@
   [coder encodeObject:self.item.itemKey
                forKey:@"item.itemKey"];
   
-  self.item.itemName = self.nameTextView.text;
   self.item.itemTastingID = self.tastingIDTextField.text;
+  self.item.itemName = self.nameTextView.text;
   self.item.itemNotes = self.notesTextView.text;
   self.item.itemClarity = self.clarityLabel.text;
   self.item.itemClarityValue = self.claritySlider.value;
@@ -927,7 +927,7 @@
   NSArray *values = [[NSArray alloc] initWithObjects:_notesTextView.text,_imageView.image, nil];
   
   UIActivityViewController *actionController = [[UIActivityViewController alloc] initWithActivityItems:values applicationActivities:nil];
-  [actionController setValue:_nameTextView.text forKey:@"subject"];
+  [actionController setValue:_tastingIDTextField.text forKey:@"subject"];
   [self presentViewController:actionController animated:YES completion:nil];
   
 }
@@ -1440,12 +1440,10 @@
   //                                            fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitBold];
   // UIFont *bold = [UIFont fontWithDescriptor:boldBodyFontDescriptor size:0.0];
   [self identifyDefaultValues];
-    
+  
+  self.tastingIDTextField.font = font;
   self.nameLabel.font = font;
   self.nameTextView.font = font;
-  self.tastingIDTextField.font = font;
-  self.notesLabel.font = font;
-  self.notesTextView.font = font;
   self.appearanceBanner.font = font;
   self.clarityLabel.font = (_clarityIsSet ? [self normalFont] : [self boldFont]);
   self.meniscusLabel.font = (_meniscusIsSet ? [self normalFont] : [self boldFont]);
@@ -1485,6 +1483,8 @@
   self.appellationTextField.font = font;
   self.priceTextField.font = font;
   self.tastedOnBanner.font = font;
+  self.notesLabel.font = font;
+  self.notesTextView.font = font;
 }
 
 - (void)setItem:(Item *)item
@@ -1502,9 +1502,8 @@
   
   Item *item = self.item;
   
-  self.nameTextView.text = item.itemName;
   self.tastingIDTextField.text = item.itemTastingID;
-  self.notesTextView.text = item.itemNotes;
+  self.nameTextView.text = item.itemName;
   self.clarityLabel.text = item.itemClarity;
   self.claritySlider.value = item.itemClarityValue;
   self.meniscusLabel.text = item.itemMeniscus;
@@ -1567,11 +1566,16 @@
   }
   
   self.tastedOnBanner.text = [dateFormatter stringFromDate:item.dateCreated];
+  self.notesTextView.text = item.itemNotes;
   
   NSString *itemKey = self.item.itemKey;
   UIImage *imageToDisplay = [[ImageStore sharedStore] imageForKey:itemKey];
   self.imageView.image = imageToDisplay;
-    
+  
+  self.nameTextView.clipsToBounds = NO;
+  self.aromasTextView.clipsToBounds = NO;
+  self.flavorsTextView.clipsToBounds = NO;
+  self.notesTextView.clipsToBounds = NO;
   [self updateFonts];
   
   if (_nameTextView.text.length == 0) {
@@ -1592,9 +1596,8 @@
   
   Item *item = self.item;
   
-  item.itemName = self.nameTextView.text;
   item.itemTastingID = self.tastingIDTextField.text;
-  item.itemNotes = self.notesTextView.text;
+  item.itemName = self.nameTextView.text;
   item.itemClarity = self.clarityLabel.text;
   item.itemClarityValue = self.claritySlider.value;
   item.itemMeniscus = self.meniscusLabel.text;
@@ -1655,6 +1658,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setInteger:newValue forKey:NextItemValuePrefsKey];
   }
+  item.itemNotes = self.notesTextView.text;
 }
 
 #pragma mark - Text Manipulation

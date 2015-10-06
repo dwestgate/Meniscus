@@ -123,20 +123,29 @@
   if ([_selectedAromas count] > 0) {
     NSLog(@"Step 1: %@", self.item.itemAromas);
     for (NSString *key in _selectedCharacteristics) {
-      self.item.itemAromas = [NSString stringWithFormat:@"%@ %@ aromas of ", self.item.itemAromas, key];
+      self.item.itemAromas = [NSString stringWithFormat:@"%@ %@ of ", self.item.itemAromas, key];
       NSLog(@"Step 2: %@", self.item.itemAromas);
       
-      // if ([[_selectedAromas objectForKey:key] count] == 1)
+      NSInteger c = 1;
+      NSInteger count = [[_selectedAromas objectForKey:key] count];
       for (NSString *value in [_selectedAromas objectForKey:key]) {
+        if (count == 2 && c == 2) {
+          self.item.itemAromas = [NSString stringWithFormat:@"%@ and ", [self.item.itemAromas substringToIndex:[self.item.itemAromas length]-2]];
+        } else if (count > 2 && (c == count)) {
+          self.item.itemAromas = [NSString stringWithFormat:@"%@and ", self.item.itemAromas];
+        }
         self.item.itemAromas = [NSString stringWithFormat:@"%@%@, ", self.item.itemAromas, value];
+        
+        c++;
         NSLog(@"Step 3: %@", self.item.itemAromas);
       }
       
-      self.item.itemAromas = [NSString stringWithFormat:@"%@; ", [self.item.itemAromas substringToIndex:[self.item.itemAromas length]-2]];
+      self.item.itemAromas = [NSString stringWithFormat:@"%@;", [self.item.itemAromas substringToIndex:[self.item.itemAromas length]-2]];
       NSLog(@"Step 4: %@", self.item.itemAromas);
     }
-    self.item.itemAromas = [NSString stringWithFormat:@"%@", [self.item.itemAromas substringToIndex:[self.item.itemAromas length]-2]];
+    self.item.itemAromas = [NSString stringWithFormat:@"%@", [self.item.itemAromas substringToIndex:[self.item.itemAromas length]-1]];
     self.item.itemAromas = [self.item.itemAromas stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    self.item.itemAromas = [self.item.itemAromas stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:[[self.item.itemAromas substringToIndex:1] uppercaseString]];
     NSLog(@"Step 5: %@", self.item.itemAromas);
   }
 }
