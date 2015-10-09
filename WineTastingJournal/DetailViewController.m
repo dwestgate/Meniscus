@@ -25,19 +25,16 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UITextView *nameTextView;
 
-@property (weak, nonatomic) IBOutlet UILabel *notesLabel;
-@property (weak, nonatomic) IBOutlet UITextView *notesTextView;
-
 @property (weak, nonatomic) IBOutlet UILabel *appearanceBanner;
+
+@property (weak, nonatomic) IBOutlet UILabel *colorLabel;
+@property (weak, nonatomic) IBOutlet UISlider *colorSlider;
 
 @property (weak, nonatomic) IBOutlet UILabel *clarityLabel;
 @property (weak, nonatomic) IBOutlet UISlider *claritySlider;
 
 @property (weak, nonatomic) IBOutlet UILabel *meniscusLabel;
 @property (weak, nonatomic) IBOutlet UISlider *meniscusSlider;
-
-@property (weak, nonatomic) IBOutlet UILabel *colorLabel;
-@property (weak, nonatomic) IBOutlet UISlider *colorSlider;
 
 @property (weak, nonatomic) IBOutlet UILabel *colorIntensityLabel;
 @property (weak, nonatomic) IBOutlet UIStepper *colorIntensityStepper;
@@ -125,6 +122,9 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *tastedOnBanner;
 
+@property (weak, nonatomic) IBOutlet UILabel *notesLabel;
+@property (weak, nonatomic) IBOutlet UITextView *notesTextView;
+
 @property (strong, nonatomic) IBOutlet UIPickerView *balancePickerView;
 @property (strong, nonatomic) NSArray *balancePickerOptions;
 @property (strong, nonatomic) IBOutlet UIPickerView *readinessPickerView;
@@ -136,9 +136,9 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cameraButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *actionButton;
 
+@property (assign) BOOL colorIsSet;
 @property (assign) BOOL clarityIsSet;
 @property (assign) BOOL meniscusIsSet;
-@property (assign) BOOL colorIsSet;
 @property (assign) BOOL colorIntensityIsSet;
 @property (assign) BOOL colorShadeIsSet;
 @property (assign) BOOL petillanceIsSet;
@@ -1445,9 +1445,9 @@
   self.nameLabel.font = font;
   self.nameTextView.font = font;
   self.appearanceBanner.font = font;
+  self.colorLabel.font = (_colorIsSet ? [self normalFont] : [self boldFont]);
   self.clarityLabel.font = (_clarityIsSet ? [self normalFont] : [self boldFont]);
   self.meniscusLabel.font = (_meniscusIsSet ? [self normalFont] : [self boldFont]);
-  self.colorLabel.font = (_colorIsSet ? [self normalFont] : [self boldFont]);
   self.colorIntensityLabel.font = (_colorIntensityIsSet ? [self normalFont] : [self boldFont]);
   self.colorShadeLabel.font = (_colorShadeIsSet ? [self normalFont] : [self boldFont]);
   self.petillanceLabel.font = (_petillanceIsSet ? [self normalFont] : [self boldFont]);
@@ -1490,7 +1490,7 @@
 - (void)setItem:(Item *)item
 {
     _item = item;
-    self.navigationItem.title = _item.itemName;
+    self.navigationItem.title = _item.itemTastingID;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -1598,11 +1598,11 @@
   
   item.itemTastingID = self.tastingIDTextField.text;
   item.itemName = self.nameTextView.text;
+  item.itemColor = self.colorLabel.text;
   item.itemClarity = self.clarityLabel.text;
   item.itemClarityValue = self.claritySlider.value;
   item.itemMeniscus = self.meniscusLabel.text;
   item.itemMeniscusValue = self.meniscusSlider.value;
-  item.itemColor = self.colorLabel.text;
   item.itemColorValue = self.colorSlider.value;
   item.itemColorIntensity = self.colorIntensityLabel.text;
   item.itemColorIntensityValue = self.colorIntensityStepper.value;
@@ -1674,9 +1674,9 @@
 }
 
 -(void)identifyDefaultValues {
+  _colorIsSet = ![_colorLabel.text isEqualToString:@"Wine Color"];
   _clarityIsSet = ![_item.itemClarity isEqualToString:@"Wine Clarity"];
   _meniscusIsSet = ![_meniscusLabel.text isEqualToString:@"Meniscus"];
-  _colorIsSet = ![_colorLabel.text isEqualToString:@"Wine Color"];
   _colorIntensityIsSet = ![_colorIntensityLabel.text isEqualToString:@"Color Intensity"];
   _colorShadeIsSet = ![_colorShadeLabel.text isEqualToString:@"Color Shade"];
   _petillanceIsSet = ![_petillanceLabel.text isEqualToString:@"Petillance"];
