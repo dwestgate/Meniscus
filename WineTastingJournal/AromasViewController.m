@@ -158,7 +158,7 @@
       NSLog(@"Step 4 self.item.itemAromas: %@", self.item.itemAromas);
       NSLog(@"Step 4 text: %@", text);
     }
-    self.item.itemAromas = [NSString stringWithFormat:@"%@", [self.item.itemAromas substringToIndex:[self.item.itemAromas length]-1]];
+    self.item.itemAromas = [NSString stringWithFormat:@"%@", [self.item.itemAromas substringToIndex:[self.item.itemAromas length]-2]];
     self.item.itemAromas = [self.item.itemAromas stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     self.item.itemAromas = [self.item.itemAromas stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:[[self.item.itemAromas substringToIndex:1] uppercaseString]];
     NSLog(@"Step 5 self.item.itemAromas: %@", self.item.itemAromas);

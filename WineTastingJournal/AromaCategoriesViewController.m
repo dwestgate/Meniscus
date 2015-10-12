@@ -62,8 +62,8 @@
 
   for (NSManagedObject *aroma in _allTastes) {
     
-    if ([_characteristicToCategory objectForKey:[aroma valueForKey:@"characteristic"]] == nil) {
-      [_characteristicToCategory setObject:[aroma valueForKey:@"category"] forKey:[aroma valueForKey:@"characteristic"]];
+    if ([_characteristicToCategory objectForKey:[self aromasNotFlavors:[aroma valueForKey:@"characteristic"]]] == nil) {
+      [_characteristicToCategory setObject:[aroma valueForKey:@"category"] forKey:[self aromasNotFlavors:[aroma valueForKey:@"characteristic"]]];
     }
     
     // if the category isn't in our list already, add it - otherwise skip
@@ -79,13 +79,14 @@
       for (NSString *member in [_tastesArray lastObject]) {
         NSArray *characteristic = [NSArray arrayWithArray:[tastes filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"taste MATCHES %@", member]]];
         if ([characteristic count] > 0) {
-          [characteristics addObject:[[characteristic lastObject] valueForKey:@"characteristic"]];
+          [characteristics addObject:[self aromasNotFlavors:[[characteristic lastObject] valueForKey:@"characteristic"]]];
         }
       }
       [_characteristicsArray addObject:[NSArray arrayWithArray:characteristics]];
       
     }
   }
+  
   [self readUserSelections];
 
   [self.tableView registerClass:[UITableViewCell class]
@@ -169,10 +170,10 @@
   _selectedAromas = [[NSMutableDictionary alloc] init];
   _selectedCharacteristics = [[NSMutableOrderedSet alloc] init];
   
-  NSString *string = [self.item.itemAromas stringByReplacingOccurrencesOfString:@" of " withString:@"("];
+  NSString *string = [self.item.itemAromas stringByReplacingOccurrencesOfString:@"of " withString:@"("];
   string = [string stringByReplacingOccurrencesOfString:@", and " withString:@", "];
   string = [string stringByReplacingOccurrencesOfString:@" and " withString:@", "];
-  string = [string stringByReplacingOccurrencesOfString:@";" withString:@");"]; // Can simplify this when finished
+  // string = [string stringByReplacingOccurrencesOfString:@";" withString:@");"]; // Can simplify this when finished
   
   NSArray *groupings = [string componentsSeparatedByString: @";"];
   // NSArray *groupings = [self.item.itemAromas componentsSeparatedByString: @");"];
@@ -184,7 +185,7 @@
       // components[0] = "tropical fruit" , "banana, pear"
       // components[1] = "red fruit" , "red apple, red cherry)"
       
-      components[0] = [components[0] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+      components[0] = [self uncapitalize:[components[0] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
       components[1] = [components[1] stringByTrimmingCharactersInSet:[NSCharacterSet punctuationCharacterSet]];
       
       [_selectedAromas setObject:[NSMutableArray arrayWithArray:[[components objectAtIndex:1] componentsSeparatedByString:@", "]] forKey:[components objectAtIndex:0]];
@@ -206,6 +207,18 @@
     found = YES;
   }
   return found;
+}
+
+
+-(NSString *)uncapitalize:(NSString *)string {
+  return [string stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:[[string substringToIndex:1] lowercaseString]];
+}
+
+
+-(NSString *)aromasNotFlavors:(NSString *)string {
+  string = [string stringByReplacingOccurrencesOfString:@" or tastes" withString:@""];
+  string = [string stringByReplacingOccurrencesOfString:@" or flavors" withString:@""];
+  return string;
 }
 
 @end
