@@ -123,7 +123,7 @@
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="J2n-vT-k4P"/>
                                             </constraints>
                                             <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textView>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" text="notesTextView" translatesAutoresizingMaskIntoConstraints="NO" id="QEQ-Ts-TSv" userLabel="notesTextView">
@@ -351,7 +351,7 @@
                                             </connections>
                                         </stepper>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tannin" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lny-iu-Kiw" userLabel="tanninLabel">
-                                            <rect key="frame" x="20" y="870" width="140" height="25"/>
+                                            <rect key="frame" x="20" y="870" width="51" height="25"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -714,7 +714,6 @@
                                         <constraint firstItem="KCd-om-5lj" firstAttribute="trailing" secondItem="mBD-xV-3bE" secondAttribute="trailing" id="CqX-6J-f4r"/>
                                         <constraint firstItem="dJ4-bh-hbz" firstAttribute="top" secondItem="jct-NK-8pZ" secondAttribute="bottom" constant="9" id="Cqh-Fp-j3O"/>
                                         <constraint firstItem="JIY-hf-U2y" firstAttribute="top" secondItem="zJL-Sw-2oi" secondAttribute="bottom" constant="10" id="DIK-B5-fQ9"/>
-                                        <constraint firstItem="Lny-iu-Kiw" firstAttribute="trailing" secondItem="erT-TO-rFb" secondAttribute="trailing" id="DZg-aW-fTh"/>
                                         <constraint firstItem="rHt-t2-zpo" firstAttribute="trailing" secondItem="mBD-xV-3bE" secondAttribute="trailing" id="DxR-1q-77Z"/>
                                         <constraint firstItem="E6U-27-iIR" firstAttribute="top" secondItem="tMD-rA-k6m" secondAttribute="bottom" constant="12" id="EO3-bb-gc4"/>
                                         <constraint firstItem="m8g-p3-Hg0" firstAttribute="trailing" secondItem="jct-NK-8pZ" secondAttribute="trailing" id="EbG-6O-LrG"/>
@@ -772,7 +771,7 @@
                                         <constraint firstItem="1ld-gL-sef" firstAttribute="leading" secondItem="mBD-xV-3bE" secondAttribute="leading" id="XdA-80-OMe"/>
                                         <constraint firstItem="erT-TO-rFb" firstAttribute="top" secondItem="TEK-HF-ykr" secondAttribute="bottom" constant="17" id="YVI-La-qlh"/>
                                         <constraint firstItem="dJ4-bh-hbz" firstAttribute="leading" secondItem="sdk-Y4-rMh" secondAttribute="leading" id="YjU-q4-syP"/>
-                                        <constraint firstItem="lbD-Fn-E2t" firstAttribute="centerY" secondItem="iBu-Xp-mAY" secondAttribute="centerY" constant="0.5" id="ZLG-dA-EAF"/>
+                                        <constraint firstItem="lbD-Fn-E2t" firstAttribute="centerY" secondItem="iBu-Xp-mAY" secondAttribute="centerY" id="ZLG-dA-EAF"/>
                                         <constraint firstItem="ny3-BL-WfU" firstAttribute="trailing" secondItem="mBD-xV-3bE" secondAttribute="trailing" id="ZTL-6Z-Ujd"/>
                                         <constraint firstItem="1af-f0-gmw" firstAttribute="trailing" secondItem="erT-TO-rFb" secondAttribute="trailing" id="ZYf-dv-NAy"/>
                                         <constraint firstItem="rx8-1S-YWo" firstAttribute="top" secondItem="By6-B8-T1Q" secondAttribute="bottom" constant="9" id="Zir-KS-OYd"/>

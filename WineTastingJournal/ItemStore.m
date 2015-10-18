@@ -308,63 +308,63 @@
     taste = [NSEntityDescription insertNewObjectForEntityForName:@"Tastes" inManagedObjectContext:self.context];
     [taste setValue:@1 forKey:@"categoryOrder"];
     [taste setValue:@"Citrus and tropical notes" forKey:@"category"];
-    [taste setValue:@"tropical aromas or tastes" forKey:@"characteristic"];
+    [taste setValue:@"tropical aromas or flavors" forKey:@"characteristic"];
     [taste setValue:@"banana" forKey:@"taste"];
     [_allTastes addObject:taste];
     
     taste = [NSEntityDescription insertNewObjectForEntityForName:@"Tastes" inManagedObjectContext:self.context];
     [taste setValue:@1 forKey:@"categoryOrder"];
     [taste setValue:@"Citrus and tropical notes" forKey:@"category"];
-    [taste setValue:@"tropical aromas or tastes" forKey:@"characteristic"];
+    [taste setValue:@"tropical aromas or flavors" forKey:@"characteristic"];
     [taste setValue:@"coconut" forKey:@"taste"];
     [_allTastes addObject:taste];
     
     taste = [NSEntityDescription insertNewObjectForEntityForName:@"Tastes" inManagedObjectContext:self.context];
     [taste setValue:@1 forKey:@"categoryOrder"];
     [taste setValue:@"Citrus and tropical notes" forKey:@"category"];
-    [taste setValue:@"tropical aromas or tastes" forKey:@"characteristic"];
+    [taste setValue:@"tropical aromas or flavors" forKey:@"characteristic"];
     [taste setValue:@"kiwi" forKey:@"taste"];
     [_allTastes addObject:taste];
     
     taste = [NSEntityDescription insertNewObjectForEntityForName:@"Tastes" inManagedObjectContext:self.context];
     [taste setValue:@1 forKey:@"categoryOrder"];
     [taste setValue:@"Citrus and tropical notes" forKey:@"category"];
-    [taste setValue:@"tropical aromas or tastes" forKey:@"characteristic"];
+    [taste setValue:@"tropical aromas or flavors" forKey:@"characteristic"];
     [taste setValue:@"lychee" forKey:@"taste"];
     [_allTastes addObject:taste];
     
     taste = [NSEntityDescription insertNewObjectForEntityForName:@"Tastes" inManagedObjectContext:self.context];
     [taste setValue:@1 forKey:@"categoryOrder"];
     [taste setValue:@"Citrus and tropical notes" forKey:@"category"];
-    [taste setValue:@"tropical aromas or tastes" forKey:@"characteristic"];
+    [taste setValue:@"tropical aromas or flavors" forKey:@"characteristic"];
     [taste setValue:@"mango" forKey:@"taste"];
     [_allTastes addObject:taste];
     
     taste = [NSEntityDescription insertNewObjectForEntityForName:@"Tastes" inManagedObjectContext:self.context];
     [taste setValue:@1 forKey:@"categoryOrder"];
     [taste setValue:@"Citrus and tropical notes" forKey:@"category"];
-    [taste setValue:@"tropical aromas or tastes" forKey:@"characteristic"];
+    [taste setValue:@"tropical aromas or flavors" forKey:@"characteristic"];
     [taste setValue:@"melon" forKey:@"taste"];
     [_allTastes addObject:taste];
     
     taste = [NSEntityDescription insertNewObjectForEntityForName:@"Tastes" inManagedObjectContext:self.context];
     [taste setValue:@1 forKey:@"categoryOrder"];
     [taste setValue:@"Citrus and tropical notes" forKey:@"category"];
-    [taste setValue:@"tropical aromas or tastes" forKey:@"characteristic"];
+    [taste setValue:@"tropical aromas or flavors" forKey:@"characteristic"];
     [taste setValue:@"passion fruit" forKey:@"taste"];
     [_allTastes addObject:taste];
     
     taste = [NSEntityDescription insertNewObjectForEntityForName:@"Tastes" inManagedObjectContext:self.context];
     [taste setValue:@1 forKey:@"categoryOrder"];
     [taste setValue:@"Citrus and tropical notes" forKey:@"category"];
-    [taste setValue:@"tropical aromas or tastes" forKey:@"characteristic"];
+    [taste setValue:@"tropical aromas or flavors" forKey:@"characteristic"];
     [taste setValue:@"pineapple" forKey:@"taste"];
     [_allTastes addObject:taste];
     
     taste = [NSEntityDescription insertNewObjectForEntityForName:@"Tastes" inManagedObjectContext:self.context];
     [taste setValue:@1 forKey:@"categoryOrder"];
     [taste setValue:@"Citrus and tropical notes" forKey:@"category"];
-    [taste setValue:@"tropical aromas or tastes" forKey:@"characteristic"];
+    [taste setValue:@"tropical aromas or flavors" forKey:@"characteristic"];
     [taste setValue:@"vanilla" forKey:@"taste"];
     [_allTastes addObject:taste];
     
@@ -904,7 +904,7 @@
     [taste setValue:@7 forKey:@"categoryOrder"];
     [taste setValue:@"Woody, nutty, and toasty notes" forKey:@"category"];
     [taste setValue:@"woody notes" forKey:@"characteristic"];
-    [taste setValue:@"oaky" forKey:@"taste"];
+    [taste setValue:@"oak" forKey:@"taste"];
     [_allTastes addObject:taste];
     
     taste = [NSEntityDescription insertNewObjectForEntityForName:@"Tastes" inManagedObjectContext:self.context];

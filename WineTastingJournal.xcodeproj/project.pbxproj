@@ -26,6 +26,9 @@
 		C435586F1BA19DF7008FF2AE /* AromaCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C435586E1BA19DF7008FF2AE /* AromaCategoriesViewController.m */; };
 		C451B4BE1B6E9C07007F06E2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C451B4C01B6E9C07007F06E2 /* Localizable.strings */; };
 		C451B4C21B6E9D64007F06E2 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C451B4C41B6E9D64007F06E2 /* DetailViewController.xib */; };
+		C4C418821BD3EB5F007C5E5D /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C418801BD3EB5F007C5E5D /* InfoViewController.m */; settings = {ASSET_TAGS = (); }; };
+		C4C418831BD3EB5F007C5E5D /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4C418811BD3EB5F007C5E5D /* InfoViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		C4C418861BD3FAE5007C5E5D /* info.html in Resources */ = {isa = PBXBuildFile; fileRef = C4C418851BD3FAE5007C5E5D /* info.html */; settings = {ASSET_TAGS = (); }; };
 		C4EAC9341B9DC62F006E4CFC /* AromasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EAC9331B9DC62F006E4CFC /* AromasViewController.m */; };
 		C4EAC9371B9E43D9006E4CFC /* FlavorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EAC9361B9E43D9006E4CFC /* FlavorsViewController.m */; };
 /* End PBXBuildFile section */
@@ -79,6 +82,10 @@
 		C451B4C61B6E9DFC007F06E2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DetailViewController.strings; sourceTree = "<group>"; };
 		C451B4C71B6E9FBA007F06E2 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/DetailViewController.strings; sourceTree = "<group>"; };
 		C451B4C81B6E9FBA007F06E2 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C4C4187F1BD3EB5F007C5E5D /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		C4C418801BD3EB5F007C5E5D /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		C4C418811BD3EB5F007C5E5D /* InfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoViewController.xib; sourceTree = "<group>"; };
+		C4C418851BD3FAE5007C5E5D /* info.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = info.html; sourceTree = "<group>"; };
 		C4EAC9321B9DC62F006E4CFC /* AromasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AromasViewController.h; path = ../../../Workspace/WineTastingJournal/WineTastingJournal/AromasViewController.h; sourceTree = "<group>"; };
 		C4EAC9331B9DC62F006E4CFC /* AromasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AromasViewController.m; path = ../../../Workspace/WineTastingJournal/WineTastingJournal/AromasViewController.m; sourceTree = "<group>"; };
 		C4EAC9351B9E43D9006E4CFC /* FlavorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlavorsViewController.h; path = ../../../Workspace/WineTastingJournal/WineTastingJournal/FlavorsViewController.h; sourceTree = "<group>"; };
@@ -124,6 +131,7 @@
 		C41516821B6E6042009CBA93 /* WineTastingJournal */ = {
 			isa = PBXGroup;
 			children = (
+				C4C418841BD3FA84007C5E5D /* Texts */,
 				C41516C41B6E6139009CBA93 /* AppDelegate.h */,
 				C41516C51B6E6139009CBA93 /* AppDelegate.m */,
 				C435586D1BA19DF7008FF2AE /* AromaCategoriesViewController.h */,
@@ -157,6 +165,9 @@
 				C41516831B6E6042009CBA93 /* Supporting Files */,
 				C41516C91B6E7B30009CBA93 /* WineTastingJournal.bundle */,
 				C41516CF1B6E8F05009CBA93 /* WineTastingJournal.xcdatamodeld */,
+				C4C4187F1BD3EB5F007C5E5D /* InfoViewController.h */,
+				C4C418801BD3EB5F007C5E5D /* InfoViewController.m */,
+				C4C418811BD3EB5F007C5E5D /* InfoViewController.xib */,
 			);
 			path = WineTastingJournal;
 			sourceTree = "<group>";
@@ -185,6 +196,14 @@
 				C415169E1B6E6043009CBA93 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C4C418841BD3FA84007C5E5D /* Texts */ = {
+			isa = PBXGroup;
+			children = (
+				C4C418851BD3FAE5007C5E5D /* info.html */,
+			);
+			name = Texts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +292,8 @@
 				C41516911B6E6042009CBA93 /* Images.xcassets in Resources */,
 				C41516CA1B6E7B30009CBA93 /* WineTastingJournal.bundle in Resources */,
 				C451B4BE1B6E9C07007F06E2 /* Localizable.strings in Resources */,
+				C4C418861BD3FAE5007C5E5D /* info.html in Resources */,
+				C4C418831BD3EB5F007C5E5D /* InfoViewController.xib in Resources */,
 				C41516CE1B6E8DFA009CBA93 /* ItemCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,6 +322,7 @@
 				C41516BC1B6E60A7009CBA93 /* DetailViewController.m in Sources */,
 				C41516BF1B6E60A7009CBA93 /* ImageViewController.m in Sources */,
 				C41516C21B6E60A7009CBA93 /* ItemStore.m in Sources */,
+				C4C418821BD3EB5F007C5E5D /* InfoViewController.m in Sources */,
 				C41516861B6E6042009CBA93 /* main.m in Sources */,
 				C41516C01B6E60A7009CBA93 /* Item.m in Sources */,
 				C435586F1BA19DF7008FF2AE /* AromaCategoriesViewController.m in Sources */,

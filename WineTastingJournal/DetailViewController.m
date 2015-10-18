@@ -12,6 +12,7 @@
 #import "ItemStore.h"
 #import "AromaCategoriesViewController.h"
 #import "FlavorCategoriesViewController.h"
+#import "InfoViewController.h"
 #import "AppDelegate.h"
 
 @interface DetailViewController ()
@@ -596,13 +597,13 @@
   }
   
   if (_sweetnessStepper.value == 1) {
-    _sweetnessLabel.text = @"Dry";
+    _sweetnessLabel.text = @"Bone dry";
   } else if (_sweetnessStepper.value == 2) {
-    _sweetnessLabel.text = @"Off-dry";
+    _sweetnessLabel.text = @"Dry";
   } else if (_sweetnessStepper.value == 3) {
-    _sweetnessLabel.text = @"Medium -dry";
+    _sweetnessLabel.text = @"Off-dry";
   } else if (_sweetnessStepper.value == 4) {
-    _sweetnessLabel.text = @"Medium -sweet";
+    _sweetnessLabel.text = @"Moderately sweet";
   } else if (_sweetnessStepper.value == 5) {
     _sweetnessLabel.text = @"Sweet";
   } else {
@@ -621,15 +622,15 @@
   }
   
   if (_acidityStepper.value == 1) {
-    _acidityLabel.text = @"Low acidity";
+    _acidityLabel.text = @"Very low acidity";
   } else if (_acidityStepper.value == 2) {
-    _acidityLabel.text = @"Medium-minus acidity";
+    _acidityLabel.text = @"Low acidity";
   } else if (_acidityStepper.value == 3) {
-    _acidityLabel.text = @"Medium acidity";
+    _acidityLabel.text = @"Moderate acidity";
   } else if (_acidityStepper.value == 4) {
-    _acidityLabel.text = @"Medium-plus acidity";
-  } else {
     _acidityLabel.text = @"High acidity";
+  } else {
+    _acidityLabel.text = @"Very high acidity";
   }
   [self updateTastingNotes];
 }
@@ -667,15 +668,15 @@
   }
   
   if (_alcoholStepper.value == 1) {
-    _alcoholLabel.text = @"Low alcohol (<11.5%)";
+    _alcoholLabel.text = @"Low alcohol";
   } else if (_alcoholStepper.value == 2) {
-    _alcoholLabel.text = @"Medium- alcohol (<12.5%)";
+    _alcoholLabel.text = @"Medium-minus alcohol";
   } else if (_alcoholStepper.value == 3) {
-    _alcoholLabel.text = @"Medium alcohol (<13.5%)";
+    _alcoholLabel.text = @"Medium alcohol";
   } else if (_alcoholStepper.value == 4) {
-    _alcoholLabel.text = @"Medium+ alcohol (<13.9%)";
+    _alcoholLabel.text = @"Medium-plus alcohol";
   } else {
-    _alcoholLabel.text = @"High alcohol (14%+)";
+    _alcoholLabel.text = @"High alcohol";
   }
   [self updateTastingNotes];
 }
@@ -690,13 +691,13 @@
   }
   
   if (_bodyStepper.value == 1) {
-    _bodyLabel.text = @"Light-bodied";
+    _bodyLabel.text = @"Very light-bodied";
   } else if (_bodyStepper.value == 2) {
-    _bodyLabel.text = @"Medium-minus body";
+    _bodyLabel.text = @"Light-bodied";
   } else if (_bodyStepper.value == 3) {
     _bodyLabel.text = @"Medium-bodied";
   } else if (_bodyStepper.value == 4) {
-    _bodyLabel.text = @"Medium-plus body";
+    _bodyLabel.text = @"Nearly full-bodied";
   } else {
     _bodyLabel.text = @"Full-bodied";
   }
@@ -711,17 +712,17 @@
     self.flavorIntensityLabel.textColor = [UIColor grayColor];
     _flavorIntensityIsSet = YES;
   }
-  
+
   if (_flavorIntensityStepper.value == 1) {
-    _flavorIntensityLabel.text = @"Light flavor";
+    _flavorIntensityLabel.text = @"Very weak flavor intensity";
   } else if (_flavorIntensityStepper.value == 2) {
-    _flavorIntensityLabel.text = @"Medium-minus flavors";
+    _flavorIntensityLabel.text = @"Weak flavor intensity";
   } else if (_flavorIntensityStepper.value == 3) {
-    _flavorIntensityLabel.text = @"Medium flavors";
+    _flavorIntensityLabel.text = @"Medium flavor intensity";
   } else if (_flavorIntensityStepper.value == 4) {
-    _flavorIntensityLabel.text = @"Medium-plus flavors";
+    _flavorIntensityLabel.text = @"Pronounced flavor intensity";
   } else {
-    _flavorIntensityLabel.text = @"Pronounced flavors";
+    _flavorIntensityLabel.text = @"Robust flavor intensity";
   }
   [self updateTastingNotes];
 }
@@ -769,15 +770,15 @@
   }
   
   if (_finishStepper.value == 1) {
-    _finishLabel.text = @"Short finish";
+    _finishLabel.text = @"Curt finish";
   } else if (_finishStepper.value == 2) {
-    _finishLabel.text = @"Medium-minus finish";
+    _finishLabel.text = @"Short finish";
   } else if (_finishStepper.value == 3) {
     _finishLabel.text = @"Medium-length finish";
   } else if (_finishStepper.value == 4) {
-    _finishLabel.text = @"Medium-plus finish";
-  } else {
     _finishLabel.text = @"Long finish";
+  } else {
+    _finishLabel.text = @"Drawn-out finish";
   }
   [self updateTastingNotes];
 }
@@ -934,14 +935,12 @@
 
 
 - (IBAction)infoButtonPressed:(id)sender {
-  [self.view endEditing:YES];
-  self.aromasLabel.font = [self normalFont];
+  InfoViewController *infoViewController = [[InfoViewController alloc] init];
   
-  AromaCategoriesViewController *avc = [[AromaCategoriesViewController alloc] init];
-  avc.item = self.item;
-  
-  [self.navigationController pushViewController:avc
-                                       animated:YES];
+  UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:infoViewController];
+  navController.restorationIdentifier = NSStringFromClass([navController class]);
+  navController.modalPresentationStyle = UIModalPresentationFormSheet;
+  [self presentViewController:navController animated:YES completion:NULL];
 }
 
 
@@ -1098,7 +1097,7 @@
     }
     
     if (_developmentIsSet) {
-      string = [NSString stringWithFormat:@"%@ From its nose, the wine comes across as %@.", string, development];
+      string = [NSString stringWithFormat:@"%@ The wine comes across as %@.", string, development];
     }
     
     string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
@@ -1127,7 +1126,9 @@
     if (_tanninIsSet) tannin = [_tanninLabel.text lowercaseString];
     if (_alcoholIsSet) alcohol = [_alcoholLabel.text lowercaseString];
     if (_bodyIsSet) body = [_bodyLabel.text lowercaseString];
-    if (_flavorIntensityIsSet) flavorIntensity = [_flavorIntensityLabel.text lowercaseString];
+    if (_flavorIntensityIsSet) {
+      flavorIntensity = [[_flavorIntensityLabel.text lowercaseString] stringByReplacingOccurrencesOfString:@" flavor intensity" withString:@""];
+    }
     if (_flavorsAreSet) {
       flavors = [_flavorsTextView.text lowercaseString];
       NSInteger semicolonCount = [[flavors componentsSeparatedByString:@";"] count]-1;
@@ -1180,13 +1181,13 @@
     }
     
     if (_bodyIsSet && _flavorIntensityIsSet && _flavorsAreSet) {
-      string = [NSString stringWithFormat:@"%@ It is %@, with %@ of %@.", string, body, flavorIntensity, flavors];
+      string = [NSString stringWithFormat:@"%@ It is %@, with %@ %@.", string, body, flavorIntensity, flavors];
     } else if (_bodyIsSet && _flavorIntensityIsSet && !_flavorsAreSet) {
       string = [NSString stringWithFormat:@"%@ It is %@, with %@.", string, body, flavorIntensity];
     } else if (_bodyIsSet && !_flavorIntensityIsSet && _flavorsAreSet) {
       string = [NSString stringWithFormat:@"%@ It is %@ and has %@.", string, body, flavors];
     } else if (!_bodyIsSet && _flavorIntensityIsSet && _flavorsAreSet) {
-      string = [NSString stringWithFormat:@"%@ It has %@ of %@.", string, flavorIntensity, flavors];
+      string = [NSString stringWithFormat:@"%@ It has %@ %@.", string, flavorIntensity, flavors];
     } else if (_bodyIsSet && !_flavorIntensityIsSet && !_flavorsAreSet) {
       string = [NSString stringWithFormat:@"%@ It is %@.", string, body];
     } else if (!_bodyIsSet && _flavorIntensityIsSet && !_flavorsAreSet) {
