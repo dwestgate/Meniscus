@@ -135,6 +135,7 @@
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cameraButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *actionButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *infoButton;
 
 @property (assign) BOOL colorIsSet;
 @property (assign) BOOL clarityIsSet;
@@ -185,7 +186,6 @@
   
   self.item.itemTastingID = self.tastingIDTextField.text;
   self.item.itemName = self.nameTextView.text;
-  self.item.itemNotes = self.notesTextView.text;
   self.item.itemClarity = self.clarityLabel.text;
   self.item.itemClarityValue = self.claritySlider.value;
   self.item.itemMeniscus = self.meniscusLabel.text;
@@ -239,6 +239,7 @@
   self.item.itemVintage = self.vintageTextField.text;
   self.item.itemAppellation = self.appellationTextField.text;
   self.item.valueInDollars = [self.priceTextField.text intValue];
+  self.item.itemNotes = self.notesTextView.text;
   
   [[ItemStore sharedStore] saveChanges];
   
@@ -529,13 +530,13 @@
   }
   
   if (_aromaIntensityStepper.value == 1) {
-    _aromaIntensityLabel.text = @"Light aroma";
+    _aromaIntensityLabel.text = @"Barely-detectable aroma";
   } else if (_aromaIntensityStepper.value == 2) {
-    _aromaIntensityLabel.text = @"Medium-minus aroma";
+    _aromaIntensityLabel.text = @"Weak aroma";
   } else if (_aromaIntensityStepper.value == 3) {
-    _aromaIntensityLabel.text = @"Medium-intensity aroma";
+    _aromaIntensityLabel.text = @"Medium-strength aroma";
   } else if (_aromaIntensityStepper.value == 4) {
-    _aromaIntensityLabel.text = @"Medium-plus aroma";
+    _aromaIntensityLabel.text = @"Strong aroma";
   } else {
     _aromaIntensityLabel.text = @"Pronounced aroma";
   }
@@ -551,7 +552,6 @@
   
   [self.navigationController pushViewController:avc
                                        animated:YES];
-
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
@@ -933,19 +933,33 @@
 }
 
 
+- (IBAction)infoButtonPressed:(id)sender {
+  [self.view endEditing:YES];
+  self.aromasLabel.font = [self normalFont];
+  
+  AromaCategoriesViewController *avc = [[AromaCategoriesViewController alloc] init];
+  avc.item = self.item;
+  
+  [self.navigationController pushViewController:avc
+                                       animated:YES];
+}
+
+
 #pragma mark - Assemble Notes
 
 - (void)updateTastingNotes {
   
-  _notesTextView.text = @"";
+  [_notesTextView setText:@""];
   
   if (_clarityIsSet || _meniscusIsSet || _colorShadeIsSet || _petillanceIsSet || _viscosityIsSet || _sedimentIsSet) {
     
+    NSString *string;
     NSString *clarity;
     NSString *meniscus;
     NSString *colorIntensity;
     NSString *color;
     
+    string = @"";
     if (_clarityIsSet) {
       if ([_clarityLabel.text isEqualToString:@"Faulty"]) {
         clarity = @"appears to be faulty";
@@ -974,19 +988,19 @@
     }
     
     if (_clarityIsSet && _meniscusIsSet && _colorShadeIsSet) {
-      _notesTextView.text = [NSString stringWithFormat:@"The wine %@, with %@ and a color of %@.", clarity, meniscus, color];
+      string = [NSString stringWithFormat:@"The wine %@, with %@ and a color of %@.", clarity, meniscus, color];
     } else if (_clarityIsSet && _meniscusIsSet && !_colorShadeIsSet) {
-      _notesTextView.text = [NSString stringWithFormat:@"The wine %@, and has %@.", clarity, meniscus];
+      string = [NSString stringWithFormat:@"The wine %@, and has %@.", clarity, meniscus];
     } else if (_clarityIsSet && !_meniscusIsSet && _colorShadeIsSet) {
-      _notesTextView.text = [NSString stringWithFormat:@"The wine %@, and has a color of %@.", clarity, color];
+      string = [NSString stringWithFormat:@"The wine %@, and has a color of %@.", clarity, color];
     } else if (!_clarityIsSet && _meniscusIsSet && _colorShadeIsSet) {
-      _notesTextView.text = [NSString stringWithFormat:@"The wine has %@ and is %@ in color.", meniscus, color];
+      string = [NSString stringWithFormat:@"The wine has %@ and is %@ in color.", meniscus, color];
     } else if (_clarityIsSet && !_meniscusIsSet && !_colorShadeIsSet) {
-      _notesTextView.text = [NSString stringWithFormat:@"The wine %@.", clarity];
+      string = [NSString stringWithFormat:@"The wine %@.", clarity];
     } else if (!_clarityIsSet && _meniscusIsSet && !_colorShadeIsSet) {
-      _notesTextView.text = [NSString stringWithFormat:@"The wine has %@.", meniscus];
+      string = [NSString stringWithFormat:@"The wine has %@.", meniscus];
     } else if (!_clarityIsSet && !_meniscusIsSet && _colorShadeIsSet) {
-      _notesTextView.text = [NSString stringWithFormat:@"The wine is %@ in color.", color];
+      string = [NSString stringWithFormat:@"The wine is %@ in color.", color];
     }
   
     if (_petillanceIsSet || _viscosityIsSet || _sedimentIsSet) {
@@ -1014,23 +1028,23 @@
       }
     
       if (_petillanceIsSet && _sedimentIsSet && _viscosityIsSet) {
-        _notesTextView.text = [NSString stringWithFormat:@"%@ The wine has %@, %@, and forms %@ on the glass.", _notesTextView.text, petillance, sediment, viscosity];
+        string = [NSString stringWithFormat:@"%@ The wine has %@, %@, and forms %@ on the glass.", _notesTextView.text, petillance, sediment, viscosity];
       } else if (_petillanceIsSet && _sedimentIsSet && !_viscosityIsSet) {
-        _notesTextView.text = [NSString stringWithFormat:@"%@ The wine has %@, and %@.", _notesTextView.text, petillance, sediment];
+        string = [NSString stringWithFormat:@"%@ The wine has %@, and %@.", _notesTextView.text, petillance, sediment];
       } else if (_petillanceIsSet && !_sedimentIsSet && _viscosityIsSet) {
-        _notesTextView.text = [NSString stringWithFormat:@"%@ The wine has %@ and forms %@ on the glass.", _notesTextView.text, petillance, viscosity];
+        string = [NSString stringWithFormat:@"%@ The wine has %@ and forms %@ on the glass.", _notesTextView.text, petillance, viscosity];
       } else if (!_petillanceIsSet && _sedimentIsSet && _viscosityIsSet) {
-        _notesTextView.text = [NSString stringWithFormat:@"%@ The wine has %@ and forms %@ on the glass.", _notesTextView.text, sediment, viscosity];
+        string = [NSString stringWithFormat:@"%@ The wine has %@ and forms %@ on the glass.", _notesTextView.text, sediment, viscosity];
       } else if (!_petillanceIsSet && !_sedimentIsSet && _viscosityIsSet) {
-        _notesTextView.text = [NSString stringWithFormat:@"%@ The wine forms %@ on the glass.", _notesTextView.text, viscosity];
+        string = [NSString stringWithFormat:@"%@ The wine forms %@ on the glass.", _notesTextView.text, viscosity];
       } else if (!_petillanceIsSet && _sedimentIsSet && !_viscosityIsSet) {
-        _notesTextView.text = [NSString stringWithFormat:@"%@ The wine has %@.", _notesTextView.text, sediment];
+        string = [NSString stringWithFormat:@"%@ The wine has %@.", _notesTextView.text, sediment];
       } else if (_petillanceIsSet && !_sedimentIsSet && !_viscosityIsSet) {
-        _notesTextView.text = [NSString stringWithFormat:@"%@ The wine has %@.", _notesTextView.text, petillance];
+        string = [NSString stringWithFormat:@"%@ The wine has %@.", _notesTextView.text, petillance];
       }
     }
   
-    _notesTextView.text = [_notesTextView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    [_notesTextView setText:[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
   }
 
   if (_conditionIsSet || _aromaIntensityIsSet || _aromasAreSet || _developmentIsSet) {
@@ -1043,8 +1057,24 @@
     
     string = @"";
     if (_conditionIsSet) condition = [_conditionLabel.text lowercaseString];
-    if (_aromaIntensityIsSet) aromaIntensity = [_aromaIntensityLabel.text lowercaseString];
-    if (_aromasAreSet) aromas = [_aromasTextView.text lowercaseString];
+    if (_aromaIntensityIsSet) {
+      aromaIntensity = [[_aromaIntensityLabel.text lowercaseString] substringToIndex:[_aromaIntensityLabel.text length]-6];
+    }
+    if (_aromasAreSet) {
+      aromas = [_aromasTextView.text lowercaseString];
+      NSInteger semicolonCount = [[aromas componentsSeparatedByString:@";"] count]-1;
+      NSRange lastSemiColon;
+      
+      if (semicolonCount > 0) {
+        lastSemiColon = [aromas rangeOfString:@";" options:NSBackwardsSearch];
+        
+        if (semicolonCount == 1) {
+          aromas = [aromas stringByReplacingCharactersInRange:lastSemiColon withString:@" as well as"];
+        } else if (semicolonCount > 1) {
+          aromas = [aromas stringByReplacingCharactersInRange:lastSemiColon withString:@"; and"];
+        }
+      }
+    }
     if (_developmentIsSet) {
       if ([_developmentLabel.text isEqualToString:@"Tired/Past its prime"]) {
         development = @"tired and decidedly past its prime";
@@ -1054,13 +1084,13 @@
     }
     
     if (_conditionIsSet && _aromaIntensityIsSet && _aromasAreSet) {
-      string = [NSString stringWithFormat:@"%@ The nose is %@ and of %@, with %@.", string, condition, aromaIntensity, aromas];
+      string = [NSString stringWithFormat:@"%@ The %@ nose is %@, with %@.", string, aromaIntensity, condition, aromas];
     } else if (_conditionIsSet && _aromaIntensityIsSet && !_aromasAreSet) {
-      string = [NSString stringWithFormat:@"%@ The nose is %@.", string, condition];
+      string = [NSString stringWithFormat:@"%@ The %@ nose is %@.", string, aromaIntensity, condition];
     } else if (_conditionIsSet && !_aromaIntensityIsSet && _aromasAreSet) {
       string = [NSString stringWithFormat:@"%@ The nose is %@, with %@.", string, condition, aromas];
     } else if (!_conditionIsSet && _aromaIntensityIsSet && _aromasAreSet) {
-      string = [NSString stringWithFormat:@"%@ The nose is of %@, with %@.", string, aromaIntensity, aromas];
+      string = [NSString stringWithFormat:@"%@ The %@ nose has %@.", string, aromaIntensity, aromas];
     } else if (!_conditionIsSet && !_aromaIntensityIsSet && _aromasAreSet) {
       string = [NSString stringWithFormat:@"%@ The nose has %@.", string, aromas];
     } else if (_conditionIsSet && !_aromaIntensityIsSet && !_aromasAreSet) {
@@ -1072,8 +1102,9 @@
     }
     
     string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    _notesTextView.text = [NSString stringWithFormat:@"%@\r\n\r\n%@", _notesTextView.text, string];
-    _notesTextView.text = [_notesTextView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    [_notesTextView setText:[NSString stringWithFormat:@"%@\r\n\r\n%@", _notesTextView.text, string]];
+    [_notesTextView setText:[_notesTextView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+    NSLog(@"_notesTextView.text = %@", _notesTextView.text);
   }
   
   if (_sweetnessIsSet || _acidityIsSet || _tanninIsSet || _alcoholIsSet || _bodyIsSet || _flavorIntensityIsSet || _flavorsAreSet || _balanceIsSet || _mousseIsSet || _finishIsSet) {
@@ -1097,7 +1128,21 @@
     if (_alcoholIsSet) alcohol = [_alcoholLabel.text lowercaseString];
     if (_bodyIsSet) body = [_bodyLabel.text lowercaseString];
     if (_flavorIntensityIsSet) flavorIntensity = [_flavorIntensityLabel.text lowercaseString];
-    if (_flavorsAreSet) flavors = [_flavorsTextView.text lowercaseString];
+    if (_flavorsAreSet) {
+      flavors = [_flavorsTextView.text lowercaseString];
+      NSInteger semicolonCount = [[flavors componentsSeparatedByString:@";"] count]-1;
+      NSRange lastSemiColon;
+      
+      if (semicolonCount > 0) {
+        lastSemiColon = [flavors rangeOfString:@";" options:NSBackwardsSearch];
+        
+        if (semicolonCount == 1) {
+          flavors = [flavors stringByReplacingCharactersInRange:lastSemiColon withString:@" as well as"];
+        } else if (semicolonCount > 1) {
+          flavors = [flavors stringByReplacingCharactersInRange:lastSemiColon withString:@"; and"];
+        }
+      }
+    }
     if (_balanceIsSet) balance = [_balanceTextField.text lowercaseString];
     if (_mousseIsSet) mousse = [_mousseLabel.text lowercaseString];
     if (_finishIsSet) finish = [_finishLabel.text lowercaseString];
@@ -1147,7 +1192,7 @@
     } else if (!_bodyIsSet && _flavorIntensityIsSet && !_flavorsAreSet) {
       string = [NSString stringWithFormat:@"%@ It is %@.", string, flavorIntensity];
     } else if (!_bodyIsSet && !_flavorIntensityIsSet && _flavorsAreSet) {
-      string = [NSString stringWithFormat:@"%@ It has %@.", string, flavors];
+      string = [NSString stringWithFormat:@"%@ On the palate it has %@.", string, flavors];
     }
     
     if (_mousseIsSet) {
@@ -1163,10 +1208,11 @@
     }
     
     string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    _notesTextView.text = [NSString stringWithFormat:@"%@\r\n\r\n%@", _notesTextView.text, string];
-    _notesTextView.text = [_notesTextView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    [_notesTextView setText:[NSString stringWithFormat:@"%@\r\n\r\n%@", _notesTextView.text, string]];
+    [_notesTextView setText:[_notesTextView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
   }
   
+  NSLog(@"_notesTextView.text = %@", _notesTextView.text);
   
   if (_qualityIsSet || _readinessIsSet || _hundredPointScoreIsSet || _fivePointScoreIsSet || _otherScoresIsSet) {
     
@@ -1218,11 +1264,12 @@
     }
     
     string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    _notesTextView.text = [NSString stringWithFormat:@"%@\r\n\r\n%@", _notesTextView.text, string];
-    _notesTextView.text = [_notesTextView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    [_notesTextView setText:[NSString stringWithFormat:@"%@\r\n\r\n%@", _notesTextView.text, string]];
+    [_notesTextView setText:[_notesTextView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
     
   }
-
+  self.item.itemNotes = self.notesTextView.text;
+  NSLog(@"We're Here! _notesTextView.text = %@", _notesTextView.text);
 }
 
 #pragma mark - View Constraints

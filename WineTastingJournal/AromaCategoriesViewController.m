@@ -170,13 +170,21 @@
   _selectedAromas = [[NSMutableDictionary alloc] init];
   _selectedCharacteristics = [[NSMutableOrderedSet alloc] init];
   
-  NSString *string = [self.item.itemAromas stringByReplacingOccurrencesOfString:@"of " withString:@"("];
+  NSString *string = self.item.itemAromas;
+  
+  // First make any "common descriptors" look like regular aromas
+  if ((string.length > 0) && (![string containsString:@"of"] || [string rangeOfString:@";"].location < [string rangeOfString:@"of"].location)) {
+    
+    string = [string stringByReplacingCharactersInRange:[string rangeOfString:@" aromas"] withString:@""];
+    string = [NSString stringWithFormat:@"General aromas of %@", [string lowercaseString]];
+    
+  }
+  
+  string = [string stringByReplacingOccurrencesOfString:@"of " withString:@"("];
   string = [string stringByReplacingOccurrencesOfString:@", and " withString:@", "];
   string = [string stringByReplacingOccurrencesOfString:@" and " withString:@", "];
-  // string = [string stringByReplacingOccurrencesOfString:@";" withString:@");"]; // Can simplify this when finished
   
   NSArray *groupings = [string componentsSeparatedByString: @";"];
-  // NSArray *groupings = [self.item.itemAromas componentsSeparatedByString: @");"];
   // groupings = "tropical fruit (banana, pear" , "red fruit (red apple, red cherry)"
   
   if ([[groupings objectAtIndex:0] length] > 0) {

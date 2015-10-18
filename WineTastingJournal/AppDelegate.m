@@ -183,6 +183,7 @@ NSString * const NextItemAppellationPrefsKey = @"NextItemAppellationPrefsKey";
     self.window.rootViewController = navController;
 
   }
+  self.window.tintColor = [UIColor colorWithRed:175.0f/255.0f green:33.0f/255.0f blue:59.0f/255.0f alpha:1.0];
   [self.window makeKeyAndVisible];
   
   return YES;
