@@ -323,21 +323,18 @@
   self.meniscusLabel.textColor = [UIColor grayColor];
   _meniscusIsSet = YES;
   
-  if (_meniscusSlider.value < 13) {
+  if (_meniscusSlider.value < 16) {
     _meniscusSlider.value = 1;
-    _meniscusLabel.text = @"Watery Rim";
-  } else if ((_meniscusSlider.value >= 13) && (_meniscusSlider.value < 37)) {
-    _meniscusSlider.value = 25;
-    _meniscusLabel.text = @"Tawny Rim";
-  } else if ((_meniscusSlider.value >= 37) && (_meniscusSlider.value < 62)) {
-    _meniscusSlider.value = 50;
-    _meniscusLabel.text = @"Orange Rim";
-  } else if ((_meniscusSlider.value >= 62) && (_meniscusSlider.value < 87)) {
-    _meniscusSlider.value = 75;
-    _meniscusLabel.text = @"Bluish Rim";
+    _meniscusLabel.text = @"Wide watery rim";
+  } else if ((_meniscusSlider.value >= 16) && (_meniscusSlider.value < 50)) {
+    _meniscusSlider.value = 33;
+    _meniscusLabel.text = @"Medium rim";
+  } else if ((_meniscusSlider.value >= 50) && (_meniscusSlider.value < 83)) {
+    _meniscusSlider.value = 66;
+    _meniscusLabel.text = @"Compact rim";
   } else {
     _meniscusSlider.value = 100;
-    _meniscusLabel.text = @"Greenish Rim";
+    _meniscusLabel.text = @"Gently fading rim";
   }
   [self updateTastingNotes];
 }
