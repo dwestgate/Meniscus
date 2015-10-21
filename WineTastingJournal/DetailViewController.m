@@ -642,15 +642,15 @@
   }
   
   if (_tanninStepper.value == 1) {
-    _tanninLabel.text = @"Low tannin";
+    _tanninLabel.text = @"Not tannic";
   } else if (_tanninStepper.value == 2) {
-    _tanninLabel.text = @"Medium-minus tannins";
+    _tanninLabel.text = @"Softly tannic";
   } else if (_tanninStepper.value == 3) {
-    _tanninLabel.text = @"Medium tannins";
+    _tanninLabel.text = @"Moderately tannic";
   } else if (_tanninStepper.value == 4) {
-    _tanninLabel.text = @"Medium-plus tannins";
+    _tanninLabel.text = @"Grippy";
   } else {
-    _tanninLabel.text = @"High tannins";
+    _tanninLabel.text = @"Harshly tannic";
   }
   [self updateTastingNotes];
 }
@@ -1024,19 +1024,19 @@
       }
     
       if (_petillanceIsSet && _sedimentIsSet && _viscosityIsSet) {
-        string = [NSString stringWithFormat:@"%@ The wine has %@, %@, and forms %@ on the glass.", _notesTextView.text, petillance, sediment, viscosity];
+        string = [NSString stringWithFormat:@"%@ The wine has %@, %@, and forms %@ on the glass.", string, petillance, sediment, viscosity];
       } else if (_petillanceIsSet && _sedimentIsSet && !_viscosityIsSet) {
-        string = [NSString stringWithFormat:@"%@ The wine has %@, and %@.", _notesTextView.text, petillance, sediment];
+        string = [NSString stringWithFormat:@"%@ The wine has %@, and %@.", string, petillance, sediment];
       } else if (_petillanceIsSet && !_sedimentIsSet && _viscosityIsSet) {
-        string = [NSString stringWithFormat:@"%@ The wine has %@ and forms %@ on the glass.", _notesTextView.text, petillance, viscosity];
+        string = [NSString stringWithFormat:@"%@ The wine has %@ and forms %@ on the glass.", string, petillance, viscosity];
       } else if (!_petillanceIsSet && _sedimentIsSet && _viscosityIsSet) {
-        string = [NSString stringWithFormat:@"%@ The wine has %@ and forms %@ on the glass.", _notesTextView.text, sediment, viscosity];
+        string = [NSString stringWithFormat:@"%@ The wine has %@ and forms %@ on the glass.", string, sediment, viscosity];
       } else if (!_petillanceIsSet && !_sedimentIsSet && _viscosityIsSet) {
-        string = [NSString stringWithFormat:@"%@ The wine forms %@ on the glass.", _notesTextView.text, viscosity];
+        string = [NSString stringWithFormat:@"%@ The wine forms %@ on the glass.", string, viscosity];
       } else if (!_petillanceIsSet && _sedimentIsSet && !_viscosityIsSet) {
-        string = [NSString stringWithFormat:@"%@ The wine has %@.", _notesTextView.text, sediment];
+        string = [NSString stringWithFormat:@"%@ The wine has %@.", string, sediment];
       } else if (_petillanceIsSet && !_sedimentIsSet && !_viscosityIsSet) {
-        string = [NSString stringWithFormat:@"%@ The wine has %@.", _notesTextView.text, petillance];
+        string = [NSString stringWithFormat:@"%@ The wine has %@.", string, petillance];
       }
     }
   
@@ -1082,7 +1082,7 @@
     if (_conditionIsSet && _aromaIntensityIsSet && _aromasAreSet) {
       string = [NSString stringWithFormat:@"%@ The %@ nose is %@, with %@.", string, aromaIntensity, condition, aromas];
     } else if (_conditionIsSet && _aromaIntensityIsSet && !_aromasAreSet) {
-      string = [NSString stringWithFormat:@"%@ The %@ nose is %@.", string, aromaIntensity, condition];
+      string = [NSString stringWithFormat:@"%@ The nose is %@ and of %@.", string, aromaIntensity, condition];
     } else if (_conditionIsSet && !_aromaIntensityIsSet && _aromasAreSet) {
       string = [NSString stringWithFormat:@"%@ The nose is %@, with %@.", string, condition, aromas];
     } else if (!_conditionIsSet && _aromaIntensityIsSet && _aromasAreSet) {
