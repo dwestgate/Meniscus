@@ -23,8 +23,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *tastingIDTextField;
 
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UITextView *nameTextView;
+@property (weak, nonatomic) IBOutlet UITextView *noteTitleTextView;
 
 @property (weak, nonatomic) IBOutlet UILabel *appearanceBanner;
 
@@ -116,7 +115,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *detailsBanner;
 
-@property (weak, nonatomic) IBOutlet UITextField *winemakerTextField;
+@property (weak, nonatomic) IBOutlet UITextField *wineNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *vintageTextField;
 @property (weak, nonatomic) IBOutlet UITextField *appellationTextField;
 @property (weak, nonatomic) IBOutlet UITextField *priceTextField;
@@ -131,13 +130,13 @@
 @property (strong, nonatomic) IBOutlet UIPickerView *readinessPickerView;
 @property (strong, nonatomic) NSArray *readinessPickerOptions;
 
-// @property (strong, nonatomic) UIPopoverController *imagePickerPopover;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cameraButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *actionButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *infoButton;
 
+@property (assign) BOOL tastingIDIsSet;
 @property (assign) BOOL colorIsSet;
 @property (assign) BOOL clarityIsSet;
 @property (assign) BOOL meniscusIsSet;
@@ -165,6 +164,10 @@
 @property (assign) BOOL hundredPointScoreIsSet;
 @property (assign) BOOL fivePointScoreIsSet;
 @property (assign) BOOL otherScoresIsSet;
+@property (assign) BOOL wineNameIsSet;
+@property (assign) BOOL vintageIsSet;
+@property (assign) BOOL appellationIsSet;
+@property (assign) BOOL priceIsSet;
 
 @end
 
@@ -186,7 +189,7 @@
                forKey:@"item.itemKey"];
   
   self.item.itemTastingID = self.tastingIDTextField.text;
-  self.item.itemName = self.nameTextView.text;
+  self.item.itemNoteTitle = self.noteTitleTextView.text;
   self.item.itemClarity = self.clarityLabel.text;
   self.item.itemClarityValue = self.claritySlider.value;
   self.item.itemMeniscus = self.meniscusLabel.text;
@@ -236,10 +239,10 @@
   self.item.itemFivePointScore = self.fivePointScoreLabel.text;
   self.item.itemFivePointScoreValue = self.fivePointScoreStepper.value;
   self.item.itemOtherScores = self.otherScoresTextField.text;
-  self.item.itemWinemaker = self.winemakerTextField.text;
+  self.item.itemWineName = self.wineNameTextField.text;
   self.item.itemVintage = self.vintageTextField.text;
   self.item.itemAppellation = self.appellationTextField.text;
-  self.item.valueInDollars = [self.priceTextField.text intValue];
+  self.item.itemPrice = self.priceTextField.text;
   self.item.itemNotes = self.notesTextView.text;
   
   [[ItemStore sharedStore] saveChanges];
@@ -298,6 +301,34 @@
 
 #pragma mark - Control Actions
 
+- (IBAction)tastingIDTextFieldEditingDidEnd:(id)sender {
+  _tastingIDIsSet = ![_tastingIDTextField.text isEqualToString:@""];
+  [self populateNoteTitleTextView];
+}
+
+
+- (IBAction)colorSliderValueChanged:(id)sender {
+  
+  self.colorLabel.font = [self normalFont];
+  self.colorLabel.textColor = [UIColor grayColor];
+  _colorIsSet = YES;
+  
+  if (_colorSlider.value < 25) {
+    _colorSlider.value = 1;
+    _colorLabel.text = @"White wine";
+  } else if ((_colorSlider.value >= 25) && (_colorSlider.value < 75)) {
+    _colorSlider.value = 50;
+    _colorLabel.text = @"Rosé wine";
+  } else {
+    _colorSlider.value = 100;
+    _colorLabel.text = @"Red wine";
+  }
+  [self colorShadeSliderValueChanged:nil];
+  [self colorIntensityValueChanged:nil];
+  [self populateNoteTitleTextView];
+  [self updateTastingNotes];
+}
+
 - (IBAction)claritySliderValueChanged:(id)sender {
   
   self.clarityLabel.font = [self normalFont];
@@ -334,34 +365,8 @@
     _meniscusLabel.text = @"Compact rim";
   } else {
     _meniscusSlider.value = 100;
-    _meniscusLabel.text = @"Gently fading rim";
+    _meniscusLabel.text = @"Fading rim";
   }
-  [self updateTastingNotes];
-}
-
-- (IBAction)colorSliderValueChanged:(id)sender {
-  
-  self.colorLabel.font = [self normalFont];
-  self.colorLabel.textColor = [UIColor grayColor];
-  _colorIsSet = YES;
-  
-  if (_colorSlider.value < 25) {
-    _colorSlider.value = 1;
-    _colorLabel.text = @"White Wine";
-  } else if ((_colorSlider.value >= 25) && (_colorSlider.value < 75)) {
-    _colorSlider.value = 50;
-    _colorLabel.text = @"Rosé Wine";
-  } else {
-    _colorSlider.value = 100;
-    _colorLabel.text = @"Red Wine";
-  }
-  if (![_colorShadeLabel.text isEqualToString:@"Color Shade"]) {
-    [self colorShadeSliderValueChanged:nil];
-  }
-  if (![_colorIntensityLabel.text isEqualToString:@"Color Intensity"]) {
-    [self colorIntensityValueChanged:nil];
-  }
-  [self populateNameTextView];
   [self updateTastingNotes];
 }
 
@@ -386,6 +391,13 @@
     _colorIntensityLabel.text = @"Medium";
   } else {
     _colorIntensityLabel.text = @"Deep";
+  }
+  
+  if (!_colorIsSet) {
+    [self colorSliderValueChanged:nil];
+  }
+  if (!_colorShadeIsSet) {
+    [self colorShadeSliderValueChanged:nil];
   }
   [self updateTastingNotes];
 }
@@ -435,6 +447,12 @@
       _colorShadeSlider.value = 100;
       _colorShadeLabel.text = @"Tawny";
     }
+  }
+  if (!_colorIsSet) {
+    [self colorSliderValueChanged:nil];
+  }
+  if (!_colorIntensityIsSet) {
+    [self colorIntensityValueChanged:nil];
   }
   [self updateTastingNotes];
 }
@@ -534,9 +552,9 @@
   } else if (_aromaIntensityStepper.value == 3) {
     _aromaIntensityLabel.text = @"Medium-strength aroma";
   } else if (_aromaIntensityStepper.value == 4) {
-    _aromaIntensityLabel.text = @"Strong aroma";
+    _aromaIntensityLabel.text = @"Moderately strong aroma";
   } else {
-    _aromaIntensityLabel.text = @"Pronounced aroma";
+    _aromaIntensityLabel.text = @"Powerful aroma";
   }
   [self updateTastingNotes];
 }
@@ -579,7 +597,7 @@
   } else if (_developmentStepper.value == 3) {
     _developmentLabel.text = @"Fully developed";
   } else {
-    _developmentLabel.text = @"Tired/Past its prime";
+    _developmentLabel.text = @"Past its prime";
   }
   [self updateTastingNotes];
 }
@@ -600,8 +618,6 @@
   } else if (_sweetnessStepper.value == 3) {
     _sweetnessLabel.text = @"Off-dry";
   } else if (_sweetnessStepper.value == 4) {
-    _sweetnessLabel.text = @"Moderately sweet";
-  } else if (_sweetnessStepper.value == 5) {
     _sweetnessLabel.text = @"Sweet";
   } else {
     _sweetnessLabel.text = @"Luscious";
@@ -619,15 +635,15 @@
   }
   
   if (_acidityStepper.value == 1) {
-    _acidityLabel.text = @"Very low acidity";
-  } else if (_acidityStepper.value == 2) {
     _acidityLabel.text = @"Low acidity";
+  } else if (_acidityStepper.value == 2) {
+    _acidityLabel.text = @"Medium-minus acidity";
   } else if (_acidityStepper.value == 3) {
-    _acidityLabel.text = @"Moderate acidity";
+    _acidityLabel.text = @"Medium acidity";
   } else if (_acidityStepper.value == 4) {
-    _acidityLabel.text = @"High acidity";
+    _acidityLabel.text = @"Medium-plus acidity";
   } else {
-    _acidityLabel.text = @"Very high acidity";
+    _acidityLabel.text = @"High acidity";
   }
   [self updateTastingNotes];
 }
@@ -665,15 +681,15 @@
   }
   
   if (_alcoholStepper.value == 1) {
-    _alcoholLabel.text = @"Low alcohol";
+    _alcoholLabel.text = @"Below 11.5% alcohol";
   } else if (_alcoholStepper.value == 2) {
-    _alcoholLabel.text = @"Medium-minus alcohol";
+    _alcoholLabel.text = @"11.5-12.4% alcohol";
   } else if (_alcoholStepper.value == 3) {
-    _alcoholLabel.text = @"Medium alcohol";
+    _alcoholLabel.text = @"12.4-13.5% alcohol";
   } else if (_alcoholStepper.value == 4) {
-    _alcoholLabel.text = @"Medium-plus alcohol";
+    _alcoholLabel.text = @"13.6-14.5% alcohol";
   } else {
-    _alcoholLabel.text = @"High alcohol";
+    _alcoholLabel.text = @"More than 14.5% alcohol";
   }
   [self updateTastingNotes];
 }
@@ -717,9 +733,9 @@
   } else if (_flavorIntensityStepper.value == 3) {
     _flavorIntensityLabel.text = @"Medium flavor intensity";
   } else if (_flavorIntensityStepper.value == 4) {
-    _flavorIntensityLabel.text = @"Pronounced flavor intensity";
+    _flavorIntensityLabel.text = @"Strong flavor intensity";
   } else {
-    _flavorIntensityLabel.text = @"Robust flavor intensity";
+    _flavorIntensityLabel.text = @"Very strong flavor intensity";
   }
   [self updateTastingNotes];
 }
@@ -838,6 +854,32 @@
   [self updateTastingNotes];
 }
 
+- (IBAction)otherScoresTetFieldEditingDidEnd:(id)sender {
+  _otherScoresIsSet = ![_otherScoresTextField.text isEqualToString:@""];
+  [self populateNoteTitleTextView];
+}
+
+- (IBAction)wineNameTextFieldEditingDidEnd:(id)sender {
+  _wineNameIsSet = ![_wineNameTextField.text isEqualToString:@""];
+  [self populateNoteTitleTextView];
+}
+
+- (IBAction)vintageTextFieldEditingDidEnd:(id)sender {
+  _vintageIsSet = ![_vintageTextField.text isEqualToString:@""];
+  [self populateNoteTitleTextView];
+}
+
+- (IBAction)appellationTextFieldEditingDidEnd:(id)sender {
+  _appellationIsSet = ![_appellationTextField.text isEqualToString:@""];
+  [self populateNoteTitleTextView];
+}
+
+- (IBAction)priceTextFieldEditingDidEnd:(id)sender {
+  _priceIsSet = ![_priceTextField.text isEqualToString:@""];
+  [self populateNoteTitleTextView];
+}
+
+
 #pragma mark - ImagePicker
 
 - (void)cancel:(id)sender {
@@ -925,7 +967,7 @@
   NSArray *values = [[NSArray alloc] initWithObjects:_notesTextView.text,_imageView.image, nil];
   
   UIActivityViewController *actionController = [[UIActivityViewController alloc] initWithActivityItems:values applicationActivities:nil];
-  [actionController setValue:_tastingIDTextField.text forKey:@"subject"];
+  [actionController setValue:_item.itemNoteTitle forKey:@"subject"];
   [self presentViewController:actionController animated:YES completion:nil];
   
 }
@@ -965,11 +1007,7 @@
     }
     
     if (_meniscusIsSet) {
-      if ([_meniscusLabel.text isEqualToString:@"Orange Rim"]) {
-        meniscus = @"an orange rim";
-      } else {
-        meniscus = [NSString stringWithFormat:@"a %@", [_meniscusLabel.text lowercaseString]];
-      }
+      meniscus = [NSString stringWithFormat:@"a %@", [_meniscusLabel.text lowercaseString]];
     }
     
     if (_colorIntensityIsSet) {
@@ -1009,7 +1047,7 @@
     
       if (_sedimentIsSet) {
         if ([_sedimentLabel.text isEqualToString:@"Crystals"]) {
-          sediment = @"visible tartrates";
+          sediment = @"visible tartrate crystals";
         } else {
           sediment = [_sedimentLabel.text lowercaseString];
         }
@@ -1049,10 +1087,20 @@
     NSString *condition;
     NSString *aromaIntensity;
     NSString *aromas;
+    NSString *conjunction;
     NSString *development;
     
     string = @"";
-    if (_conditionIsSet) condition = [_conditionLabel.text lowercaseString];
+    if (_conditionIsSet) {
+      if ([_conditionLabel.text isEqualToString:@"Clean"]) {
+        condition = @"The nose is clean";
+      } else if ([_conditionLabel.text isEqualToString:@"Unclean"]) {
+        condition = @"The nose on this wine is slightly off";
+      } else {
+        condition = @"This wine is corked";
+      }
+    }
+    
     if (_aromaIntensityIsSet) {
       aromaIntensity = [[_aromaIntensityLabel.text lowercaseString] substringToIndex:[_aromaIntensityLabel.text length]-6];
     }
@@ -1071,26 +1119,32 @@
         }
       }
     }
+    
+    if (([aromaIntensity isEqualToString:@"barely-detectable"] ||
+          [aromaIntensity isEqualToString:@"weak"] ||
+          [aromaIntensity isEqualToString:@"medium-strength"]) &&
+         [condition isEqualToString:@"The nose is clean"]) {
+          conjunction = @"but";
+        } else {
+          conjunction = @"and";
+        }
+    
     if (_developmentIsSet) {
-      if ([_developmentLabel.text isEqualToString:@"Tired/Past its prime"]) {
-        development = @"tired and decidedly past its prime";
-      } else {
-        development = [_developmentLabel.text lowercaseString];
-      }
+      development = [_developmentLabel.text lowercaseString];
     }
     
     if (_conditionIsSet && _aromaIntensityIsSet && _aromasAreSet) {
-      string = [NSString stringWithFormat:@"%@ The %@ nose is %@, with %@.", string, aromaIntensity, condition, aromas];
+      string = [NSString stringWithFormat:@"%@ %@. It has %@ %@.", string, condition, aromaIntensity, aromas];
     } else if (_conditionIsSet && _aromaIntensityIsSet && !_aromasAreSet) {
-      string = [NSString stringWithFormat:@"%@ The nose is %@ and of %@.", string, aromaIntensity, condition];
+      string = [NSString stringWithFormat:@"%@ %@ %@ it has %@ aromas.", string, condition, conjunction, aromaIntensity];
     } else if (_conditionIsSet && !_aromaIntensityIsSet && _aromasAreSet) {
-      string = [NSString stringWithFormat:@"%@ The nose is %@, with %@.", string, condition, aromas];
+      string = [NSString stringWithFormat:@"%@ %@. It has %@.", string, condition, aromas];
     } else if (!_conditionIsSet && _aromaIntensityIsSet && _aromasAreSet) {
-      string = [NSString stringWithFormat:@"%@ The %@ nose has %@.", string, aromaIntensity, aromas];
+      string = [NSString stringWithFormat:@"%@ The nose is %@ and is characterised by %@.", string, aromaIntensity, aromas];
     } else if (!_conditionIsSet && !_aromaIntensityIsSet && _aromasAreSet) {
-      string = [NSString stringWithFormat:@"%@ The nose has %@.", string, aromas];
+      string = [NSString stringWithFormat:@"%@ The nose is characterised by %@.", string, aromas];
     } else if (_conditionIsSet && !_aromaIntensityIsSet && !_aromasAreSet) {
-      string = [NSString stringWithFormat:@"%@ The nose is %@.", string, condition];
+      string = [NSString stringWithFormat:@"%@ %@.", string, condition];
     }
     
     if (_developmentIsSet) {
@@ -1121,7 +1175,19 @@
     if (_sweetnessIsSet) sweetness = [_sweetnessLabel.text lowercaseString];
     if (_acidityIsSet) acidity = [_acidityLabel.text lowercaseString];
     if (_tanninIsSet) tannin = [_tanninLabel.text lowercaseString];
-    if (_alcoholIsSet) alcohol = [_alcoholLabel.text lowercaseString];
+    if (_alcoholIsSet) {
+      if ([_alcoholLabel.text isEqualToString:@"Below 11.5% alcohol"]) {
+        alcohol = @"an alcohol conent of less than 11.5 percent";
+      } else if ([_alcoholLabel.text isEqualToString:@"11.5-12.4% alcohol"]) {
+        alcohol = @"a relatively low alcohol content of between 11.5 and 12.4 percent";
+      } else if ([_alcoholLabel.text isEqualToString:@"12.4-13.5% alcohol"]) {
+        alcohol = @"a an alcohol content of between 12.4 and 13.5 percent";
+      } else if ([_alcoholLabel.text isEqualToString:@"13.6-14.5% alcohol"]) {
+        alcohol = @"a high alcohol content of between 13.6 and 14.5 percent";
+      } else if ([_alcoholLabel.text isEqualToString:@"More than 14.5% alcohol"]) {
+        alcohol = @"an extremely high alcohol content of more than 14.5 percent";
+      }
+    }
     if (_bodyIsSet) body = [_bodyLabel.text lowercaseString];
     if (_flavorIntensityIsSet) {
       flavorIntensity = [[_flavorIntensityLabel.text lowercaseString] stringByReplacingOccurrencesOfString:@" flavor intensity" withString:@""];
@@ -1146,31 +1212,31 @@
     if (_finishIsSet) finish = [_finishLabel.text lowercaseString];
     
     if (_sweetnessIsSet && _acidityIsSet && tannin && alcohol) {
-      string = [NSString stringWithFormat:@"%@ The wine is %@, with %@, %@, and %@.", string, sweetness, acidity, tannin, alcohol];
+      string = [NSString stringWithFormat:@"%@ The wine is %@, with %@, is %@, and has %@.", string, sweetness, acidity, tannin, alcohol];
     } else if (_sweetnessIsSet && _acidityIsSet && tannin && !alcohol) {
-      string = [NSString stringWithFormat:@"%@ The wine is %@, with %@ and %@.", string, sweetness, acidity, tannin];
+      string = [NSString stringWithFormat:@"%@ The wine is %@, with %@ and is %@.", string, sweetness, acidity, tannin];
     } else if (_sweetnessIsSet && _acidityIsSet && !tannin && alcohol) {
-      string = [NSString stringWithFormat:@"%@ The wine is %@, with %@ and %@.", string, sweetness, acidity, alcohol];
+      string = [NSString stringWithFormat:@"%@ The wine is %@, with %@ and has %@.", string, sweetness, acidity, alcohol];
     } else if (_sweetnessIsSet && !_acidityIsSet && tannin && alcohol) {
-      string = [NSString stringWithFormat:@"%@ The wine is %@, with %@ and %@.", string, sweetness, tannin, alcohol];
+      string = [NSString stringWithFormat:@"%@ The wine is %@, is %@ and has %@.", string, sweetness, tannin, alcohol];
     } else if (!_sweetnessIsSet && _acidityIsSet && tannin && alcohol) {
-      string = [NSString stringWithFormat:@"%@ The wine has %@, %@, and %@.", string, acidity, tannin, alcohol];
+      string = [NSString stringWithFormat:@"%@ The wine has %@, is %@, and has %@.", string, acidity, tannin, alcohol];
     } else if (_sweetnessIsSet && _acidityIsSet && !tannin && !alcohol) {
       string = [NSString stringWithFormat:@"%@ The wine is %@, with %@.", string, sweetness, acidity];
     } else if (_sweetnessIsSet && !_acidityIsSet && tannin && !alcohol) {
-      string = [NSString stringWithFormat:@"%@ The wine is %@, with %@.", string, sweetness, tannin];
+      string = [NSString stringWithFormat:@"%@ The wine is %@ and is %@.", string, sweetness, tannin];
     } else if (!_sweetnessIsSet && _acidityIsSet && tannin && !alcohol) {
-      string = [NSString stringWithFormat:@"%@ The wine has %@ and %@.", string, acidity, tannin];
+      string = [NSString stringWithFormat:@"%@ The wine has %@ and is %@.", string, acidity, tannin];
     } else if (_sweetnessIsSet && !_acidityIsSet && !tannin && alcohol) {
       string = [NSString stringWithFormat:@"%@ The wine is %@, with %@.", string, sweetness, alcohol];
     } else if (!_sweetnessIsSet && _acidityIsSet && !tannin && alcohol) {
-      string = [NSString stringWithFormat:@"%@ The wine has %@ and %@.", string, acidity, alcohol];
+      string = [NSString stringWithFormat:@"%@ The wine has %@ and has %@.", string, acidity, alcohol];
     } else if (!_sweetnessIsSet && !_acidityIsSet && tannin && alcohol) {
-      string = [NSString stringWithFormat:@"%@ The wine has %@ and %@.", string, tannin, alcohol];
+      string = [NSString stringWithFormat:@"%@ The wine is %@, with %@.", string, tannin, alcohol];
     } else if (!_sweetnessIsSet && !_acidityIsSet && !tannin && alcohol) {
       string = [NSString stringWithFormat:@"%@ The wine has %@.", string, alcohol];
     } else if (!_sweetnessIsSet && !_acidityIsSet && tannin && !alcohol) {
-      string = [NSString stringWithFormat:@"%@ The wine has %@.", string, tannin];
+      string = [NSString stringWithFormat:@"%@ The wine is %@.", string, tannin];
     } else if (!_sweetnessIsSet && _acidityIsSet && !tannin && !alcohol) {
       string = [NSString stringWithFormat:@"%@ The wine has %@.", string, acidity];
     } else if (_sweetnessIsSet && !_acidityIsSet && !tannin && !alcohol) {
@@ -1180,7 +1246,7 @@
     if (_bodyIsSet && _flavorIntensityIsSet && _flavorsAreSet) {
       string = [NSString stringWithFormat:@"%@ It is %@, with %@ %@.", string, body, flavorIntensity, flavors];
     } else if (_bodyIsSet && _flavorIntensityIsSet && !_flavorsAreSet) {
-      string = [NSString stringWithFormat:@"%@ It is %@, with %@.", string, body, flavorIntensity];
+      string = [NSString stringWithFormat:@"%@ It is %@, with %@ flavor intensity.", string, body, flavorIntensity];
     } else if (_bodyIsSet && !_flavorIntensityIsSet && _flavorsAreSet) {
       string = [NSString stringWithFormat:@"%@ It is %@ and has %@.", string, body, flavors];
     } else if (!_bodyIsSet && _flavorIntensityIsSet && _flavorsAreSet) {
@@ -1188,7 +1254,7 @@
     } else if (_bodyIsSet && !_flavorIntensityIsSet && !_flavorsAreSet) {
       string = [NSString stringWithFormat:@"%@ It is %@.", string, body];
     } else if (!_bodyIsSet && _flavorIntensityIsSet && !_flavorsAreSet) {
-      string = [NSString stringWithFormat:@"%@ It is %@.", string, flavorIntensity];
+      string = [NSString stringWithFormat:@"%@ It has %@ flavor intensity.", string, flavorIntensity];
     } else if (!_bodyIsSet && !_flavorIntensityIsSet && _flavorsAreSet) {
       string = [NSString stringWithFormat:@"%@ On the palate it has %@.", string, flavors];
     }
@@ -1212,7 +1278,7 @@
   
   NSLog(@"_notesTextView.text = %@", _notesTextView.text);
   
-  if (_qualityIsSet || _readinessIsSet || _hundredPointScoreIsSet || _fivePointScoreIsSet || _otherScoresIsSet) {
+  if (_qualityIsSet || _readinessIsSet || _hundredPointScoreIsSet || _fivePointScoreIsSet || _otherScoresIsSet || _priceIsSet) {
     
     NSString *string;
     NSString *quality;
@@ -1261,13 +1327,17 @@
       string = [NSString stringWithFormat:@"%@\r\n%@.", string, _otherScoresTextField.text];
     }
     
+    if (_priceIsSet) {
+      string = [NSString stringWithFormat:@"%@\r\n%@.", string, _priceTextField.text];
+    }
+    
     string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     [_notesTextView setText:[NSString stringWithFormat:@"%@\r\n\r\n%@", _notesTextView.text, string]];
     [_notesTextView setText:[_notesTextView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
     
   }
   self.item.itemNotes = self.notesTextView.text;
-  NSLog(@"We're Here! _notesTextView.text = %@", _notesTextView.text);
+  NSLog(@"_notesTextView.text = %@", _notesTextView.text);
 }
 
 #pragma mark - View Constraints
@@ -1329,13 +1399,13 @@
   
   // Add the PickerViews
   UITapGestureRecognizer *balancePickerViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(balancePickerViewTapped:)];
-  _balancePickerOptions = [[NSArray alloc] initWithObjects:@"Well-balanced",
+  _balancePickerOptions = [[NSArray alloc] initWithObjects:@"Acidic",
+                           @"Alcoholic",
                            @"Ascetic",
-                           @"Acidic",
-                           @"Thin",
                            @"Flabby",
                            @"Jammy",
-                           @"alcoholic",
+                           @"Thin",
+                           @"Well-balanced",
                            nil];
   _balancePickerView = [[UIPickerView alloc] init];
   [_balancePickerView addGestureRecognizer:balancePickerViewTap];
@@ -1346,10 +1416,10 @@
   
   UITapGestureRecognizer *readinessPickerViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(readinessPickerViewTapped:)];
   _readinessPickerOptions = [[NSArray alloc] initWithObjects:@"Not yet ready for drinking",
-                              @"Has potential for aging",
-                              @"Drink now; not intended for aging",
-                              @"Past its prime",
-                              nil];
+                             @"Drink now; not intended for aging",
+                             @"Has potential for aging",
+                             @"Past its prime",
+                             nil];
   _readinessPickerView = [[UIPickerView alloc] init];
   [_readinessPickerView addGestureRecognizer:readinessPickerViewTap];
   
@@ -1487,8 +1557,7 @@
   [self identifyDefaultValues];
   
   self.tastingIDTextField.font = font;
-  self.nameLabel.font = font;
-  self.nameTextView.font = font;
+  self.noteTitleTextView.font = font;
   self.appearanceBanner.font = font;
   self.colorLabel.font = (_colorIsSet ? [self normalFont] : [self boldFont]);
   self.clarityLabel.font = (_clarityIsSet ? [self normalFont] : [self boldFont]);
@@ -1523,7 +1592,7 @@
   self.fivePointScoreLabel.font = (_fivePointScoreIsSet ? [self normalFont] : [self boldFont]);
   self.otherScoresTextField.font = font;
   self.detailsBanner.font = font;
-  self.winemakerTextField.font = font;
+  self.wineNameTextField.font = font;
   self.vintageTextField.font = font;
   self.appellationTextField.font = font;
   self.priceTextField.font = font;
@@ -1548,7 +1617,7 @@
   Item *item = self.item;
   
   self.tastingIDTextField.text = item.itemTastingID;
-  self.nameTextView.text = item.itemName;
+  self.noteTitleTextView.text = item.itemNoteTitle;
   self.clarityLabel.text = item.itemClarity;
   self.claritySlider.value = item.itemClarityValue;
   self.meniscusLabel.text = item.itemMeniscus;
@@ -1598,10 +1667,10 @@
   self.fivePointScoreLabel.text = item.itemFivePointScore;
   self.fivePointScoreStepper.value = item.itemFivePointScoreValue;
   self.otherScoresTextField.text = item.itemOtherScores;
-  self.winemakerTextField.text = item.itemWinemaker;
+  self.wineNameTextField.text = item.itemWineName;
   self.vintageTextField.text = item.itemVintage;
   self.appellationTextField.text = item.itemAppellation;
-  self.priceTextField.text = [NSString stringWithFormat:@"%d", item.valueInDollars];
+  self.priceTextField.text = item.itemPrice;
   
   static NSDateFormatter *dateFormatter;
   if (!dateFormatter) {
@@ -1617,15 +1686,15 @@
   UIImage *imageToDisplay = [[ImageStore sharedStore] imageForKey:itemKey];
   self.imageView.image = imageToDisplay;
   
-  self.nameTextView.clipsToBounds = NO;
+  self.noteTitleTextView.clipsToBounds = NO;
   self.aromasTextView.clipsToBounds = NO;
   self.flavorsTextView.clipsToBounds = NO;
   self.notesTextView.clipsToBounds = NO;
   [self updateFonts];
   
-  if (_nameTextView.text.length == 0) {
-    [self populateNameTextView];
-    [_nameTextView becomeFirstResponder];
+  if (_noteTitleTextView.text.length == 0) {
+    [self populateNoteTitleTextView];
+    [_noteTitleTextView becomeFirstResponder];
     [UIMenuController sharedMenuController].menuVisible = NO;
   }
   
@@ -1637,12 +1706,12 @@
   
   [self.view endEditing:YES];
 
-  [self populateNameTextView];
+  [self populateNoteTitleTextView];
   
   Item *item = self.item;
   
   item.itemTastingID = self.tastingIDTextField.text;
-  item.itemName = self.nameTextView.text;
+  item.itemNoteTitle = self.noteTitleTextView.text;
   item.itemColor = self.colorLabel.text;
   item.itemClarity = self.clarityLabel.text;
   item.itemClarityValue = self.claritySlider.value;
@@ -1692,33 +1761,63 @@
   item.itemFivePointScore = self.fivePointScoreLabel.text;
   item.itemFivePointScoreValue = self.fivePointScoreStepper.value;
   item.itemOtherScores = self.otherScoresTextField.text;
-  item.itemWinemaker = self.winemakerTextField.text;
+  item.itemWineName = self.wineNameTextField.text;
   item.itemVintage = self.vintageTextField.text;
   item.itemAppellation = self.appellationTextField.text;
-
-  int newValue = [self.priceTextField.text intValue];
-  
-  if (newValue != item.valueInDollars) {
-    item.valueInDollars = newValue;
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setInteger:newValue forKey:NextItemValuePrefsKey];
-  }
+  item.itemPrice = self.priceTextField.text;
   item.itemNotes = self.notesTextView.text;
 }
 
 #pragma mark - Text Manipulation
 
--(void)populateNameTextView {
-  if (_colorIsSet) {
-    NSString *wine = [self.colorLabel.text lowercaseString];
-    wine = [wine stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:[[wine substringToIndex:1] uppercaseString]];
-    self.nameTextView.text = [NSString stringWithFormat:@"%@ tasted on %@", wine, self.tastedOnBanner.text];
+-(void)populateNoteTitleTextView {
+  
+  NSString *string;
+  
+  if (_wineNameIsSet || _appellationIsSet || _vintageIsSet || _colorIsSet || _priceIsSet) {
+    
+    NSString *wineName = _wineNameTextField.text;
+    NSString *appellation = _appellationTextField.text;
+    NSString *vintage = _vintageTextField.text;
+    NSString *color = [_colorLabel.text stringByReplacingOccurrencesOfString:@" wine" withString:@""];
+    
+    if (_wineNameIsSet && _vintageIsSet) {
+      string = [NSString stringWithFormat:@"%@ %@ tasted on %@", vintage, wineName, self.tastedOnBanner.text];
+    } else if (_wineNameIsSet) {
+      string = [NSString stringWithFormat:@"%@ tasted on %@", wineName, self.tastedOnBanner.text];
+    } else if (_vintageIsSet && _colorIsSet && _appellationIsSet) {
+      string = [NSString stringWithFormat:@"%@ %@ %@ tasted on %@", vintage, color, appellation, self.tastedOnBanner.text];
+    } else if (_vintageIsSet && _colorIsSet && !_appellationIsSet) {
+      string = [NSString stringWithFormat:@"%@ %@ wine tasted on %@", vintage, color, self.tastedOnBanner.text];
+    } else if (_vintageIsSet && !_colorIsSet && _appellationIsSet) {
+      string = [NSString stringWithFormat:@"%@ %@ tasted on %@", vintage, appellation, self.tastedOnBanner.text];
+    } else if (!_vintageIsSet && _colorIsSet && _appellationIsSet) {
+      string = [NSString stringWithFormat:@"%@ %@ tasted on %@", color, appellation, self.tastedOnBanner.text];
+    } else if (!_vintageIsSet && !_colorIsSet && _appellationIsSet) {
+      string = [NSString stringWithFormat:@"%@ wine tasted on %@", appellation, self.tastedOnBanner.text];
+    } else if (!_vintageIsSet && _colorIsSet && !_appellationIsSet) {
+      string = [NSString stringWithFormat:@"%@ wine tasted on %@", color, self.tastedOnBanner.text];
+    } else if (_vintageIsSet && !_colorIsSet && !_appellationIsSet) {
+      string = [NSString stringWithFormat:@"%@ wine tasted on %@", vintage, self.tastedOnBanner.text];
+    }
+
   } else {
-    self.nameTextView.text = [NSString stringWithFormat:@"Wine tasted on %@", self.tastedOnBanner.text];
+    string = [NSString stringWithFormat:@"Wine tasted on %@", self.tastedOnBanner.text];
   }
+  
+  if (_tastingIDIsSet) {
+    NSString *tastingID = _tastingIDTextField.text;
+    
+    string = [NSString stringWithFormat:@"%@ - %@", tastingID, string];
+  }
+  
+  self.noteTitleTextView.text = string;
+  _item.itemNoteTitle = string;
+  
 }
 
 -(void)identifyDefaultValues {
+  _tastingIDIsSet = ![_tastingIDTextField.text isEqualToString:@""];
   _colorIsSet = ![_colorLabel.text isEqualToString:@"Wine Color"];
   _clarityIsSet = ![_item.itemClarity isEqualToString:@"Wine Clarity"];
   _meniscusIsSet = ![_meniscusLabel.text isEqualToString:@"Meniscus"];
@@ -1742,10 +1841,14 @@
   _mousseIsSet = ![_mousseLabel.text isEqualToString:@"Mousse"];
   _finishIsSet = ![_finishLabel.text isEqualToString:@"Length of Finish"];
   _qualityIsSet = ![_qualityLabel.text isEqualToString:@"Quality"];
-  _readinessIsSet = ![_readinessTextField.text isEqualToString:@"Readiness"];
+  _readinessIsSet = ![_readinessTextField.text isEqualToString:@"Readiness for Drinking"];
   _hundredPointScoreIsSet = ![_hundredPointScoreLabel.text isEqualToString:@"100-Point Score"];
   _fivePointScoreIsSet = ![_fivePointScoreLabel.text isEqualToString:@"5-Point Score"];
   _otherScoresIsSet = ![_otherScoresTextField.text isEqualToString:@""];
+  _wineNameIsSet = ![_wineNameTextField.text isEqualToString:@""];
+  _vintageIsSet = ![_vintageTextField.text isEqualToString:@""];
+  _appellationIsSet = ![_appellationTextField.text isEqualToString:@""];
+  _priceIsSet = ![_priceTextField.text isEqualToString:@""];
 }
 
 -(UIFont *)boldFont {

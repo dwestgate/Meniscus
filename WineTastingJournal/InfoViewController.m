@@ -44,6 +44,10 @@
   self.infoTextView.layoutManager.hyphenationFactor = 1.0;
 }
 
+-(void)viewDidLayoutSubviews {
+  [self.infoTextView scrollRangeToVisible:NSMakeRange(0, 0)];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

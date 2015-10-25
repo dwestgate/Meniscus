@@ -86,8 +86,7 @@
   item.orderingValue = order;
   
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  item.valueInDollars = [[defaults objectForKey:NextItemValuePrefsKey] intValue];
-  item.itemName = [defaults objectForKey:NextItemNamePrefsKey];
+  item.itemNoteTitle = [defaults objectForKey:NextItemNoteTitlePrefsKey];
   item.itemTastingID = [defaults objectForKey:NextItemTastingIDPrefsKey];
   item.itemNotes = [defaults objectForKey:NextItemNotesPrefsKey];
   item.itemClarity = [defaults objectForKey:NextItemClarityPrefsKey];
@@ -139,9 +138,10 @@
   item.itemFivePointScore = [defaults objectForKey:NextItemFivePointScorePrefsKey];
   item.itemFivePointScoreValue = [[defaults objectForKey:NextItemFivePointScoreValuePrefsKey] intValue];
   item.itemOtherScores = [defaults objectForKey:NextItemOtherScoresPrefsKey];
-  item.itemWinemaker = [defaults objectForKey:NextItemWinemakerPrefsKey];
+  item.itemWineName = [defaults objectForKey:NextItemWineNamePrefsKey];
   item.itemVintage = [defaults objectForKey:NextItemVintagePrefsKey];
   item.itemAppellation = [defaults objectForKey:NextItemAppellationPrefsKey];
+  item.itemPrice = [defaults objectForKey:NextItemPricePrefsKey];
 
   NSLog(@"defaults = %@", [defaults dictionaryRepresentation]);
   

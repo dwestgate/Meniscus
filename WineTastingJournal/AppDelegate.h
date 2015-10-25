@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-extern NSString * const NextItemValuePrefsKey;
-extern NSString * const NextItemNamePrefsKey;
+extern NSString * const NextItemNoteTitlePrefsKey;
 extern NSString * const NextItemTastingIDPrefsKey;
-extern NSString * const NextItemNotesPrefsKey;
 extern NSString * const NextItemClarityPrefsKey;
 extern NSString * const NextItemClarityValuePrefsKey;
 extern NSString * const NextItemMeniscusPrefsKey;
@@ -56,16 +54,16 @@ extern NSString * const NextItemFinishValuePrefsKey;
 extern NSString * const NextItemQualityPrefsKey;
 extern NSString * const NextItemQualityValuePrefsKey;
 extern NSString * const NextItemReadinessPrefsKey;
-
 extern NSString * const NextItemHundredPointScorePrefsKey;
 extern NSString * const NextItemHundredPointScoreValuePrefsKey;
 extern NSString * const NextItemFivePointScorePrefsKey;
 extern NSString * const NextItemFivePointScoreValuePrefsKey;
 extern NSString * const NextItemOtherScoresPrefsKey;
-
-extern NSString * const NextItemWinemakerPrefsKey;
+extern NSString * const NextItemWineNamePrefsKey;
 extern NSString * const NextItemVintagePrefsKey;
 extern NSString * const NextItemAppellationPrefsKey;
+extern NSString * const NextItemPricePrefsKey;
+extern NSString * const NextItemNotesPrefsKey;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

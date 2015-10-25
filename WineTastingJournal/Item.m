@@ -11,9 +11,8 @@
 
 @implementation Item
 
-@dynamic itemName;
 @dynamic itemTastingID;
-@dynamic itemNotes;
+@dynamic itemNoteTitle;
 @dynamic itemClarity;
 @dynamic itemClarityValue;
 @dynamic itemMeniscus;
@@ -63,10 +62,11 @@
 @dynamic itemFivePointScore;
 @dynamic itemFivePointScoreValue;
 @dynamic itemOtherScores;
-@dynamic itemWinemaker;
+@dynamic itemWineName;
 @dynamic itemVintage;
 @dynamic itemAppellation;
-@dynamic valueInDollars;
+@dynamic itemPrice;
+@dynamic itemNotes;
 @dynamic dateCreated;
 @dynamic itemKey;
 @dynamic thumbnail;

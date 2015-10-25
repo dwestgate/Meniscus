@@ -3,10 +3,10 @@
 "jct-NK-8pZ.text" = "Appearance";
 
 /* Class = "UILabel"; text = "Name"; ObjectID = "mBD-xV-3bE"; */
-"mBD-xV-3bE.text" = "Wine Name";
+"mBD-xV-3bE.text" = "Note Title";
 
-/* Class = "UILabel"; text = "Winemaker"; ObjectID = "ppY-uT-2fP"; */
-"ppY-uT-2fP.text" = "Winemaker";
+/* Class = "UILabel"; text = "Wine Name"; ObjectID = "ppY-uT-2fP"; */
+"ppY-uT-2fP.text" = "Wine Name";
 
 /* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "sJQ-Ia-vRd"; */
 "sJQ-Ia-vRd.title" = "Item";

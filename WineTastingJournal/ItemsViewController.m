@@ -79,15 +79,7 @@
   NSArray *items = [[ItemStore sharedStore] allItems];
   Item *item = items[indexPath.row];
   
-  cell.nameLabel.text = item.itemName;
-  
-  static NSNumberFormatter *currencyFormatter = nil;
-  if (currencyFormatter == nil) {
-    currencyFormatter = [[NSNumberFormatter alloc] init];
-    currencyFormatter.numberStyle = NSNumberFormatterCurrencyStyle;
-  }
-  // cell.valueLabel.text = [currencyFormatter stringFromNumber:@(item.valueInDollars)];
-  
+  cell.noteTitleLabel.text = item.itemNoteTitle;
   cell.thumbnailView.image = item.thumbnail;
   
   __weak ItemCell *weakCell = cell;

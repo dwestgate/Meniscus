@@ -12,7 +12,7 @@
 @interface ItemCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnailView;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *noteTitleLabel;
 @property (copy, nonatomic) void (^actionBlock)(void);
 
 @end

@@ -19,7 +19,7 @@
 - (void)updateInterfaceForDynamicTypeSize
 {
   UIFont *font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-  self.nameLabel.font = font;
+  self.noteTitleLabel.font = font;
   
   static NSDictionary *imageSizeDictionary;
   

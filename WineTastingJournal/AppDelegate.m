@@ -10,13 +10,11 @@
 #import "ItemsViewController.h"
 #import "ItemStore.h"
 
-NSString * const NextItemValuePrefsKey = @"NextItemValue";
-NSString * const NextItemNamePrefsKey = @"NextItemName";
-NSString * const NextItemTastingIDPrefsKey = @"NextItemTastingID";
-NSString * const NextItemNotesPrefsKey = @"NextItemNotes";
-NSString * const NextItemClarityPrefsKey = @"NextItemClarity";
+NSString * const NextItemTastingIDPrefsKey = @"NextItemTastingIDPrefsKey";
+NSString * const NextItemNoteTitlePrefsKey = @"NextItemNoteTitlePrefsKey";
+NSString * const NextItemClarityPrefsKey = @"NextItemClarityPrefsKey";
 NSString * const NextItemClarityValuePrefsKey = @"NextItemClarityValuePrefsKey";
-NSString * const NextItemMeniscusPrefsKey = @"NextItemMeniscus";
+NSString * const NextItemMeniscusPrefsKey = @"NextItemMeniscusPrefsKey";
 NSString * const NextItemMeniscusValuePrefsKey = @"NextItemMeniscusValuePrefsKey";
 NSString * const NextItemColorPrefsKey = @"NextItemColorPrefsKey";
 NSString * const NextItemColorValuePrefsKey = @"NextItemColorValuePrefsKey";
@@ -58,16 +56,16 @@ NSString * const NextItemFinishValuePrefsKey = @"NextItemFinishValuePrefsKey";
 NSString * const NextItemQualityPrefsKey = @"NextItemQualityPrefsKey";
 NSString * const NextItemQualityValuePrefsKey = @"NextItemQualityValuePrefsKey";
 NSString * const NextItemReadinessPrefsKey = @"NextItemReadinessPrefsKey";
-
 NSString * const NextItemHundredPointScorePrefsKey = @"NextItemHundredPointScorePrefsKey";
 NSString * const NextItemHundredPointScoreValuePrefsKey = @"NextItemHundredPointScoreValuePrefsKey";
 NSString * const NextItemFivePointScorePrefsKey = @"NextItemFivePointScorePrefsKey";
 NSString * const NextItemFivePointScoreValuePrefsKey = @"NextItemFivePointScoreValuePrefsKey";
 NSString * const NextItemOtherScoresPrefsKey = @"NextItemOtherScoresPrefsKey";
-
-NSString * const NextItemWinemakerPrefsKey = @"NextItemWinemakerPrefsKey";
+NSString * const NextItemWineNamePrefsKey = @"NextItemWineNamePrefsKey";
 NSString * const NextItemVintagePrefsKey = @"NextItemVintagePrefsKey";
 NSString * const NextItemAppellationPrefsKey = @"NextItemAppellationPrefsKey";
+NSString * const NextItemPricePrefsKey = @"NextItemPricePrefsKey";
+NSString * const NextItemNotesPrefsKey = @"NextItemNotesPrefsKey";
 
 @interface AppDelegate ()
 
@@ -78,9 +76,8 @@ NSString * const NextItemAppellationPrefsKey = @"NextItemAppellationPrefsKey";
 + (void)initialize
 {
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  NSDictionary *factorySettings = @{NextItemNamePrefsKey : @"",
-                                    NextItemTastingIDPrefsKey : @"",
-                                    NextItemNotesPrefsKey : @"",
+  NSDictionary *factorySettings = @{NextItemTastingIDPrefsKey : @"",
+                                    NextItemNoteTitlePrefsKey : @"",
                                     NextItemClarityPrefsKey : @"Wine Clarity",
                                     NextItemClarityValuePrefsKey : @1,
                                     NextItemMeniscusPrefsKey : @"Meniscus",
@@ -124,16 +121,17 @@ NSString * const NextItemAppellationPrefsKey = @"NextItemAppellationPrefsKey";
                                     NextItemFinishValuePrefsKey : @1,
                                     NextItemQualityPrefsKey : @"Quality",
                                     NextItemQualityValuePrefsKey : @1,
-                                    NextItemReadinessPrefsKey : @"Readiness",
+                                    NextItemReadinessPrefsKey : @"Readiness for Drinking",
                                     NextItemHundredPointScorePrefsKey : @"100-Point Score",
                                     NextItemHundredPointScoreValuePrefsKey : @1,
                                     NextItemFivePointScorePrefsKey : @"5-Point Score",
                                     NextItemFivePointScoreValuePrefsKey : @1,
                                     NextItemOtherScoresPrefsKey : @"",
-                                    NextItemWinemakerPrefsKey : @"",
+                                    NextItemWineNamePrefsKey : @"",
                                     NextItemVintagePrefsKey : @"",
                                     NextItemAppellationPrefsKey : @"",
-                                    NextItemValuePrefsKey : @0
+                                    NextItemPricePrefsKey : @"",
+                                    NextItemNotesPrefsKey : @""
                                     };
   [defaults registerDefaults:factorySettings];
 }

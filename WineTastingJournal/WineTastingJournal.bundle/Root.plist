@@ -14,11 +14,11 @@
 			<key>IsSecure</key>
 			<false/>
 			<key>Key</key>
-			<string>NextItemName</string>
+			<string>NextItemNoteTitle</string>
 			<key>KeyboardType</key>
 			<string>Alphabet</string>
 			<key>Title</key>
-			<string>NextItemName</string>
+			<string>NextItemNoteTitle</string>
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 		</dict>
