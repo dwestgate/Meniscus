@@ -857,26 +857,31 @@
 - (IBAction)otherScoresTetFieldEditingDidEnd:(id)sender {
   _otherScoresIsSet = ![_otherScoresTextField.text isEqualToString:@""];
   [self populateNoteTitleTextView];
+  [self updateTastingNotes];
 }
 
 - (IBAction)wineNameTextFieldEditingDidEnd:(id)sender {
   _wineNameIsSet = ![_wineNameTextField.text isEqualToString:@""];
   [self populateNoteTitleTextView];
+  [self updateTastingNotes];
 }
 
 - (IBAction)vintageTextFieldEditingDidEnd:(id)sender {
   _vintageIsSet = ![_vintageTextField.text isEqualToString:@""];
   [self populateNoteTitleTextView];
+  [self updateTastingNotes];
 }
 
 - (IBAction)appellationTextFieldEditingDidEnd:(id)sender {
   _appellationIsSet = ![_appellationTextField.text isEqualToString:@""];
   [self populateNoteTitleTextView];
+  [self updateTastingNotes];
 }
 
 - (IBAction)priceTextFieldEditingDidEnd:(id)sender {
   _priceIsSet = ![_priceTextField.text isEqualToString:@""];
   [self populateNoteTitleTextView];
+  [self updateTastingNotes];
 }
 
 
@@ -1774,7 +1779,7 @@
   
   NSString *string;
   
-  if (_wineNameIsSet || _appellationIsSet || _vintageIsSet || _colorIsSet || _priceIsSet) {
+  if (_wineNameIsSet || _appellationIsSet || _vintageIsSet || _colorIsSet) {
     
     NSString *wineName = _wineNameTextField.text;
     NSString *appellation = _appellationTextField.text;

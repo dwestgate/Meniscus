@@ -136,6 +136,18 @@
   [self.tableView registerNib:nib forCellReuseIdentifier:@"ItemCell"];
   
   self.tableView.restorationIdentifier = @"ItemsViewControllerTableView";
+  
+  if ([[[ItemStore sharedStore] allItems] count] < 1) {
+
+    UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"Meniscus" message:@"Press the + button to begin adding new tasting notes" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okButton = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+      [ac dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [ac addAction:okButton];
+    
+    UIViewController *rootViewController=[UIApplication sharedApplication].delegate.window.rootViewController;
+    [rootViewController presentViewController:ac animated:YES completion:nil];
+  }
 }
 
 - (void)encodeRestorableStateWithCoder:(NSCoder *)coder

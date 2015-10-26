@@ -878,12 +878,14 @@
                                         <action selector="takePicture:" destination="-1" id="avF-cy-NT9"/>
                                     </connections>
                                 </barButtonItem>
+                                <barButtonItem systemItem="flexibleSpace" id="f9H-M2-enp" userLabel="space"/>
                                 <barButtonItem style="plain" systemItem="action" id="jUc-YW-ekr">
                                     <color key="tintColor" red="0.68627452850000004" green="0.1294117719" blue="0.231372565" alpha="1" colorSpace="deviceRGB"/>
                                     <connections>
                                         <action selector="actionButtonPressed:" destination="-1" id="zWX-xo-pBn"/>
                                     </connections>
                                 </barButtonItem>
+                                <barButtonItem style="plain" systemItem="flexibleSpace" id="juR-O6-H52" userLabel="space"/>
                                 <barButtonItem title="ⓘ" style="plain" id="CEQ-Au-IKN" userLabel="Info Button">
                                     <color key="tintColor" red="0.68627450980000004" green="0.12941176469999999" blue="0.23137254900000001" alpha="1" colorSpace="deviceRGB"/>
                                     <connections>
