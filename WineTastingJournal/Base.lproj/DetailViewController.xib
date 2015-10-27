@@ -402,7 +402,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v9h-Ly-5qD" userLabel="flavorsTextView">
-                                            <rect key="frame" x="16" y="1035" width="10" height="33"/>
+                                            <rect key="frame" x="16" y="1035" width="383" height="33"/>
                                             <animations/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
@@ -657,7 +657,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tMD-rA-k6m" userLabel="aromasTextView">
-                                            <rect key="frame" x="16" y="649" width="10" height="33"/>
+                                            <rect key="frame" x="16" y="649" width="383" height="33"/>
                                             <animations/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
@@ -688,6 +688,7 @@
                                         <constraint firstItem="epn-W1-bye" firstAttribute="top" secondItem="kXH-rn-Tfx" secondAttribute="bottom" constant="13" id="5ZH-wY-ldN"/>
                                         <constraint firstItem="sdk-Y4-rMh" firstAttribute="top" secondItem="dJ4-bh-hbz" secondAttribute="bottom" constant="9" id="5gC-5s-sbp"/>
                                         <constraint firstItem="JP8-Gd-Gb7" firstAttribute="top" secondItem="y53-LD-Ggp" secondAttribute="bottom" constant="17" id="5la-cs-rv2"/>
+                                        <constraint firstAttribute="trailing" secondItem="tMD-rA-k6m" secondAttribute="trailing" constant="16" id="6Wx-Yv-aM7"/>
                                         <constraint firstItem="DZz-fv-ry1" firstAttribute="leading" secondItem="3Lh-sP-hcP" secondAttribute="leading" constant="8" id="6fl-fK-m9T"/>
                                         <constraint firstAttribute="trailing" secondItem="0uJ-49-zxv" secondAttribute="trailing" constant="20" id="6gn-AP-cO6"/>
                                         <constraint firstItem="Ho7-tz-PHp" firstAttribute="top" secondItem="JIY-hf-U2y" secondAttribute="bottom" constant="10" id="6h3-Ng-PYC"/>
@@ -774,6 +775,7 @@
                                         <constraint firstItem="rx8-1S-YWo" firstAttribute="top" secondItem="By6-B8-T1Q" secondAttribute="bottom" constant="9" id="Zir-KS-OYd"/>
                                         <constraint firstAttribute="trailing" secondItem="bcT-iX-jRp" secondAttribute="trailing" constant="20" id="Zx8-tA-22K"/>
                                         <constraint firstItem="C4c-OD-3KV" firstAttribute="top" secondItem="DZz-fv-ry1" secondAttribute="bottom" constant="10" id="a2U-Dm-nS1"/>
+                                        <constraint firstAttribute="trailing" secondItem="v9h-Ly-5qD" secondAttribute="trailing" constant="16" id="ajO-KE-vtr"/>
                                         <constraint firstItem="wl5-0J-lAD" firstAttribute="centerY" secondItem="xHC-XF-ZeA" secondAttribute="centerY" id="bVh-kO-RyO"/>
                                         <constraint firstItem="rHt-t2-zpo" firstAttribute="centerY" secondItem="xMN-Fi-0di" secondAttribute="centerY" id="bnh-Gf-bbH"/>
                                         <constraint firstItem="1af-f0-gmw" firstAttribute="leading" secondItem="3Lh-sP-hcP" secondAttribute="leading" constant="20" id="bon-fR-8y0"/>

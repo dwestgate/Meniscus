@@ -138,15 +138,7 @@
   self.tableView.restorationIdentifier = @"ItemsViewControllerTableView";
   
   if ([[[ItemStore sharedStore] allItems] count] < 1) {
-
-    UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"Meniscus" message:@"Press the + button to begin adding new tasting notes" preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *okButton = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-      [ac dismissViewControllerAnimated:YES completion:nil];
-    }];
-    [ac addAction:okButton];
-    
-    UIViewController *rootViewController=[UIApplication sharedApplication].delegate.window.rootViewController;
-    [rootViewController presentViewController:ac animated:YES completion:nil];
+    [self showWelcomeMessage];
   }
 }
 
@@ -268,6 +260,19 @@
 - (void)localeChanged:(NSNotification *)note
 {
   [self.tableView reloadData];
+}
+
+#pragma mark - Helper methods
+
+- (void)showWelcomeMessage {
+  UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"Meniscus" message:@"Add new tasting notes\nwith the + button.\n\nAccess help while\n creating notes via\nthe ⓘ button" preferredStyle:UIAlertControllerStyleAlert];
+  UIAlertAction *okButton = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    [ac dismissViewControllerAnimated:YES completion:nil];
+  }];
+  [ac addAction:okButton];
+  
+  UIViewController *rootViewController=[UIApplication sharedApplication].delegate.window.rootViewController;
+  [rootViewController presentViewController:ac animated:YES completion:nil];
 }
 
 @end

@@ -546,15 +546,15 @@
   }
   
   if (_aromaIntensityStepper.value == 1) {
-    _aromaIntensityLabel.text = @"Barely-detectable aroma";
+    _aromaIntensityLabel.text = @"Barely-detectable aromas";
   } else if (_aromaIntensityStepper.value == 2) {
-    _aromaIntensityLabel.text = @"Weak aroma";
+    _aromaIntensityLabel.text = @"Medium-minus aromas";
   } else if (_aromaIntensityStepper.value == 3) {
-    _aromaIntensityLabel.text = @"Medium-strength aroma";
+    _aromaIntensityLabel.text = @"Medium-strength aromas";
   } else if (_aromaIntensityStepper.value == 4) {
-    _aromaIntensityLabel.text = @"Moderately strong aroma";
+    _aromaIntensityLabel.text = @"Medium-plus aromas";
   } else {
-    _aromaIntensityLabel.text = @"Powerful aroma";
+    _aromaIntensityLabel.text = @"Intense aromas";
   }
   [self updateTastingNotes];
 }
@@ -1107,7 +1107,7 @@
     }
     
     if (_aromaIntensityIsSet) {
-      aromaIntensity = [[_aromaIntensityLabel.text lowercaseString] substringToIndex:[_aromaIntensityLabel.text length]-6];
+      aromaIntensity = [[_aromaIntensityLabel.text lowercaseString] stringByReplacingOccurrencesOfString:@" aromas" withString:@""];
     }
     if (_aromasAreSet) {
       aromas = [_aromasTextView.text lowercaseString];
@@ -1186,9 +1186,9 @@
       } else if ([_alcoholLabel.text isEqualToString:@"11.5-12.4% alcohol"]) {
         alcohol = @"a relatively low alcohol content of between 11.5 and 12.4 percent";
       } else if ([_alcoholLabel.text isEqualToString:@"12.4-13.5% alcohol"]) {
-        alcohol = @"a an alcohol content of between 12.4 and 13.5 percent";
+        alcohol = @"an alcohol content of between 12.4 and 13.5 percent";
       } else if ([_alcoholLabel.text isEqualToString:@"13.6-14.5% alcohol"]) {
-        alcohol = @"a high alcohol content of between 13.6 and 14.5 percent";
+        alcohol = @"an alcohol content of between 13.6 and 14.5 percent";
       } else if ([_alcoholLabel.text isEqualToString:@"More than 14.5% alcohol"]) {
         alcohol = @"an extremely high alcohol content of more than 14.5 percent";
       }
@@ -1329,11 +1329,11 @@
     }
     
     if (_otherScoresIsSet) {
-      string = [NSString stringWithFormat:@"%@\r\n%@.", string, _otherScoresTextField.text];
+      string = [NSString stringWithFormat:@"%@ %@.", string, _otherScoresTextField.text];
     }
     
     if (_priceIsSet) {
-      string = [NSString stringWithFormat:@"%@\r\n%@.", string, _priceTextField.text];
+      string = [NSString stringWithFormat:@"%@ %@.", string, _priceTextField.text];
     }
     
     string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
