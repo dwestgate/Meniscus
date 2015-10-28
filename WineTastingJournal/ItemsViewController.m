@@ -84,7 +84,7 @@
   
   __weak ItemCell *weakCell = cell;
   
-  cell.actionBlock = ^{NSLog(@"Going to show image for %@", item);
+  cell.actionBlock = ^{NSLog(@"SHowing image for %@", item);
     
     ItemCell *strongCell = weakCell;
     
@@ -136,10 +136,13 @@
   [self.tableView registerNib:nib forCellReuseIdentifier:@"ItemCell"];
   
   self.tableView.restorationIdentifier = @"ItemsViewControllerTableView";
-  
+}
+
+- (void)viewDidAppear:(BOOL)animated {
   if ([[[ItemStore sharedStore] allItems] count] < 1) {
     [self showWelcomeMessage];
   }
+  [super viewDidAppear:animated];
 }
 
 - (void)encodeRestorableStateWithCoder:(NSCoder *)coder

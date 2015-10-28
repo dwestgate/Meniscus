@@ -901,13 +901,6 @@
 }
 
 - (IBAction)takePicture:(id)sender {
-  /*
-  if ([self.imagePickerPopover isPopoverVisible]) {
-    [self.imagePickerPopover dismissPopoverAnimated:YES];
-    self.imagePickerPopover = nil;
-    return;
-  }
-   */
   
   UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
   
@@ -927,24 +920,10 @@
     
     imagePopover.permittedArrowDirections = UIPopoverArrowDirectionAny;
     imagePopover.sourceView = self.view;
-    /*
-    self.imagePickerPopover = [[UIPopoverController alloc] initWithContentViewController:imagePicker];
-    self.imagePickerPopover.delegate = self;
-    [self.imagePickerPopover presentPopoverFromBarButtonItem:sender
-                                    permittedArrowDirections:UIPopoverArrowDirectionAny
-                                                    animated:YES];
-     */
   } else {
     [self presentViewController:imagePicker animated:YES completion:NULL];
   }
 }
-/*
-- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
-{
-    NSLog(@"User dismissed popover");
-    self.imagePickerPopover = nil;
-}
-*/
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     UIImage *image = info[UIImagePickerControllerOriginalImage];
@@ -1052,9 +1031,9 @@
     
       if (_sedimentIsSet) {
         if ([_sedimentLabel.text isEqualToString:@"Crystals"]) {
-          sediment = @"visible tartrate crystals";
+          sediment = @"are tartrate crystals";
         } else {
-          sediment = [_sedimentLabel.text lowercaseString];
+          sediment = [NSString stringWithFormat:@"is %@",[_sedimentLabel.text lowercaseString]];
         }
       }
     
@@ -1067,19 +1046,19 @@
       }
     
       if (_petillanceIsSet && _sedimentIsSet && _viscosityIsSet) {
-        string = [NSString stringWithFormat:@"%@ The wine has %@, %@, and forms %@ on the glass.", string, petillance, sediment, viscosity];
+        string = [NSString stringWithFormat:@"%@ There is %@ and the wine forms %@ on the glass. There %@ visible in the bottle.", string, petillance, viscosity, sediment];
       } else if (_petillanceIsSet && _sedimentIsSet && !_viscosityIsSet) {
-        string = [NSString stringWithFormat:@"%@ The wine has %@, and %@.", string, petillance, sediment];
+        string = [NSString stringWithFormat:@"%@ There is %@, and there %@ visible in the bottle.", string, petillance, sediment];
       } else if (_petillanceIsSet && !_sedimentIsSet && _viscosityIsSet) {
-        string = [NSString stringWithFormat:@"%@ The wine has %@ and forms %@ on the glass.", string, petillance, viscosity];
+        string = [NSString stringWithFormat:@"%@ There is %@ and the wine forms %@ on the glass.", string, petillance, viscosity];
       } else if (!_petillanceIsSet && _sedimentIsSet && _viscosityIsSet) {
-        string = [NSString stringWithFormat:@"%@ The wine has %@ and forms %@ on the glass.", string, sediment, viscosity];
+        string = [NSString stringWithFormat:@"%@ The wine forms %@ on the glass. There %@ visible in the bottle.", string, viscosity, sediment];
       } else if (!_petillanceIsSet && !_sedimentIsSet && _viscosityIsSet) {
         string = [NSString stringWithFormat:@"%@ The wine forms %@ on the glass.", string, viscosity];
       } else if (!_petillanceIsSet && _sedimentIsSet && !_viscosityIsSet) {
-        string = [NSString stringWithFormat:@"%@ The wine has %@.", string, sediment];
+        string = [NSString stringWithFormat:@"%@ There %@ visible in the bottle.", string, sediment];
       } else if (_petillanceIsSet && !_sedimentIsSet && !_viscosityIsSet) {
-        string = [NSString stringWithFormat:@"%@ The wine has %@.", string, petillance];
+        string = [NSString stringWithFormat:@"%@ There is %@.", string, petillance];
       }
     }
   
@@ -1159,7 +1138,6 @@
     string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     [_notesTextView setText:[NSString stringWithFormat:@"%@\r\n\r\n%@", _notesTextView.text, string]];
     [_notesTextView setText:[_notesTextView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
-    NSLog(@"_notesTextView.text = %@", _notesTextView.text);
   }
   
   if (_sweetnessIsSet || _acidityIsSet || _tanninIsSet || _alcoholIsSet || _bodyIsSet || _flavorIntensityIsSet || _flavorsAreSet || _balanceIsSet || _mousseIsSet || _finishIsSet) {
@@ -1217,27 +1195,27 @@
     if (_finishIsSet) finish = [_finishLabel.text lowercaseString];
     
     if (_sweetnessIsSet && _acidityIsSet && tannin && alcohol) {
-      string = [NSString stringWithFormat:@"%@ The wine is %@, with %@, is %@, and has %@.", string, sweetness, acidity, tannin, alcohol];
+      string = [NSString stringWithFormat:@"%@ The wine is %@, with %@. It is %@ and has %@.", string, sweetness, acidity, tannin, alcohol];
     } else if (_sweetnessIsSet && _acidityIsSet && tannin && !alcohol) {
-      string = [NSString stringWithFormat:@"%@ The wine is %@, with %@ and is %@.", string, sweetness, acidity, tannin];
+      string = [NSString stringWithFormat:@"%@ The wine is %@, with %@. It is %@.", string, sweetness, acidity, tannin];
     } else if (_sweetnessIsSet && _acidityIsSet && !tannin && alcohol) {
       string = [NSString stringWithFormat:@"%@ The wine is %@, with %@ and has %@.", string, sweetness, acidity, alcohol];
     } else if (_sweetnessIsSet && !_acidityIsSet && tannin && alcohol) {
-      string = [NSString stringWithFormat:@"%@ The wine is %@, is %@ and has %@.", string, sweetness, tannin, alcohol];
+      string = [NSString stringWithFormat:@"%@ The wine is %@ and has %@. It is %@.", string, sweetness, alcohol, tannin];
     } else if (!_sweetnessIsSet && _acidityIsSet && tannin && alcohol) {
-      string = [NSString stringWithFormat:@"%@ The wine has %@, is %@, and has %@.", string, acidity, tannin, alcohol];
+      string = [NSString stringWithFormat:@"%@ The wine has %@. It is %@ and has %@.", string, acidity, tannin, alcohol];
     } else if (_sweetnessIsSet && _acidityIsSet && !tannin && !alcohol) {
       string = [NSString stringWithFormat:@"%@ The wine is %@, with %@.", string, sweetness, acidity];
     } else if (_sweetnessIsSet && !_acidityIsSet && tannin && !alcohol) {
-      string = [NSString stringWithFormat:@"%@ The wine is %@ and is %@.", string, sweetness, tannin];
+      string = [NSString stringWithFormat:@"%@ The wine is %@. It is %@.", string, sweetness, tannin];
     } else if (!_sweetnessIsSet && _acidityIsSet && tannin && !alcohol) {
-      string = [NSString stringWithFormat:@"%@ The wine has %@ and is %@.", string, acidity, tannin];
+      string = [NSString stringWithFormat:@"%@ The wine has %@ and it is %@.", string, acidity, tannin];
     } else if (_sweetnessIsSet && !_acidityIsSet && !tannin && alcohol) {
       string = [NSString stringWithFormat:@"%@ The wine is %@, with %@.", string, sweetness, alcohol];
     } else if (!_sweetnessIsSet && _acidityIsSet && !tannin && alcohol) {
       string = [NSString stringWithFormat:@"%@ The wine has %@ and has %@.", string, acidity, alcohol];
     } else if (!_sweetnessIsSet && !_acidityIsSet && tannin && alcohol) {
-      string = [NSString stringWithFormat:@"%@ The wine is %@, with %@.", string, tannin, alcohol];
+      string = [NSString stringWithFormat:@"%@ The wine is %@ and has %@.", string, tannin, alcohol];
     } else if (!_sweetnessIsSet && !_acidityIsSet && !tannin && alcohol) {
       string = [NSString stringWithFormat:@"%@ The wine has %@.", string, alcohol];
     } else if (!_sweetnessIsSet && !_acidityIsSet && tannin && !alcohol) {
@@ -1281,7 +1259,6 @@
     [_notesTextView setText:[_notesTextView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
   }
   
-  NSLog(@"_notesTextView.text = %@", _notesTextView.text);
   
   if (_qualityIsSet || _readinessIsSet || _hundredPointScoreIsSet || _fivePointScoreIsSet || _otherScoresIsSet || _priceIsSet) {
     
@@ -1342,7 +1319,6 @@
     
   }
   self.item.itemNotes = self.notesTextView.text;
-  NSLog(@"_notesTextView.text = %@", _notesTextView.text);
 }
 
 #pragma mark - View Constraints
@@ -1371,6 +1347,7 @@
 
 - (void)viewDidLayoutSubviews
 {
+  [self updateTastingNotes];
   [super viewDidLayoutSubviews];
   [self.scrollView layoutIfNeeded];
   self.scrollView.contentSize = self.contentView.bounds.size;
@@ -1393,7 +1370,7 @@
   
   NSDictionary *nameMap = @{@"imageView" : self.imageView, @"notesTextView" : self.notesTextView};
   NSArray *horizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[imageView]-0-|" options:0 metrics:nil views:nameMap];
-  NSArray *verticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[notesTextView]-[imageView]-0-|" options:0 metrics:nil views:nameMap];
+  NSArray *verticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[notesTextView]-0-[imageView]-0-|" options:0 metrics:nil views:nameMap];
   
   [self.contentView addConstraints:horizontalConstraints];
   [self.contentView addConstraints:verticalConstraints];
@@ -1431,7 +1408,6 @@
   readinessPickerViewTap.delegate = self;
   _readinessPickerView.delegate = self;
   _readinessPickerView.dataSource = self;
-
 }
 
 #pragma mark - TextField

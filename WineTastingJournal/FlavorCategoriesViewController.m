@@ -63,10 +63,6 @@
   for (NSManagedObject *flavor in _allTastes) {
     
     if ([_characteristicToCategory objectForKey:[self flavorsNotAromas:[flavor valueForKey:@"characteristic"]]] == nil) {
-      NSLog(@"characteristic = %@", [flavor valueForKey:@"categoryOrder"]);
-      NSLog(@"characteristic = %@", [flavor valueForKey:@"category"]);
-      NSLog(@"characteristic = %@", [flavor valueForKey:@"characteristic"]);
-      NSLog(@"characteristic = %@", [flavor valueForKey:@"taste"]);
       [_characteristicToCategory setObject:[flavor valueForKey:@"category"] forKey:[self flavorsNotAromas:[flavor valueForKey:@"characteristic"]]];
     }
     

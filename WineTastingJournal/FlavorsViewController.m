@@ -123,7 +123,6 @@
   
   self.item.itemFlavors = @"";
   if ([_selectedFlavors count] > 0) {
-    NSLog(@"Step 1 self.item.itemFlavors: %@", self.item.itemFlavors);
     for (NSString *key in _selectedCharacteristics) {
       
       NSString *text = @"";
@@ -131,8 +130,6 @@
       if (![key isEqualToString:@"general flavors"]) {
         text = [NSString stringWithFormat:@"%@ of ", key];
       }
-      NSLog(@"Step 2 self.item.itemFlavors: %@", self.item.itemFlavors);
-      NSLog(@"Step 2 text: %@", text);
       
       NSInteger c = 1;
       NSInteger count = [[_selectedFlavors objectForKey:key] count];
@@ -145,8 +142,6 @@
         text = [NSString stringWithFormat:@"%@%@, ", text, value];
         
         c++;
-        NSLog(@"Step 3 self.item.itemFlavors: %@", self.item.itemFlavors);
-        NSLog(@"Step 3 text: %@", text);
       }
       
       if ([key isEqualToString:@"general flavors"]) {
@@ -155,13 +150,10 @@
         self.item.itemFlavors = [NSString stringWithFormat:@"%@%@; ", self.item.itemFlavors, [text substringToIndex:[text length]-2]];
       }
       
-      NSLog(@"Step 4 self.item.itemFlavors: %@", self.item.itemFlavors);
-      NSLog(@"Step 4 text: %@", text);
     }
     self.item.itemFlavors = [NSString stringWithFormat:@"%@", [self.item.itemFlavors substringToIndex:[self.item.itemFlavors length]-2]];
     self.item.itemFlavors = [self.item.itemFlavors stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     self.item.itemFlavors = [self.item.itemFlavors stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:[[self.item.itemFlavors substringToIndex:1] uppercaseString]];
-    NSLog(@"Step 5 self.item.itemFlavors: %@", self.item.itemFlavors);
   }
 }
 

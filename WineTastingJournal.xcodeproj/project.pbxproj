@@ -22,13 +22,13 @@
 		C41516CA1B6E7B30009CBA93 /* WineTastingJournal.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C41516C91B6E7B30009CBA93 /* WineTastingJournal.bundle */; };
 		C41516CE1B6E8DFA009CBA93 /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C41516CD1B6E8DFA009CBA93 /* ItemCell.xib */; };
 		C41516D11B6E8F05009CBA93 /* WineTastingJournal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C41516CF1B6E8F05009CBA93 /* WineTastingJournal.xcdatamodeld */; };
-		C431FB921BB6D10C00E444F3 /* FlavorCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C431FB911BB6D10C00E444F3 /* FlavorCategoriesViewController.m */; settings = {ASSET_TAGS = (); }; };
+		C431FB921BB6D10C00E444F3 /* FlavorCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C431FB911BB6D10C00E444F3 /* FlavorCategoriesViewController.m */; };
 		C435586F1BA19DF7008FF2AE /* AromaCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C435586E1BA19DF7008FF2AE /* AromaCategoriesViewController.m */; };
 		C451B4BE1B6E9C07007F06E2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C451B4C01B6E9C07007F06E2 /* Localizable.strings */; };
 		C451B4C21B6E9D64007F06E2 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C451B4C41B6E9D64007F06E2 /* DetailViewController.xib */; };
-		C4C418821BD3EB5F007C5E5D /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C418801BD3EB5F007C5E5D /* InfoViewController.m */; settings = {ASSET_TAGS = (); }; };
-		C4C418831BD3EB5F007C5E5D /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4C418811BD3EB5F007C5E5D /* InfoViewController.xib */; settings = {ASSET_TAGS = (); }; };
-		C4C418861BD3FAE5007C5E5D /* info.html in Resources */ = {isa = PBXBuildFile; fileRef = C4C418851BD3FAE5007C5E5D /* info.html */; settings = {ASSET_TAGS = (); }; };
+		C4C418821BD3EB5F007C5E5D /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C418801BD3EB5F007C5E5D /* InfoViewController.m */; };
+		C4C418831BD3EB5F007C5E5D /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4C418811BD3EB5F007C5E5D /* InfoViewController.xib */; };
+		C4C418861BD3FAE5007C5E5D /* info.html in Resources */ = {isa = PBXBuildFile; fileRef = C4C418851BD3FAE5007C5E5D /* info.html */; };
 		C4EAC9341B9DC62F006E4CFC /* AromasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EAC9331B9DC62F006E4CFC /* AromasViewController.m */; };
 		C4EAC9371B9E43D9006E4CFC /* FlavorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EAC9361B9E43D9006E4CFC /* FlavorsViewController.m */; };
 /* End PBXBuildFile section */
@@ -80,8 +80,6 @@
 		C451B4C11B6E9C1B007F06E2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C451B4C31B6E9D64007F06E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DetailViewController.xib; sourceTree = "<group>"; };
 		C451B4C61B6E9DFC007F06E2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DetailViewController.strings; sourceTree = "<group>"; };
-		C451B4C71B6E9FBA007F06E2 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/DetailViewController.strings; sourceTree = "<group>"; };
-		C451B4C81B6E9FBA007F06E2 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C4C4187F1BD3EB5F007C5E5D /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		C4C418801BD3EB5F007C5E5D /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		C4C418811BD3EB5F007C5E5D /* InfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoViewController.xib; sourceTree = "<group>"; };
@@ -270,7 +268,6 @@
 			knownRegions = (
 				en,
 				Base,
-				es,
 			);
 			mainGroup = C41516771B6E6042009CBA93;
 			productRefGroup = C41516811B6E6042009CBA93 /* Products */;
@@ -355,7 +352,6 @@
 			children = (
 				C451B4BF1B6E9C07007F06E2 /* Base */,
 				C451B4C11B6E9C1B007F06E2 /* en */,
-				C451B4C81B6E9FBA007F06E2 /* es */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -365,7 +361,6 @@
 			children = (
 				C451B4C31B6E9D64007F06E2 /* Base */,
 				C451B4C61B6E9DFC007F06E2 /* en */,
-				C451B4C71B6E9FBA007F06E2 /* es */,
 			);
 			name = DetailViewController.xib;
 			sourceTree = "<group>";
@@ -410,7 +405,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -448,7 +443,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -464,7 +459,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = WineTastingJournal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.refabricants.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.refabricants.meniscus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				RUN_CLANG_STATIC_ANALYZER = YES;
@@ -479,7 +474,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = WineTastingJournal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.refabricants.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.refabricants.meniscus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				RUN_CLANG_STATIC_ANALYZER = YES;

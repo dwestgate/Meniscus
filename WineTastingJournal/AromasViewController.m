@@ -123,7 +123,6 @@
   
   self.item.itemAromas = @"";
   if ([_selectedAromas count] > 0) {
-    NSLog(@"Step 1 self.item.itemAromas: %@", self.item.itemAromas);
     for (NSString *key in _selectedCharacteristics) {
       
       NSString *text = @"";
@@ -131,8 +130,6 @@
       if (![key isEqualToString:@"general aromas"]) {
         text = [NSString stringWithFormat:@"%@ of ", key];
       }
-      NSLog(@"Step 2 self.item.itemAromas: %@", self.item.itemAromas);
-      NSLog(@"Step 2 text: %@", text);
       
       NSInteger c = 1;
       NSInteger count = [[_selectedAromas objectForKey:key] count];
@@ -145,8 +142,6 @@
         text = [NSString stringWithFormat:@"%@%@, ", text, value];
         
         c++;
-        NSLog(@"Step 3 self.item.itemAromas: %@", self.item.itemAromas);
-        NSLog(@"Step 3 text: %@", text);
       }
       
       if ([key isEqualToString:@"general aromas"]) {
@@ -155,13 +150,10 @@
         self.item.itemAromas = [NSString stringWithFormat:@"%@%@; ", self.item.itemAromas, [text substringToIndex:[text length]-2]];
       }
       
-      NSLog(@"Step 4 self.item.itemAromas: %@", self.item.itemAromas);
-      NSLog(@"Step 4 text: %@", text);
     }
     self.item.itemAromas = [NSString stringWithFormat:@"%@", [self.item.itemAromas substringToIndex:[self.item.itemAromas length]-2]];
     self.item.itemAromas = [self.item.itemAromas stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     self.item.itemAromas = [self.item.itemAromas stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:[[self.item.itemAromas substringToIndex:1] uppercaseString]];
-    NSLog(@"Step 5 self.item.itemAromas: %@", self.item.itemAromas);
   }
 }
 

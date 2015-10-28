@@ -88,7 +88,6 @@
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   item.itemNoteTitle = [defaults objectForKey:NextItemNoteTitlePrefsKey];
   item.itemTastingID = [defaults objectForKey:NextItemTastingIDPrefsKey];
-  item.itemNotes = [defaults objectForKey:NextItemNotesPrefsKey];
   item.itemClarity = [defaults objectForKey:NextItemClarityPrefsKey];
   item.itemClarityValue = [[defaults objectForKey:NextItemClarityValuePrefsKey] intValue];
   item.itemMeniscus = [defaults objectForKey:NextItemMeniscusPrefsKey];
@@ -142,6 +141,7 @@
   item.itemVintage = [defaults objectForKey:NextItemVintagePrefsKey];
   item.itemAppellation = [defaults objectForKey:NextItemAppellationPrefsKey];
   item.itemPrice = [defaults objectForKey:NextItemPricePrefsKey];
+  item.itemNotes = [defaults objectForKey:NextItemNotesPrefsKey];
 
   NSLog(@"defaults = %@", [defaults dictionaryRepresentation]);
   
