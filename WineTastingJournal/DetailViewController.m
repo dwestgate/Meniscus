@@ -935,20 +935,12 @@
     self.imageView.image = image;
   
     [self dismissViewControllerAnimated:YES completion:NULL];
-    /*
-    if (self.imagePickerPopover) {
-        [self.imagePickerPopover dismissPopoverAnimated:YES];
-        self.imagePickerPopover = nil;
-    } else {
-        [self dismissViewControllerAnimated:YES completion:NULL];
-    }
-     */
 }
 
 
 - (IBAction)actionButtonPressed:(id)sender {
   
-  NSArray *values = [[NSArray alloc] initWithObjects:_notesTextView.text,_imageView.image, nil];
+  NSArray *values = [[NSArray alloc] initWithObjects:_noteTitleTextView.text, @"\n",_notesTextView.text,_imageView.image, nil];
   
   UIActivityViewController *actionController = [[UIActivityViewController alloc] initWithActivityItems:values applicationActivities:nil];
   [actionController setValue:_item.itemNoteTitle forKey:@"subject"];
