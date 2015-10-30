@@ -29,9 +29,9 @@
 		C45560FF1BE0EEAE0050DA13 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C45560FE1BE0EEAE0050DA13 /* Launch Screen.storyboard */; };
 		C4C418821BD3EB5F007C5E5D /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C418801BD3EB5F007C5E5D /* InfoViewController.m */; };
 		C4C418831BD3EB5F007C5E5D /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4C418811BD3EB5F007C5E5D /* InfoViewController.xib */; };
-		C4C418861BD3FAE5007C5E5D /* info.html in Resources */ = {isa = PBXBuildFile; fileRef = C4C418851BD3FAE5007C5E5D /* info.html */; };
 		C4EAC9341B9DC62F006E4CFC /* AromasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EAC9331B9DC62F006E4CFC /* AromasViewController.m */; };
 		C4EAC9371B9E43D9006E4CFC /* FlavorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EAC9361B9E43D9006E4CFC /* FlavorsViewController.m */; };
+		C4F363BB1BE307C900D4BE50 /* info.html in Resources */ = {isa = PBXBuildFile; fileRef = C4F363BD1BE307C900D4BE50 /* info.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,19 +78,17 @@
 		C435586D1BA19DF7008FF2AE /* AromaCategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AromaCategoriesViewController.h; sourceTree = "<group>"; };
 		C435586E1BA19DF7008FF2AE /* AromaCategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AromaCategoriesViewController.m; sourceTree = "<group>"; };
 		C451B4BF1B6E9C07007F06E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		C451B4C11B6E9C1B007F06E2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C451B4C31B6E9D64007F06E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DetailViewController.xib; sourceTree = "<group>"; };
 		C45560FB1BE065DE0050DA13 /* Meniscus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Meniscus.entitlements; sourceTree = "<group>"; };
 		C45560FE1BE0EEAE0050DA13 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		C4C4187F1BD3EB5F007C5E5D /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		C4C418801BD3EB5F007C5E5D /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		C4C418811BD3EB5F007C5E5D /* InfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoViewController.xib; sourceTree = "<group>"; };
-		C4C418851BD3FAE5007C5E5D /* info.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = info.html; sourceTree = "<group>"; };
 		C4EAC9321B9DC62F006E4CFC /* AromasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AromasViewController.h; sourceTree = "<group>"; };
 		C4EAC9331B9DC62F006E4CFC /* AromasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AromasViewController.m; sourceTree = "<group>"; };
 		C4EAC9351B9E43D9006E4CFC /* FlavorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlavorsViewController.h; sourceTree = "<group>"; };
 		C4EAC9361B9E43D9006E4CFC /* FlavorsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlavorsViewController.m; sourceTree = "<group>"; };
-		C4F363BA1BE2E11900D4BE50 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DetailViewController.strings; sourceTree = "<group>"; };
+		C4F363BC1BE307C900D4BE50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/info.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,7 +202,7 @@
 		C4C418841BD3FA84007C5E5D /* Texts */ = {
 			isa = PBXGroup;
 			children = (
-				C4C418851BD3FAE5007C5E5D /* info.html */,
+				C4F363BD1BE307C900D4BE50 /* info.html */,
 			);
 			name = Texts;
 			sourceTree = "<group>";
@@ -279,7 +277,6 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
 			);
 			mainGroup = C41516771B6E6042009CBA93;
@@ -303,7 +300,7 @@
 				C45560FF1BE0EEAE0050DA13 /* Launch Screen.storyboard in Resources */,
 				C41516CA1B6E7B30009CBA93 /* WineTastingJournal.bundle in Resources */,
 				C451B4BE1B6E9C07007F06E2 /* Localizable.strings in Resources */,
-				C4C418861BD3FAE5007C5E5D /* info.html in Resources */,
+				C4F363BB1BE307C900D4BE50 /* info.html in Resources */,
 				C4C418831BD3EB5F007C5E5D /* InfoViewController.xib in Resources */,
 				C41516CE1B6E8DFA009CBA93 /* ItemCell.xib in Resources */,
 			);
@@ -365,7 +362,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				C451B4BF1B6E9C07007F06E2 /* Base */,
-				C451B4C11B6E9C1B007F06E2 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -374,9 +370,16 @@
 			isa = PBXVariantGroup;
 			children = (
 				C451B4C31B6E9D64007F06E2 /* Base */,
-				C4F363BA1BE2E11900D4BE50 /* en */,
 			);
 			name = DetailViewController.xib;
+			sourceTree = "<group>";
+		};
+		C4F363BD1BE307C900D4BE50 /* info.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C4F363BC1BE307C900D4BE50 /* Base */,
+			);
+			name = info.html;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
