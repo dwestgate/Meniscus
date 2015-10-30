@@ -90,3 +90,6 @@ The year the wine was produced, as it appears on the label. (Meniscus uses this 
 The Appellation of the wine, if relevant. (Meniscus may use this field in populating the name of the tasting note)
 ##### Price
 Either the retail price of the wine or the price paid.
+
+## License
+Distributed under the [MIT License](/LICENSE.md/).
