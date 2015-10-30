@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <title>info</title>
+      <style>.markdown-preview, .markdown-preview[data-use-github-style] { font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif; font-size: 16px; line-height: 1.6; word-wrap: break-word; overflow: scroll; box-sizing: border-box; padding: 20px; background-color: rgb(255, 255, 255); }
+.markdown-preview > :first-child, .markdown-preview[data-use-github-style] > :first-child { margin-top: 0px !important; }
+.markdown-preview > :last-child, .markdown-preview[data-use-github-style] > :last-child { margin-bottom: 0px !important; }
+.markdown-preview a:not([href]), .markdown-preview[data-use-github-style] a:not([href]) { color: inherit; text-decoration: none; }
+.markdown-preview .absent, .markdown-preview[data-use-github-style] .absent { color: rgb(204, 0, 0); }
+.markdown-preview .anchor, .markdown-preview[data-use-github-style] .anchor { position: absolute; top: 0px; left: 0px; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; }
+.markdown-preview .anchor:focus, .markdown-preview[data-use-github-style] .anchor:focus { outline: none; }
+.markdown-preview h1, .markdown-preview[data-use-github-style] h1, .markdown-preview h2, .markdown-preview[data-use-github-style] h2, .markdown-preview h3, .markdown-preview[data-use-github-style] h3, .markdown-preview h4, .markdown-preview[data-use-github-style] h4, .markdown-preview h5, .markdown-preview[data-use-github-style] h5, .markdown-preview h6, .markdown-preview[data-use-github-style] h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; }
+.markdown-preview h1 .octicon-link, .markdown-preview[data-use-github-style] h1 .octicon-link, .markdown-preview h2 .octicon-link, .markdown-preview[data-use-github-style] h2 .octicon-link, .markdown-preview h3 .octicon-link, .markdown-preview[data-use-github-style] h3 .octicon-link, .markdown-preview h4 .octicon-link, .markdown-preview[data-use-github-style] h4 .octicon-link, .markdown-preview h5 .octicon-link, .markdown-preview[data-use-github-style] h5 .octicon-link, .markdown-preview h6 .octicon-link, .markdown-preview[data-use-github-style] h6 .octicon-link { display: none; color: rgb(0, 0, 0); vertical-align: middle; }
+.markdown-preview h1:hover .anchor, .markdown-preview[data-use-github-style] h1:hover .anchor, .markdown-preview h2:hover .anchor, .markdown-preview[data-use-github-style] h2:hover .anchor, .markdown-preview h3:hover .anchor, .markdown-preview[data-use-github-style] h3:hover .anchor, .markdown-preview h4:hover .anchor, .markdown-preview[data-use-github-style] h4:hover .anchor, .markdown-preview h5:hover .anchor, .markdown-preview[data-use-github-style] h5:hover .anchor, .markdown-preview h6:hover .anchor, .markdown-preview[data-use-github-style] h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; }
+.markdown-preview h1:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h1:hover .anchor .octicon-link, .markdown-preview h2:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h2:hover .anchor .octicon-link, .markdown-preview h3:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h3:hover .anchor .octicon-link, .markdown-preview h4:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h4:hover .anchor .octicon-link, .markdown-preview h5:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h5:hover .anchor .octicon-link, .markdown-preview h6:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h6:hover .anchor .octicon-link { display: inline-block; }
+.markdown-preview h1 tt, .markdown-preview[data-use-github-style] h1 tt, .markdown-preview h2 tt, .markdown-preview[data-use-github-style] h2 tt, .markdown-preview h3 tt, .markdown-preview[data-use-github-style] h3 tt, .markdown-preview h4 tt, .markdown-preview[data-use-github-style] h4 tt, .markdown-preview h5 tt, .markdown-preview[data-use-github-style] h5 tt, .markdown-preview h6 tt, .markdown-preview[data-use-github-style] h6 tt, .markdown-preview h1 code, .markdown-preview[data-use-github-style] h1 code, .markdown-preview h2 code, .markdown-preview[data-use-github-style] h2 code, .markdown-preview h3 code, .markdown-preview[data-use-github-style] h3 code, .markdown-preview h4 code, .markdown-preview[data-use-github-style] h4 code, .markdown-preview h5 code, .markdown-preview[data-use-github-style] h5 code, .markdown-preview h6 code, .markdown-preview[data-use-github-style] h6 code { font-size: inherit; }
+.markdown-preview h1, .markdown-preview[data-use-github-style] h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(238, 238, 238); }
+.markdown-preview h1 .anchor, .markdown-preview[data-use-github-style] h1 .anchor { line-height: 1; }
+.markdown-preview h2, .markdown-preview[data-use-github-style] h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(238, 238, 238); }
+.markdown-preview h2 .anchor, .markdown-preview[data-use-github-style] h2 .anchor { line-height: 1; }
+.markdown-preview h3, .markdown-preview[data-use-github-style] h3 { font-size: 1.5em; line-height: 1.43; }
+.markdown-preview h3 .anchor, .markdown-preview[data-use-github-style] h3 .anchor { line-height: 1.2; }
+.markdown-preview h4, .markdown-preview[data-use-github-style] h4 { font-size: 1.25em; }
+.markdown-preview h4 .anchor, .markdown-preview[data-use-github-style] h4 .anchor { line-height: 1.2; }
+.markdown-preview h5, .markdown-preview[data-use-github-style] h5 { font-size: 1em; }
+.markdown-preview h5 .anchor, .markdown-preview[data-use-github-style] h5 .anchor { line-height: 1.1; }
+.markdown-preview h6, .markdown-preview[data-use-github-style] h6 { font-size: 1em; color: rgb(119, 119, 119); }
+.markdown-preview h6 .anchor, .markdown-preview[data-use-github-style] h6 .anchor { line-height: 1.1; }
+.markdown-preview p, .markdown-preview[data-use-github-style] p, .markdown-preview blockquote, .markdown-preview[data-use-github-style] blockquote, .markdown-preview ul, .markdown-preview[data-use-github-style] ul, .markdown-preview ol, .markdown-preview[data-use-github-style] ol, .markdown-preview dl, .markdown-preview[data-use-github-style] dl, .markdown-preview table, .markdown-preview[data-use-github-style] table, .markdown-preview pre, .markdown-preview[data-use-github-style] pre { margin-top: 0px; margin-bottom: 16px; }
+.markdown-preview hr, .markdown-preview[data-use-github-style] hr { height: 4px; padding: 0px; margin: 16px 0px; border: 0px none; background-color: rgb(231, 231, 231); }
+.markdown-preview ul, .markdown-preview[data-use-github-style] ul, .markdown-preview ol, .markdown-preview[data-use-github-style] ol { padding-left: 2em; }
+.markdown-preview ul.no-list, .markdown-preview[data-use-github-style] ul.no-list, .markdown-preview ol.no-list, .markdown-preview[data-use-github-style] ol.no-list { padding: 0px; list-style-type: none; }
+.markdown-preview ul ul, .markdown-preview[data-use-github-style] ul ul, .markdown-preview ul ol, .markdown-preview[data-use-github-style] ul ol, .markdown-preview ol ol, .markdown-preview[data-use-github-style] ol ol, .markdown-preview ol ul, .markdown-preview[data-use-github-style] ol ul { margin-top: 0px; margin-bottom: 0px; }
+.markdown-preview li > p, .markdown-preview[data-use-github-style] li > p { margin-top: 16px; }
+.markdown-preview dl, .markdown-preview[data-use-github-style] dl { padding: 0px; }
+.markdown-preview dl dt, .markdown-preview[data-use-github-style] dl dt { padding: 0px; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; }
+.markdown-preview dl dd, .markdown-preview[data-use-github-style] dl dd { padding: 0px 16px; margin-bottom: 16px; }
+.markdown-preview blockquote, .markdown-preview[data-use-github-style] blockquote { padding: 0px 15px; color: rgb(119, 119, 119); border-left-width: 4px; border-left-style: solid; border-left-color: rgb(221, 221, 221); }
+.markdown-preview blockquote > :first-child, .markdown-preview[data-use-github-style] blockquote > :first-child { margin-top: 0px; }
+.markdown-preview blockquote > :last-child, .markdown-preview[data-use-github-style] blockquote > :last-child { margin-bottom: 0px; }
+.markdown-preview table, .markdown-preview[data-use-github-style] table { display: block; width: 100%; overflow: auto; word-break: normal; }
+.markdown-preview table th, .markdown-preview[data-use-github-style] table th { font-weight: bold; }
+.markdown-preview table th, .markdown-preview[data-use-github-style] table th, .markdown-preview table td, .markdown-preview[data-use-github-style] table td { padding: 6px 13px; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview table tr, .markdown-preview[data-use-github-style] table tr { border-top-width: 1px; border-top-style: solid; border-top-color: rgb(204, 204, 204); background-color: rgb(255, 255, 255); }
+.markdown-preview table tr:nth-child(2n), .markdown-preview[data-use-github-style] table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
+.markdown-preview img, .markdown-preview[data-use-github-style] img { max-width: 100%; box-sizing: border-box; }
+.markdown-preview .emoji, .markdown-preview[data-use-github-style] .emoji { max-width: none; }
+.markdown-preview span.frame, .markdown-preview[data-use-github-style] span.frame { display: block; overflow: hidden; }
+.markdown-preview span.frame > span, .markdown-preview[data-use-github-style] span.frame > span { display: block; float: left; width: auto; padding: 7px; margin: 13px 0px 0px; overflow: hidden; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview span.frame span img, .markdown-preview[data-use-github-style] span.frame span img { display: block; float: left; }
+.markdown-preview span.frame span span, .markdown-preview[data-use-github-style] span.frame span span { display: block; padding: 5px 0px 0px; clear: both; color: rgb(51, 51, 51); }
+.markdown-preview span.align-center, .markdown-preview[data-use-github-style] span.align-center { display: block; overflow: hidden; clear: both; }
+.markdown-preview span.align-center > span, .markdown-preview[data-use-github-style] span.align-center > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: center; }
+.markdown-preview span.align-center span img, .markdown-preview[data-use-github-style] span.align-center span img { margin: 0px auto; text-align: center; }
+.markdown-preview span.align-right, .markdown-preview[data-use-github-style] span.align-right { display: block; overflow: hidden; clear: both; }
+.markdown-preview span.align-right > span, .markdown-preview[data-use-github-style] span.align-right > span { display: block; margin: 13px 0px 0px; overflow: hidden; text-align: right; }
+.markdown-preview span.align-right span img, .markdown-preview[data-use-github-style] span.align-right span img { margin: 0px; text-align: right; }
+.markdown-preview span.float-left, .markdown-preview[data-use-github-style] span.float-left { display: block; float: left; margin-right: 13px; overflow: hidden; }
+.markdown-preview span.float-left span, .markdown-preview[data-use-github-style] span.float-left span { margin: 13px 0px 0px; }
+.markdown-preview span.float-right, .markdown-preview[data-use-github-style] span.float-right { display: block; float: right; margin-left: 13px; overflow: hidden; }
+.markdown-preview span.float-right > span, .markdown-preview[data-use-github-style] span.float-right > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: right; }
+.markdown-preview code, .markdown-preview[data-use-github-style] code, .markdown-preview tt, .markdown-preview[data-use-github-style] tt { padding: 0.2em 0px; margin: 0px; font-size: 85%; border-radius: 3px; background-color: rgba(0, 0, 0, 0.0392157); }
+.markdown-preview code::before, .markdown-preview[data-use-github-style] code::before, .markdown-preview tt::before, .markdown-preview[data-use-github-style] tt::before, .markdown-preview code::after, .markdown-preview[data-use-github-style] code::after, .markdown-preview tt::after, .markdown-preview[data-use-github-style] tt::after { letter-spacing: -0.2em; content: ' '; }
+.markdown-preview code br, .markdown-preview[data-use-github-style] code br, .markdown-preview tt br, .markdown-preview[data-use-github-style] tt br { display: none; }
+.markdown-preview del code, .markdown-preview[data-use-github-style] del code { text-decoration: inherit; }
+.markdown-preview pre > code, .markdown-preview[data-use-github-style] pre > code { padding: 0px; margin: 0px; font-size: 100%; word-break: normal; white-space: pre; border: 0px; background: transparent; }
+.markdown-preview .highlight, .markdown-preview[data-use-github-style] .highlight { margin-bottom: 16px; }
+.markdown-preview .highlight pre, .markdown-preview[data-use-github-style] .highlight pre, .markdown-preview pre, .markdown-preview[data-use-github-style] pre { padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; border-radius: 3px; background-color: rgb(247, 247, 247); }
+.markdown-preview .highlight pre, .markdown-preview[data-use-github-style] .highlight pre { margin-bottom: 0px; word-break: normal; }
+.markdown-preview pre, .markdown-preview[data-use-github-style] pre { word-wrap: normal; }
+.markdown-preview pre code, .markdown-preview[data-use-github-style] pre code, .markdown-preview pre tt, .markdown-preview[data-use-github-style] pre tt { display: inline; max-width: initial; padding: 0px; margin: 0px; overflow: initial; line-height: inherit; word-wrap: normal; border: 0px; background-color: transparent; }
+.markdown-preview pre code::before, .markdown-preview[data-use-github-style] pre code::before, .markdown-preview pre tt::before, .markdown-preview[data-use-github-style] pre tt::before, .markdown-preview pre code::after, .markdown-preview[data-use-github-style] pre code::after, .markdown-preview pre tt::after, .markdown-preview[data-use-github-style] pre tt::after { content: normal; }
+.markdown-preview kbd, .markdown-preview[data-use-github-style] kbd { display: inline-block; padding: 3px 5px; font-size: 11px; line-height: 10px; color: rgb(85, 85, 85); vertical-align: middle; border-style: solid; border-width: 1px; border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(187, 187, 187); border-radius: 3px; box-shadow: rgb(187, 187, 187) 0px -1px 0px inset; background-color: rgb(252, 252, 252); }
+.markdown-preview, .markdown-preview[data-use-github-style], .markdown-preview code, .markdown-preview[data-use-github-style] code { color: rgb(51, 51, 51); }
+.markdown-preview h1, .markdown-preview[data-use-github-style] h1, .markdown-preview h2, .markdown-preview[data-use-github-style] h2, .markdown-preview h3, .markdown-preview[data-use-github-style] h3, .markdown-preview h4, .markdown-preview[data-use-github-style] h4, .markdown-preview h5, .markdown-preview[data-use-github-style] h5, .markdown-preview h6, .markdown-preview[data-use-github-style] h6 { -webkit-font-smoothing: antialiased; cursor: text; }
+.markdown-preview > h1:first-child, .markdown-preview[data-use-github-style] > h1:first-child, .markdown-preview > h1:first-child + h2, .markdown-preview[data-use-github-style] > h1:first-child + h2, .markdown-preview > h2:first-child, .markdown-preview[data-use-github-style] > h2:first-child, .markdown-preview > h3:first-child, .markdown-preview[data-use-github-style] > h3:first-child, .markdown-preview > h4:first-child, .markdown-preview[data-use-github-style] > h4:first-child, .markdown-preview > h5:first-child, .markdown-preview[data-use-github-style] > h5:first-child, .markdown-preview > h6:first-child, .markdown-preview[data-use-github-style] > h6:first-child { margin-top: 0px; padding-top: 0px; }
+.markdown-preview a, .markdown-preview[data-use-github-style] a, .markdown-preview a code, .markdown-preview[data-use-github-style] a code { color: rgb(65, 131, 196); }
+.markdown-preview a:first-child h1, .markdown-preview[data-use-github-style] a:first-child h1, .markdown-preview a:first-child h2, .markdown-preview[data-use-github-style] a:first-child h2, .markdown-preview a:first-child h3, .markdown-preview[data-use-github-style] a:first-child h3, .markdown-preview a:first-child h4, .markdown-preview[data-use-github-style] a:first-child h4, .markdown-preview a:first-child h5, .markdown-preview[data-use-github-style] a:first-child h5, .markdown-preview a:first-child h6, .markdown-preview[data-use-github-style] a:first-child h6 { margin-top: 0px; padding-top: 0px; }
+.markdown-preview h1 + p, .markdown-preview[data-use-github-style] h1 + p, .markdown-preview h2 + p, .markdown-preview[data-use-github-style] h2 + p, .markdown-preview h3 + p, .markdown-preview[data-use-github-style] h3 + p, .markdown-preview h4 + p, .markdown-preview[data-use-github-style] h4 + p, .markdown-preview h5 + p, .markdown-preview[data-use-github-style] h5 + p, .markdown-preview h6 + p, .markdown-preview[data-use-github-style] h6 + p { margin-top: 0px; }
+.markdown-preview li p.first, .markdown-preview[data-use-github-style] li p.first { display: inline-block; }
+.markdown-preview ul li > :first-child, .markdown-preview[data-use-github-style] ul li > :first-child, .markdown-preview ol li > :first-child, .markdown-preview[data-use-github-style] ol li > :first-child, .markdown-preview ul li ul:first-of-type, .markdown-preview[data-use-github-style] ul li ul:first-of-type, .markdown-preview ol li ul:first-of-type, .markdown-preview[data-use-github-style] ol li ul:first-of-type { margin-top: 0px; }
+.markdown-preview ol > li, .markdown-preview[data-use-github-style] ol > li { list-style-type: decimal; }
+.markdown-preview ul > li, .markdown-preview[data-use-github-style] ul > li { list-style-type: disc; }
+.markdown-preview dl dt:first-child, .markdown-preview[data-use-github-style] dl dt:first-child { padding: 0px; }
+.markdown-preview dl dt > :first-child, .markdown-preview[data-use-github-style] dl dt > :first-child { margin-top: 0px; }
+.markdown-preview dl dt > :last-child, .markdown-preview[data-use-github-style] dl dt > :last-child { margin-bottom: 0px; }
+.markdown-preview dl dd > :first-child, .markdown-preview[data-use-github-style] dl dd > :first-child { margin-top: 0px; }
+.markdown-preview dl dd > :last-child, .markdown-preview[data-use-github-style] dl dd > :last-child { margin-bottom: 0px; }
+.markdown-preview blockquote p, .markdown-preview[data-use-github-style] blockquote p { font-size: 16px; line-height: 1.5; }
+.markdown-preview pre.editor-colors, .markdown-preview[data-use-github-style] pre.editor-colors { padding: 16px; overflow: auto; font-size: 84%; line-height: 1.45; border-radius: 3px; background-color: rgb(250, 250, 250); }
+.markdown-preview pre.editor-colors, .markdown-preview[data-use-github-style] pre.editor-colors { margin-bottom: 16px; word-break: normal; }
+.markdown-preview code, .markdown-preview[data-use-github-style] code, .markdown-preview tt, .markdown-preview[data-use-github-style] tt, .markdown-preview pre.editor-colors, .markdown-preview[data-use-github-style] pre.editor-colors { font-family: Consolas, 'Liberation Mono', Courier, monospace; }
+.markdown-preview .emoji, .markdown-preview[data-use-github-style] .emoji { height: 20px; width: 20px; }
+.markdown-preview { font-size: 1.25em; color: rgb(66, 66, 67); background-color: rgb(255, 255, 255); }
+.markdown-preview h1, .markdown-preview h2 { color: inherit; border-color: rgb(209, 209, 210); }
+.markdown-preview a { color: rgb(20, 146, 255); }
+.markdown-preview hr { background-color: rgb(224, 224, 225); }
+.markdown-preview blockquote { color: rgb(66, 66, 67); border-left-color: rgb(147, 147, 149); }
+.markdown-preview table th, .markdown-preview table td { border-color: rgb(209, 209, 210); }
+.markdown-preview table th { background-color: rgb(255, 255, 255); }
+.markdown-preview table tr { background-color: rgb(255, 255, 255); }
+.markdown-preview table tr:nth-child(2n) { background-color: rgb(247, 247, 247); }
+.markdown-preview code { color: rgb(91, 91, 93); border-color: rgb(209, 209, 210); background-color: rgb(247, 247, 247); background-clip: padding-box; }
+.markdown-preview pre.editor-colors::shadow .line.cursor-line { background-color: transparent; }
+.bracket-matcher .region {
+  border-bottom: 1px dotted lime;
+  position: absolute;
+}
+
+.spell-check-misspelling .region {
+  border-bottom: 1px dashed rgba(250, 128, 114, 0.5);
+}
+
+pre.editor-colors,
+.host {
+  background-color: #fafafa;
+  color: #383a42;
+}
+pre.editor-colors .line.cursor-line,
+.host .line.cursor-line {
+  background-color: rgba(56, 58, 66, 0.04);
+}
+pre.editor-colors .invisible,
+.host .invisible {
+  color: #383a42;
+}
+pre.editor-colors .cursor,
+.host .cursor {
+  border-left: 2px solid #526fff;
+}
+pre.editor-colors .selection .region,
+.host .selection .region {
+  background-color: #ededed;
+}
+pre.editor-colors .bracket-matcher .region,
+.host .bracket-matcher .region {
+  border-bottom: 1px solid #526fff;
+  box-sizing: border-box;
+  background-color: #eaedfa;
+}
+pre.editor-colors .invisible-character,
+.host .invisible-character {
+  color: rgba(56, 58, 66, 0.2);
+}
+pre.editor-colors .indent-guide,
+.host .indent-guide {
+  color: rgba(56, 58, 66, 0.2);
+}
+pre.editor-colors .wrap-guide,
+.host .wrap-guide {
+  background-color: rgba(56, 58, 66, 0.2);
+}
+pre.editor-colors .gutter .line-number,
+.host .gutter .line-number {
+  color: #9d9d9f;
+  -webkit-font-smoothing: antialiased;
+}
+pre.editor-colors .gutter .line-number.git-line-removed:before,
+.host .gutter .line-number.git-line-removed:before {
+  bottom: -3px;
+}
+pre.editor-colors .gutter .line-number.git-line-removed:after,
+.host .gutter .line-number.git-line-removed:after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 25px;
+  border-bottom: 1px dotted rgba(255, 20, 20, 0.5);
+  pointer-events: none;
+}
+pre.editor-colors .gutter .line-number.cursor-line,
+.host .gutter .line-number.cursor-line {
+  color: #4d5375;
+  background-color: #f2f2f2;
+}
+pre.editor-colors .gutter .line-number.cursor-line-no-selection,
+.host .gutter .line-number.cursor-line-no-selection {
+  background-color: transparent;
+}
+pre.editor-colors .gutter .line-number .icon-right,
+.host .gutter .line-number .icon-right {
+  color: #383a42;
+}
+pre.editor-colors .gutter .line-number .icon-right,
+.host .gutter .line-number .icon-right {
+  color: #383a42;
+}
+pre.editor-colors .gutter .line-number.folded,
+.host .gutter .line-number.folded,
+pre.editor-colors .gutter .line-number:after,
+.host .gutter .line-number:after,
+pre.editor-colors .fold-marker:after,
+.host .fold-marker:after {
+  color: #4d5375;
+}
+.comment {
+  color: #a0a1a7;
+  font-style: italic;
+}
+.entity.name.type {
+  color: #c18401;
+}
+.entity.other.inherited-class {
+  color: #50a14f;
+}
+.keyword {
+  color: #a626a4;
+}
+.keyword.control {
+  color: #a626a4;
+}
+.keyword.operator {
+  color: #383a42;
+}
+.keyword.other.special-method {
+  color: #4078f2;
+}
+.keyword.other.unit {
+  color: #986801;
+}
+.storage {
+  color: #a626a4;
+}
+.storage.type.annotation,
+.storage.type.primitive {
+  color: #a626a4;
+}
+.storage.modifier.package,
+.storage.modifier.import {
+  color: #383a42;
+}
+.constant {
+  color: #986801;
+}
+.constant.variable {
+  color: #986801;
+}
+.constant.character.escape {
+  color: #0184bc;
+}
+.constant.numeric {
+  color: #986801;
+}
+.constant.other.color {
+  color: #0184bc;
+}
+.constant.other.symbol {
+  color: #0184bc;
+}
+.variable {
+  color: #e45649;
+}
+.variable.interpolation {
+  color: #ca1243;
+}
+.variable.parameter {
+  color: #383a42;
+}
+.invalid.illegal {
+  background-color: #e45649;
+  color: #fafafa;
+}
+.string {
+  color: #50a14f;
+}
+.string.regexp {
+  color: #0184bc;
+}
+.string.regexp .source.ruby.embedded {
+  color: #c18401;
+}
+.string.other.link {
+  color: #e45649;
+}
+.punctuation.definition.comment {
+  color: #a0a1a7;
+}
+.punctuation.definition.method-parameters,
+.punctuation.definition.function-parameters,
+.punctuation.definition.parameters,
+.punctuation.definition.separator,
+.punctuation.definition.seperator,
+.punctuation.definition.array {
+  color: #383a42;
+}
+.punctuation.definition.heading,
+.punctuation.definition.identity {
+  color: #4078f2;
+}
+.punctuation.definition.bold {
+  color: #c18401;
+  font-weight: bold;
+}
+.punctuation.definition.italic {
+  color: #a626a4;
+  font-style: italic;
+}
+.punctuation.section.embedded {
+  color: #ca1243;
+}
+.punctuation.section.method,
+.punctuation.section.class,
+.punctuation.section.inner-class {
+  color: #383a42;
+}
+.support.class {
+  color: #c18401;
+}
+.support.type {
+  color: #0184bc;
+}
+.support.function {
+  color: #0184bc;
+}
+.support.function.any-method {
+  color: #4078f2;
+}
+.entity.name.function {
+  color: #4078f2;
+}
+.entity.name.class,
+.entity.name.type.class {
+  color: #c18401;
+}
+.entity.name.section {
+  color: #4078f2;
+}
+.entity.name.tag {
+  color: #e45649;
+}
+.entity.other.attribute-name {
+  color: #986801;
+}
+.entity.other.attribute-name.id {
+  color: #4078f2;
+}
+.meta.class {
+  color: #c18401;
+}
+.meta.class.body {
+  color: #383a42;
+}
+.meta.method-call,
+.meta.method {
+  color: #383a42;
+}
+.meta.definition.variable {
+  color: #e45649;
+}
+.meta.link {
+  color: #986801;
+}
+.meta.require {
+  color: #4078f2;
+}
+.meta.selector {
+  color: #a626a4;
+}
+.meta.separator {
+  background-color: #373b41;
+  color: #383a42;
+}
+.meta.tag {
+  color: #383a42;
+}
+.none {
+  color: #383a42;
+}
+.markup.bold {
+  color: #986801;
+  font-weight: bold;
+}
+.markup.changed {
+  color: #a626a4;
+}
+.markup.deleted {
+  color: #e45649;
+}
+.markup.italic {
+  color: #a626a4;
+  font-style: italic;
+}
+.markup.heading .punctuation.definition.heading {
+  color: #4078f2;
+}
+.markup.inserted {
+  color: #50a14f;
+}
+.markup.list {
+  color: #e45649;
+}
+.markup.quote {
+  color: #986801;
+}
+.markup.raw.inline {
+  color: #50a14f;
+}
+.source.cs .keyword.operator {
+  color: #a626a4;
+}
+.source.css .property-name,
+.source.css .property-value {
+  color: #696c77;
+}
+.source.css .property-name.support,
+.source.css .property-value.support {
+  color: #383a42;
+}
+.source.gfm .markup {
+  -webkit-font-smoothing: auto;
+}
+.source.gfm .markup.heading {
+  color: #e45649;
+}
+.source.gfm .markup.link {
+  color: #a626a4;
+}
+.source.gfm .link .entity {
+  color: #4078f2;
+}
+.source.ini .keyword.other.definition.ini {
+  color: #e45649;
+}
+.source.java .storage.modifier.import {
+  color: #c18401;
+}
+.source.java .storage.type {
+  color: #c18401;
+}
+.source.java-properties .meta.key-pair {
+  color: #e45649;
+}
+.source.java-properties .meta.key-pair > .punctuation {
+  color: #383a42;
+}
+.source.json .meta.structure.dictionary.json > .string.quoted.json {
+  color: #e45649;
+}
+.source.json .meta.structure.dictionary.json > .string.quoted.json > .punctuation.string {
+  color: #e45649;
+}
+.source.json .meta.structure.dictionary.json > .value.json > .string.quoted.json,
+.source.json .meta.structure.array.json > .value.json > .string.quoted.json,
+.source.json .meta.structure.dictionary.json > .value.json > .string.quoted.json > .punctuation,
+.source.json .meta.structure.array.json > .value.json > .string.quoted.json > .punctuation {
+  color: #50a14f;
+}
+.source.json .meta.structure.dictionary.json > .constant.language.json,
+.source.json .meta.structure.array.json > .constant.language.json {
+  color: #0184bc;
+}
+.source.ruby .constant.other.symbol > .punctuation {
+  color: inherit;
+}
+.source.python .keyword.operator.logical.python {
+  color: #a626a4;
+}
+.source.python .variable.parameter {
+  color: #986801;
+}
+</style>
+  </head>
+  <body class='markdown-preview'><h2 id="how-to-use-meniscus">How to use Meniscus</h2>
+<h4 id="overview">Overview</h4>
+<p>Meniscus helps you taste wines in a systematic fashion, then turns your observations into detailed tasting notes which can be saved or shared with others.</p>
+<p>For more information on systematic tasting, visit the website of the Wine &amp; Spirit Educational Trust (WSET).</p>
+<h3 id="using-the-app">Using the App</h3>
+<ol>
+<li>Press the <strong>+</strong> button to start a new tasting note</li>
+<li>Use the <strong>Tasting-specific ID</strong> field to add a temporary name for the wine (helpful for keeping track of wines in a blind tasting)</li>
+<li>Evaluate the characteristics of the wine in the order they are presented</li>
+<li>When you get to the end of the list of characteristics you will find your assembled tasting note!</li>
+<li>Click on the camera button in the bottom bar and add a picture of the wine&#39;s label</li>
+<li>Use the action button on the bottom bar to export your note</li>
+</ol>
+<h3 id="glossary-of-meniscus-wine-terms">Glossary of Meniscus Wine Terms</h3>
+<h5 id="tasting-specific-id">Tasting-specific ID</h5>
+<p>A temporary name used to identify wines during blind tastings.</p>
+<h5 id="wine-clarity">Wine Clarity</h5>
+<p>Wines in good condition should be clear, or hazy if they are unfiltered.</p>
+<h5 id="meniscus">Meniscus</h5>
+<p>The meniscus is the rim of the wine and is best examined by tilting the glass. Older wines tend to have rims that gently fade through a range of colors.</p>
+<h5 id="color-intensity-and-shade">Color Intensity and Shade</h5>
+<p>Together, intensity and shade describe the wine&#39;s color.</p>
+<ul>
+<li>White wines colors: light lemon-green to deep amber</li>
+<li>Rosé wines colors: pale pink to deep orange</li>
+<li>Red wines colors: light purple to deep tawny  </li>
+</ul>
+<h5 id="petillance">Petillance</h5>
+<p>Petillance describes the tiny bubbles that sometimes form in still wine.</p>
+<h5 id="viscosity">Viscosity</h5>
+<p>A wines&#39;s viscosity can be determined by swirling the wine around in the glass and observing the tears or sheeting of the liquid that is left on the sides of the glass.</p>
+<h5 id="sediment">Sediment</h5>
+<p>Many wines will have a layer of sediment that is visible at the bottom of the bottle.</p>
+<h5 id="condition">Condition</h5>
+<p>The condition of the wine is determined by sniffing at the top of the glass. Off-odors generally indicate a problem with a wine; it should be clean.</p>
+<h5 id="aroma-intensity">Aroma Intensity</h5>
+<p>This is the strength of the wine&#39;s aromas. Does the wine jump out at you from halfway across the room? Or can you barely smell anything at all even with your nose stuck in the glass?</p>
+<h5 id="aromas">Aromas</h5>
+<p>What does the wine smell like? Choose from a wide variety of typical wine aromas.</p>
+<h5 id="state-of-development">State of Development</h5>
+<p>The nose provides clues as to the relative age of the wine. Younger wines tend to have simpler, more vigorous, noses, while older wines may take a bit of time to open up and have more complex aromas.</p>
+<h5 id="sweetness">Sweetness</h5>
+<p>The sweetness of the wine. Wines with high acidity may come off as drier than they actually are.</p>
+<h5 id="acidity">Acidity</h5>
+<p>The acidity of a wine can be judged by paying attention to the saliva that shoots into one&#39;s mouth after having a swallow of wine. The more saliva, the higher the acidity.</p>
+<h5 id="tannin">Tannin</h5>
+<p>Tannin produces the drying sensation typically experienced after having a cup of black tea. Tannin is a typical characteristic of red wine.</p>
+<h5 id="alcohol-level">Alcohol Level</h5>
+<p>Yes, wine is alcoholic.</p>
+<h5 id="body">Body</h5>
+<p>Body describes the mouthfeel of a wine. Wines that are light and watery would be very light-bodied. Wines that are high in alcohol, acid, and tannin are full-bodied.</p>
+<h5 id="intensity-of-flavor">Intensity of Flavor</h5>
+<p>This describes the strength of the wine&#39;s flavor.</p>
+<h5 id="flavors">Flavors</h5>
+<p>What does the wine taste like? Choose from a wide variety of typical wine tastes.</p>
+<h5 id="balance">Balance</h5>
+<p>Balance is the degree to which different characteristics of a wine exist in harmony. Winemakers strive to make well-balanced wines.</p>
+<h5 id="mousse">Mousse</h5>
+<p>Mousse describes the effervescence of sparkling wine and can be an indicator of production methods.</p>
+<h5 id="length-of-finish">Length of Finish</h5>
+<p>Finish describes the length of time that the flavor lingers in the mouth after a sip of wine. Extremely long finishes - over 15 seconds - can be an indicator of quality.</p>
+<h5 id="quality">Quality</h5>
+<p>This is an overall judgement of the wine&#39;s quality.</p>
+<h5 id="readiness-for-drinking">Readiness for Drinking</h5>
+<p>Different styles of wine and vintages will have different aging requirements and potential. Having evaluated the characteristics of this wine, does it appear to be too young to drink? Too old? Or just right?</p>
+<h5 id="100-point-score">100-Point Score</h5>
+<p>Many reviewers report on quality using a 100-point score - that really only registers values between 70 and 100. The Meniscus slider shares this bias.</p>
+<h5 id="5-point-score">5-Point Score</h5>
+<p>Other reviewers report on quality using a 5-point scoring system.</p>
+<h5 id="other-scores">Other Scores</h5>
+<p>This is a field that can be used to contain scores for the wine from magazines - or any other information, for that matter.</p>
+<h5 id="wine-name">Wine Name</h5>
+<p>The name of the wine as it appears on the label. (Meniscus uses this field to populate the name of the tasting note)</p>
+<h5 id="vintage">Vintage</h5>
+<p>The year the wine was produced, as it appears on the label. (Meniscus uses this field to populate the name of the tasting note)</p>
+<h5 id="appellation">Appellation</h5>
+<p>The Appellation of the wine, if relevant. (Meniscus may use this field in populating the name of the tasting note)</p>
+<h5 id="price">Price</h5>
+<p>Either the retail price of the wine or the price paid.</p></body>
+</html>
