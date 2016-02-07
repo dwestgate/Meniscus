@@ -1,0 +1,17 @@
+Meniscus is a wine tasting application for geeks and wannabe geeks - wine geeks, that is.
+
+The application runs through a detailed checklist of 24 wine characteristics to help you taste wines in a systematic fashion, then turns your observations into detailed tasting notes which can be saved or shared with others.
+
+The application is particularly useful when tasting wines blind or when studying a systematic approach to wine tasting such as that taught by the WSET.
+
+The following is a sample wine note created by the application:
+
+2013 Catena High Mountain Vines Malbec tasted on October 26, 2015 at 10:44 PM
+
+The wine has a medium rim and is deep purple in color. The wine forms stained legs on the glass. There is no sediment visible in the bottle.
+
+The nose is clean. It has intense dark fruit aromas of blueberry and blackberry; spicy aromas of vanilla; and floral notes of violet and lavender. The wine comes across as fully developed.
+
+The wine is bone dry, with medium-plus acidity. It is softly tannic and has an alcohol content of between 12.4 and 13.5 percent. It is nearly full-bodied, with strong dark fruit flavors of blueberry and blackberry; toasty notes of coffee and dark chocolate; spicy flavors of vanilla and clove; savory notes of tobacco; and animal notes of leather. It is well-balanced. It has a long finish.
+
+This is a very good wine that has potential for aging. On a scale of one to one hundred I give this wine 91 points. Price: 17.95 at LCBO.

@@ -1,8 +1,3 @@
-
-Things to change:
-- When changing color shade before color is selected, have it select color automatically
-- add price to notes
-
 How to use Meniscus
 ===================
 
